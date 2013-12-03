@@ -1,0 +1,231 @@
+﻿<Window x:Class="CPC.POS.View.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        Width="480"
+        Height="240"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="{x:Null}"
+        xmlns:helper="clr-namespace:CPC.Helper"
+        xmlns:cpcTextBoxControl="clr-namespace:CPCToolkitExt.TextBoxControl;assembly=CPCToolkitExt"
+        Title="Sale Management System" MinWidth="480" MinHeight="240">
+    <Grid>
+        <Rectangle x:Name="Shadow"
+                   Fill="Black"
+                   StrokeThickness="0"
+                   Margin="7,7,1.5,1.5"
+                   Opacity="0.5">
+            <Rectangle.Effect>
+                <BlurEffect Radius="3" />
+            </Rectangle.Effect>
+        </Rectangle>
+        <Border BorderThickness="2"
+                BorderBrush="{DynamicResource ControlBorder}"
+                x:Name="brdLogin"
+                Background="{DynamicResource UserControlBackground}"
+                Margin="4">
+            <Grid x:Name="grdLogin">
+                <Rectangle x:Name="UserControl_Background_Image"
+                           Fill="{DynamicResource UserControl_Background_Image}" />
+                <Border Margin="4"
+                        x:Name="brdContentLogin"
+                        BorderThickness="1,1,1,1"
+                        BorderBrush="#FF5C5959"
+                        Background="{DynamicResource TimeClockDisplayBackground}">
+                    <Grid x:Name="grdContentLogin"
+                          Margin="4,4,0,4"
+                          Grid.IsSharedSizeScope="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="grdLogoCompany"
+                              Margin="0,0,0,2">
+                            <Rectangle Stroke="#FF8A8689"
+                                       x:Name="bgInOut"
+                                       Grid.ColumnSpan="2"
+                                       Grid.RowSpan="2"
+                                       Fill="#FFFFFFFF" />
+                            <Image x:Name="imgLogo"
+                                   Source="/Administrator.png"
+                                   Grid.RowSpan="2"
+                                   Margin="3"
+                                   Width="140"
+                                   Height="122"
+                                   VerticalAlignment="Top" />
+                            <TextBlock VerticalAlignment="Center"
+                                       Text="Đăng Nhập"
+                                       x:Name="tblUsername"
+                                       TextWrapping="NoWrap"
+                                       HorizontalAlignment="Center"
+                                       FontSize="24"
+                                       Margin="0,117,0,0"
+                                       Foreground="#FF2F84D1" />
+                        </Grid>
+                        <Grid x:Name="grdLoginPassword"
+                              Margin="1,20,0,0"
+                              Visibility="Visible"
+                              Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition Height="30" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock VerticalAlignment="Center"
+                                       Text="{DynamicResource LG_TextBlock_UserName}"
+                                       x:Name="txtblUsername"
+                                       TextWrapping="NoWrap"
+                                       HorizontalAlignment="Left"
+                                       Margin="7,0,0,0"
+                                       Style="{DynamicResource TextBlockNormal}" />
+                            <cpcTextBoxControl:TextBox x:Name="txtUsername"
+                                                       Margin="95,2,10,2"
+                                                       TextWrapping="NoWrap"
+                                                       Padding="20,0,2,0"
+                                                       HorizontalAlignment="Left"
+                                                       Width="200"
+                                                       Text="{Binding UserName, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" />
+                            <Rectangle x:Name="imgUser"
+                                       Fill="{DynamicResource User}"
+                                       HorizontalAlignment="Left"
+                                       Margin="96,0,0,0"
+                                       Width="16"
+                                       Height="16" />
+                            <TextBlock VerticalAlignment="Center"
+                                       Text="{DynamicResource LG_TextBlock_Password}"
+                                       x:Name="txtblPassword"
+                                       TextWrapping="NoWrap"
+                                       HorizontalAlignment="Left"
+                                       Margin="7,0,0,0"
+                                       Grid.Row="1"
+                                       Style="{DynamicResource TextBlockNormal}" />
+                            <PasswordBox x:Name="txtPassword"
+                                         Margin="95,2,0,2"
+                                         Padding="20,0,2,0"
+                                         Grid.Row="1"
+                                         VerticalContentAlignment="Center"
+                                         HorizontalAlignment="Left"
+                                         Width="200"
+                                         PasswordChar="*"
+                                         helper:PasswordHelper.BindPassword="true"
+                                         helper:PasswordHelper.BoundPassword="{Binding UserPassword, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" />
+                            <Rectangle x:Name="imgPassword"
+                                       Fill="{DynamicResource Password}"
+                                       HorizontalAlignment="Left"
+                                       Margin="96,0,0,0"
+                                       Width="16"
+                                       Height="16"
+                                       Grid.Row="1" />
+                            <CheckBox x:Name="cbRememeber"
+                                      HorizontalAlignment="Right"
+                                      Content="{DynamicResource LG_TextBlock_RememberMe}"
+                                      Grid.Row="2"
+                                      IsChecked="{Binding Remember, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      VerticalAlignment="Center"
+                                      Margin="0,0,10,0" />
+                            <Grid x:Name="grdShift"
+                                  Margin="7,2,0,2"
+                                  Grid.Row="2"
+                                  Visibility="{Binding VisibilityAllowShift}"
+                                  HorizontalAlignment="Left">
+                                <TextBlock VerticalAlignment="Center"
+                                           Text="{DynamicResource LG_TextBlock_Shift}"
+                                           x:Name="txtblShift"
+                                           TextWrapping="NoWrap"
+                                           HorizontalAlignment="Left"
+                                           Grid.Row="3"
+                                           Style="{DynamicResource TextBlockNormal}" />
+                                <ComboBox Margin="88,0,0,0"
+                                          x:Name="cmbShift"
+                                          DisplayMemberPath="Text"
+                                          SelectedValuePath="Value"
+                                          ItemsSource="{Binding Shifts}"
+                                          SelectedItem="{Binding ShiftItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          Width="92.4" Height="24" HorizontalAlignment="Left" />
+                            </Grid>
+                            <TextBlock x:Name="txtblChangePassword"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Grid.Row="3"
+                                       Margin="112,0,0,0"
+                                       Visibility="Collapsed"><Hyperlink Command=""
+                                                                         Foreground="#FFFFFFFF"><InlineUIContainer> 
+										<TextBlock x:Name="txtblChangePassword1"
+                                                   TextWrapping="NoWrap"
+                                                   FontWeight="Bold"
+                                                   Text="Change Password"
+                                                   Style="{DynamicResource TextBlockNormal}" />
+									</InlineUIContainer></Hyperlink></TextBlock>
+                            <Rectangle Fill="{DynamicResource Spilter_Line_Background}"
+                                       HorizontalAlignment="Stretch"
+                                       x:Name="Line"
+                                       VerticalAlignment="Top"
+                                       Height="1"
+                                       Grid.Row="4"
+                                       Margin="0,14,0,0" />
+                            <StackPanel VerticalAlignment="Center"
+                                        Height="Auto"
+                                        HorizontalAlignment="Center"
+                                        Grid.Row="5"
+                                        x:Name="stkpBtn"
+                                        Orientation="Horizontal"
+                                        Margin="0">
+                                <Button x:Name="btnLogin"
+                                        Height="28"
+                                        Width="84"
+                                        IsDefault="True"
+                                        Command="{Binding LoginCommand}">
+                                    <StackPanel HorizontalAlignment="Center"
+                                                x:Name="stkpBtnLogin"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                        <Rectangle x:Name="imgLogin"
+                                                   Height="20"
+                                                   Width="20"
+                                                   Fill="{DynamicResource Login}" />
+                                        <TextBlock Margin="4,0,0,0"
+                                                   VerticalAlignment="Center"
+                                                   Text="{DynamicResource LG_TextBlock_Login}"
+                                                   TextWrapping="NoWrap"
+                                                   x:Name="txtblLogin"
+                                                   Style="{DynamicResource ButtonTextBlock}" />
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btnExit"
+                                        Height="28"
+                                        Width="80"
+                                        IsCancel="True"
+                                        Margin="10,0,0,0">
+                                    <StackPanel HorizontalAlignment="Center"
+                                                x:Name="stkpBtnExit"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+                                        <Rectangle x:Name="imgExit"
+                                                   Height="20"
+                                                   Width="20"
+                                                   Fill="{DynamicResource Exit}" />
+                                        <TextBlock Margin="5,0,0,0"
+                                                   VerticalAlignment="Center"
+                                                   Text="{DynamicResource LG_TextBlock_Exit}"
+                                                   TextWrapping="NoWrap"
+                                                   x:Name="txtblExit"
+                                                   Style="{DynamicResource ButtonTextBlock}" />
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+O"
+                    Command="{Binding OpenManagementUserCommand}" />
+    </Window.InputBindings>
+</Window>

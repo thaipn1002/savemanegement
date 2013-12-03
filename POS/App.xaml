@@ -1,0 +1,29 @@
+﻿<Application x:Class="CPC.POS.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/CPCToolkitExt;Component/Theme/Dictionary.xaml" />
+                <!--Load Brushes-->
+                <ResourceDictionary Source="Dictionary/Brushes/Blue/BlueResources.xaml" />
+                <ResourceDictionary Source="Dictionary/Brushes/Blue/BlueImageResources.xaml" />
+                <ResourceDictionary Source="Dictionary/ResourceLibrary.xaml" />
+                <ResourceDictionary x:Name="language"
+                                    Source="Language/vi-VN.xaml" />
+                <ResourceDictionary Source="Control\ImageViewer\Themes\Generic.xaml" />
+                <ResourceDictionary Source="Control\ImageList\Themes\Generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="{x:Static DataGrid.FocusBorderBrushKey}"
+                             Color="#FF000000" />
+            <LinearGradientBrush x:Key="myTitleBarBackground"
+                                 EndPoint="0.5,1"
+                                 StartPoint="0.5,0">
+                <GradientStop Color="#FF467ABC"
+                              Offset="0" />
+                <GradientStop Color="#FF467ABC"
+                              Offset="1" />
+            </LinearGradientBrush>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

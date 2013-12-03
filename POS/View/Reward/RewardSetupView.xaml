@@ -1,0 +1,661 @@
+﻿<UserControl x:Class="CPC.POS.View.RewardSetupView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:behavior="clr-namespace:CPC.Toolkit.Behavior"
+             xmlns:command="clr-namespace:CPC.Toolkit.Command"
+             xmlns:converter="clr-namespace:CPC.Converter"
+             xmlns:cpcTextBoxControl="clr-namespace:CPCToolkitExt.TextBoxControl;assembly=CPCToolkitExt"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:helper="clr-namespace:CPC.Helper"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:local="clr-namespace:CPC.POS"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Microsoft_Windows_Controls_Ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna"
+             x:Name="rewardSetupView"
+             MinWidth="770"
+             MinHeight="530"
+             Background="{DynamicResource UserControlBackground}"
+             helper:ValidationHelper.IsEnabled="True"
+             helper:ValidationHelper.IsValid="{Binding IsValid, Mode=OneWayToSource}"
+             mc:Ignorable="d">
+    <UserControl.Resources />
+    <Grid x:Name="GridLayout">
+        <Rectangle x:Name="UserControl_Background_Image"
+                   Fill="{DynamicResource UserControl_Background_Image}" />
+        <Grid x:Name="grdCompanySetting">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel x:Name="stkpBtn"
+                        Margin="20,0,0,5"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"
+                        Orientation="Horizontal">
+                <Button x:Name="btnSaveNew"
+                        Width="40"
+                        Height="40"
+                        Margin="0"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnSaveNew"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Rectangle x:Name="imgSaveNew"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource SaveNew}" />
+                        <TextBlock x:Name="txtblSaveNew"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="New"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnSaveClose"
+                        Width="40"
+                        Height="40"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnSaveClose"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <Rectangle x:Name="imgSaveClose"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource SaveClose}" />
+                        <TextBlock x:Name="txtblSaveClose"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Save"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnNew"
+                        Width="40"
+                        Height="40"
+                        Margin="0"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnNew"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Rectangle x:Name="imgNew"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource New}" />
+                        <TextBlock x:Name="txtblNew"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="New"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnSave"
+                        Command="{Binding SaveCommand}"
+                        Width="40"
+                        Height="40"
+                        Style="{DynamicResource ButtonSystem}">
+                    <StackPanel x:Name="stkpBtnSave"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <Rectangle x:Name="imgSave"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource Save}" />
+                        <TextBlock x:Name="txtblSave"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Save"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnEdit"
+                        Width="40"
+                        Height="40"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnEdit"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <Rectangle x:Name="imgEdit"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource Edit}" />
+                        <TextBlock x:Name="txtblEdit"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Edit"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnClear"
+                        Width="40"
+                        Height="40"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnClear"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <Rectangle x:Name="imgClear"
+                                   Width="33"
+                                   Height="33"
+                                   Fill="{DynamicResource Clear}" />
+                        <TextBlock x:Name="txtblClear"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Save"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnDelete"
+                        Width="40"
+                        Height="40"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnDelete"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Rectangle x:Name="imgDelete"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource Delete}" />
+                        <TextBlock x:Name="txtblDelete"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Close"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnPrint"
+                        Width="40"
+                        Height="40"
+                        VerticalAlignment="Center"
+                        d:IsHidden="True"
+                        Style="{DynamicResource ButtonSystem}"
+                        Visibility="Collapsed">
+                    <StackPanel x:Name="stkpBtnPrint"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <Rectangle x:Name="imgPrint"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource Print}" />
+                        <TextBlock x:Name="txtblPrint1"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Preview"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCancel"
+                        Command="{Binding CancelCommand}"
+                        Width="40"
+                        Height="40"
+                        Style="{DynamicResource ButtonSystem}">
+                    <StackPanel x:Name="stkpBtnCancel"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <Rectangle x:Name="imgCancel"
+                                   Width="30"
+                                   Height="30"
+                                   Fill="{DynamicResource Cancel}" />
+                        <TextBlock x:Name="txtblCancel"
+                                   Margin="5,0,0,0"
+                                   VerticalAlignment="Center"
+                                   Style="{DynamicResource ButtonSystemTextBlock}"
+                                   Text="Save"
+                                   TextWrapping="NoWrap"
+                                   Visibility="Collapsed" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <Rectangle x:Name="Line"
+                       Grid.Row="1"
+                       Height="1"
+                       Margin="2,0,2,0"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Top"
+                       Fill="{DynamicResource Spilter_Line_Background}" />
+            <Border x:Name="brdSubCompanySetting"
+                    Grid.Row="1"
+                    Margin="10"
+                    Background="{DynamicResource TabControlBackground}"
+                    BorderBrush="{DynamicResource TabControlBorder}"
+                    BorderThickness="1">
+                <Grid x:Name="grdReward"
+                      Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="198" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Name="gbReward"
+                              Width="355"
+                              HorizontalAlignment="Left"
+                              IsEnabled="{Binding RewardManagerModel.IsActived, Mode=OneWay}">
+                        <GroupBox.Header>
+                            <TextBlock x:Name="txtblReward1"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Style="{DynamicResource GroupboxTextBlock}"
+                                       Text="{DynamicResource RW_TextBlock_Reward}"
+                                       TextWrapping="NoWrap" />
+                        </GroupBox.Header>
+                        <Grid x:Name="grdRewardSettup">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="txtblPurchaseThreshold"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       Text="{DynamicResource RW_TextBlock_PurchaseThreshold}"
+                                       TextWrapping="NoWrap" />
+                            <cpcTextBoxControl:TextBoxMoney x:Name="txtPurchaseThreshold"
+                                                            Width="120"
+                                                            Margin="130,2,10,2"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Stretch"
+                                                            HorizontalContentAlignment="Right"
+                                                            ConverterCulture="{x:Static local:Define.ConverterCulture}"
+                                                            CurrencyStringFormat="{x:Static local:Define.CurrencyFormat}"
+                                                            Padding="2,0,2,0"
+                                                            TextWrapping="NoWrap"
+                                                            Value="{Binding RewardManagerModel.PurchaseThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="LostFocus">
+                                        <command:EventToCommand Command="{Binding PurchaseThresholdChanged}"
+                                                                CommandParameter="{Binding .}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </cpcTextBoxControl:TextBoxMoney>
+                            <TextBlock x:Name="txtblRewardAmount"
+                                       Grid.Row="1"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       Text="{DynamicResource RW_TextBlock_RewardAmount}"
+                                       TextWrapping="Wrap" />
+                            <cpcTextBoxControl:TextBoxNumeric x:Name="txtRewardAmount"
+                                                              Grid.Row="1"
+                                                              Width="58"
+                                                              Margin="130,2,0,2"
+                                                              HorizontalAlignment="Left"
+                                                              VerticalAlignment="Stretch"
+                                                              HorizontalContentAlignment="Right"
+                                                              ConverterCulture="{x:Static local:Define.ConverterCulture}"
+                                                              DecimalPlaces="2"
+                                                              IntegerLength="19"
+                                                              NumericStringFormat="{x:Static local:Define.NumericFormat}"
+                                                              Padding="2,0,2,0"
+                                                              TextWrapping="NoWrap"
+                                                              Value="{Binding RewardManagerModel.RewardAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+                            <ComboBox x:Name="cmbRewardAmout"
+                                      Grid.Row="1"
+                                      Width="60"
+                                      Margin="190,2,0,2"
+                                      HorizontalAlignment="Left"
+                                      DisplayMemberPath="Text"
+                                      ItemsSource="{x:Static helper:Common.RewardAmountTypes}"
+                                      SelectedIndex="0"
+                                      SelectedValue="{Binding RewardManagerModel.RewardAmtType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValuePath="ObjValue" />
+                            <TextBlock x:Name="txtblRewardExpiration"
+                                       Grid.Row="2"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       Text="{DynamicResource RW_TextBlock_RewardExpiration}"
+                                       TextWrapping="Wrap" />
+                            <ComboBox x:Name="cmbRewardExpiration"
+                                      Grid.Row="2"
+                                      Width="120"
+                                      Margin="130,2,0,2"
+                                      HorizontalAlignment="Left"
+                                      DisplayMemberPath="Text"
+                                      ItemsSource="{x:Static helper:Common.RewardExpirationTypes}"
+                                      SelectedIndex="0"
+                                      SelectedValue="{Binding RewardManagerModel.RewardExpiration, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValuePath="ObjValue" />
+                            <CheckBox x:Name="cbPurchaseTrackingPeriod"
+                                      Grid.Row="3"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="{DynamicResource RW_CheckBox_ PurchaseTrackingPeriod}"
+                                      FontWeight="Bold"
+                                      IsChecked="{Binding RewardManagerModel.IsTrackingPeriod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <Rectangle x:Name="Line2"
+                                       Grid.Row="3"
+                                       Grid.Column="1"
+                                       Height="1"
+                                       Margin="180,0,10,0"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Center"
+                                       Fill="{DynamicResource GroupboxBorder}" />
+                            <Grid x:Name="grdPurchaseTrackingPeriod"
+                                  Grid.Row="4"
+                                  Grid.RowSpan="3">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                </Grid.RowDefinitions>
+                                <TextBlock x:Name="txtblStartDate"
+                                           Margin="10,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Style="{DynamicResource TextBlockNormal}"
+                                           Text="{DynamicResource RW_TextBlock_StartDate}"
+                                           TextWrapping="Wrap" />
+                                <DatePicker x:Name="dtpStartDate"
+                                            Width="90"
+                                            Height="21"
+                                            Margin="130,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            IsEnabled="{Binding RewardManagerModel.IsTrackingPeriod, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                            SelectedDate="{Binding RewardManagerModel.StartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                                            TabIndex="{Binding TabIndexControl}" />
+                                <TextBlock x:Name="txtblEndDate"
+                                           Grid.Row="1"
+                                           Margin="10,0,0,0"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Style="{DynamicResource TextBlockNormal}"
+                                           Text="{DynamicResource RW_TextBlock_EndDate}"
+                                           TextWrapping="Wrap" />
+                                <Grid Grid.Row="1"
+                                      Width="90"
+                                      Height="21"
+                                      Margin="130,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      IsEnabled="{Binding RewardManagerModel.IsTrackingPeriod, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                                    <DatePicker x:Name="dtpEnd1"
+                                                SelectedDate="{Binding RewardManagerModel.EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}">
+                                        <DatePicker.Style>
+                                            <Style BasedOn="{StaticResource {x:Type DatePicker}}"
+                                                   TargetType="DatePicker">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RewardManagerModel.IsNoEndDay, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                 Value="False">
+                                                        <Setter Property="IsEnabled"
+                                                                Value="True " />
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding RewardManagerModel.IsNoEndDay, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                 Value="True">
+                                                        <Setter Property="IsEnabled"
+                                                                Value="False " />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DatePicker.Style>
+                                    </DatePicker>
+                                </Grid>
+                                <CheckBox x:Name="cbNoEndDate"
+                                          Grid.Row="2"
+                                          Margin="10,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          Content="{DynamicResource RW_CheckBox_NoEndDate}"
+                                          IsChecked="{Binding RewardManagerModel.IsNoEndDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                          IsEnabled="{Binding RewardManagerModel.IsTrackingPeriod, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="gbRewardProgramStatus"
+                              Width="355"
+                              Margin="373,0,0,0"
+                              HorizontalAlignment="Left">
+                        <GroupBox.Header>
+                            <TextBlock x:Name="txtblRewardProgramStatus"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Style="{DynamicResource GroupboxTextBlock}"
+                                       Text="{DynamicResource RW_TextBlock_RewardProgramStatus}"
+                                       TextWrapping="NoWrap" />
+                        </GroupBox.Header>
+                        <Grid x:Name="grdRewardProgramStatus"
+                              Margin="0,5,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                            </Grid.RowDefinitions>
+                            <Grid Margin="10,0,0,0"
+                                  HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock MinWidth="97"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Style="{DynamicResource TextBlockNormal}"
+                                           Text="{DynamicResource RW_TextBlock_RewardTracking}"
+                                           TextWrapping="Wrap" />
+                                <TextBlock x:Name="txtbRewardTracking"
+                                           Grid.Column="1"
+                                           MinWidth="20"
+                                           Margin="0,0,0,-2"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Bold"
+                                           TextWrapping="Wrap">
+                                    <TextBlock.Style>
+                                        <Style BasedOn="{StaticResource {x:Type TextBlock}}"
+                                               TargetType="{x:Type TextBlock}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RewardManagerModel.IsActived}"
+                                                             Value="False">
+                                                    <Setter Property="Text"
+                                                            Value="{DynamicResource RW_TextBlock_RewardTrackingOFF}" />
+                                                    <Setter Property="Foreground"
+                                                            Value="{DynamicResource ForegroundRedBrush}" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding RewardManagerModel.IsActived}"
+                                                             Value="True">
+                                                    <Setter Property="Text"
+                                                            Value="{DynamicResource RW_TextBlock_RewardTrackingON}" />
+                                                    <Setter Property="Foreground"
+                                                            Value="{DynamicResource ForegroundGreenBrush}" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+                            <TextBlock x:Name="txtbTotalReward"
+                                       Grid.Row="1"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       TextWrapping="NoWrap">
+                                <Run Text="Total Rewards Redeemed :" />
+                                <Run Text="{Binding RewardManagerModel.TotalRewardRedeemed, ConverterCulture={x:Static local:Define.ConverterCulture}, StringFormat={x:Static local:Define.CurrencyFormat}}" />
+                            </TextBlock>
+                            <TextBlock x:Name="txtbMemberList"
+                                       Grid.Row="2"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontStyle="Italic"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       Text="Member List"
+                                       TextDecorations="Underline"
+                                       TextWrapping="Wrap" />
+                            <TextBlock x:Name="txtbRedemptionHistory"
+                                       Grid.Row="3"
+                                       Margin="10,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontStyle="Italic"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       Text="Redemption History"
+                                       TextDecorations="Underline"
+                                       TextWrapping="Wrap"
+                                       Visibility="Collapsed" />
+                            <Button Command="{Binding TurnTrackingCommand}"
+                                    Width="120"
+                                    Margin="130,2,0,2"
+                                    HorizontalAlignment="Left">
+                                <Button.Style>
+                                    <Style BasedOn="{StaticResource {x:Type Button}}"
+                                           TargetType="{x:Type Button}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RewardManagerModel.IsActived}"
+                                                         Value="False">
+                                                <Setter Property="Content"
+                                                        Value="{DynamicResource RW_Button_TurnTrackingON}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding RewardManagerModel.IsActived}"
+                                                         Value="True">
+                                                <Setter Property="Content"
+                                                        Value="{DynamicResource RW_Button_TurnTrackingOFF}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="gbRewardOption"
+                              Grid.Row="1"
+                              Margin="0,10,0,0"
+                              IsEnabled="{Binding RewardManagerModel.IsActived, Mode=OneWay}">
+                        <GroupBox.Header>
+                            <TextBlock x:Name="txtblRewardOption"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Style="{DynamicResource GroupboxTextBlock}"
+                                       Text="{DynamicResource RW_TextBlock_RewardOption}"
+                                       TextWrapping="NoWrap" />
+                        </GroupBox.Header>
+                        <Grid x:Name="grdRewardOption"
+                              Margin="0,5,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="25" />
+                            </Grid.RowDefinitions>
+                            <CheckBox x:Name="cbAutomaticall"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="{DynamicResource RW_CheckBox_Automatically}"
+                                      IsChecked="{Binding RewardManagerModel.IsAutoEnroll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox x:Name="cbPrompt"
+                                      Grid.Row="1"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="{DynamicResource RW_CheckBox_Prompttoenroll}"
+                                      IsChecked="{Binding RewardManagerModel.IsPromptEnroll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox x:Name="cbInform"
+                                      Grid.Row="2"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="{DynamicResource RW_CheckBox_InformCashier}"
+                                      IsChecked="{Binding RewardManagerModel.IsInformCashier, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox x:Name="cbReward"
+                                      Grid.Row="3"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="  Reward redemption Limit"
+                                      IsChecked="{Binding RewardManagerModel.IsRedemptionLimit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      Visibility="Collapsed" />
+                            <cpcTextBoxControl:TextBoxMoney x:Name="txtReward"
+                                                            Grid.Row="3"
+                                                            Width="120"
+                                                            Margin="180,2,0,2"
+                                                            HorizontalAlignment="Left"
+                                                            VerticalAlignment="Stretch"
+                                                            HorizontalContentAlignment="Right"
+                                                            IsEnabled="{Binding RewardManagerModel.IsRedemptionLimit, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                                            Padding="2,0,2,0"
+                                                            TextWrapping="NoWrap"
+                                                            Visibility="Collapsed"
+                                                            Value="{Binding RewardManagerModel.RedemptionLimitAmount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <CheckBox x:Name="cbBlock"
+                                      Grid.Row="3"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="{DynamicResource RW_CheckBox_BlockReward}"
+                                      IsChecked="{Binding RewardManagerModel.IsBlockRedemption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <cpcTextBoxControl:TextBoxNumeric x:Name="txtBlock"
+                                                              Grid.Row="3"
+                                                              Width="40"
+                                                              Margin="190,2,0,2"
+                                                              HorizontalAlignment="Left"
+                                                              VerticalAlignment="Stretch"
+                                                              HorizontalContentAlignment="Right"
+                                                              ConverterCulture="{x:Static local:Define.ConverterCulture}"
+                                                              IntegerLength="4"
+                                                              IsEnabled="{Binding RewardManagerModel.IsBlockRedemption, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                                              NumericStringFormat="{x:Static local:Define.NumericFormat}"
+                                                              Padding="2,0,2,0"
+                                                              TextWrapping="NoWrap"
+                                                              Value="{Binding RewardManagerModel.RedemptionAfterDays, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            <TextBlock x:Name="txtbDaysAfter"
+                                       Grid.Row="3"
+                                       Margin="235,0,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockNormal}"
+                                       Text="{DynamicResource RW_CheckBox_Daysafter}"
+                                       TextWrapping="Wrap" />
+                            <CheckBox x:Name="cbBlockRewardEearn"
+                                      Grid.Row="4"
+                                      Margin="10,0,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Center"
+                                      Content="Block reward earn with purchase redeem"
+                                      IsChecked="{Binding RewardManagerModel.IsBlockPurchaseRedeem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed" />
+					    </Grid>
+						
+                    </GroupBox>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>
