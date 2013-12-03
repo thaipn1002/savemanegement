@@ -1,0 +1,2137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<comboes>
+	<combo key="EmployeeTypes">
+		<item>
+			<value>1</value>
+			<name>Nhân viên chính thức</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Nhân viên tại nhà</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Nhân viên bán hàng</name>
+		</item>
+	</combo>
+	<combo key="CommissionTypes">
+		<item>
+			<value>1</value>
+			<name>Huê hồng</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Ghi đè lên</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Phân chia</name>
+		</item>
+	</combo>
+	<combo key="SalaryTypes">
+		<item>
+			<value>1</value>
+			<name>Lương</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Kỳ nghỉ</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Làm thêm</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Nghỉ lễ</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Thêm</name>
+		</item>
+	</combo>
+	<combo key="PayrollTypes">
+		<item>
+			<value>1</value>
+			<name>Hourly</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Weekly</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Monthly</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Annually</name>
+		</item>
+	</combo>
+	<combo key="AddressTypes">
+		<item>
+			<value>0</value>
+			<name>Nhà</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Kinh doanh</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Thanh toán</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Giao hàng</name>
+		</item>
+	</combo>
+	<combo key="Gender">
+		<item>
+			<value>1</value>
+			<name>Nữ</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Nam</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Khác</name>
+		</item>
+	</combo>
+	<combo key="MaritalStatus">
+		<item>
+			<value>0</value>
+			<name>Độc thân</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Có gia đình</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Ly hôn</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Sống riêng</name>
+		</item>
+	</combo>
+	<combo key="PermissionTypes">
+		<item>
+			<value>1</value>
+			<name>Cho phép đến trễ</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Không tồn kho</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Dịch vụ</name>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Bảo hiểm</name>
+		</item>
+		<item>
+			<value>16</value>
+			<name>Tùy chỉnh</name>
+		</item>
+		<item>
+			<value>32</value>
+			<name>Kết hợp với thỏa thuận</name>
+		</item>
+		<item>
+			<value>64</value>
+			<name>Kết hợp với thỏa thuận</name>
+		</item>
+		<item>
+			<value>128</value>
+			<name>Kết hợp với thỏa thuận</name>
+		</item>
+		<item>
+			<value>256</value>
+			<name>Kết hợp với thỏa thuận</name>
+		</item>
+		<item>
+			<value>512</value>
+			<name>Kết hợp với thỏa thuận</name>
+		</item>
+		<item>
+			<value>1024</value>
+			<name>Kết hợp với thỏa thuận</name>
+		</item>
+	</combo>
+	<combo key="WeeksOfMonth">
+		<item>
+			<value>1</value>
+			<name>Thứ nhất</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Thứ hai</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Thứ ba</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Fourth</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Last</name>
+		</item>
+	</combo>
+	<combo key="Months">
+		<item>
+			<value>1</value>
+			<name>January</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>February</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>March</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>April</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>May</name>
+		</item>
+		<item>
+			<value>6</value>
+			<name>June</name>
+		</item>
+		<item>
+			<value>7</value>
+			<name>July</name>
+		</item>
+		<item>
+			<value>8</value>
+			<name>August</name>
+		</item>
+		<item>
+			<value>9</value>
+			<name>September</name>
+		</item>
+		<item>
+			<value>10</value>
+			<name>October</name>
+		</item>
+		<item>
+			<value>11</value>
+			<name>November</name>
+		</item>
+		<item>
+			<value>12</value>
+			<name>December</name>
+		</item>
+	</combo>
+	<combo key="DaysOfWeek">
+		<item>
+			<value>1</value>
+			<name>Day</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>WeekDay</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Weekend Day</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Sunday</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Monday</name>
+		</item>
+		<item>
+			<value>6</value>
+			<name>Tuesday</name>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Wednesday</name>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Thursday</name>
+		</item>
+		<item>
+			<value>9</value>
+			<name>Friday</name>
+		</item>
+		<item>
+			<value>10</value>
+			<name>Saturday</name>
+		</item>
+	</combo>
+	<combo key="Modules">
+		<item>
+			<value>0</value>
+			<name>Nhân Viên</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Khách hàng</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Nhà cung cấp</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Sản phẩm</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Đơn mua hàng</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Đơn bán hàng</name>
+		</item>
+	</combo>
+	<combo key="TransactionTypes">
+		<item>
+			<value>0</value>
+			<name>Đơn bán hàng</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đơn mua hàng</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Đơn hàng theo yêu cầu</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Chuyền kho</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Kiểm kho</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Điều chỉnh kho</name>
+		</item>
+	</combo>
+	<combo key="LengthOfInsuranceTypes">
+		<item>
+			<value>D</value>
+			<name>Ngày</name>
+		</item>
+		<item>
+			<value>W</value>
+			<name>Tuần</name>
+		</item>
+		<item>
+			<value>M</value>
+			<name>Tháng</name>
+		</item>
+		<item>
+			<value>Y</value>
+			<name>Năm</name>
+		</item>
+	</combo>
+	<combo key="ScheduleTypes">
+		<item>
+			<value>1</value>
+			<name>Fixed</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Variables</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Rotate</name>
+		</item>
+	</combo>
+	<combo key="GroupPermissionTypes">
+		<item>
+			<value>0</value>
+			<name>Ngưng hoạt động</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đang hoạt động</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Mở</name>
+		</item>
+	</combo>
+	<combo key="WorkPermissionTypes">
+		<item>
+			<value>1</value>
+			<name>Permission for arriving late</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Permission for leaving early</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Absence</name>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Sick Leave</name>
+		</item>
+		<item>
+			<value>16</value>
+			<name>Vacations</name>
+		</item>
+		<item>
+			<value>32</value>
+			<name>Disciplinary Leave</name>
+		</item>
+		<item>
+			<value>64</value>
+			<name>Before the Clock-in Hour</name>
+		</item>
+		<item>
+			<value>128</value>
+			<name>Break/Lunch Time</name>
+		</item>
+		<item>
+			<value>256</value>
+			<name>After the Clock-in Hour</name>
+		</item>
+		<item>
+			<value>512</value>
+			<name>Holiday or days-off</name>
+		</item>
+	</combo>
+	<combo key="OvertimeTypes">
+		<item>
+			<value>1</value>
+			<name>Before the Clock-in Hour</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Break/Lunch Time</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>After the Clock-in Hour</name>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Holiday or days-off</name>
+		</item>
+	</combo>
+	<combo key="PayEvents">
+		<item>
+			<value>0</value>
+			<name>Chọn</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Thanh toán</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Chưa thanh toán</name>
+		</item>
+	</combo>
+	<status key="GroupPermissionStatuses">
+		<item>
+			<value>0</value>
+			<name>Ngưng hoạt động</name>
+			<backcolor>Red</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đang hoạt động</name>
+			<backcolor>Green</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Mở</name>
+			<backcolor>Yellow</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+	</status>
+	<status key="EmployeeStatuses">
+		<item>
+			<value>0</value>
+			<name>Ngưng hoạt động</name>
+			<backcolor>Red</backcolor>
+			<forecolor>White</forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đang hoạt động</name>
+			<backcolor>Green</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Mở</name>
+			<backcolor>Yellow</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+	</status>
+	<status key="CreditStatuses">
+		<item>
+			<value>0</value>
+			<name>Tuyệt vời</name>
+			<backcolor></backcolor>
+			<forecolor></forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Tốt</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Trung bình</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Xấu</name>
+		</item>
+	</status>
+	<status key="ProductStatuses">
+		<item>
+			<value>0</value>
+			<name>Ngưng hoạt động</name>
+			<backcolor>Red</backcolor>
+			<forecolor>White</forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đang hoạt động</name>
+			<backcolor>Green</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+	</status>
+	<combo key="ScheduleStatuses">
+		<item>
+			<value>0</value>
+			<name>Inactive</name>
+			<backcolor>Red</backcolor>
+			<forecolor>White</forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Active</name>
+			<backcolor>Green</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Pending</name>
+			<backcolor>Yellow</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+	</combo>
+	<combo key="country">
+		<item>
+			<value>0</value>
+			<name></name>
+			<symbol></symbol>
+		</item>
+		<item>
+			<value>1</value>
+			<name>USA</name>
+			<symbol>US</symbol>
+			<hasstate>true</hasstate>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Việt Nam</name>
+			<symbol>VN</symbol>
+		</item>
+		<item>
+			<value>3</value>
+			<name>China</name>
+			<symbol>CN</symbol>
+			<hasstate>true</hasstate>
+		</item>
+	</combo>
+	<combo key="state">
+		<!-- 50 States -->
+		<item>
+			<value>0</value>
+			<name></name>
+			<symbol></symbol>
+		</item>
+		<item>
+			<value>1</value>
+			<name>An Giang</name>
+			<symbol>AG</symbol>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Bà Rịa - Vũng Tàu</name>
+			<symbol>BR-VT</symbol>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Bắc Giang</name>
+			<symbol>BG</symbol>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Bắc Kạn</name>
+			<symbol>BK</symbol>
+		</item>
+
+<item>
+			<value>5</value>
+			<name>Bạc Liêu </name>
+			<symbol>BL</symbol>
+		</item>
+
+		<item>
+			<value>6</value>
+			<name>Bắc Ninh</name>
+			<symbol>BN</symbol>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Bến Tre</name>
+			<symbol>BT</symbol>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Bình Định</name>
+			<symbol>BĐ</symbol>
+		</item>
+		<item>
+			<value>9</value>
+			<name>Bình Dương</name>
+			<symbol>BD</symbol>
+		</item>
+		<item>
+			<value>10</value>
+			<name>Bình Phước</name>
+			<symbol>BP</symbol>
+		</item>
+		<item>
+			<value>11</value>
+			<name>Bình Thuận</name>
+			<symbol>BT</symbol>
+		</item>
+		<item>
+			<value>12</value>
+			<name>Cà Mau</name>
+			<symbol>CM</symbol>
+		</item>
+		<item>
+			<value>13</value>
+			<name>Cao Bằng</name>
+			<symbol>CB</symbol>
+		</item>
+		<item>
+			<value>14</value>
+			<name>Cần Thơ</name>
+			<symbol>CT</symbol>
+		</item>
+		<item>
+			<value>15</value>
+			<name>Đà Nẵng</name>
+			<symbol>ĐN</symbol>
+		</item>
+		<item>
+			<value>16</value>
+			<name>Đắk Lắk</name>
+			<symbol>ĐL</symbol>
+		</item>
+		<item>
+			<value>17</value>
+			<name>Đắk Nông</name>
+			<symbol>ĐN</symbol>
+		</item>
+		<item>
+			<value>18</value>
+			<name>Điện Biên</name>
+			<symbol>ĐB</symbol>
+		</item>
+		<item>
+			<value>19</value>
+			<name>Đồng Nai</name>
+			<symbol>ĐN</symbol>
+		</item>
+		<item>
+			<value>20</value>
+			<name>Đồng Tháp</name>
+			<symbol>ĐT</symbol>
+		</item>
+		<item>
+			<value>21</value>
+			<name>Gia Lai</name>
+			<symbol>GL</symbol>
+		</item>
+		<item>
+			<value>22</value>
+			<name>Hà Giang</name>
+			<symbol>HG</symbol>
+		</item>
+		<item>
+			<value>23</value>
+			<name>Hà Nội</name>
+			<symbol>HN</symbol>
+		</item>
+		<item>
+			<value>24</value>
+			<name>Hà Nam</name>
+			<symbol>HN</symbol>
+		</item>
+		<item>
+			<value>25</value>
+			<name>Hà Tĩnh</name>
+			<symbol>HT</symbol>
+		</item>
+		<item>
+			<value>26</value>
+			<name>Hải Dương</name>
+			<symbol>HD</symbol>
+		</item>
+<item>
+			<value>27</value>
+			<name>Hải Phòng</name>
+			<symbol>HP</symbol>
+		</item>
+		<item>
+			<value>28</value>
+			<name>Hậu Giang</name>
+			<symbol>HG</symbol>
+		</item>
+		<item>
+			<value>29</value>
+			<name>Hòa Bình</name>
+			<symbol>HB</symbol>
+		</item>
+		<item>
+			<value>30</value>
+			<name>Hưng Yên</name>
+			<symbol>HY</symbol>
+		</item>
+		<item>
+			<value>31</value>
+			<name>Khánh Hòa</name>
+			<symbol>KH</symbol>
+		</item>
+		<item>
+			<value>32</value>
+			<name>Kiên Giang</name>
+			<symbol>KG</symbol>
+		</item>
+<item>
+			<value>33</value>
+			<name>Kom Tum</name>
+			<symbol>KG</symbol>
+		</item>
+		<item>
+			<value>34</value>
+			<name>Lai Châu</name>
+			<symbol>LC</symbol>
+		</item>
+		<item>
+			<value>35</value>
+			<name>Lâm Đồng</name>
+			<symbol>LĐ</symbol>
+		</item>
+		<item>
+			<value>36</value>
+			<name>Lạng Sơn</name>
+			<symbol>LS</symbol>
+		</item>
+		<item>
+			<value>37</value>
+			<name>Lào Cai</name>
+			<symbol>LC</symbol>
+		</item>
+		<item>
+			<value>38</value>
+			<name>Long An</name>
+			<symbol>LA</symbol>
+		</item>
+		<item>
+			<value>39</value>
+			<name>Nam Định</name>
+			<symbol>NĐ</symbol>
+		</item>
+		<item>
+			<value>40</value>
+			<name>Nghệ An</name>
+			<symbol>NA</symbol>
+		</item>
+		<item>
+			<value>41</value>
+			<name>Ninh Bình</name>
+			<symbol>NB</symbol>
+		</item>
+		<item>
+			<value>42</value>
+			<name>Ninh Thuận</name>
+			<symbol>NT</symbol>
+		</item>
+		<item>
+			<value>43</value>
+			<name>Phú Thọ</name>
+			<symbol>PT</symbol>
+		</item>
+		<item>
+			<value>44</value>
+			<name>Quảng Bình</name>
+			<symbol>QB</symbol>
+		</item>
+		<item>
+			<value>45</value>
+			<name>Quảng Nam</name>
+			<symbol>QN</symbol>
+		</item>
+		<item>
+			<value>46</value>
+			<name>Quảng Ngãi</name>
+			<symbol>QN</symbol>
+		</item>
+		<item>
+			<value>47</value>
+			<name>Quảng Ninh</name>
+			<symbol>QN</symbol>
+		</item>
+		<item>
+			<value>48</value>
+			<name>Quảng Trị</name>
+			<symbol>QT</symbol>
+		</item>
+		<item>
+			<value>49</value>
+			<name>Sóc Trăng</name>
+			<symbol>ST</symbol>
+		</item>
+		<item>
+			<value>50</value>
+			<name>Sơn La</name>
+			<symbol>SL</symbol>
+		</item>
+		<item>
+			<value>51</value>
+			<name>Hồ Chí Minh</name>
+			<symbol>TP-HCM</symbol>
+		</item>
+		<item>
+			<value>52</value>
+			<name>Tây Ninh</name>
+			<symbol>TN</symbol>
+		</item>
+		<item>
+			<value>53</value>
+			<name>Thái Bình</name>
+			<symbol>TB</symbol>
+		</item>
+
+<item>
+			<value>54</value>
+			<name>Thái Nguyên</name>
+			<symbol>TN</symbol>
+		</item>		
+<item>
+			<value>55</value>
+			<name>Thanh Hóa</name>
+			<symbol>TH</symbol>
+		</item>	
+<item>
+			<value>56</value>
+			<name>Thừa Thiên Huế</name>
+			<symbol>TTH</symbol>
+		</item>	
+<item>
+			<value>57</value>
+			<name>Tiền Giang</name>
+			<symbol>TG</symbol>
+		</item>
+<item>
+			<value>58</value>
+			<name>Trà Vinh</name>
+			<symbol>TV</symbol>
+		</item>
+
+<item>
+			<value>59</value>
+			<name>Tuyên Quang</name>
+			<symbol>TQ</symbol>
+		</item>
+<item>
+			<value>60</value>
+			<name>Vĩnh Long</name>
+			<symbol>VL</symbol>
+		</item>
+<item>
+			<value>61</value>
+			<name>Vĩnh Phúc</name>
+			<symbol>VP</symbol>
+		</item>
+<item>
+			<value>62</value>
+			<name>Yên Bái</name>
+			<symbol>YB</symbol>
+		</item>
+<item>
+			<value>63</value>
+			<name>Phú Yên</name>
+			<symbol>PY</symbol>
+		</item>
+</combo>
+	<combo key="groupofdrop">
+		<item>
+			<value>1</value>
+			<name>Job Title</name>
+			<tab>1</tab>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Department</name>
+			<tab>1</tab>
+		</item>
+	</combo>
+	<report key="AnalysisReports">
+		<item>
+			<value>1</value>
+			<name>General attendance report</name>
+			<groupen>Report</groupen>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Absences report</name>
+			<groupen>Report</groupen>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Late arrival and Early Clock-Outs</name>
+			<groupen>Report</groupen>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Attendances</name>
+			<groupen>Summary</groupen>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Late arrival instances</name>
+			<groupen>Summary</groupen>
+		</item>
+		<item>
+			<value>6</value>
+			<name>Early Clock-Outs instances</name>
+			<groupen>Summary</groupen>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Permission, Vacation and Disciplinary Leaves</name>
+			<groupen>Summary</groupen>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Time worked summary (counting absences) report</name>
+			<groupen>Summary</groupen>
+		</item>
+		<item>
+			<value>9</value>
+			<name>Time worked summary (not counting absences) report</name>
+			<groupen>Summary</groupen>
+		</item>
+	</report>
+
+
+	<!--Dynamic Data-->
+	<combo key="UserTypes">
+		<item>
+			<value>E</value>
+			<name>Nhân viên</name>
+		</item>
+		<item>
+			<value>C</value>
+			<name>Khách hàng</name>
+		</item>
+		<item>
+			<value>V</value>
+			<name>Nhà cung cấp</name>
+		</item>
+		<item>
+			<value>O</value>
+			<name>Người liên lạc</name>
+		</item>
+	</combo>
+	<combo key="ItemTypes">
+		<item>
+			<value>1</value>
+			<flag>True</flag>
+			<name>Kho</name>
+		</item>
+		<item>
+			<value>2</value>
+			<flag>True</flag>
+			<name>Không phải kho</name>
+		</item>
+		<item>
+			<value>3</value>
+			<flag>True</flag>
+			<name>Dịch vụ</name>
+		</item>
+		<item>
+			<value>4</value>
+			<flag>False</flag>
+			<name>Hợp thành</name>
+		</item>
+		<item>
+			<value>5</value>
+			<flag>True</flag>
+			<name>Nhóm</name>
+		</item>
+    <item>
+      <value>6</value>
+      <flag>True</flag>
+      <name>Bảo hiểm</name>
+    </item>
+	</combo>
+	<combo key="CustomerType">
+		<item>
+			<value>1</value>
+			<name>Cá nhân</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Cửa hàng bán lẻ</name>
+		</item>
+	</combo>
+	<combo key="MemberType">
+		<item>
+			<value>N</value>
+			<name> Member</name>
+		</item>
+		<item>
+			<value>P</value>
+			<name>Platinum</name>
+		</item>
+		<item>
+			<value>G</value>
+			<name>Gold</name>
+		</item>
+		<item>
+			<value>S</value>
+			<name>Silver</name>
+		</item>
+		<item>
+			<value>B</value>
+			<name>bronze</name>
+		</item>
+	</combo>
+	<combo key="PriceSchemas">
+		<item>
+			<value>1</value>
+			<markDown>15</markDown>
+			<currency>USD</currency>
+			<name>Giá thông thường</name>
+		</item>
+		<item>
+			<value>2</value>
+			<markDown>20</markDown>
+			<currency>USD</currency>
+			<name>Giá bán</name>
+		</item>
+		<item>
+			<value>4</value>
+			<markDown>10</markDown>
+			<currency>USD</currency>
+			<name>Giá bán sỉ</name>
+		</item>
+		<item>
+			<value>8</value>
+			<markDown>10</markDown>
+			<currency>USD</currency>
+			<name>Nhân viên</name>
+		</item>
+		<item>
+			<value>16</value>
+			<markDown>10</markDown>
+			<currency>USD</currency>
+			<name>Giá tùy chỉnh</name>
+		</item>
+	</combo>
+	<combo key="StatusBasic">
+		<item>
+			<value>0</value>
+			<name></name>
+			<backcolor>Red</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đang hoạt động</name>
+			<backcolor>Green</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Ngưng hoạt động</name>
+			<backcolor>Red</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+	</combo>
+	<status key="JobPosition">
+		<item>
+			<value>0</value>
+			<name></name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Nhân viên kinh doanh</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Nhân viên IT</name>
+		</item>
+	</status>
+	<combo key="JobTitles">
+		<item>
+			<value>0</value>
+			<name></name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Nhân viên kinh doanh</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Nhân viên IT</name>
+		</item>
+	</combo>
+	<combo key="PaymentCardType">
+		<item>
+			<value>1</value>
+			<name>Visa</name>
+			<symbol>Visa</symbol>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Master Card</name>
+			<symbol>Master</symbol>
+		</item>
+		<item>
+			<value>4</value>
+			<name>American Express</name>
+			<symbol>AMEX</symbol>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Discover</name>
+			<symbol>Discover</symbol>
+		</item>
+		<item>
+			<value>16</value>
+			<name>Diners Club</name>
+			<symbol>DinerClub</symbol>
+		</item>
+	</combo>
+	<combo key="PaymentMethods">
+		<item>
+			<value>1</value>
+			<default>1</default>
+			<name>Tiền mặt</name>
+			<symbol>Cash</symbol>
+			<islocked>false</islocked>
+		</item>
+		<item>
+			<value>2</value>
+			<default>0</default>
+			<name>Phát hàng thu tiền (COD)</name>
+			<symbol>COD</symbol>
+			<islocked>false</islocked>
+		</item>
+		<item>
+			<value>4</value>
+			<default>0</default>
+			<name>Thẻ thanh toán / ATM</name>
+			<symbol>ATM</symbol>
+			<islocked>false</islocked>
+		</item>
+		
+        </combo>
+	<status key="PromotionStatuses">
+		<item>
+			<value>0</value>
+			<name>Ngưng hoạt đông</name>
+			<backcolor>White</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Đang hoạt động</name>
+			<backcolor>White</backcolor>
+			<forecolor>Black</forecolor>
+		</item>
+	</status>
+
+  <combo key="GiftCardType">
+    <item>
+      <value>1</value>
+      <default>0</default>
+      <name>Thẻ quà tặng</name>
+      <symbol>GiftCard</symbol>
+    </item>
+    <item>
+      <value>2</value>
+      <default>0</default>
+      <name>Gift Certificate</name>
+      <symbol>GiftCertificate</symbol>
+    </item>
+  </combo>
+  
+	<combo key="PromotionTypes">
+		<item>
+			<value>0</value>
+			<name></name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>giảm %</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>giảm VND</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Mua X gảm Y VND</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Mua X and được giảm Y % </name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Phiếu giảm giá</name>
+		</item>
+	</combo>
+	<combo key="TakeOffOptions">
+		<item>
+			<value>1</value>
+			<name>% off</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>$ off</name>
+		</item>
+	</combo>
+	<combo key="ScanMethods">
+		<item>
+			<value>1</value>
+			<name>UPCA</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>EAN13 </name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Code128</name>
+		</item>
+	</combo>
+	<combo key="BookingChannel">
+		<item>
+			<value>1</value>
+			<!--Commission-->
+			<flag>False</flag>
+			<name>Trực tiếp</name>
+		</item>
+		<item>
+			<value>2</value>
+			<!--Commission-->
+			<flag>True</flag>
+			<name>Trang web</name>
+		</item>
+		<item>
+			<value>3</value>
+			<!--Commission-->
+			<flag>False</flag>
+			<name>Email</name>
+
+		</item>
+		<item>
+			<value>4</value>
+			<!--Commission-->
+			<flag>False</flag>
+			<name>Điện thoại</name>
+		</item>
+	</combo>
+	<combo key="ShipUnit">
+		<item>
+			<value>1</value>
+			<name>Tấn</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Kg</name>
+		</item>
+		
+	</combo>
+	<combo key="SaleStatus">
+		<item>
+			<value>1</value>
+			<name>Tạo mới</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Đang chuyển hàng</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Đã chuyển hàng</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Hóa đơn</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Hủy</name>
+		</item>
+		<item>
+			<value>6</value>
+			<name>Đã thanh toán</name>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Trích dẫn</name>
+		</item>
+		<item>
+			<value>8</value>
+			<name>Layaway</name>
+		</item>
+		<item>
+			<value>9</value>
+			<name>Đóng</name>
+		</item>
+
+	</combo>
+	<combo key="PurchaseStatus">
+		<item>
+			<value>1</value>
+			<name>Mở</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Đang xử lý </name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Đã nhận đủ</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Đã thanh toán</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Đóng</name>
+		</item>
+	</combo>
+	<combo key="AvailableQuantity">
+		<item>
+			<value>1</value>
+			<name>Tất cả các đơn hàng</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Đơn bán hàng</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Đơn mua hàng</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Đơn đặt hàng đang chờ </name>
+		</item>
+	</combo>
+	<combo key="StockStatus">
+		<item>
+			<value>1</value>
+			<name>Có sẵn</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Tồn kho</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Để dành</name>
+		</item>
+	</combo>
+	<combo key="Language">
+    <item>
+      <value>1</value>
+      <code>VI</code>
+      <culture>vi-VN</culture>
+      <name>Tiếng Việt</name>
+    </item>
+    <item>
+      <value>2</value>
+      <code>EN</code>
+      <culture>en-US</culture>
+      <name>English</name>
+    </item>
+    <item>
+      <value>3</value>
+      <code>ZH</code>
+      <culture>zh-CN</culture>
+      <name>中文</name>
+    </item>
+	</combo>
+	<combo key="Currency">
+		<item>
+			<code>CNY</code>
+			<symbol>元</symbol>
+			<culture>zh-CN</culture>
+			<name>Chinese Yuan Renminbi  (元)</name>
+		</item>
+		<item>
+			<code>THB</code>
+			<symbol>฿</symbol>
+			<culture>th-TH</culture>
+			<name>Thai Baht (฿)</name>
+		</item>
+		<item>
+			<code>USD</code>
+			<symbol>$</symbol>
+			<culture>en-US</culture>
+			<name>US Dollar  ($)</name>
+		</item>
+		<item>
+			<code>VND</code>
+			<symbol>₫</symbol>
+			<culture>vi-VN</culture>
+			<name>Vietnamese Dong (₫)</name>
+		</item>
+	</combo>
+	<combo key="Shift">
+		<item>
+			<value>1</value>
+			<code>MOR</code>
+			<name>Buổi sáng</name>
+		</item>
+		<item>
+			<value>1</value>
+			<code>AFT</code>
+			<name>Buổi Chiều</name>
+		</item>
+		<item>
+			<value>3</value>
+			<code>NGT</code>
+			<name>Buổi tối</name>
+		</item>
+	</combo>
+	<combo key="RewardAmount">
+		<item>
+			<value>1</value>
+			<name>$ off</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>% off</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Point</name>
+		</item>
+	</combo>
+	<combo key="RewardStatus">
+		<item>
+			<value>1</value>
+			<name>Available</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Remove</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Redeemed</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Pending</name>
+		</item>
+	</combo>
+	<combo key="RewardExpiration">
+		<item>
+			<value>0</value>
+			<name></name>
+			<detail>0</detail>
+		</item>
+		<item>
+			<value>1</value>
+			<name>15 days</name>
+			<detail>15</detail>
+		</item>
+		<item>
+			<value>2</value>
+			<name>30 days</name>
+			<detail>30</detail>
+		</item>
+		<item>
+			<value>3</value>
+			<name>60 days</name>
+			<detail>60</detail>
+		</item>
+		<item>
+			<value>4</value>
+			<name>90 days</name>
+			<detail>90</detail>
+		</item>
+		<item>
+			<value>5</value>
+			<name>1 year</name>
+			<detail>365</detail>
+		</item>
+	</combo>
+	<combo key="WarrantyType">
+		<item>
+			<value>0</value>
+			<name></name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Nhà sản xuất</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Gia hạn</name>
+		</item>
+	</combo>
+	<combo key="WarrantyPeriodType">
+		<item>
+			<value>0</value>
+			<name></name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Ngày</name>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Tuần</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Tháng</name>
+		</item>
+		<item>
+			<value>12</value>
+			<name>Năm</name>
+		</item>
+	</combo>
+	<combo key="ProductCard">
+		<item>
+			<name>Gift Card</name>
+		</item>
+	</combo>
+	<combo key="BasePriceType">
+		<item>
+			<value>0</value>
+			<name></name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Giá chi phí</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Giá</name>
+		</item>
+	</combo>
+	<combo key="PricingStatus">
+		<item>
+			<value>1</value>
+			<name>Mở</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Áp dụng</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Khôi phục</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Lưu trữ</name>
+		</item>
+	</combo>
+	<combo key="TransferStockStatus">
+		<item>
+			<value>1</value>
+			<name>Đang mở</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Áp dụng</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Trả về</name>
+		</item>
+	</combo>
+	<combo key="PricingAdjustmentType">
+		<item>
+			<value>1</value>
+			<name>Công</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Trừ</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Nhân</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Chia</name>
+		</item>
+	</combo>
+	<combo key="CountStockStatus">
+		<item>
+			<value>1</value>
+			<name>Mở</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Đang xử lý</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Hoàn thành</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Hủy</name>
+		</item>
+	</combo>
+	<combo key="AdjustmentStatus">
+		<item>
+			<value>1</value>
+			<name>Bình thường</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Đang trả về</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Trả về</name>
+		</item>
+	</combo>
+	<combo key="AdjustmentReason">
+		<item>
+			<value>1</value>
+			<name>Sản phẩm bị chỉnh sủa</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Trả ngược về</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Đếm trong kho</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Chuyển kho</name>
+		</item>
+	</combo>
+  <combo key="ItemSetting">
+    <item>
+      <value>1</value>
+      <name>Tổng quát</name>
+      <settingPart>General</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Thông tin cửa hàng</name>
+      <settingPart>StoreInfo</settingPart>
+      <parentId>1</parentId>
+    </item>
+    <item>
+      <value>3</value>
+      <name>Hàng tồn kho</name>
+      <settingPart>Inventory</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>4</value>
+      <name>Đơn vị đo lường</name>
+      <settingPart>UnitOfMeasure</settingPart>
+      <parentId>3</parentId>
+    </item>
+    <item>
+      <value>5</value>
+      <name>Cài đặt địa chỉ mail</name>
+      <settingPart>Email</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>6</value>
+      <name>Nhiều kho</name>
+      <settingPart>MultiStore</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>7</value>
+      <name>Mã cửa hàng</name>
+      <settingPart>StoreCodes</settingPart>
+      <parentId>6</parentId>
+    </item>
+    <item>
+      <value>8</value>
+      <name>Thay đổi giá</name>
+      <settingPart>Pricing</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>9</value>
+      <name>Bán hàng</name>
+      <settingPart>Sales</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>10</value>
+      <name>Giảm giá</name>
+      <settingPart>Discount</settingPart>
+      <parentId>9</parentId>
+    </item>
+    <item>
+      <value>11</value>
+      <name>Vận chuyển</name>
+      <settingPart>Shipping</settingPart>
+      <parentId>9</parentId>
+    </item>
+    <item>
+      <value>12</value>
+      <name>Thưởng</name>
+      <settingPart>Reward</settingPart>
+      <parentId>9</parentId>
+    </item>
+    <item>
+      <value>13</value>
+      <name>Trả lại</name>
+      <settingPart>Return</settingPart>
+      <parentId>9</parentId>
+    </item>
+    <item>
+      <value>14</value>
+      <name>Đơn mua hàng</name>
+      <settingPart>PurchaseOrder</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>15</value>
+      <name>Tính thời gian</name>
+      <settingPart>TimeClock</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>16</value>
+      <name>Sao lưu</name>
+      <settingPart>Backup</settingPart>
+      <parentId>0</parentId>
+    </item>
+    <item>
+      <value>17</value>
+      <name>Phần tùy chỉnh</name>
+      <settingPart>CustomField</settingPart>
+      <parentId>1</parentId>
+    </item>
+  </combo>
+	<combo key="ChartType">
+		<item>
+			<value>1</value>
+			<name>Biểu đồ cột</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Biểu đồ</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>biểu đồ cột xếp chồng lên nhau </name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Biểu đồ thanh xếp chồng lên nhau</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Biểu đồ hình tròn</name>
+		</item>
+		<item>
+			<value>6</value>
+			<name>Doughnut Chart</name>
+		</item>
+	</combo>
+	<combo key="ProductOrderBy">
+		<item>
+			<value>1</value>
+			<name>Tổng lợi nhuận</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Số lượng có sẵn</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Lợi nhuận bán hàng</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Số lượng đã bán</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Số lượng sẵn có trong kho</name>
+		</item>
+		<item>
+			<value>6</value>
+			<name>Tổng số tiền mua hàng</name>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Số lượng đặt hàng</name>
+		</item>
+	</combo>
+	<combo key="CategoryOrderBy">
+		<item>
+			<value>1</value>
+			<name>Tổng số bán</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Số lượng được bán</name>
+		</item>
+	</combo>
+	<combo key="OrderDirection">
+		<item>
+			<value>1</value>
+			<name>Cao nhất</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Thấp nhất</name>
+		</item>
+	</combo>
+	<combo key="GroupRight">
+		<item>
+			<value>0</value>
+			<name>Tất cả</name>
+		</item>
+		<item>
+			<value>1</value>
+			<name>Cấu hình</name>
+		</item>
+		<item>
+			<value>2</value>
+			<name>Khách hàng</name>
+		</item>
+		<item>
+			<value>3</value>
+			<name>Nhân viên</name>
+		</item>
+		<item>
+			<value>4</value>
+			<name>Quản lý kho</name>
+		</item>
+		<item>
+			<value>5</value>
+			<name>Bảo trì</name>
+		</item>
+		<item>
+			<value>6</value>
+			<name>Mua hàng</name>
+		</item>
+		<item>
+			<value>7</value>
+			<name>Bán hàng</name>
+		</item>
+		<item>
+			<value>9</value>
+			<name>Nhà cung cấp</name>
+		</item>
+		<item>
+			<value>13</value>
+			<name>Thay đổi giá</name>
+		</item>
+		
+	</combo>
+  <combo key="TextNumberAlignment">
+    <item>
+      <value>0</value>
+      <name>Trái</name>
+    </item>
+    <item>
+      <value>1</value>
+      <name>Phải</name>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Giữa</name>
+    </item>
+  </combo>
+  <combo key="Title">
+    <item>
+      <value>0</value>
+      <name></name>
+    </item>
+    <item>
+      <value>1</value>
+      <name>Ông</name>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Cô</name>
+    </item>
+    <item>
+      <value>3</value>
+      <name>Bà</name>
+    </item>
+    <item>
+      <value>4</value>
+      <name>Giáo sư</name>
+    </item>
+  </combo>
+  <combo key="Priority">
+    <item>
+      <value>0</value>
+      <name>Thấp</name>
+    </item>
+    <item>
+      <value>1</value>
+      <name>Vửa</name>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Cao</name>
+    </item>
+  </combo>
+  <combo key="ReminderCategory">
+    <item>
+      <value>0</value>
+      <name>None</name>
+    </item>
+    <item>
+      <value>1</value>
+      <name>Ngày kỷ niệm</name>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Ngày sinh nhật</name>
+    </item>
+    <item>
+      <value>3</value>
+      <name>Kinh doanh</name>
+    </item>
+    <item>
+      <value>4</value>
+      <name>Cuộc gọi</name>
+    </item>
+    <item>
+      <value>5</value>
+      <name>Xe</name>
+    </item>
+    <item>
+      <value>6</value>
+      <name>Khách hàng</name>
+    </item>
+    <item>
+      <value>7</value>
+      <name>Đối thủ cạnh tranh</name>
+    </item>
+    <item>
+      <value>8</value>
+      <name>Khách hàng</name>
+    </item>
+    <item>
+      <value>9</value>
+      <name>Mặc định</name>
+    </item>
+    <item>
+      <value>10</value>
+      <name>Ví dụ</name>
+    </item>
+    <item>
+      <value>11</value>
+      <name>Được yêu thích nhất</name>
+    </item>
+    <item>
+      <value>12</value>
+      <name>Theo sát</name>
+    </item>
+    <item>
+      <value>13</value>
+      <name>Trò chơi</name>
+    </item>
+    <item>
+      <value>14</value>
+      <name>Quà tặng</name>
+    </item>
+    <item>
+      <value>15</value>
+      <name>Sức khỏe</name>
+    </item>
+    <item>
+      <value>16</value>
+      <name>Ý kiến</name>
+    </item>
+    <item>
+      <value>17</value>
+      <name>Quan trọng</name>
+    </item>
+    <item>
+      <value>18</value>
+      <name>Phát hành</name>
+    </item>
+    <item>
+      <value>19</value>
+      <name>Sức khỏe</name>
+    </item>
+    <item>
+      <value>20</value>
+      <name>Linh tinh</name>
+    </item>
+    <item>
+      <value>21</value>
+      <name>Phim</name>
+    </item>
+    <item>
+      <value>22</value>
+      <name>Nhạc</name>
+    </item>
+    <item>
+      <value>23</value>
+      <name>Tiệc</name>
+    </item>
+    <item>
+      <value>24</value>
+      <name>Cá nhân</name>
+    </item>
+    <item>
+      <value>25</value>
+      <name>Vật nuôi</name>
+    </item>
+    <item>
+      <value>26</value>
+      <name>Dự án</name>
+    </item>
+    <item>
+      <value>27</value>
+      <name>Ngày lễ</name>
+    </item>
+    <item>
+      <value>28</value>
+      <name>Trường</name>
+    </item>
+    <item>
+      <value>29</value>
+      <name>Trạng thái</name>
+    </item>
+    <item>
+      <value>30</value>
+      <name>Nhà cung cấp</name>
+    </item>
+    <item>
+      <value>31</value>
+      <name>TV</name>
+    </item>
+    <item>
+      <value>32</value>
+      <name>Rạp phim</name>
+    </item>
+    <item>
+      <value>33</value>
+      <name>Du lịch</name>
+    </item>
+    <item>
+      <value>34</value>
+      <name>Chuyến đi</name>
+    </item>
+    <item>
+      <value>35</value>
+      <name>Khẩn cấp</name>
+    </item>
+    <item>
+      <value>36</value>
+      <name>Kỳ nghỉ</name>
+    </item>
+    <item>
+      <value>37</value>
+      <name>Công việc</name>
+    </item>
+  </combo>
+  <combo key="ReminderRepeat">
+    <item>
+      <value>0</value>
+      <name>Once</name>
+    </item>
+    <item>
+      <value>1</value>
+      <name>Daily</name>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Weekly</name>
+    </item>
+    <item>
+      <value>3</value>
+      <name>Monthly</name>
+    </item>
+  </combo>
+  <combo key="PaymentSchedule">
+    <item>
+      <value>0</value>
+      <name></name>
+    </item>
+    <item>
+      <value>1</value>
+      <name>Weekly</name>
+    </item>
+    <item>
+      <value>2</value>
+      <name>Bi-Weekly</name>
+    </item>
+    <item>
+      <value>3</value>
+      <name>Semi-Monthly</name>
+    </item>
+    <item>
+      <value>4</value>
+      <name>Monthly</name>
+    </item>
+  </combo>
+
+  <!--End Dynamic Data-->
+	<!--Label Resource-->
+	<!--End Label Resource-->
+</comboes>

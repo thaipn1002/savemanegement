@@ -1,0 +1,1415 @@
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 10:15:20.488 - [10] System.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 75 [App]
+[ERROR] 10-25-2013 10:15:39.079 - [10] OnStartupSystem.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 376 [App]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 10:22:07.647 - [9] System.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 75 [App]
+[ERROR] 10-25-2013 10:22:29.211 - [9] OnStartupSystem.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 376 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 10:25:00.517 - [9] System.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 75 [App]
+[ERROR] 10-25-2013 10:25:05.408 - [9] OnStartupSystem.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 376 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 10:27:33.487 - [9] System.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 75 [App]
+[ERROR] 10-25-2013 10:27:48.611 - [9] OnStartupSystem.Data.MappingException: The Member 'WeekHour' in the CLR type 'CPC.POS.Database.base_Configuration' is not present in the conceptual model type 'POSModel.base_Configuration'.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\POSExport\New Folder\New2110\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 376 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 10:55:23.652 - [10] System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 76 [App]
+[ERROR] 10-25-2013 10:55:34.168 - [10] OnStartupSystem.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 376 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 10:55:54.013 - [10] System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 76 [App]
+[ERROR] 10-25-2013 10:56:11.122 - [10] OnStartupSystem.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 376 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 14:14:38.732 - [10] OpenMainWindowViewSystem.InvalidOperationException: Sequence contains more than one matching element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at CPC.Service.DialogService.FindOwnerWindow(Object viewModel) in D:\hunter\2013\POSExport\New Folder\New2110\POS\Service\DialogService.cs:line 370
+   at CPC.Service.DialogService.ShowDialog(Object ownerViewModel, Object viewModel, Type dialogType, String title) in D:\hunter\2013\POSExport\New Folder\New2110\POS\Service\DialogService.cs:line 305
+   at CPC.Service.DialogService.ShowDialog[T](Object ownerViewModel, Object viewModel, String title) in D:\hunter\2013\POSExport\New Folder\New2110\POS\Service\DialogService.cs:line 143
+   at CPC.POS.ViewModel.MainViewModel.LoadLiabilities() in D:\hunter\2013\POSExport\New Folder\New2110\POS\ViewModel\MainViewModel.cs:line 3099
+   at CPC.POS.ViewModel.MainViewModel..ctor() in D:\hunter\2013\POSExport\New Folder\New2110\POS\ViewModel\MainViewModel.cs:line 481
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 183 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 17:00:58.332 - [9] OpenMainWindowViewSystem.InvalidOperationException: Can only call DragMove when primary mouse button is down.
+   at System.Windows.Window.DragMove()
+   at CPC.Control.PopupContainer.OnMouseLeftButtonDown(MouseButtonEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\Control\PopupContainer.xaml.cs:line 153
+   at System.Windows.UIElement.OnMouseLeftButtonDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Threading.Dispatcher.PushFrame(DispatcherFrame frame)
+   at System.Windows.Window.ShowHelper(Object booleanBox)
+   at System.Windows.Window.Show()
+   at System.Windows.Window.ShowDialog()
+   at CPC.POS.MainWindow.LoadLiabilities() in D:\hunter\2013\POSExport\New Folder\New2110\POS\View\MainWindow.xaml.cs:line 36
+   at CPC.POS.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\View\MainWindow.xaml.cs:line 24
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   at System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   at System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   at MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   at System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   at System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   at System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   at System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   at System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   at System.Windows.Interop.HwndTarget.OnResize()
+   at System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.CallWindowProc(IntPtr wndProc, IntPtr hWnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.HwndSubclass.DefWndProcWrapper(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.CallWindowProc(IntPtr wndProc, IntPtr hWnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Window.ShowHelper(Object booleanBox)
+   at System.Windows.Window.Show()
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 225 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 17:10:10.590 - [10] OpenMainWindowViewSystem.InvalidOperationException: Can only call DragMove when primary mouse button is down.
+   at System.Windows.Window.DragMove()
+   at CPC.Control.PopupContainer.OnMouseLeftButtonDown(MouseButtonEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\Control\PopupContainer.xaml.cs:line 168
+   at System.Windows.UIElement.OnMouseLeftButtonDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Threading.Dispatcher.PushFrame(DispatcherFrame frame)
+   at System.Windows.Window.ShowHelper(Object booleanBox)
+   at System.Windows.Window.Show()
+   at System.Windows.Window.ShowDialog()
+   at CPC.POS.MainWindow.LoadLiabilities() in D:\hunter\2013\POSExport\New Folder\New2110\POS\View\MainWindow.xaml.cs:line 36
+   at CPC.POS.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\View\MainWindow.xaml.cs:line 24
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   at System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   at System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   at MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   at System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   at System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   at System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   at System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   at System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   at System.Windows.Interop.HwndTarget.OnResize()
+   at System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.CallWindowProc(IntPtr wndProc, IntPtr hWnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.HwndSubclass.DefWndProcWrapper(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.CallWindowProc(IntPtr wndProc, IntPtr hWnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Window.ShowHelper(Object booleanBox)
+   at System.Windows.Window.Show()
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 225 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 10-25-2013 17:28:25.165 - [9] OpenMainWindowViewSystem.InvalidOperationException: Can only call DragMove when primary mouse button is down.
+   at System.Windows.Window.DragMove()
+   at CPC.Control.PopupContainer.OnMouseLeftButtonDown(MouseButtonEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\Control\PopupContainer.xaml.cs:line 168
+   at System.Windows.UIElement.OnMouseLeftButtonDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.ReRaiseEventAs(DependencyObject sender, RoutedEventArgs args, RoutedEvent newEvent)
+   at System.Windows.UIElement.OnMouseDownThunk(Object sender, MouseButtonEventArgs e)
+   at System.Windows.Input.MouseButtonEventArgs.InvokeEventHandler(Delegate genericHandler, Object genericTarget)
+   at System.Windows.RoutedEventArgs.InvokeHandler(Delegate handler, Object target)
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseTrustedEvent(RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs args, Boolean trusted)
+   at System.Windows.Input.InputManager.ProcessStagingArea()
+   at System.Windows.Input.InputManager.ProcessInput(InputEventArgs input)
+   at System.Windows.Input.InputProviderSite.ReportInput(InputReport inputReport)
+   at System.Windows.Interop.HwndMouseInputProvider.ReportInput(IntPtr hwnd, InputMode mode, Int32 timestamp, RawMouseActions actions, Int32 x, Int32 y, Int32 wheel)
+   at System.Windows.Interop.HwndMouseInputProvider.FilterMessage(IntPtr hwnd, WindowMessage msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at System.Windows.Interop.HwndSource.InputFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.DispatchMessage(MSG& msg)
+   at System.Windows.Threading.Dispatcher.PushFrameImpl(DispatcherFrame frame)
+   at System.Windows.Threading.Dispatcher.PushFrame(DispatcherFrame frame)
+   at System.Windows.Window.ShowHelper(Object booleanBox)
+   at System.Windows.Window.Show()
+   at System.Windows.Window.ShowDialog()
+   at CPC.POS.MainWindow.LoadLiabilities() in D:\hunter\2013\POSExport\New Folder\New2110\POS\View\MainWindow.xaml.cs:line 36
+   at CPC.POS.MainWindow.MainWindow_Loaded(Object sender, RoutedEventArgs e) in D:\hunter\2013\POSExport\New Folder\New2110\POS\View\MainWindow.xaml.cs:line 24
+   at System.Windows.RoutedEventHandlerInfo.InvokeHandler(Object target, RoutedEventArgs routedEventArgs)
+   at System.Windows.EventRoute.InvokeHandlersImpl(Object source, RoutedEventArgs args, Boolean reRaised)
+   at System.Windows.UIElement.RaiseEventImpl(DependencyObject sender, RoutedEventArgs args)
+   at System.Windows.UIElement.RaiseEvent(RoutedEventArgs e)
+   at System.Windows.BroadcastEventHelper.BroadcastEvent(DependencyObject root, RoutedEvent routedEvent)
+   at System.Windows.BroadcastEventHelper.BroadcastLoadedEvent(Object root)
+   at MS.Internal.LoadedOrUnloadedOperation.DoWork()
+   at System.Windows.Media.MediaContext.FireLoadedPendingCallbacks()
+   at System.Windows.Media.MediaContext.FireInvokeOnRenderCallbacks()
+   at System.Windows.Media.MediaContext.RenderMessageHandlerCore(Object resizedCompositionTarget)
+   at System.Windows.Media.MediaContext.RenderMessageHandler(Object resizedCompositionTarget)
+   at System.Windows.Media.MediaContext.Resize(ICompositionTarget resizedCompositionTarget)
+   at System.Windows.Interop.HwndTarget.OnResize()
+   at System.Windows.Interop.HwndTarget.HandleMessage(WindowMessage msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Interop.HwndSource.HwndTargetFilterMessage(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndWrapper.WndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam, Boolean& handled)
+   at MS.Win32.HwndSubclass.DispatcherCallbackOperation(Object o)
+   at System.Windows.Threading.ExceptionWrapper.InternalRealCall(Delegate callback, Object args, Int32 numArgs)
+   at MS.Internal.Threading.ExceptionFilterHelper.TryCatchWhen(Object source, Delegate method, Object args, Int32 numArgs, Delegate catchHandler)
+   at System.Windows.Threading.Dispatcher.InvokeImpl(DispatcherPriority priority, TimeSpan timeout, Delegate method, Object args, Int32 numArgs)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.CallWindowProc(IntPtr wndProc, IntPtr hWnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.HwndSubclass.DefWndProcWrapper(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.CallWindowProc(IntPtr wndProc, IntPtr hWnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.HwndSubclass.SubclassWndProc(IntPtr hwnd, Int32 msg, IntPtr wParam, IntPtr lParam)
+   at MS.Win32.UnsafeNativeMethods.ShowWindow(HandleRef hWnd, Int32 nCmdShow)
+   at System.Windows.Window.ShowHelper(Object booleanBox)
+   at System.Windows.Window.Show()
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\POSExport\New Folder\New2110\POS\App.xaml.cs:line 225 [App]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 11-11-2013 14:57:25.162 - [9] OpenLoginViewSystem.InvalidOperationException: Cannot set ShutdownMode when application is shutting down or already shut down.
+   at System.Windows.Application.set_ShutdownMode(ShutdownMode value)
+   at CPC.POS.App.OpenLoginView(Boolean ISUpdateOldUser) in D:\hunter\2013\Work2910\31-10\POS\App.xaml.cs:line 153 [App]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 11-11-2013 14:58:07.915 - [10] OpenLoginViewSystem.InvalidOperationException: Cannot set ShutdownMode when application is shutting down or already shut down.
+   at System.Windows.Application.set_ShutdownMode(ShutdownMode value)
+   at CPC.POS.App.OpenLoginView(Boolean ISUpdateOldUser) in D:\hunter\2013\Work2910\31-10\POS\App.xaml.cs:line 153 [App]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 11-11-2013 15:00:17.595 - [9] OpenLoginViewSystem.InvalidOperationException: Cannot set ShutdownMode when application is shutting down or already shut down.
+   at System.Windows.Application.set_ShutdownMode(ShutdownMode value)
+   at CPC.POS.App.OpenLoginView(Boolean ISUpdateOldUser) in D:\hunter\2013\Work2910\31-10\POS\App.xaml.cs:line 153 [App]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[ERROR] 11-06-2013 19:11:08.616 - [9] System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in E:\Thai\Work\06-11\POS\App.xaml.cs:line 76 [App]
+[ERROR] 11-06-2013 19:11:40.993 - [9] OnStartupSystem.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in E:\Thai\Work\06-11\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in E:\Thai\Work\06-11\POS\App.xaml.cs:line 399 [App]
+
+[Begin Session - {Tra-PC\Tra}]
+[ERROR] 11-06-2013 19:14:32.825 - [11] System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in E:\Thai\Work\06-11\POS\App.xaml.cs:line 76 [App]
+[ERROR] 11-06-2013 19:14:47.091 - [11] OnStartupSystem.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42P01: relation "public.base_Configuration" does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Linq.Queryable.Count[TSource](IQueryable`1 source)
+   at CPC.POS.App.InitialData() in E:\Thai\Work\06-11\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in E:\Thai\Work\06-11\POS\App.xaml.cs:line 399 [App]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[ERROR] 11-06-2013 23:05:04.695 - [9] System.Data.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 22003: numeric field overflow
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- End of inner exception stack trace ---
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   at System.Data.EntityClient.EntityAdapter.Update(IEntityStateManager entityCache)
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Objects.ObjectContext.SaveChanges()
+   at CPC.POS.Database.UnitOfWork.Commit() in E:\Thai\Work\06-11\POS\Database\UnitOfWork.cs:line 319
+   at CPC.POS.Repository.base_SaleOrderRepository.Commit() in E:\Thai\Work\06-11\POS\Repository\base_SaleOrderRepository.cs:line 243
+   at CPC.POS.ViewModel.SalesOrderViewModel.InsertSaleOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2372
+   at CPC.POS.ViewModel.SalesOrderViewModel.SaveSalesOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2811 [App]
+[ERROR] 11-06-2013 23:05:33.144 - [9] System.Data.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 22003: numeric field overflow
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- End of inner exception stack trace ---
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   at System.Data.EntityClient.EntityAdapter.Update(IEntityStateManager entityCache)
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Objects.ObjectContext.SaveChanges()
+   at CPC.POS.Database.UnitOfWork.Commit() in E:\Thai\Work\06-11\POS\Database\UnitOfWork.cs:line 319
+   at CPC.POS.Repository.base_ProductRepository.Commit() in E:\Thai\Work\06-11\POS\Repository\base_ProductRepository.cs:line 239
+   at CPC.POS.Repository.base_SaleOrderRepository.UpdateCustomerQuantity(base_SaleOrderDetailModel saleOrderDetailModel, Int32 storeCode, Decimal productQuantity, Boolean Inscrease) in E:\Thai\Work\06-11\POS\Repository\base_SaleOrderRepository.cs:line 1415
+   at CPC.POS.ViewModel.SalesOrderViewModel.InsertSaleOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2360
+   at CPC.POS.ViewModel.SalesOrderViewModel.SaveSalesOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2811 [App]
+[ERROR] 11-06-2013 23:06:21.285 - [9] System.Data.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 22003: numeric field overflow
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- End of inner exception stack trace ---
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   at System.Data.EntityClient.EntityAdapter.Update(IEntityStateManager entityCache)
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Objects.ObjectContext.SaveChanges()
+   at CPC.POS.Database.UnitOfWork.Commit() in E:\Thai\Work\06-11\POS\Database\UnitOfWork.cs:line 319
+   at CPC.POS.Repository.base_ProductRepository.Commit() in E:\Thai\Work\06-11\POS\Repository\base_ProductRepository.cs:line 239
+   at CPC.POS.Repository.base_SaleOrderRepository.UpdateCustomerQuantity(base_SaleOrderDetailModel saleOrderDetailModel, Int32 storeCode, Decimal productQuantity, Boolean Inscrease) in E:\Thai\Work\06-11\POS\Repository\base_SaleOrderRepository.cs:line 1415
+   at CPC.POS.ViewModel.SalesOrderViewModel.InsertSaleOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2360
+   at CPC.POS.ViewModel.SalesOrderViewModel.SaveSalesOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2811 [App]
+[ERROR] 11-06-2013 23:06:36.332 - [9] System.Data.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 22003: numeric field overflow
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   --- End of inner exception stack trace ---
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter)
+   at System.Data.EntityClient.EntityAdapter.Update(IEntityStateManager entityCache)
+   at System.Data.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   at System.Data.Objects.ObjectContext.SaveChanges()
+   at CPC.POS.Database.UnitOfWork.Commit() in E:\Thai\Work\06-11\POS\Database\UnitOfWork.cs:line 319
+   at CPC.POS.Repository.base_ProductRepository.Commit() in E:\Thai\Work\06-11\POS\Repository\base_ProductRepository.cs:line 239
+   at CPC.POS.Repository.base_SaleOrderRepository.UpdateCustomerQuantity(base_SaleOrderDetailModel saleOrderDetailModel, Int32 storeCode, Decimal productQuantity, Boolean Inscrease) in E:\Thai\Work\06-11\POS\Repository\base_SaleOrderRepository.cs:line 1415
+   at CPC.POS.ViewModel.SalesOrderViewModel.InsertSaleOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2360
+   at CPC.POS.ViewModel.SalesOrderViewModel.SaveSalesOrder() in E:\Thai\Work\06-11\POS\ViewModel\SalesOrder\SalesOrderViewModel.cs:line 2811 [App]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 11-21-2013 13:38:48.005 - [10] System.Data.MappingException: The number of members in the conceptual type 'POSModel.base_Configuration' does not match with the number of members on the object side type 'CPC.POS.Database.base_Configuration'. Make sure the number of members are the same.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\Work2910\20-11\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\Work2910\20-11\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\Work2910\20-11\POS\App.xaml.cs:line 75 [App]
+[ERROR] 11-21-2013 13:39:05.693 - [10] OnStartupSystem.Data.MappingException: The number of members in the conceptual type 'POSModel.base_Configuration' does not match with the number of members on the object side type 'CPC.POS.Database.base_Configuration'. Make sure the number of members are the same.
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.ValidateAllMembersAreMapped(StructuralType cdmStructuralType, StructuralType objectStructuralType)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadEntityTypeOrComplexTypeMapping(ObjectTypeMapping objectMapping, EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType edmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection, Dictionary`2 typeMappings)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.LoadObjectMapping(EdmType cdmType, EdmType objectType, DefaultObjectMappingItemCollection ocItemCollection)
+   at System.Data.Mapping.DefaultObjectMappingItemCollection.TryGetMap(String identity, DataSpace typeSpace, Boolean ignoreCase, Map& map)
+   at System.Data.Metadata.Edm.ClrPerspective.TryGetTypeByName(String fullName, Boolean ignoreCase, TypeUsage& typeUsage)
+   at System.Data.Objects.ObjectContext.GetTypeUsage(Type entityCLRType)
+   at System.Data.Objects.ObjectContext.GetEntitySetFromContainer(EntityContainer container, Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.GetEntitySetForType(Type entityCLRType, String exceptionParameterName)
+   at System.Data.Objects.ObjectContext.CreateObjectSet[TEntity]()
+   at CPC.POS.Database.UnitOfWork.GetIQueryable[T]() in D:\hunter\2013\Work2910\20-11\POS\Database\UnitOfWork.cs:line 183
+   at CPC.POS.Repository.base_ConfigurationRepository.GetIQueryable() in D:\hunter\2013\Work2910\20-11\POS\Repository\base_ConfigurationRepository.cs:line 139
+   at CPC.POS.App.InitialData() in D:\hunter\2013\Work2910\20-11\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\Work2910\20-11\POS\App.xaml.cs:line 401 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 11-22-2013 16:50:10.628 - [9] Message: An error occurred while updating the entries. See the inner exception for details.. Source: System.Data.Entity. [App]
+[ERROR] 11-22-2013 16:50:10.675 - [9] Npgsql.NpgsqlException:
+numeric field overflow
+Severity: ERROR
+Code: 22003
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery()
+   at System.Data.Mapping.Update.Internal.DynamicUpdateCommand.Execute(UpdateTranslator translator, EntityConnection connection, Dictionary`2 identifierValues, List`1 generatedValues)
+   at System.Data.Mapping.Update.Internal.UpdateTranslator.Update(IEntityStateManager stateManager, IEntityAdapter adapter) [App]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 11-29-2013 14:39:55.731 - [10] System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42703: column Extent1.RefundVoucherThresHold does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Data.Objects.ObjectQuery`1.GetEnumeratorInternal()
+   at System.Data.Objects.ObjectQuery.System.Collections.IEnumerable.GetEnumerator()
+   at System.Data.Objects.ObjectContext.RefreshEntities(RefreshMode refreshMode, IEnumerable collection)
+   at System.Data.Objects.ObjectContext.Refresh(RefreshMode refreshMode, IEnumerable collection)
+   at CPC.POS.Database.UnitOfWork.Refresh[T](IEnumerable`1 entityCollection) in D:\hunter\2013\Work2910\29-11\POS\Database\UnitOfWork.cs:line 302
+   at CPC.POS.Repository.base_ConfigurationRepository.Refresh(IEnumerable`1 base_Configuration) in D:\hunter\2013\Work2910\29-11\POS\Repository\base_ConfigurationRepository.cs:line 223
+   at CPC.POS.App.InitialData() in D:\hunter\2013\Work2910\29-11\POS\App.xaml.cs:line 78 [App]
+[ERROR] 11-29-2013 14:40:03.729 - [10] OnStartupSystem.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Npgsql.NpgsqlException: ERROR: 42703: column Extent1.RefundVoucherThresHold does not exist
+   at Npgsql.NpgsqlState.<ProcessBackendResponses_Ver_3>d__a.MoveNext()
+   at Npgsql.ForwardsOnlyDataReader.GetNextResponseObject()
+   at Npgsql.ForwardsOnlyDataReader.GetNextRowDescription()
+   at Npgsql.ForwardsOnlyDataReader.NextResult()
+   at Npgsql.ForwardsOnlyDataReader..ctor(IEnumerable`1 dataEnumeration, CommandBehavior behavior, NpgsqlCommand command, NotificationThreadBlock threadBlock, Boolean synchOnReadError)
+   at Npgsql.NpgsqlCommand.GetReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior cb)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Data.Objects.ObjectQuery`1.GetEnumeratorInternal()
+   at System.Data.Objects.ObjectQuery.System.Collections.IEnumerable.GetEnumerator()
+   at System.Data.Objects.ObjectContext.RefreshEntities(RefreshMode refreshMode, IEnumerable collection)
+   at System.Data.Objects.ObjectContext.Refresh(RefreshMode refreshMode, IEnumerable collection)
+   at CPC.POS.Database.UnitOfWork.Refresh[T](IEnumerable`1 entityCollection) in D:\hunter\2013\Work2910\29-11\POS\Database\UnitOfWork.cs:line 302
+   at CPC.POS.Repository.base_ConfigurationRepository.Refresh(IEnumerable`1 base_Configuration) in D:\hunter\2013\Work2910\29-11\POS\Repository\base_ConfigurationRepository.cs:line 223
+   at CPC.POS.App.InitialData() in D:\hunter\2013\Work2910\29-11\POS\App.xaml.cs:line 113
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in D:\hunter\2013\Work2910\29-11\POS\App.xaml.cs:line 398 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 12-02-2013 11:36:23.606 - [9] OpenMainWindowViewSystem.NullReferenceException: Object reference not set to an instance of an object.
+   at CPC.POS.Model.base_SaleTaxLocationModel.ToModel() in D:\hunter\2013\Work2910\29-11\POS\Model\base_SaleTaxLocationModel.cs:line 386
+   at CPC.POS.Model.base_SaleTaxLocationModel..ctor(base_SaleTaxLocation base_saletaxlocation, Boolean isRaiseProperties) in D:\hunter\2013\Work2910\29-11\POS\Model\base_SaleTaxLocationModel.cs:line 42
+   at CPC.POS.ViewModel.MainViewModel.LoadTaxLocationAndCode() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 2078
+   at CPC.POS.ViewModel.MainViewModel.LoadStatusInformation() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 2048
+   at CPC.POS.ViewModel.MainViewModel..ctor() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 474
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\Work2910\29-11\POS\App.xaml.cs:line 182 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 12-02-2013 11:40:55.270 - [9] OpenMainWindowViewSystem.NullReferenceException: Object reference not set to an instance of an object.
+   at CPC.POS.Model.base_SaleTaxLocationModel.ToModel() in D:\hunter\2013\Work2910\29-11\POS\Model\base_SaleTaxLocationModel.cs:line 386
+   at CPC.POS.Model.base_SaleTaxLocationModel..ctor(base_SaleTaxLocation base_saletaxlocation, Boolean isRaiseProperties) in D:\hunter\2013\Work2910\29-11\POS\Model\base_SaleTaxLocationModel.cs:line 42
+   at CPC.POS.ViewModel.MainViewModel.LoadTaxLocationAndCode() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 2078
+   at CPC.POS.ViewModel.MainViewModel.LoadStatusInformation() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 2048
+   at CPC.POS.ViewModel.MainViewModel..ctor() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 474
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\Work2910\29-11\POS\App.xaml.cs:line 182 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[ERROR] 12-02-2013 11:42:35.792 - [9] OpenMainWindowViewSystem.NullReferenceException: Object reference not set to an instance of an object.
+   at CPC.POS.Model.base_SaleTaxLocationModel.ToModel() in D:\hunter\2013\Work2910\29-11\POS\Model\base_SaleTaxLocationModel.cs:line 386
+   at CPC.POS.Model.base_SaleTaxLocationModel..ctor(base_SaleTaxLocation base_saletaxlocation, Boolean isRaiseProperties) in D:\hunter\2013\Work2910\29-11\POS\Model\base_SaleTaxLocationModel.cs:line 42
+   at CPC.POS.ViewModel.MainViewModel.LoadTaxLocationAndCode() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 2078
+   at CPC.POS.ViewModel.MainViewModel.LoadStatusInformation() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 2048
+   at CPC.POS.ViewModel.MainViewModel..ctor() in D:\hunter\2013\Work2910\29-11\POS\ViewModel\MainViewModel.cs:line 474
+   at CPC.POS.App.OpenMainWindowView() in D:\hunter\2013\Work2910\29-11\POS\App.xaml.cs:line 182 [App]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {CPCVN\Hunter Pham}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[ERROR] 12-03-2013 22:06:03.429 - [8] Message: The network path was not found.
+. Source: mscorlib [App]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]

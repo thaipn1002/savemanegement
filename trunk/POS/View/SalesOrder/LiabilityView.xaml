@@ -1,0 +1,840 @@
+﻿<UserControl x:Class="CPC.POS.View.LiabilityView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Anno="http://schemas.microsoft.com/expression/blend/extensions/annotations/2008"
+             xmlns:command="clr-namespace:CPC.Toolkit.Command"
+             xmlns:converter="clr-namespace:CPC.Converter"
+             xmlns:cpcAddressControl="clr-namespace:CPCToolkitExt.AddressControl;assembly=CPCToolkitExt"
+             xmlns:cpcAutoComplete="clr-namespace:CPCToolkitExt.AutoCompleteControl;assembly=CPCToolkitExt"
+             xmlns:cpcBehavior="clr-namespace:CPC.Toolkit.Behavior"
+             xmlns:cpcComboBox="clr-namespace:CPCToolkitExt.ComboBoxControl;assembly=CPCToolkitExt"
+             xmlns:cpcControl="clr-namespace:CPC.Control"
+             xmlns:cpcDataGrid="clr-namespace:CPCToolkitExt.DataGridControl;assembly=CPCToolkitExt"
+             xmlns:cpcOtherControl="clr-namespace:CPCToolkitExt.OtherControl;assembly=CPCToolkitExt"
+             xmlns:cpcTextBox="clr-namespace:CPCToolkitExt.TextBoxControl;assembly=CPCToolkitExt"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             xmlns:helper="clr-namespace:CPC.Helper"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:local="clr-namespace:CPC.POS"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:wpfToolkit="clr-namespace:Xceed.Wpf.Toolkit;assembly=WPFToolkit.Extended"
+             x:Name="ucLiabilityView"
+             Background="{DynamicResource UserControlBackground}"
+             helper:ValidationHelper.IsEnabled="True"
+             helper:ValidationHelper.IsValid="{Binding IsValid,
+                                                       Mode=OneWayToSource}"
+             mc:Ignorable="d Anno">
+    <UserControl.Resources>
+        <sys:Int32 x:Key="SubTotalMaxLength">10</sys:Int32>
+        <sys:Int32 x:Key="DiscountAmountMaxLength">10</sys:Int32>
+        <sys:Int32 x:Key="FreightMaxLength">8</sys:Int32>
+        <sys:Int32 x:Key="TotalMaxLength">10</sys:Int32>
+        <!--  #Region Converter  -->
+        <converter:BoolToVisibilityConverter x:Key="boolToVisibilityConverter" />
+        <converter:ComboxItemToTextConverter x:Key="comboxItemToTextConverter" />
+        <converter:EnumToBoolConverter x:Key="enumToBoolConverter" />
+        <converter:ReserseBoolConverter x:Key="reserseBoolConverter" />
+        <converter:NullToDefaultValueConverter x:Key="NullToDefaultValueConverter" />
+        <converter:StringToImageSourceConverter x:Key="stringToImageSourceConverter" />
+        <converter:IntergerToVisibilityConverter x:Key="intergerToVisibilityConverter" />
+        <converter:StringFormatConverter x:Key="stringFormatConverter" />
+        <converter:PermissionConverter x:Key="permissionConverter" />
+        <converter:IntegerToBooleanConverter x:Key="integerToBooleanConverter" />
+        <converter:BoolToToolTipConverter x:Key="boolToToolTipConverter" />
+        <converter:IntToStringConverter x:Key="intToStringConverter" />
+        <!--  #Region DataTemplate  -->
+        <DataTemplate x:Key="RowDetailDataTemplateOrderInvoice">
+            <Grid x:Name="grdTemplateCustomer"
+                  Height="Auto"
+                  Margin="0"
+                  Background="{DynamicResource DatagridRow_Child_Background}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="1"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+                    <StackPanel x:Name="stkpDiscount"
+                                Margin="0,0,10,0"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+                        <TextBlock x:Name="txtblTemplatePrice"
+                                   Margin="0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="Black"
+                                   Text="Tình trạng : "
+                                   TextWrapping="NoWrap" />
+                        <TextBlock x:Name="txtblBindingRegularPrice"
+                                   Margin="5,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="Black"
+                                   Text="{Binding ItemStatus.Text, Mode=OneWay}"
+                                   TextWrapping="NoWrap" />
+                        <TextBlock x:Name="txtblUnitDiscount"
+                                   Margin="20,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="Black"
+                                   Text="Ngày giao hàng : "
+                                   TextWrapping="NoWrap" />
+                        <TextBlock x:Name="txtblBindingUnitDiscount"
+                                   Margin="5,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="Black"
+                                   Text="{Binding RequestShipDate, StringFormat={x:Static local:Define.DateFormat}}"
+                                   TextWrapping="NoWrap" />
+                        <TextBlock x:Name="txtblTotalDiscount"
+                                   Margin="20,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="Black"
+                                   Text="Số điện thoại : "
+                                   TextWrapping="NoWrap" />
+                        <TextBlock x:Name="txtblBindingTotalDiscount"
+                                   Margin="5,0,0,0"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center"
+                                   Foreground="Red"
+                                   Text="{Binding GuestModel.Phone1,ConverterParameter=Phone,Converter={StaticResource stringFormatConverter},Mode=OneWay}"
+                                   TextWrapping="NoWrap" />
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+        </DataTemplate>
+
+        <!--  #EndRegion DataTemplate  -->
+
+        <!--  #Region Style  -->
+        <Style x:Key="DataGridDetailRowStyle"
+               BasedOn="{StaticResource {x:Type DataGridRow}}"
+               TargetType="{x:Type DataGridRow}">
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.CellFocus"
+                    Value="{Binding IsAllowChange, Mode=OneWay}" />
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.ItemSource"
+                    Value="{Binding ., RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <!--  Visibility="{TemplateBinding DetailsVisibility}">  -->
+                                <DataGridDetailsPresenter Grid.Row="1"
+                                                          Grid.Column="1"
+                                                          SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen,
+                                                                                                                         ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical},
+                                                                                                                         Converter={x:Static DataGrid.RowDetailsScrollingConverter},
+                                                                                                                         RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                    <DataGridDetailsPresenter.Visibility>
+                                        <Binding Mode="OneWay"
+                                                 Path="IsVisibleRowDetail">
+                                            <Binding.Converter>
+                                                <converter:BoolToVisibilityConverter FalseToVisibility="Collapsed" />
+                                            </Binding.Converter>
+                                        </Binding>
+                                    </DataGridDetailsPresenter.Visibility>
+                                </DataGridDetailsPresenter>
+                                <DataGridRowHeader Grid.RowSpan="2"
+                                                   SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+                                                   Style="{DynamicResource DataGridRowHeaderStyle}" />
+                            </SelectiveScrollingGrid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <!--  Set Color for parent item  -->
+                <DataTrigger Binding="{Binding ItemType, Converter={StaticResource integerToBooleanConverter}, ConverterParameter=1}"
+                             Value="True">
+
+                    <Setter Property="Background"
+                            Value="{DynamicResource DatagridRow_Group_Background}" />
+                    <Setter Property="FontWeight"
+                            Value="Bold" />
+                    <Setter Property="Foreground"
+                            Value="#FFFF0000" />
+                </DataTrigger>
+                <!--  Set Color for Children item  -->
+                <DataTrigger Binding="{Binding ItemType, Converter={StaticResource integerToBooleanConverter}, ConverterParameter=2}"
+                             Value="True">
+                    <Setter Property="Background"
+                            Value="{DynamicResource DatagridRow_Child_Background}" />
+
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="DataGridShipMenuContextRowStyle"
+               BasedOn="{StaticResource {x:Type DataGridRow}}"
+               TargetType="{x:Type DataGridRow}">
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.CellFocus"
+                    Value="{Binding IsShipped, Mode=OneWay, Converter={StaticResource reserseBoolConverter}}" />
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.ItemSource"
+                    Value="{Binding ., RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <DataGridDetailsPresenter Grid.Row="1"
+                                                          Grid.Column="1"
+                                                          Visibility="{TemplateBinding DetailsVisibility}" />
+                                <DataGridRowHeader Grid.RowSpan="2"
+                                                   SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+                                                   Style="{DynamicResource DataGridRowHeaderStyle}" />
+                            </SelectiveScrollingGrid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DataGridPaymentRowStyle"
+               BasedOn="{StaticResource {x:Type DataGridRow}}"
+               TargetType="{x:Type DataGridRow}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsDeposit, Mode=OneWay}"
+                             Value="True">
+                    <Setter Property="Foreground"
+                            Value="Red" />
+                    <Setter Property="TextElement.FontStyle"
+                            Value="Italic" />
+                </DataTrigger>
+            </Style.Triggers>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <DataGridDetailsPresenter Grid.Row="1"
+                                                          Grid.Column="1"
+                                                          Visibility="{TemplateBinding DetailsVisibility}" />
+                                <DataGridRowHeader Grid.RowSpan="2"
+                                                   SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+                                                   Style="{DynamicResource DataGridRowHeaderStyle}" />
+                            </SelectiveScrollingGrid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DataGridReturnRowStyle"
+               BasedOn="{StaticResource {x:Type DataGridRow}}"
+               TargetType="{x:Type DataGridRow}">
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.CellFocus"
+                    Value="{Binding IsReturned, Mode=OneWay, Converter={StaticResource reserseBoolConverter}}" />
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.ItemSource"
+                    Value="{Binding ., RelativeSource={RelativeSource Self}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter Grid.Column="1"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <DataGridDetailsPresenter x:Name="dgDetails"
+                                                          Grid.Row="1"
+                                                          Grid.Column="1"
+                                                          Visibility="{TemplateBinding DetailsVisibility}" />
+                                <DataGridRowHeader Grid.RowSpan="2"
+                                                   SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+                                                   Style="{DynamicResource DataGridRowHeaderStyle}" />
+                            </SelectiveScrollingGrid>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+
+        <Style x:Key="ComboBoxTextStyle"
+               TargetType="{x:Type ComboBox}">
+            <Setter Property="Focusable"
+                    Value="False" />
+            <Setter Property="cpcBehavior:MoveFocusHelper.MoveFocus"
+                    Value="True" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+            <Setter Property="Background"
+                    Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="Padding"
+                    Value="1" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                    Value="Auto" />
+            <Setter Property="ScrollViewer.CanContentScroll"
+                    Value="true" />
+            <Setter Property="ScrollViewer.PanningMode"
+                    Value="Both" />
+            <Setter Property="Stylus.IsFlicksEnabled"
+                    Value="False" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Validation.ErrorTemplate"
+                    Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid SnapsToDevicePixels="true">
+                            <Border x:Name="Bd"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid Grid.IsSharedSizeScope="true">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="0"
+                                                          SharedSizeGroup="ComboBoxButton" />
+                                    </Grid.ColumnDefinitions>
+                                    <Border x:Name="SelectedItemBorder"
+                                            Grid.ColumnSpan="2"
+                                            Margin="{TemplateBinding Padding}" />
+                                    <ContentPresenter Grid.Column="1"
+                                                      Margin="{TemplateBinding Padding}"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                      Content="{TemplateBinding SelectionBoxItem}"
+                                                      ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}"
+                                                      ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                      ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                      SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                    <ToggleButton Grid.ColumnSpan="3"
+                                                  IsChecked="{Binding IsDropDownOpen,
+                                                                      Mode=TwoWay,
+                                                                      RelativeSource={RelativeSource TemplatedParent}}"
+                                                  Style="{StaticResource ComboBoxTransparentButtonStyle}" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems"
+                                     Value="false" />
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Foreground"
+                                        Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                                <Setter TargetName="Bd"
+                                        Property="Background"
+                                        Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsGrouping"
+                                     Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll"
+                                        Value="false" />
+                            </Trigger>
+                            <Trigger Property="Validation.HasError"
+                                     Value="True">
+                                <Setter TargetName="Bd"
+                                        Property="BorderBrush"
+                                        Value="#FFFF0000" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize"
+                    Value="11" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource TextBoxCanlendarComboboxBorderBrush}" />
+            <Style.Triggers>
+                <Trigger Property="IsEditable"
+                         Value="true">
+                    <Setter Property="IsTabStop"
+                            Value="false" />
+                    <Setter Property="Padding"
+                            Value="0,1" />
+                    <Setter Property="Template"
+                            Value="{StaticResource ComboBoxEditableTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="NumberTextBlock"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Right" />
+        </Style>
+
+        <Style x:Key="CenterTextColumn"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        </Style>
+
+        <Style x:Key="ReturnedTextBlockStyle"
+               BasedOn="{StaticResource TextBlockNormal}"
+               TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground"
+                    Value="Green" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsReturned, Mode=OneWay}"
+                             Value="True">
+                    <Setter Property="Foreground"
+                            Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DataGridPriceCellStyle"
+               BasedOn="{StaticResource DataGridCellDisableStyle}"
+               TargetType="{x:Type DataGridCell}">
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.CellFocus"
+                    Value="{Binding ProductModel.IsOpenItem}" />
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.ItemSource"
+                    Value="{Binding ., RelativeSource={RelativeSource Self}}" />
+
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                         Value="True">
+                    <Setter Property="BorderThickness"
+                            Value="0" />
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource DatagridCell_IsSelected_Foreground}" />
+                    <Setter Property="Background"
+                            Value="{DynamicResource DatagridCell_IsSelected_Background}" />
+                </Trigger>
+                <DataTrigger Binding="{Binding ProductModel.IsOpenItem}"
+                             Value="True">
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource ForegroundGreenBrush}" />
+                    <Setter Property="FontWeight"
+                            Value="Bold" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DataGridQuantityCellStyle"
+               BasedOn="{StaticResource DataGridCellDisableStyle}"
+               TargetType="{x:Type DataGridCell}">
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.CellFocus"
+                    Value="{Binding ProductModel.IsCoupon, Mode=OneWay, Converter={StaticResource reserseBoolConverter}}" />
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.ItemSource"
+                    Value="{Binding ., RelativeSource={RelativeSource Self}}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                         Value="True">
+                    <Setter Property="BorderThickness"
+                            Value="0" />
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource DatagridCell_IsSelected_Foreground}" />
+                    <Setter Property="Background"
+                            Value="{DynamicResource DatagridCell_IsSelected_Background}" />
+                </Trigger>
+                <DataTrigger Binding="{Binding ProductModel.IsOpenItem}"
+                             Value="True">
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource ForegroundGreenBrush}" />
+                    <Setter Property="FontWeight"
+                            Value="Bold" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DataGridUOMCellStyle"
+               BasedOn="{StaticResource DataGridCellDisableStyle}"
+               TargetType="{x:Type DataGridCell}">
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.CellFocus"
+                    Value="{Binding IsReadOnlyUOM, Mode=OneWay, Converter={StaticResource reserseBoolConverter}}" />
+            <Setter Property="cpcBehavior:DataGridCellFocusHelper.ItemSource"
+                    Value="{Binding ., RelativeSource={RelativeSource Self}}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected"
+                         Value="True">
+                    <Setter Property="BorderThickness"
+                            Value="0" />
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource DatagridCell_IsSelected_Foreground}" />
+                    <Setter Property="Background"
+                            Value="{DynamicResource DatagridCell_IsSelected_Background}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ListViewItemColorStyle"
+               TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsOpenItem}"
+                             Value="True">
+                    <Setter Property="Foreground"
+                            Value="{DynamicResource ForegroundGreenBrush}" />
+                    <Setter Property="FontWeight"
+                            Value="Bold" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="myDataGridRowPrivateStyle"
+               TargetType="{x:Type DataGridRow}">
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True" />
+            <Setter Property="Validation.ErrorTemplate"
+                    Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border x:Name="DGR_Border"
+                                SnapsToDevicePixels="True"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                            <SelectiveScrollingGrid>
+                                <SelectiveScrollingGrid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </SelectiveScrollingGrid.ColumnDefinitions>
+                                <SelectiveScrollingGrid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </SelectiveScrollingGrid.RowDefinitions>
+                                <DataGridCellsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                                        Grid.Column="1" />
+                                <DataGridDetailsPresenter Grid.Column="1"
+                                                          Grid.Row="1"
+                                                          SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                                          Visibility="{TemplateBinding DetailsVisibility}" />
+                                <DataGridRowHeader Grid.RowSpan="2"
+                                                   SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical"
+                                                   Style="{DynamicResource DataGridRowHeaderStyle}" />
+                            </SelectiveScrollingGrid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True"
+                                     SourceName="DGR_Border">
+                                <Setter Property="Background"
+                                        TargetName="DGR_Border"
+                                        Value="{DynamicResource DatagridRow_IsMouseOver_Background}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderBrush"
+                    Value="#FF766E6E" />
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding DueDay,Converter={StaticResource intToStringConverter}}"
+                             Value="0">
+                    <Setter Property="Background"
+                            Value="#FFF83C3C"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <!--  #EndRegion Style  -->
+    </UserControl.Resources>
+    <wpfToolkit:BusyIndicator IsBusy="{Binding IsBusy, Mode=OneWay}">
+        <Grid x:Name="GridLayout">
+            <Rectangle x:Name="UserControl_Background_Image"
+                       Fill="{DynamicResource UserControl_Background_Image}" />
+            <Grid x:Name="grdSaleOrder">
+                <!--  Search Grid  -->
+                <Grid x:Name="grdContentSearch">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <GroupBox x:Name="gbSearch"
+                              Margin="10,10,10,0">
+                        <GroupBox.Header>
+                            <TextBlock x:Name="txtblSearch"
+                                       Style="{DynamicResource GroupboxTextBlock}"
+                                       Text="{DynamicResource C113}"
+                                       TextWrapping="NoWrap" />
+                        </GroupBox.Header>
+                        <Grid x:Name="grdgbSearch"
+                              Margin="0,4,0,0">
+                            <Grid x:Name="grdgbContentSearch">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                </Grid.RowDefinitions>
+                                <wpfToolkit:WatermarkTextBox x:Name="txtKeyword"
+                                                             Margin="10,2,0,2"
+                                                             VerticalContentAlignment="Center"
+                                                             BorderBrush="{DynamicResource TextBoxCanlendarComboboxBorderBrush}"
+                                                             Padding="24,0,5,0"
+                                                             Text="{Binding FilterText,
+                                                                            Mode=TwoWay,
+                                                                            UpdateSourceTrigger=PropertyChanged}"
+                                                             TextWrapping="NoWrap"
+                                                             Watermark="{DynamicResource C135}">
+                                    <i:Interaction.Behaviors>
+                                        <cpcBehavior:AutoFocusBehavior />
+                                    </i:Interaction.Behaviors>
+                                    <wpfToolkit:WatermarkTextBox.InputBindings>
+                                        <KeyBinding Key="Enter"
+                                                    Command="{Binding SearchCommand}"
+                                                    CommandParameter="{Binding Path=Text,
+                                                                               ElementName=txtKeyword}" />
+                                    </wpfToolkit:WatermarkTextBox.InputBindings>
+                                </wpfToolkit:WatermarkTextBox>
+                                <Rectangle x:Name="imgFind1"
+                                           Width="19"
+                                           Height="19"
+                                           Margin="13,3,0,3"
+                                           HorizontalAlignment="Left"
+                                           Fill="{DynamicResource Find}" />
+                                <StackPanel x:Name="stkpCheckbox"
+                                            Grid.Row="1"
+                                            Margin="10,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                    <CheckBox x:Name="cbSalesOrderNo"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Center"
+                                              Content="{DynamicResource SO_TextBlock_SONo}"
+                                              IsChecked="{Binding SearchOption,
+                                                                  ConverterParameter={x:Static local:SearchOptions.SoNum},
+                                                                  Converter={StaticResource enumToBoolConverter},
+                                                                  UpdateSourceTrigger=PropertyChanged}" />
+                                    <CheckBox x:Name="cbCustomer"
+                                              Margin="15,0,0,0"
+                                              HorizontalAlignment="Left"
+                                              VerticalAlignment="Center"
+                                              Content="{DynamicResource SO_TextBlock_Customer}"
+                                              IsChecked="{Binding SearchOption,
+                                                                  ConverterParameter={x:Static local:SearchOptions.Customer},
+                                                                  Converter={StaticResource enumToBoolConverter},
+                                                                  UpdateSourceTrigger=PropertyChanged}" />
+                                    <TextBlock Margin="10,0,0,0"
+                                               Foreground="#FFFDFF00"
+                                               Text="{Binding SearchAlert}"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                    </GroupBox>
+                    <Grid x:Name="grdContent"
+                          Margin="10,5,10,0"
+                          Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <cpcDataGrid:DataGridControl x:Name="dtgrdSearch"
+                                                     VerticalAlignment="Stretch"
+                                                     AutoGenerateColumns="False"
+                                                     CanUserAddRows="False"
+                                                     CanUserDeleteRows="False"
+                                                     RowDetailsTemplate="{DynamicResource RowDetailDataTemplateOrderInvoice}"
+                                                     cpcBehavior:DoubleClickCommandBehavior.CanDoubleClickOnChild="False"
+                                                     cpcBehavior:DoubleClickCommandBehavior.DoubleClickCommand="{Binding DoubleClickViewCommand}"
+                                                     cpcBehavior:DoubleClickCommandBehavior.DoubleClickCommandParameter="{Binding SelectedItem, ElementName=dtgrdSearch}"
+                                                     IsPaging="False"
+                                                     IsReadOnly="True"
+                                                     IsRollBackData="False"
+                                                     ItemsSource="{Binding SaleOrderCollection}"
+                                                     SelectionMode="Extended"
+                                                     VisibilityNavigationBar="Collapsed"
+                                                     SelectedItem="{Binding SelectedSaleOrder}"
+                                                     Style="{DynamicResource DatagridWithRowHeader}"
+                                                     d:LayoutOverrides="GridBox"
+                                                     RowStyle="{DynamicResource myDataGridRowPrivateStyle}">
+                            <cpcDataGrid:DataGridControl.Columns>
+                                <DataGridTextColumn Width="85"
+                                                    Binding="{Binding SONumber, Mode=OneWay}"
+                                                    IsReadOnly="True">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource SO_TextBlock_SaleOrderNum}" />
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="75"
+                                                    Binding="{Binding OrderDate, Mode=OneWay, StringFormat={x:Static local:Define.DateFormat}}"
+                                                    ElementStyle="{StaticResource CenterTextColumn}"
+                                                    IsReadOnly="True"
+                                                    SortMemberPath="OrderDate">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource C148}" />
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTextColumn Width="85"
+                                                    Binding="{Binding DueDate, StringFormat={x:Static local:Define.DateFormat}}"
+                                                    ElementStyle="{StaticResource CenterTextColumn}"
+                                                    IsReadOnly="True">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource TBL_DueDate}" />
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Width="90"
+                                                        IsReadOnly="True">
+                                    <DataGridTemplateColumn.Header>
+                                        <TextBlock Text="{DynamicResource SO_TextBlock_SaleOrderNum}" />
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding DueDay,Converter={StaticResource boolToToolTipConverter}}"></TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Width="150"
+                                                    Binding="{Binding GuestModel.LegalName, Mode=OneWay}"
+                                                    IsReadOnly="True">
+                                    <DataGridTextColumn.Header>
+                                        <TextBlock Text="{DynamicResource SO_TextBlock_Customer}" />
+                                    </DataGridTextColumn.Header>
+                                </DataGridTextColumn>
+                                <DataGridTemplateColumn Width="*"
+                                                        IsReadOnly="True">
+                                    <DataGridTemplateColumn.Header>
+                                        <TextBlock Text="{DynamicResource C103}" />
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Right"
+                                                       Text="{Binding Total, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="*"
+                                                        IsReadOnly="True">
+                                    <DataGridTemplateColumn.Header>
+                                        <TextBlock Text="{DynamicResource C107}" />
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Right"
+                                                       Text="{Binding Paid, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Width="*"
+                                                        IsReadOnly="True">
+                                    <DataGridTemplateColumn.Header>
+                                        <TextBlock Text="{DynamicResource C108}" />
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock HorizontalAlignment="Right"
+                                                       Text="{Binding Balance, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </cpcDataGrid:DataGridControl.Columns>
+                        </cpcDataGrid:DataGridControl>
+                        <Grid x:Name="grdDatagridBottom"
+                              Height="25"
+                              VerticalAlignment="Bottom"
+                              d:LayoutOverrides="VerticalAlignment"
+                              Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[0].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[1].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[2].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[3].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[4].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[5].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[6].ActualWidth}" />
+                                <ColumnDefinition Width="{Binding ElementName=dtgrdSearch, Path=Columns[7].ActualWidth}" />
+                             </Grid.ColumnDefinitions>
+                            <Border x:Name="brdPOHistoryBackground"
+                                    Grid.ColumnSpan="9"
+                                    Background="{DynamicResource DatagridBottomBackground}"
+                                    BorderBrush="{DynamicResource DatagridBottomBorder}"
+                                    BorderThickness="1,0,1,1"
+                                    d:LayoutOverrides="GridBox" />
+                            <TextBlock x:Name="txtblBindingTotal"
+                                       Grid.Column="6"
+                                       Margin="0,0,3,0"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockDatagridBottomTotal}"
+                                       Text="{Binding Total, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}"
+                                       TextWrapping="NoWrap" />
+                            <TextBlock x:Name="txtblBindingPaid"
+                                       Grid.Column="7"
+                                       Margin="0,0,3,0"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockDatagridBottomTotal}"
+                                       Text="{Binding Paid, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}"
+                                       TextWrapping="NoWrap" />
+                            <TextBlock x:Name="txtblBindingBalance"
+                                       Grid.Column="8"
+                                       Margin="0,0,3,0"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Style="{DynamicResource TextBlockDatagridBottomTotal}"
+                                       Text="{Binding Balance, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}"
+                                       TextWrapping="NoWrap" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </wpfToolkit:BusyIndicator>
+</UserControl>
