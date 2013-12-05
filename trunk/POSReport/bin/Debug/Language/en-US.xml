@@ -1250,6 +1250,14 @@
       <value>9</value>
       <name>Close</name>
     </item>
+    <item>
+      <value>10</value>
+      <name>In Process</name>
+    </item>
+    <item>
+      <value>11</value>
+      <name>Void</name>
+    </item>
   </combo>
   <combo key="PurchaseStatus">
     <item>

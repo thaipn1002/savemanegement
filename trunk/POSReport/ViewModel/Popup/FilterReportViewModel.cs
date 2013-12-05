@@ -1001,7 +1001,7 @@ namespace CPC.POSReport.ViewModel
                 // CountryModel 
                 MainViewModel.countryValue = (CountryModel != null) ? CountryModel.Value : -1;
                 // Set from date
-                MainViewModel.fromDate = (FromDate != null) ? "'" + Common.ToShortDateString(FromDate.Value) + "'": "''";
+                MainViewModel.fromDate = (FromDate != null) ? "'" + Common.ToShortDateString(FromDate.Value) + "'" : "''";
                 // Set to date
                 MainViewModel.toDate = (ToDate != null) ? "'" + Common.ToShortDateString(ToDate.Value) + "'" : "''";
                 // Set ship from date
@@ -1476,6 +1476,27 @@ namespace CPC.POSReport.ViewModel
                         GetAllCustomer();
                         break;
                     case Common.RPT_CUSTOMER_PAYMENT_DETAILS:
+                        IsShowCustomer11 = "Visible";
+                        IsShowOrderDate = "Visible";
+                        IsShowShipDate = "Visible";
+                        LblFromDate = "Invoice from";
+                        LblToDate = "To";
+                        LblShipFromDate = "Paid from";
+                        LblShipToDate = "To";
+                        IsShowSOStatus11 = "Visible";
+                        GetAllCustomer();
+                        break;
+                    case Common.RPT_DEPT_SUMMARY:
+                        IsShowCustomer11 = "Visible";
+                        IsShowOrderDate = "Visible";
+                        IsShowShipDate = "Visible";
+                        LblFromDate = "Order from";
+                        LblToDate = "Order to";
+                        LblShipFromDate = "Payment from";
+                        LblShipToDate = "To";
+                        GetAllCustomer();
+                        break;
+                    case Common.RPT_DEPT_DETAILS:
                         IsShowCustomer11 = "Visible";
                         IsShowOrderDate = "Visible";
                         IsShowShipDate = "Visible";

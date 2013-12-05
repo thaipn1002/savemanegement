@@ -25,6 +25,7 @@ using CPC.POSReport.CrystalReport.Report.Purchasing;
 using Xceed.Wpf.Toolkit;
 using CrystalDecisions.Shared;
 using CPC.POSReport.View.PopupForm.Report.ADOPDF;
+using Npgsql;
 
 namespace CPC.POSReport.ViewModel
 {
@@ -632,10 +633,10 @@ namespace CPC.POSReport.ViewModel
         public int categoryId = -1;
         public string customerResource =  "''";
         public string productResource =  "''";
-        public string fromDate = string.Empty;
-        public string toDate = string.Empty;
-        public string shipFrom = string.Empty;
-        public string shipTo = string.Empty;
+        public string fromDate;
+        public string toDate;
+        public string shipFrom;
+        public string shipTo;
         public int adjustmentStatus = -1;
         public int adjustmentReason = -1;
         public int saleOrderStatus = -1;
@@ -674,7 +675,9 @@ namespace CPC.POSReport.ViewModel
         rptSaleProfitSummary saleProfitSummaryReport;
         rptSaleOrderOperational saleOrderOperationReport;
         rptCustomerPaymentSummary customerPaymentSummaryReport;
-        rptCustomerPaymentDetails customerPaymentDetailsReport;
+        rptDeptSummary deptSummaryReport;
+        rptDeptDetails deptDetailsReport;
+        rptCustomerPaymentDetails customerPaymentDetailsReport;        
         rptProductCustomer productCustomerReport;
         rptCustomerOrderHistory customerOrderHistoryReport;
         rptSaleRepresentative saleRepresentativeReport;
@@ -1948,6 +1951,12 @@ namespace CPC.POSReport.ViewModel
                         GetCustomerPaymentDetails();
                         isLandscape = true;
                         break;
+                    case Common.RPT_DEPT_SUMMARY:
+                        GetDeptSummary();
+                        break;
+                    case Common.RPT_DEPT_DETAILS:
+                        GetDeptDetails();
+                        break;
                     case Common.RPT_PRODUCT_CUSTOMER:
                         GetProductCustomer();
                         break;                        
@@ -2000,12 +2009,16 @@ namespace CPC.POSReport.ViewModel
                     // Save changes
                     reportRepo.Commit();
                     ReportModel.ToModel();
-                    ReportModel.EndUpdate();
-                    
+                    ReportModel.EndUpdate();                    
                 }         
             }
             catch (Exception ex)
             {
+                if (ReportModel != null)
+                {
+                    ReportModel.EndUpdate();
+                }
+                viewReportWindow.btnClose.IsEnabled = true;
                 if ((int)ex.TargetSite.MethodHandle.Value != 2065652676)
                 {
                     MessageBox.Show(ex.ToString(), "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
@@ -3135,7 +3148,104 @@ namespace CPC.POSReport.ViewModel
             }
             ReportSource = customerPaymentSummaryReport;
         }
+
         /// <summary>
+        /// Get Customer Payment Summary
+        /// </summary>
+        private void GetDeptSummary()
+        {
+            report.Tables[Common.DT_CUSTOMER_PAYMENT_SUMMARY].Clear();
+            if (!ShowCustomerPaymentOptional())
+            {
+                return;
+            }
+            param = string.Format("{0},{1},{2},{3},{4},{5}", currentStoreCode, customerResource, fromDate, toDate, shipFrom, shipTo);            
+            //string commandText = "sp_sale_get_dept_summary";
+            //NpgsqlCommand command = new NpgsqlCommand(commandText);
+            //command.CommandType = CommandType.StoredProcedure;
+            //command.Parameters.Add(new NpgsqlParameter("store_code", DbType.Int32)).Value = currentStoreCode;
+            //command.Parameters.Add(new NpgsqlParameter("customer_resource", DbType.String)).Value = customerResource;
+            //command.Parameters.Add(new NpgsqlParameter("order_from", DbType.Date)).IsNullable = true;
+            //command.Parameters.Add(new NpgsqlParameter("order_to", DbType.Date)).IsNullable = true;
+            //command.Parameters.Add(new NpgsqlParameter("ship_from", DbType.Date)).IsNullable = true;
+            //command.Parameters.Add(new NpgsqlParameter("ship_to", DbType.Date)).IsNullable = true;
+            //if (fromDate != null)
+            //{
+            //    command.Parameters[2].Value = fromDate.Value.Date;
+            //}
+            //else
+            //{
+            //    command.Parameters[2].Value = DBNull.Value;
+            //}
+            //if (toDate != null)
+            //{
+            //    command.Parameters[3].Value = toDate.Value.Date;
+            //}
+            //else
+            //{
+            //    command.Parameters[3].Value = DBNull.Value;
+            //}
+            //if (shipFrom != null)
+            //{
+            //    command.Parameters[4].Value = shipFrom.Value.Date;
+            //}
+            //else
+            //{
+            //    command.Parameters[4].Value = DBNull.Value;
+            //}
+            //if (shipTo != null)
+            //{
+            //    command.Parameters[5].Value = shipTo.Value.Date;
+            //}
+            //else
+            //{
+            //    command.Parameters[5].Value = DBNull.Value;
+            //}
+
+            
+            
+            // GEt all Sale Order
+            da = dbHelp.ExecuteQuery("sp_sale_get_dept_summary", param);
+            int count = da.Rows.Count;
+            // Add data to dataset
+            for (int i = 0; i < count; i++)
+            {
+                string lastOrder = Common.ToShortDateString(da.Rows[i][5]);
+                string lastPayment = Common.ToShortDateString(da.Rows[i][6]);
+                report.Tables[Common.DT_CUSTOMER_PAYMENT_SUMMARY].Rows.Add(
+                    da.Rows[i][0], GetStoreName(int.Parse(da.Rows[i][1].ToString())), da.Rows[i][2],
+                    da.Rows[i][3], da.Rows[i][4], lastOrder, lastPayment
+                    );
+            }
+            // Clear data in table
+            da.Clear();
+            // Set data source
+            deptSummaryReport = new rptDeptSummary();
+            deptSummaryReport.Subreports[0].SetDataSource(report.Tables[Common.DT_HEADER]);
+            deptSummaryReport.SetDataSource(report.Tables[Common.DT_CUSTOMER_PAYMENT_SUMMARY]);
+            deptSummaryReport.DataDefinition.FormulaFields[Common.RPT_CURRENCY_SYMBOL].Text = "'" + Common.CURRENT_SYMBOL + "'";
+            if (currentStoreCode != -1)
+            {
+                // Suppress Store name
+                deptSummaryReport.Section2.ReportObjects["Line4"].ObjectFormat.EnableSuppress = true;
+                deptSummaryReport.Section2.ReportObjects["Text2"].ObjectFormat.EnableSuppress = true;
+                deptSummaryReport.Section3.ReportObjects["StoreName1"].ObjectFormat.EnableSuppress = true;
+                // Resize Item Customer name 
+                deptSummaryReport.Section2.ReportObjects["Text1"].Width = 3690;
+                deptSummaryReport.Section2.ReportObjects["Customer1"].Width = 3690;
+                deptSummaryReport.DataDefinition.FormulaFields["StoreName"].Text = "'" + slectedStoreName + "'";
+            }
+            else
+            {
+                deptSummaryReport.Section2.ReportObjects["Text16"].ObjectFormat.EnableSuppress = true;
+            }
+            if (count == 0)
+            {
+                deptSummaryReport.Section4.ReportObjects["Text9"].ObjectFormat.EnableSuppress = true;
+            }
+            ReportSource = deptSummaryReport;
+        }
+        /// <summary> 
         /// Get Customer Payment Details
         /// </summary>
         private void GetCustomerPaymentDetails()
@@ -3194,6 +3304,67 @@ namespace CPC.POSReport.ViewModel
             }
             ReportSource = customerPaymentDetailsReport;
         }
+
+        /// <summary> 
+        /// Get Customer Payment Details
+        /// </summary>
+        private void GetDeptDetails()
+        {
+            report.Tables[Common.DT_CUSTOMER_PAYMENT_DETAILS].Clear();
+            if (!ShowReportOptional())
+            {
+                return;
+            }
+            param = string.Format("{0},{1},{2},{3},{4},{5},{6}", currentStoreCode, customerResource, saleOrderStatus, fromDate, toDate, shipFrom, shipTo);
+            // Get all dept details
+            da = dbHelp.ExecuteQuery("sp_sale_get_dept_details", param);
+            int count = da.Rows.Count;
+            // Add data to data set
+            for (int i = 0; i < count; i++)
+            {
+                // Format date create
+                string invoiceDate = Common.ToShortDateString(da.Rows[i][4]);
+                // Format date paid
+                string invoicePaid = Common.ToShortDateString(da.Rows[i][6]);
+                string status = xmlHelper.GetName(int.Parse(da.Rows[i][2].ToString()), "SalesOrdersStatus");
+                report.Tables[Common.DT_CUSTOMER_PAYMENT_DETAILS].Rows.Add(
+                    da.Rows[i][0], da.Rows[i][1], status, GetStoreName(int.Parse(da.Rows[i][3].ToString())),
+                     invoiceDate, da.Rows[i][5], invoicePaid, da.Rows[i][7], da.Rows[i][8], da.Rows[i][9]
+                    );
+            }
+            // Clear data in table 
+            da.Clear();
+            // Set data source
+            deptDetailsReport = new rptDeptDetails();
+            deptDetailsReport.Subreports[0].SetDataSource(report.Tables[Common.DT_HEADER]);
+            deptDetailsReport.SetDataSource(report.Tables[Common.DT_CUSTOMER_PAYMENT_DETAILS]);
+            deptDetailsReport.DataDefinition.FormulaFields[Common.RPT_CURRENCY_SYMBOL].Text = "'" + Common.CURRENT_SYMBOL + "'";
+            if (currentStoreCode != -1)
+            {
+                // Suppress control
+                deptDetailsReport.DataDefinition.FormulaFields["StoreName"].Text = "'" + slectedStoreName + "'";
+                deptDetailsReport.Section3.ReportObjects["Text5"].ObjectFormat.EnableSuppress = true;
+                deptDetailsReport.Section3.ReportObjects["StoreName1"].ObjectFormat.EnableSuppress = true;
+                deptDetailsReport.Section3.ReportObjects["Line6"].ObjectFormat.EnableSuppress = true;
+                deptDetailsReport.Section3.ReportObjects["Line16"].ObjectFormat.EnableSuppress = true;
+
+                // Resise item Status name
+                deptDetailsReport.Section3.ReportObjects["Text4"].Width = 4835;
+                deptDetailsReport.Section3.ReportObjects["Status1"].Width = 4835;
+            }
+            else
+            {
+                deptDetailsReport.Section2.ReportObjects["Text16"].ObjectFormat.EnableSuppress = true;
+            }
+            if (count == 0)
+            {
+                deptDetailsReport.Section3.SectionFormat.EnableSuppress = true;
+                deptDetailsReport.Section4.ReportObjects["Text1"].ObjectFormat.EnableSuppress = true;
+                deptDetailsReport.Section4.ReportObjects["Line3"].ObjectFormat.EnableSuppress = true;
+            }
+            ReportSource = deptDetailsReport;
+        }
+
         /// <summary>
         /// Get Product Customer
         /// </summary>
@@ -4182,7 +4353,7 @@ namespace CPC.POSReport.ViewModel
             StoreModelCollection = new ObservableCollection<base_StoreModel>(
                 storeRepo.GetAll()
                 .Select(s => new base_StoreModel(s))
-                .OrderBy(o => o.Code)
+                .OrderBy(o=> o.Id)
                 );
         }
         #endregion
@@ -4525,6 +4696,7 @@ namespace CPC.POSReport.ViewModel
         {
             if (Common.IS_ADMIN)
             {
+                Common.SHOW_PRINT_BUTTON = true;
                 return true;
             }
             if (Common.PRINT_REPORT && Common.PREVIEW_REPORT)
