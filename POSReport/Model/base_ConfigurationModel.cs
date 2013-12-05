@@ -2406,8 +2406,6 @@ namespace CPC.POSReport.Model
                         break;
                     case "IsAllowNegativeStore":
                         break;
-                    case "AcceptedGiftCardMethod":
-                        break;
                     case "IsRewardOnTax":
                         break;
                     case "IsRewardOnMultiPayment":
@@ -2429,6 +2427,66 @@ namespace CPC.POSReport.Model
                     case "KeepBackUp":
                         break;
                     case "CostMethod":
+                        break;
+                    case "GenDate":
+                        break;
+                    case "RegNo":
+                        break;
+                    case "MD5Lic":
+                        break;
+                    case "StoreFolder":
+                        break;
+                    case "SynSchedule":
+                        break;
+                    case "StoreCode":
+                        break;
+                    case "IsLive":
+                        break;
+                    case "POSId":
+                        break;
+                    case "ExpireDate":
+                        break;
+                    case "IsRewardOnDiscount":
+                        break;
+                    case "IsCalRewardAfterRedeem":
+                        break;
+                    case "IsRewardOnRetailer":
+                        break;
+                    case "ReceiptMessage":
+                        break;
+                    case "NegativeNumber":
+                        break;
+                    case "TextNumberAlign":
+                        break;
+                    case "IsAUPPG":
+                        break;
+                    case "IsStateCode":
+                        break;
+                    case "IsManualGenerate":
+                        break;
+                    case "IsAllowFirstCap":
+                        break;
+                    case "DataSource":
+                        break;
+                    case "IsSendEmailCustomer":
+                        break;
+                    case "IsAllowAntiExemptionTax":
+                        break;
+                    case "IsManualPriceCalculation":
+                        break;
+                    case "IsAllowPayMultiReward":
+                        break;
+                    case "IsSumCashReward":
+                        break;
+                    case "IsAllwayCommision":
+                        break;
+                    case "ReminderDay":
+                        break;
+                    case "WeekHour":
+                        break;
+                    case "RefundVoucherThresHold":
+                        break;
+                    case "SysDate":
                         break;
                 }
 

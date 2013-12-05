@@ -67,6 +67,8 @@ namespace CPC.POSReport.Function
         public const string RPT_SALE_ORDER_OPERATION = "rptSaleOrderOperational";
         public const string RPT_CUSTOMER_PAYMENT_SUMMARY = "rptCustomerPaymentSummary";
         public const string RPT_CUSTOMER_PAYMENT_DETAILS = "rptCustomerPaymentDetails";
+        public const string RPT_DEPT_SUMMARY = "rptDeptSummary";
+        public const string RPT_DEPT_DETAILS = "rptDeptDetails";
         public const string RPT_PRODUCT_CUSTOMER = "rptProductCustomer";
         public const string RPT_CUSTOMER_ORDER_HISTORY = "rptCustomerOrderHistory";
         public const string RPT_SALE_REPRESENTATIVE = "rptSaleRepresentative";
@@ -224,11 +226,11 @@ namespace CPC.POSReport.Function
                         // Add receiver
                         mailMessage.To.Add(mail);
                         mailMessage.Body = body.Replace("{UserName}", mail);
-                        if (sent % 5 == 0)
-                        {
-                            System.Threading.Thread.Sleep(2000);
-                        }
-                        smtpClient.Send(mailMessage);
+                        //if (sent  % 5 == 0)
+                        //{
+                        //    System.Threading.Thread.Sleep(2000);
+                        //}
+                        //smtpClient.Send(mailMessage);
                         mailMessage.To.Clear();
                         sent++;
                     }

@@ -84,6 +84,38 @@ namespace CPC.POSReport.Function
             }
             return dt;
         }
+
+        /// <summary>
+        /// Execute command
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        public DataTable ExecuteQuery(NpgsqlCommand command)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                objConn = new NpgsqlConnection(connString);
+                objConn.Open();
+                command.Connection = objConn;
+                da = new NpgsqlDataAdapter(command);
+                da.Fill(dt);
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                if (objConn != null)
+                {
+                    objConn.Close();
+                }
+            }
+
+            return dt;
+        }
       
 		// Open connecition
         private void OpenConnection()

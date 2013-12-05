@@ -277,39 +277,43 @@ namespace CPC.POSReport.Function
                
         public string GetName(int key, string type)
         {
-            string name = string.Empty;
+            ComboItem cboItem = new ComboItem();
             switch (type)
             {
                 case "TransferStockStatus":
-                    name = TransferStockStatus.Single(x => x.Value == key).Text;
+                    cboItem = TransferStockStatus.Single(x => x.Value == key);
                     break;
                 case "SalesOrdersStatus":
-                    name = SalesOrdersStatus.Single(x => x.Value == key).Text;
+                    cboItem = SalesOrdersStatus.Single(x => x.Value == key);
                     break;
                 case "AdjustmentStatus":
-                    name = AdjustmentStatus.Single(x => x.Value == key).Text;
+                    cboItem = AdjustmentStatus.Single(x => x.Value == key);
                     break;
                 case "AdjustmentReason":
-                    name = AdjustmentReason.Single(x => x.Value == key).Text;
+                    cboItem = AdjustmentReason.Single(x => x.Value == key);
                     break;
                 case "PurchaseStatus":
-                    name = PurchaseStatus.Single(x => x.Value == key).Text;
+                    cboItem = PurchaseStatus.Single(x => x.Value == key);
                     break;
 
                 case "Country":
-                    name = Country.Single(x => x.Value == key).Text;
+                    cboItem = Country.Single(x => x.Value == key);
                     break;
                 case "State":
-                    name = State.Single(x => x.Value == key).Text;
+                    cboItem = State.Single(x => x.Value == key);
                     break;
                 case "PaymentMethods":
-                    name = PaymentMethods.Single(x => x.Value == key).Text;
+                    cboItem = PaymentMethods.Single(x => x.Value == key);
                     break;
                 case "StatusBasic":
-                    name = StatusBasic.Single(x => x.Value == key).Text;
+                    cboItem = StatusBasic.Single(x => x.Value == key);
                     break;
             }
-            return name;
+            if (cboItem != null)
+            {
+                return cboItem.Text;
+            }
+            return string.Empty;
         }
 
         #region GetElements
