@@ -2057,6 +2057,36 @@
                                                            TextWrapping="NoWrap"
                                                            HorizontalAlignment="Left"
                                                            d:LayoutOverrides="GridBox" />
+                                                <TextBlock x:Name="txtblCommission_Copy"
+                                                	Margin="180,0,0,0"
+                                                	HorizontalAlignment="Left"
+                                                	VerticalAlignment="Center"
+                                                	Style="{DynamicResource TextBlockNormal}"
+                                                	Text="Huê hồng"
+                                                	TextWrapping="NoWrap"
+                                                	Grid.Column="1" d:LayoutOverrides="GridBox" Grid.Row="7" />
+                                                <textBoxControl:TextBoxNumeric x:Name="txtCommission_Copy"
+                                                	Grid.Column="1"
+                                                	Width="75"
+                                                	Margin="241,2,0,2"
+                                                	ConverterCulture="{x:Static local:Define.ConverterCulture}"
+                                                	IsUsingSeparator="True"
+                                                	NumericStringFormat="{x:Static local:Define.NumericFormat}"
+                                                	CurrencyDecimalDigits="2"
+                                                	IntegerLength="4"
+                                                	Padding="2,0,2,0"
+                                                	TextWrapping="NoWrap"
+                                                	Value="{Binding SelectedItemEmployee.CommissionPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                	HorizontalAlignment="Left" Grid.Row="7" />
+                                                <TextBlock x:Name="txtblPercent1_Copy"
+                                                	Grid.Column="1"
+                                                	Margin="321.8,0,0,0"
+                                                	VerticalAlignment="Center"
+                                                	Style="{DynamicResource TextBlockNormal}"
+                                                	Text="%"
+                                                	TextWrapping="NoWrap"
+                                                	HorizontalAlignment="Left"
+	d:LayoutOverrides="GridBox" Grid.Row="7" />
                                             </Grid>
                                         </GroupBox>
                                     </Grid>

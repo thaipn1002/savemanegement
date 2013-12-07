@@ -47,7 +47,16 @@
         <converter:EnumToBooleanConverter x:Key="enumToBooleanConverter" />
         <converter:RibbonImageConverter x:Key="ribbonImageConverter" />
         <!--endregion Converter-->
-        <!--  ComboBoxItemStyle  -->
+        <!--  ComboBoxItemStyle r:RibbonTab -->
+		<Style x:Key="myRibbonTabStyle"
+               TargetType="{x:Type r:RibbonTab}">
+			<Style.Triggers>
+				<Trigger Property="Selector.IsSelected" Value="True">
+					<Setter Property="Foreground" Value="Black"/>
+				</Trigger>
+			</Style.Triggers>
+			<Setter Property="Template" Value="{DynamicResource myRibbonTabControlTemplate}"/>
+		</Style>
         <Style x:Key="ComboBoxItemStyle"
                TargetType="{x:Type ComboBoxItem}">
             <Setter Property="Background"
@@ -3050,6 +3059,235 @@
             <Setter Property="HorizontalContentAlignment"
                     Value="Center" />
         </Style>
+        <ControlTemplate x:Key="myRibbonTabControlTemplate" TargetType="{x:Type r:RibbonTab}">
+        	<Grid x:Name="MainGrid" ClipToBounds="True">
+        		<Grid.Visibility>
+        			<TemplateBinding Property="IsSelected">
+        				<TemplateBinding.Converter>
+        					<BooleanToVisibilityConverter/>
+        				</TemplateBinding.Converter>
+        			</TemplateBinding>
+        		</Grid.Visibility>
+        		<Line x:Name="OuterLeftLine" Stroke="{Binding ContextualTabGroup.Background, RelativeSource={RelativeSource TemplatedParent}}" StrokeThickness="2" X1="0" X2="{Binding TabHeaderLeft, RelativeSource={RelativeSource TemplatedParent}}" Y1="0" Y2="0"/>
+        		<Line x:Name="OuterRightLine" Stroke="{Binding ContextualTabGroup.Background, RelativeSource={RelativeSource TemplatedParent}}" StrokeThickness="2" X1="{Binding TabHeaderRight, RelativeSource={RelativeSource TemplatedParent}}" X2="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}" Y1="0" Y2="0"/>
+        		<ScrollViewer x:Name="ScrollViewer">
+        			<ScrollViewer.Style>
+        				<Style TargetType="{x:Type ScrollViewer}">
+        					<Setter Property="Focusable" Value="False"/>
+        					<Setter Property="VerticalScrollBarVisibility" Value="Disabled"/>
+        					<Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        					<Setter Property="CanContentScroll" Value="True"/>
+        					<Setter Property="Template">
+        						<Setter.Value>
+        							<ControlTemplate TargetType="{x:Type ScrollViewer}">
+        								<Grid x:Name="Grid" Background="{TemplateBinding Background}">
+        									<Grid.ColumnDefinitions>
+        										<ColumnDefinition Width="Auto"/>
+        										<ColumnDefinition Width="*"/>
+        										<ColumnDefinition Width="Auto"/>
+        									</Grid.ColumnDefinitions>
+        									<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" Grid.ColumnSpan="3" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"/>
+        									<RepeatButton Grid.Column="0" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="ScrollBar.LineLeftCommand" Focusable="False" HorizontalContentAlignment="Left">
+        										<RepeatButton.Style>
+        											<Style TargetType="{x:Type RepeatButton}">
+        												<Setter Property="OverridesDefaultStyle" Value="True"/>
+        												<Setter Property="Focusable" Value="False"/>
+        												<Setter Property="Width" Value="14"/>
+        												<Setter Property="Background" Value="{Binding (r:RibbonControlService.Ribbon).Background, RelativeSource={RelativeSource Self}}"/>
+        												<Setter Property="BorderBrush" Value="{Binding (r:RibbonControlService.Ribbon).BorderBrush, RelativeSource={RelativeSource Self}}"/>
+        												<Setter Property="Template">
+        													<Setter.Value>
+        														<ControlTemplate TargetType="{x:Type RepeatButton}">
+        															<Border x:Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}" CornerRadius="3,0,0,3">
+        																<Border x:Name="InnerBorder" Background="#80FFFFFF" CornerRadius="3,0,0,3">
+        																	<Path x:Name="GlyphPath" Data="M4,0L0,3.5 4,7" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        																</Border>
+        															</Border>
+        															<ControlTemplate.Triggers>
+        																<Trigger Property="HorizontalContentAlignment" Value="Right">
+        																	<Setter Property="Data" TargetName="GlyphPath" Value="M0,0L4,3.5 0,7"/>
+        																	<Setter Property="CornerRadius" TargetName="OuterBorder" Value="0,3,3,0"/>
+        																	<Setter Property="CornerRadius" TargetName="InnerBorder" Value="0,3,3,0"/>
+        																</Trigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="False"/>
+        																		<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="{Binding (r:RibbonControlService.Ribbon).MouseOverBackground, RelativeSource={RelativeSource Self}}"/>
+        																</MultiDataTrigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="False"/>
+        																		<Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="{Binding (r:RibbonControlService.Ribbon).PressedBackground, RelativeSource={RelativeSource Self}}"/>
+        																</MultiDataTrigger>
+        																<DataTrigger Binding="{Binding HighContrast}" Value="True">
+        																	<Setter Property="CornerRadius" TargetName="OuterBorder" Value="0"/>
+        																	<Setter Property="BorderBrush" TargetName="OuterBorder" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+        																	<Setter Property="Background" TargetName="OuterBorder" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        																	<Setter Property="CornerRadius" TargetName="InnerBorder" Value="0"/>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="Transparent"/>
+        																	<Setter Property="Fill" TargetName="GlyphPath" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        																</DataTrigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="True"/>
+        																		<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        																</MultiDataTrigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="True"/>
+        																		<Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="BorderBrush" TargetName="OuterBorder" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+        																</MultiDataTrigger>
+        															</ControlTemplate.Triggers>
+        														</ControlTemplate>
+        													</Setter.Value>
+        												</Setter>
+        											</Style>
+        										</RepeatButton.Style>
+        										<RepeatButton.Visibility>
+        											<MultiBinding ConverterParameter="0" FallbackValue="Visibility.Collapsed" UpdateSourceTrigger="Default">
+        												<MultiBinding.Converter>
+        													<Microsoft_Windows_Controls_Ribbon_Primitives:RibbonScrollButtonVisibilityConverter/>
+        												</MultiBinding.Converter>
+        												<Binding Path="ComputedHorizontalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}"/>
+        												<Binding Path="HorizontalOffset" RelativeSource="{RelativeSource TemplatedParent}"/>
+        												<Binding Path="ExtentWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+        												<Binding Path="ViewportWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+        											</MultiBinding>
+        										</RepeatButton.Visibility>
+        									</RepeatButton>
+        									<RepeatButton Grid.Column="2" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="ScrollBar.LineRightCommand" Focusable="False" HorizontalContentAlignment="Right">
+        										<RepeatButton.Style>
+        											<Style TargetType="{x:Type RepeatButton}">
+        												<Setter Property="OverridesDefaultStyle" Value="True"/>
+        												<Setter Property="Focusable" Value="False"/>
+        												<Setter Property="Width" Value="14"/>
+        												<Setter Property="Background" Value="{Binding (r:RibbonControlService.Ribbon).Background, RelativeSource={RelativeSource Self}}"/>
+        												<Setter Property="BorderBrush" Value="{Binding (r:RibbonControlService.Ribbon).BorderBrush, RelativeSource={RelativeSource Self}}"/>
+        												<Setter Property="Template">
+        													<Setter.Value>
+        														<ControlTemplate TargetType="{x:Type RepeatButton}">
+        															<Border x:Name="OuterBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}" CornerRadius="3,0,0,3">
+        																<Border x:Name="InnerBorder" Background="#80FFFFFF" CornerRadius="3,0,0,3">
+        																	<Path x:Name="GlyphPath" Data="M4,0L0,3.5 4,7" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        																</Border>
+        															</Border>
+        															<ControlTemplate.Triggers>
+        																<Trigger Property="HorizontalContentAlignment" Value="Right">
+        																	<Setter Property="Data" TargetName="GlyphPath" Value="M0,0L4,3.5 0,7"/>
+        																	<Setter Property="CornerRadius" TargetName="OuterBorder" Value="0,3,3,0"/>
+        																	<Setter Property="CornerRadius" TargetName="InnerBorder" Value="0,3,3,0"/>
+        																</Trigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="False"/>
+        																		<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="{Binding (r:RibbonControlService.Ribbon).MouseOverBackground, RelativeSource={RelativeSource Self}}"/>
+        																</MultiDataTrigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="False"/>
+        																		<Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="{Binding (r:RibbonControlService.Ribbon).PressedBackground, RelativeSource={RelativeSource Self}}"/>
+        																</MultiDataTrigger>
+        																<DataTrigger Binding="{Binding HighContrast}" Value="True">
+        																	<Setter Property="CornerRadius" TargetName="OuterBorder" Value="0"/>
+        																	<Setter Property="BorderBrush" TargetName="OuterBorder" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+        																	<Setter Property="Background" TargetName="OuterBorder" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        																	<Setter Property="CornerRadius" TargetName="InnerBorder" Value="0"/>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="Transparent"/>
+        																	<Setter Property="Fill" TargetName="GlyphPath" Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"/>
+        																</DataTrigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="True"/>
+        																		<Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="Background" TargetName="InnerBorder" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        																</MultiDataTrigger>
+        																<MultiDataTrigger>
+        																	<MultiDataTrigger.Conditions>
+        																		<Condition Binding="{Binding HighContrast}" Value="True"/>
+        																		<Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}" Value="True"/>
+        																	</MultiDataTrigger.Conditions>
+        																	<Setter Property="BorderBrush" TargetName="OuterBorder" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+        																</MultiDataTrigger>
+        															</ControlTemplate.Triggers>
+        														</ControlTemplate>
+        													</Setter.Value>
+        												</Setter>
+        											</Style>
+        										</RepeatButton.Style>
+        										<RepeatButton.Visibility>
+        											<MultiBinding ConverterParameter="100" FallbackValue="Visibility.Collapsed" UpdateSourceTrigger="Default">
+        												<MultiBinding.Converter>
+        													<Microsoft_Windows_Controls_Ribbon_Primitives:RibbonScrollButtonVisibilityConverter/>
+        												</MultiBinding.Converter>
+        												<Binding Path="ComputedHorizontalScrollBarVisibility" RelativeSource="{RelativeSource TemplatedParent}"/>
+        												<Binding Path="HorizontalOffset" RelativeSource="{RelativeSource TemplatedParent}"/>
+        												<Binding Path="ExtentWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+        												<Binding Path="ViewportWidth" RelativeSource="{RelativeSource TemplatedParent}"/>
+        											</MultiBinding>
+        										</RepeatButton.Visibility>
+        									</RepeatButton>
+        								</Grid>
+        							</ControlTemplate>
+        						</Setter.Value>
+        					</Setter>
+        				</Style>
+        			</ScrollViewer.Style>
+        			<Grid RenderOptions.ClearTypeHint="Enabled">
+        				<Canvas x:Name="BackgroundCanvas" HorizontalAlignment="Left" Height="0" Margin="0,1,0,0" VerticalAlignment="Top" Width="0">
+        					<Rectangle x:Name="OpaqueRect" Fill="{Binding (r:RibbonControlService.Ribbon).Background, RelativeSource={RelativeSource Self}}" Height="{Binding ActualHeight, ElementName=ScrollViewer}" Width="{Binding ActualWidth, ElementName=ScrollViewer}"/>
+        					<Rectangle x:Name="OverlayRect" Height="{Binding ActualHeight, ElementName=ScrollViewer}" Width="{Binding ActualWidth, ElementName=ScrollViewer}">
+        						<Rectangle.Fill>
+        							<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        								<GradientStop Color="#EEFFFFFF" Offset="0"/>
+        								<GradientStop Color="#BBFFFFFF" Offset="0.1"/>
+        								<GradientStop Color="#05FFFFFF" Offset="0.5"/>
+        								<GradientStop Color="#20FFFFFF" Offset="1"/>
+        							</LinearGradientBrush>
+        						</Rectangle.Fill>
+        					</Rectangle>
+        					<Rectangle x:Name="InnerOverlayRect" Fill="#60FFFFFF" Height="{Binding ActualHeight, ElementName=ScrollViewer}" Width="{Binding ActualWidth, ElementName=ScrollViewer}"/>
+        				</Canvas>
+        				<ItemsPresenter x:Name="ItemsPresenter"/>
+        			</Grid>
+        		</ScrollViewer>
+        	</Grid>
+        	<ControlTemplate.Triggers>
+        		<Trigger Property="CanContentScroll" SourceName="ScrollViewer" Value="False">
+        			<Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=ScrollViewer}"/>
+        			<Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=ScrollViewer}"/>
+        			<Setter Property="Canvas.Top" TargetName="OverlayRect" Value="{Binding VerticalOffset, ElementName=ScrollViewer}"/>
+        			<Setter Property="Canvas.Left" TargetName="OverlayRect" Value="{Binding HorizontalOffset, ElementName=ScrollViewer}"/>
+        			<Setter Property="Canvas.Top" TargetName="InnerOverlayRect" Value="{Binding VerticalOffset, ElementName=ScrollViewer}"/>
+        			<Setter Property="Canvas.Left" TargetName="InnerOverlayRect" Value="{Binding HorizontalOffset, ElementName=ScrollViewer}"/>
+        		</Trigger>
+        		<MultiDataTrigger>
+        			<MultiDataTrigger.Conditions>
+        				<Condition Binding="{Binding HighContrast}" Value="False"/>
+        				<Condition Binding="{Binding ContextualTabGroup, RelativeSource={RelativeSource Self}}" Value="{x:Null}"/>
+        			</MultiDataTrigger.Conditions>
+        			<Setter Property="Stroke" TargetName="OuterLeftLine" Value="{Binding Ribbon.BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type r:RibbonTab}}}"/>
+        			<Setter Property="Stroke" TargetName="OuterRightLine" Value="{Binding Ribbon.BorderBrush, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type r:RibbonTab}}}"/>
+        		</MultiDataTrigger>
+        		<DataTrigger Binding="{Binding HighContrast}" Value="True">
+        			<Setter Property="Visibility" TargetName="BackgroundCanvas" Value="Collapsed"/>
+        			<Setter Property="Stroke" TargetName="OuterLeftLine" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+        			<Setter Property="Stroke" TargetName="OuterRightLine" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+        		</DataTrigger>
+        	</ControlTemplate.Triggers>
+        </ControlTemplate>
     </r:RibbonWindow.Resources>
     <r:RibbonWindow.InputBindings>
         <KeyBinding Command="{Binding LockScreenCommand}"
@@ -3122,7 +3360,7 @@
                     </DataTemplate>
                 </r:Ribbon.TitleTemplate>
                 <r:RibbonTab Header="{DynamicResource Ribbon_GroupEmpoyee}"
-                             Visibility="{Binding ., ConverterParameter=EM100, Converter={StaticResource permissionGroupConverter}}">
+                             Visibility="{Binding ., ConverterParameter=EM100, Converter={StaticResource permissionGroupConverter}}" Style="{DynamicResource myRibbonTabStyle}">
                     <r:RibbonGroup Header="{DynamicResource Ribbon_GroupEmpoyee}"
                                    BorderThickness="1"
                                    Visibility="{Binding ., ConverterParameter=EM100, Converter={StaticResource permissionGroupConverter}}">
@@ -3148,6 +3386,7 @@
                 <r:RibbonTab Header="{DynamicResource Ribbon_GroupSales}"
                              BorderBrush="Black"
                              BorderThickness="1"
+							 Style="{DynamicResource myRibbonTabStyle}"
                              Visibility="{Binding AllowAccessSaleModule, Mode=OneWay, Converter={StaticResource boolToVisibilityConverter}}">
                     <r:RibbonGroup Header="{DynamicResource Ribbon_GroupCustomer}"
                                    BorderThickness="1">
@@ -3201,6 +3440,7 @@
                 <r:RibbonTab Header="{DynamicResource Ribbon_GroupPurchase}"
                              BorderBrush="Black"
                              BorderThickness="1"
+							 Style="{DynamicResource myRibbonTabStyle}"
                              Visibility="{Binding AllowAccessPurchaseModule, Mode=OneWay, Converter={StaticResource boolToVisibilityConverter}}">
                     <r:RibbonGroup Header="{DynamicResource Ribbon_GroupVendor}"
                                    BorderThickness="1">
@@ -3248,6 +3488,7 @@
                 <r:RibbonTab Header="{DynamicResource Ribbon_GroupInventory}"
                              BorderBrush="Black"
                              BorderThickness="1"
+							 Style="{DynamicResource myRibbonTabStyle}"
                              Visibility="{Binding AllowAccessInventoryModule, Mode=OneWay, Converter={StaticResource boolToVisibilityConverter}}">
                     <r:RibbonGroup Header="{DynamicResource Ribbon_GroupProduct}"
                                    BorderThickness="1">
@@ -3336,6 +3577,7 @@
                 </r:RibbonTab>
                 <r:RibbonTab Header="{DynamicResource Ribbon_GroupSystem}"
                              BorderBrush="Black"
+							 Style="{DynamicResource myRibbonTabStyle}"
                              BorderThickness="1">
                     <r:RibbonGroup Header="Thông tin"
                                    IsEnabled="{Binding AllowChangeConfiguration, Mode=OneWay}"
@@ -3790,8 +4032,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgCustomer"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource Customer}" />
                                                     <TextBlock x:Name="txtblCustomer"
                                                                Margin="0,5,0,0"
@@ -3826,8 +4068,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgMakeOrder"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource SO}" />
                                                     <TextBlock x:Name="txtblMakeOrder"
                                                                Margin="0,5,0,0"
@@ -3849,8 +4091,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgSOReturn"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource SOReturnRibbon}" />
                                                     <TextBlock x:Name="txtblSOReturn"
                                                                Margin="0,5,0,0"
@@ -3897,8 +4139,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgCustomerList"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource CustomerList}" />
                                                     <TextBlock x:Name="txtblCustomerList"
                                                                Margin="0,5,0,0"
@@ -3948,8 +4190,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgSOList"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource SOList}" />
                                                     <TextBlock x:Name="txtblSOList"
                                                                Margin="0,5,0,0"
@@ -3972,8 +4214,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgLockOrder"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource SOLock}" />
                                                     <TextBlock x:Name="txtblLockedOrder"
                                                                Margin="0,5,0,0"
@@ -4038,8 +4280,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgVendor"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="49"
                                                                Fill="{DynamicResource Vendor}" />
                                                     <TextBlock x:Name="txtblVendor"
                                                                Margin="0,5,0,0"
@@ -4068,8 +4310,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgPurchaseOrder"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource PO}" />
                                                     <TextBlock x:Name="txtblPurchaseOrder"
                                                                Margin="0,5,0,0"
@@ -4098,8 +4340,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgPOReturn"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource POReturnRibbon}" />
                                                     <TextBlock x:Name="txtblPOReturn"
                                                                Margin="0,5,0,0"
@@ -4147,8 +4389,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgVendorList"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource VendorList}" />
                                                     <TextBlock x:Name="txtblVendorList"
                                                                Margin="0,5,0,0"
@@ -4197,8 +4439,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgPurchaseOrderList"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource POList}" />
                                                     <TextBlock x:Name="txtblPurchaseOrderList"
                                                                Margin="0,5,0,0"
@@ -4220,8 +4462,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgLockOrder1"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource POLock}" />
                                                     <TextBlock x:Name="txtblLockOrder1"
                                                                Margin="0,5,0,0"
@@ -4289,8 +4531,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgProduct"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource Product}" />
                                                     <TextBlock x:Name="txtblProduct"
                                                                Margin="0,5,0,0"
@@ -4318,8 +4560,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgCountStock"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource CountStock}" />
                                                     <TextBlock x:Name="txtblCountStock"
                                                                Margin="0,5,0,0"
@@ -4347,8 +4589,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgCurrentStock"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource CurrentStock}" />
                                                     <TextBlock x:Name="txtblCurrentStock"
                                                                Margin="0,5,0,0"
@@ -4369,8 +4611,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgCostAdjustment"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource CostAdjustment}" />
                                                     <TextBlock x:Name="txtblCostAdjustment"
                                                                Margin="0,5,0,0"
@@ -4418,8 +4660,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgProductList1"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource ProductList}" />
                                                     <TextBlock x:Name="txtblProductList1"
                                                                Margin="0,5,0,0"
@@ -4469,8 +4711,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgCountStockList"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource CountStockList}" />
                                                     <TextBlock x:Name="txtblCountStockList"
                                                                Margin="0,5,0,0"
@@ -4520,8 +4762,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgTransferStock"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource TransferStock}" />
                                                     <TextBlock x:Name="txtblTransferStock"
                                                                Margin="0,5,0,0"
@@ -4543,8 +4785,8 @@
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
                                                     <Rectangle x:Name="imgQtyAdjustment"
-                                                               Width="30"
-                                                               Height="30"
+                                                               Width="50"
+                                                               Height="50"
                                                                Fill="{DynamicResource QuantityAdjustment}" />
                                                     <TextBlock x:Name="txtblQtyAdjustment"
                                                                Margin="0,5,0,0"
