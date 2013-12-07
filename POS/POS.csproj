@@ -1061,6 +1061,9 @@
     <Compile Include="View\Common\AddNewStateView.xaml.cs">
       <DependentUpon>AddNewStateView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\SalesOrder\SOPaymentDetailView.xaml.cs">
+      <DependentUpon>SOPaymentDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Common\CustomerReminderView.xaml.cs">
       <DependentUpon>CustomerReminderView.xaml</DependentUpon>
     </Compile>
@@ -1719,6 +1722,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Common\AddNewStateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SalesOrder\SOPaymentDetailView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -2488,6 +2495,9 @@
   <ItemGroup>
     <Resource Include="Image\Autoship.png" />
     <Resource Include="Image\Delivery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SalesIncrease.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

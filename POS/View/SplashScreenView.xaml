@@ -21,10 +21,10 @@
 						<ColumnDefinition Width="Auto"/>
 						<ColumnDefinition/>
 					</Grid.ColumnDefinitions>
-					<Border Height="60" Width="60" d:LayoutOverrides="Margin" BorderThickness="0.5" BorderBrush="#FFACAFB3">
+					<Border Height="100" Width="100" d:LayoutOverrides="Margin" BorderThickness="0.5" BorderBrush="#FFACAFB3">
 						<Image Source="/POS;component/Image/Logo/Sytem.png" Margin="2"/>
 					</Border>
-					<TextBlock x:Name="tblSystem" TextWrapping="Wrap" Text="Sales Mamagement System" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="1" Margin="10,-24,0,0" FontSize="16" Foreground="#FF0073FF" FontWeight="Bold"/>
+					<TextBlock x:Name="tblSystem" TextWrapping="Wrap" Text="Chương trình quản lý bán hàng SMS" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="1" Margin="10,-24,0,0" FontSize="16" Foreground="#FF0073FF" FontWeight="Bold"/>
 					<TextBlock x:Name="tblLoading" HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontWeight="Bold"

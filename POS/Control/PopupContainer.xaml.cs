@@ -146,8 +146,8 @@ namespace CPC.Control
         protected override void OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs e)
         {
             // Conflict with ImageViewer Control.
-            //if (CanDragAll)
-            //    this.DragMove();
+            if (CanDragAll)
+                this.DragMove();
         }
 
         protected override void OnClosed(EventArgs e)

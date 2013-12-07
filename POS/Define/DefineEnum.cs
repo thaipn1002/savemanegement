@@ -743,11 +743,11 @@ namespace CPC.POS
     {
         [Description("Tiền mặt")]
         Cash = 1,
-        [Description("Phát hàng thu tiền (COD)")]
+        [Description("COD")]
         COD = 2,
         [Description("Thẻ thanh toán / ATM")]
         DebitATMCard = 4
-        //[Description("Credit Card")]
+        //[Description("Credit Card")] Phát hàng thu tiền (COD)
         //CreditCard = 8,
         //[Description("Deposit")]
         //Deposit = 16,
