@@ -3159,51 +3159,7 @@ namespace CPC.POSReport.ViewModel
             {
                 return;
             }
-            param = string.Format("{0},{1},{2},{3},{4},{5}", currentStoreCode, customerResource, fromDate, toDate, shipFrom, shipTo);            
-            //string commandText = "sp_sale_get_dept_summary";
-            //NpgsqlCommand command = new NpgsqlCommand(commandText);
-            //command.CommandType = CommandType.StoredProcedure;
-            //command.Parameters.Add(new NpgsqlParameter("store_code", DbType.Int32)).Value = currentStoreCode;
-            //command.Parameters.Add(new NpgsqlParameter("customer_resource", DbType.String)).Value = customerResource;
-            //command.Parameters.Add(new NpgsqlParameter("order_from", DbType.Date)).IsNullable = true;
-            //command.Parameters.Add(new NpgsqlParameter("order_to", DbType.Date)).IsNullable = true;
-            //command.Parameters.Add(new NpgsqlParameter("ship_from", DbType.Date)).IsNullable = true;
-            //command.Parameters.Add(new NpgsqlParameter("ship_to", DbType.Date)).IsNullable = true;
-            //if (fromDate != null)
-            //{
-            //    command.Parameters[2].Value = fromDate.Value.Date;
-            //}
-            //else
-            //{
-            //    command.Parameters[2].Value = DBNull.Value;
-            //}
-            //if (toDate != null)
-            //{
-            //    command.Parameters[3].Value = toDate.Value.Date;
-            //}
-            //else
-            //{
-            //    command.Parameters[3].Value = DBNull.Value;
-            //}
-            //if (shipFrom != null)
-            //{
-            //    command.Parameters[4].Value = shipFrom.Value.Date;
-            //}
-            //else
-            //{
-            //    command.Parameters[4].Value = DBNull.Value;
-            //}
-            //if (shipTo != null)
-            //{
-            //    command.Parameters[5].Value = shipTo.Value.Date;
-            //}
-            //else
-            //{
-            //    command.Parameters[5].Value = DBNull.Value;
-            //}
-
-            
-            
+            param = string.Format("{0},{1},{2},{3},{4},{5}", currentStoreCode, customerResource, fromDate, toDate, shipFrom, shipTo);                        
             // GEt all Sale Order
             da = dbHelp.ExecuteQuery("sp_sale_get_dept_summary", param);
             int count = da.Rows.Count;
@@ -3214,7 +3170,7 @@ namespace CPC.POSReport.ViewModel
                 string lastPayment = Common.ToShortDateString(da.Rows[i][6]);
                 report.Tables[Common.DT_CUSTOMER_PAYMENT_SUMMARY].Rows.Add(
                     da.Rows[i][0], GetStoreName(int.Parse(da.Rows[i][1].ToString())), da.Rows[i][2],
-                    da.Rows[i][3], da.Rows[i][4], lastOrder, lastPayment
+                    da.Rows[i][3], da.Rows[i][4], lastOrder, lastPayment, da.Rows[i][7]
                     );
             }
             // Clear data in table
@@ -3231,8 +3187,8 @@ namespace CPC.POSReport.ViewModel
                 deptSummaryReport.Section2.ReportObjects["Text2"].ObjectFormat.EnableSuppress = true;
                 deptSummaryReport.Section3.ReportObjects["StoreName1"].ObjectFormat.EnableSuppress = true;
                 // Resize Item Customer name 
-                deptSummaryReport.Section2.ReportObjects["Text1"].Width = 3690;
-                deptSummaryReport.Section2.ReportObjects["Customer1"].Width = 3690;
+                deptSummaryReport.Section2.ReportObjects["Text1"].Width = 3020;
+                deptSummaryReport.Section2.ReportObjects["Customer1"].Width = 3020;
                 deptSummaryReport.DataDefinition.FormulaFields["StoreName"].Text = "'" + slectedStoreName + "'";
             }
             else

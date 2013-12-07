@@ -264,6 +264,7 @@
               <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:double" minOccurs="0" />
               <xs:element name="Last_x0020_Order" msprop:Generator_ColumnVarNameInTable="columnLast_Order" msprop:Generator_ColumnPropNameInRow="Last_Order" msprop:Generator_ColumnPropNameInTable="Last_OrderColumn" msprop:Generator_UserColumnName="Last Order" type="xs:string" minOccurs="0" />
               <xs:element name="Last_x0020_Payment" msprop:Generator_ColumnVarNameInTable="columnLast_Payment" msprop:Generator_ColumnPropNameInRow="Last_Payment" msprop:Generator_ColumnPropNameInTable="Last_PaymentColumn" msprop:Generator_UserColumnName="Last Payment" type="xs:string" minOccurs="0" />
+              <xs:element name="SO_x0020_Number" msprop:Generator_ColumnVarNameInTable="columnSO_Number" msprop:Generator_ColumnPropNameInRow="SO_Number" msprop:Generator_ColumnPropNameInTable="SO_NumberColumn" msprop:Generator_UserColumnName="SO Number" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
