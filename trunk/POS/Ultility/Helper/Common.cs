@@ -1504,24 +1504,6 @@ namespace CPC.Helper
                         comboItem.Tab = item.Element("tab") != null ? Convert.ToInt32(item.Element("tab").Value) : 0;
                         comboItem.Islocked = item.Element("islocked") != null ? bool.Parse(item.Element("islocked").Value) : false;
                         comboItem.HasState = item.Element("hasstate") != null ? bool.Parse(item.Element("hasstate").Value) : false;
-                        //if (isLanguageComboItem)
-                        //{
-                        //    switch (comboItem.Value)
-                        //    {
-                        //        case 1:
-                        //            comboItem.Image = Application.Current.FindResource("VietNamFlag") as Brush;
-                        //            break;
-
-                        //        case 2:
-                        //            comboItem.Image = Application.Current.FindResource("EnglishFlag") as Brush;
-                        //            break;
-
-                        //        case 3:
-                        //            comboItem.Image = Application.Current.FindResource("ChinaFlag") as Brush;
-                        //            break;
-                        //    }
-                        //}
-
                         if ((!isAll && comboItem.Value > 0) || isAll || item.Element("value") == null)
                             comboItems.Add(comboItem);
                     }

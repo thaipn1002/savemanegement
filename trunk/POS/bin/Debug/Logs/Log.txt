@@ -1439,3 +1439,41 @@ Code: 22003
 
 [Begin Session - {CPCVN\Hunter Pham}]
 [End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[ERROR] 12-08-2013 12:10:14.276 - [9] OnStartupSystem.NullReferenceException: Object reference not set to an instance of an object.
+   at CPC.Helper.Common.ChangeLanguage(CultureInfo cultureInfo) in E:\Thai\Work\SVN\POS\Ultility\Helper\Common.cs:line 1659
+   at CPC.POS.App.OnStartup(StartupEventArgs e) in E:\Thai\Work\SVN\POS\app.xaml.cs:line 400 [App]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]
+
+[Begin Session - {Tra-PC\Tra}]
+[End Session-{timestamp}]

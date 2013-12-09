@@ -29,6 +29,9 @@ using CPC.Toolkit.Layout;
 using Npgsql;
 using SecurityLib;
 using MessageBoxControl;
+using System.Runtime.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CPC.POS.ViewModel
 {
@@ -1271,6 +1274,68 @@ namespace CPC.POS.ViewModel
 
         }
 
+        private object ObjectData(string filename)
+        {
+            try
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
+                Object obj = (Object)formatter.Deserialize(stream);
+                stream.Close();
+                return obj;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        private void ExportData(object content, string tableName)
+        {
+            string fileName = @"E:\Thai\Work\07-12\ExportData\tbl.osb";
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, content);
+            stream.Close();
+        }
+        private bool CheckConnectionDB()
+        {
+            bool result = false;
+
+            //POSEntities objectContext = new POSEntities(ConfigurationManager.ConnectionStrings["POSTEST"].ConnectionString);
+
+            try
+            {
+                // Check connection
+                //objectContext.Connection.Open();
+                //var query = objectContext.base_UserRight.ToList();
+                //objectContext.Connection.Dispose();
+                //ExportData(query,string.Empty);
+                //POSEntities objectContext1 = new POSEntities(ConfigurationManager.ConnectionStrings["POSDBEntities"].ConnectionString);
+                //objectContext1.Connection.Open();
+                //foreach (var item in query)
+                //    objectContext1.AddTobase_UserRight(item);
+                //objectContext1.SaveChanges();+		data	Count = 128	object {System.Collections.Generic.List<CPC.POS.Database.base_UserRight>}
+                object data = this.ObjectData(@"E:\Thai\Work\07-12\ExportData\tbl.osb");
+                POSEntities objectContext1 = new POSEntities(ConfigurationManager.ConnectionStrings["POSDBEntities"].ConnectionString);
+                objectContext1.Connection.Open();
+                foreach (var item in (data as System.Collections.Generic.List<CPC.POS.Database.base_UserRight>))
+                    objectContext1.AddTobase_UserRight(item);
+                objectContext1.SaveChanges();
+            }
+            catch
+            {
+                result = false;
+            }
+            finally
+            {
+                // Enforce close connnection
+                //if (objectContext.Connection.State.Equals(ConnectionState.Open))
+                //    objectContext.Connection.Close();
+            }
+
+            return result;
+        }
+
         #endregion
 
         #endregion
@@ -1563,8 +1628,9 @@ namespace CPC.POS.ViewModel
                     break;
 
                 case "ExportData":
-                    _dialogService.ShowDialog<ExportDataView>(this, new SyncDataViewModel(), null);
-                    showPopup = true;
+                    CheckConnectionDB();
+                    //_dialogService.ShowDialog<ExportDataView>(this, new SyncDataViewModel(), null);
+                    //showPopup = true;
                     break;
                 #endregion
             }

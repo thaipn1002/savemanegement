@@ -86,8 +86,6 @@
                           Cursor="Hand">
                         <Rectangle x:Name="bg"
                                    Fill="{DynamicResource ButtonNormalBackground}"
-                                   RadiusX="3"
-                                   RadiusY="3"
                                    Stroke="{DynamicResource ButtonNormalBorder}"
                                    StrokeThickness="1" />
                         <!--
@@ -488,22 +486,16 @@
                         <Rectangle x:Name="bg"
                                    Fill="#B2FFFFFF"
                                    Opacity="1"
-                                   RadiusX="3"
-                                   RadiusY="3"
                                    Stroke="#B2FFFFFF"
                                    StrokeThickness="1" />
                         <Rectangle x:Name="Light"
                                    Margin="1,1,1,9"
                                    Opacity="0"
-                                   RadiusX="3"
-                                   RadiusY="3"
                                    StrokeThickness="1"
                                    Visibility="Visible" />
                         <Rectangle x:Name="Focused"
                                    Margin="1"
                                    Opacity="0"
-                                   RadiusX="3"
-                                   RadiusY="3"
                                    StrokeDashArray="2"
                                    StrokeThickness="1" />
                         <ContentPresenter x:Name="contentPresenter"
