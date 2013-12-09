@@ -1332,7 +1332,7 @@
                                           HorizontalAlignment="Left"
                                           VerticalAlignment="Top">
                             <Grid x:Name="grdSalesOrderInformation"
-                                  Width="747"
+                                  Width="867"
                                   Height="80"
                                   IsEnabled="{Binding IsAllowChangeOrder,
                                                       Mode=OneWay}">
@@ -1344,12 +1344,11 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="76"/>
 			 				<ColumnDefinition Width="174"/>
-			 				<ColumnDefinition Width="0.744*"/>
-			 				<ColumnDefinition Width="85"/>
+			 				<ColumnDefinition Width="0.556*"/>
 			 				<ColumnDefinition Width="174"/>
-			 				<ColumnDefinition Width="0.256*"/>
-			 				<ColumnDefinition Width="73"/>
-			 				<ColumnDefinition Width="120"/>
+			 				<ColumnDefinition Width="0.444*"/>
+			 				<ColumnDefinition Width="94"/>
+			 				<ColumnDefinition Width="176"/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock x:Name="txtblCustomer"
                                            Margin="10,0,0,0"
@@ -1403,15 +1402,15 @@
                                                Fill="{DynamicResource Find}" />
                                 </Button>
                                 <TextBlock x:Name="txtblBookingChanal"
-                                           Grid.Column="3"
-                                           Margin="0"
+                                           Grid.Column="2"
+                                           Margin="5,0,0,0"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Style="{DynamicResource TextBlockNormal}"
                                            Text="{DynamicResource SO_TextBlock_BookingChannel}"
                                            TextWrapping="NoWrap" />
                                 <ComboBox x:Name="cmbTransType"
-                                          Grid.Column="4"
+                                          Grid.Column="3"
                                           Margin="0,2"
                                           VerticalAlignment="Stretch"
                                           DisplayMemberPath="Text"
@@ -1421,23 +1420,23 @@
                                                                   UpdateSourceTrigger=PropertyChanged}"
                                           SelectedValuePath="ObjValue" />
                                 <TextBlock x:Name="txtblSONo"
-                                           Grid.Column="6"
-                                           Margin="0"
+                                           Grid.Column="4"
+                                           Margin="3.8,0,0,0"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Style="{DynamicResource TextBlockNormal}"
                                            Text="{DynamicResource SO_TextBlock_SONum}"
                                            TextWrapping="NoWrap" />
                                 <TextBlock x:Name="txtblBindingSONo"
-                                                    Grid.Column="7"
-                                                    HorizontalAlignment="Left"
+                                                    Grid.Column="5"
+                                                    HorizontalAlignment="Right"
                                                     VerticalAlignment="Center"
                                                   	Style="{DynamicResource TextBlockBasic}"
                                                     Text="{Binding SelectedSaleOrder.SONumber,
                                                                    Mode=TwoWay,
                                                                    UpdateSourceTrigger=PropertyChanged,NotifyOnValidationError=True,
                                                                   ValidatesOnDataErrors=True}"
-                                                    TextWrapping="NoWrap" />
+                                                    TextWrapping="NoWrap" d:LayoutOverrides="GridBox" Margin="0,0,5,0" />
                                 <TextBlock x:Name="txtblBillAddress"
                                            Grid.Row="1"
                                            Margin="10,0,0,0"
@@ -1479,8 +1478,8 @@
 
                                 <TextBlock x:Name="txtblShipAddress"
                                            Grid.Row="1"
-                                           Grid.Column="3"
-                                           Margin="0"
+                                           Grid.Column="2"
+                                           Margin="5,0,0,0"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Style="{DynamicResource TextBlockNormal}"
@@ -1489,7 +1488,7 @@
                                 <TextBox x:Name="txtShipAddress"
                                          Grid.Row="1"
                                          Grid.RowSpan="2"
-                                         Grid.Column="4"
+                                         Grid.Column="3"
                                          Margin="0,2"
                                          HorizontalContentAlignment="Left"
                                          VerticalContentAlignment="Top"
@@ -1516,7 +1515,6 @@
                                     </i:Interaction.Triggers>
                                 </TextBox>
                                 <TextBlock x:Name="txtblSODate"
-                                           Grid.Row="1"
                                            Grid.Column="6"
                                            Margin="0"
                                            HorizontalAlignment="Left"
@@ -1525,27 +1523,26 @@
                                            Text="{DynamicResource SO_TextBlock_SODate}"
                                            TextWrapping="NoWrap" />
                                 <DatePicker x:Name="dtpOrderDate"
-                                            Grid.Row="1"
-                                            Grid.Column="7"
-                                            Width="90"
+                                            Grid.Column="6"
+                                            Width="95"
                                             Margin="0,2"
-                                            HorizontalAlignment="Left"
+                                            HorizontalAlignment="Right"
                                             Background="White"
                                             SelectedDate="{Binding SelectedSaleOrder.OrderDate,
                                                                    Mode=TwoWay,
                                                                    UpdateSourceTrigger=PropertyChanged}" />
                                 <TextBlock x:Name="txtblStatus"
-                                           Grid.Row="2"
-                                           Grid.Column="6"
-                                           Margin="0"
+                                           Grid.Row="1"
+                                           Grid.Column="4"
+                                           Margin="3.8,0,0,0"
                                            HorizontalAlignment="Left"
                                            VerticalAlignment="Center"
                                            Style="{DynamicResource TextBlockNormal}"
                                            Text="{DynamicResource C151}"
                                            TextWrapping="NoWrap" />
                                 <ComboBox x:Name="cmbStatus"
-                                          Grid.Row="2"
-                                          Grid.Column="7"
+                                          Grid.Row="1"
+                                          Grid.Column="5"
                                           Width="90"
                                           Margin="0,2"
                                           HorizontalAlignment="Left"
@@ -1558,6 +1555,16 @@
                                                                   Mode=TwoWay,
                                                                   UpdateSourceTrigger=PropertyChanged}"
                                           SelectedValuePath="ObjValue" />
+                                <DatePicker x:Name="dtpOrderDate_Copy"
+                                	Background="White"
+                                	SelectedDate="{Binding SelectedSaleOrder.DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Right" Margin="0,2" Width="95" />
+                                <TextBlock x:Name="txtblStatus_Copy"
+                                	Grid.Row="1"
+                                	HorizontalAlignment="Left"
+                                	VerticalAlignment="Center"
+                                	Style="{DynamicResource TextBlockNormal}"
+                                	Text="{DynamicResource TBL_DueDate}"
+                                	TextWrapping="NoWrap" Grid.Column="6" />
                           
                             </Grid>
                         </AdornerDecorator>
@@ -1814,7 +1821,7 @@
                                                         </DataGridTemplateColumn.Header>
                                                         <DataGridTemplateColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <TextBlock HorizontalAlignment="Right" Text="{Binding Qty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, ConverterCulture={x:Static local:Define.ConverterCulture}, StringFormat={x:Static local:Define.NumericFormat}}" />
+                                                                <TextBlock Foreground="Black" HorizontalAlignment="Right" Text="{Binding Qty, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, ConverterCulture={x:Static local:Define.ConverterCulture}, StringFormat={x:Static local:Define.NumericFormat}}" />
                                                             </DataTemplate>
                                                         </DataGridTemplateColumn.CellTemplate>
                                                         <DataGridTemplateColumn.CellEditingTemplate>
@@ -1846,7 +1853,7 @@
                                                         </DataGridTemplateColumn.Header>
                                                         <DataGridTemplateColumn.CellTemplate>
                                                             <DataTemplate>
-                                                                <TextBlock HorizontalAlignment="Right" Text="{Binding SalePriceChange, Mode=OneWay, ConverterCulture={x:Static local:Define.ConverterCulture}, StringFormat={x:Static local:Define.CurrencyFormat}}" />
+                                                                <TextBlock Foreground="Black" HorizontalAlignment="Right" Text="{Binding SalePriceChange, Mode=OneWay, ConverterCulture={x:Static local:Define.ConverterCulture}, StringFormat={x:Static local:Define.CurrencyFormat}}" />
                                                             </DataTemplate>
                                                         </DataGridTemplateColumn.CellTemplate>
                                                         <DataGridTemplateColumn.CellEditingTemplate>
@@ -1942,8 +1949,8 @@
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="220" />
                                                     <ColumnDefinition />
-                                                    <ColumnDefinition Width="54" />
-                                                    <ColumnDefinition Width="101" />
+                                                    <ColumnDefinition Width="52" />
+                                                    <ColumnDefinition Width="123" />
                                                     <ColumnDefinition Width="76" />
                                                     <ColumnDefinition Width="156" />
                                                 </Grid.ColumnDefinitions>
@@ -2259,44 +2266,38 @@
                                                         </Style>
                                                     </TextBlock.Style>
                                                 </TextBlock>
-                                                <cpcTextBox:TextBoxNumeric x:Name="txtOrderDiscount"
-                                                                           Grid.RowSpan="1"
-                                                                           Grid.Column="3"
-                                                                           Width="35"
-                                                                           Height="21"
-                                                                           Margin="0,2"
-                                                                           HorizontalAlignment="Left"
-                                                                           ConverterCulture="{x:Static local:Define.ConverterCulture}"
-                                                                           NumericStringFormat="{}{0:N2}"
-                                                                           Padding="2,0,2,0"
-                                                                           TextWrapping="NoWrap"
-                                                                           Value="{Binding SelectedSaleOrder.DiscountPercent,
-                                                                                           Mode=TwoWay,
-                                                                                           UpdateSourceTrigger=PropertyChanged}">
-                                                    <cpcTextBox:TextBoxNumeric.Style>
-                                                        <Style BasedOn="{StaticResource {x:Type cpcTextBox:TextBoxNumeric}}" TargetType="{x:Type cpcTextBox:TextBoxNumeric}">
-                                                            <Setter Property="Grid.Row" Value="1" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="False">
-                                                                    <Setter Property="Grid.Row" Value="2" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="True">
-                                                                    <Setter Property="Grid.Row" Value="1" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </cpcTextBox:TextBoxNumeric.Style>
-                                                </cpcTextBox:TextBoxNumeric>
+                                                <Grid Grid.Column="3" Margin="0,2,60,2">
+                                                	<Grid.Style>
+                                                			<Style TargetType="{x:Type Grid}">
+                                                				<Setter Property="Grid.Row" Value="1" />
+                                                				<Style.Triggers>
+                                                					<DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="False">
+                                                						<Setter Property="Grid.Row" Value="2" />
+                                                					</DataTrigger>
+                                                					<DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="True">
+                                                						<Setter Property="Grid.Row" Value="1" />
+                                                					</DataTrigger>
+                                                				</Style.Triggers>
+                                                			</Style>
+                                                		</Grid.Style>
+                                                	<cpcTextBox:TextBoxNumeric x:Name="txtOrderDiscount"
+                                                		Margin="0,0,12.003,0"
+                                                		ConverterCulture="{x:Static local:Define.ConverterCulture}"
+                                                		NumericStringFormat="{}{0:N2}"
+                                                		Padding="2,0,2,0"
+                                                		TextWrapping="NoWrap"
+                                                		Value="{Binding SelectedSaleOrder.DiscountPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0">
+                                                	</cpcTextBox:TextBoxNumeric>
                                                 <!--  {x:Static local:Define.DecimalFormat}  -->
-                                                <TextBlock x:Name="txtblOrderDiscountPercent"
-                                                           Grid.Row="1"
-                                                           Grid.Column="3"
-                                                           Margin="40,0,0,0"
-                                                           HorizontalAlignment="Left"
-                                                           VerticalAlignment="Center"
-                                                           Style="{DynamicResource TextBlockNormal}"
-                                                           Text="%"
-                                                           TextWrapping="NoWrap" />
+                                                	<TextBlock x:Name="txtblOrderDiscountPercent"
+                                                		Margin="53,0,0,0"
+                                                		HorizontalAlignment="Left"
+                                                		VerticalAlignment="Center"
+                                                		Style="{DynamicResource TextBlockNormal}"
+                                                		Text="%"
+                                                		TextWrapping="NoWrap" />
+                                                </Grid>
+                                                <!--  {x:Static local:Define.DecimalFormat}  -->
                                                 <TextBlock x:Name="txtblOrderTabDiscountAmount"
                                                            Grid.Column="4"
                                                            Margin="10,0,0,0"
@@ -2362,42 +2363,6 @@
                                                     </TextBlock.Style>
                                                 </TextBlock>
                                                 <!--  Style="{DynamicResource TextBlockNormal}"  -->
-                                                <cpcTextBox:TextBoxNumeric x:Name="txtOrderTabTaxPercent"
-                                                                           Grid.RowSpan="1"
-                                                                           Grid.Column="3"
-                                                                           Width="35"
-                                                                           Margin="0,2"
-                                                                           HorizontalAlignment="Left"
-                                                                           ConverterCulture="{x:Static local:Define.ConverterCulture}"
-                                                                           IsReadOnly="True"
-                                                                           NumericStringFormat="{}{0:N0}"
-                                                                           Padding="2,0,2,0"
-                                                                           TextWrapping="NoWrap"
-                                                                           Value="{Binding SelectedSaleOrder.TaxPercent,
-                                                                                           Mode=OneWay}">
-                                                    <cpcTextBox:TextBoxNumeric.Style>
-                                                        <Style BasedOn="{StaticResource {x:Type cpcTextBox:TextBoxNumeric}}" TargetType="{x:Type cpcTextBox:TextBoxNumeric}">
-                                                            <Setter Property="Grid.Row" Value="2" />
-                                                            <Style.Triggers>
-                                                                <DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="False">
-                                                                    <Setter Property="Grid.Row" Value="1" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="True">
-                                                                    <Setter Property="Grid.Row" Value="2" />
-                                                                </DataTrigger>
-                                                            </Style.Triggers>
-                                                        </Style>
-                                                    </cpcTextBox:TextBoxNumeric.Style>
-                                                </cpcTextBox:TextBoxNumeric>
-                                                <TextBlock x:Name="txtblOrderTabTaxPercent"
-                                                           Grid.Row="2"
-                                                           Grid.Column="3"
-                                                           Margin="40,0,0,0"
-                                                           HorizontalAlignment="Left"
-                                                           VerticalAlignment="Center"
-                                                           Style="{DynamicResource TextBlockNormal}"
-                                                           Text="%"
-                                                           TextWrapping="NoWrap" />
                                                 <TextBlock x:Name="txtblOrderTabTaxAmount"
                                                            Grid.Column="4"
                                                            Margin="10,0,0,0"
@@ -2476,16 +2441,16 @@
                                                            Fill="#FF4E81C6" />
                                                 <TextBlock x:Name="txtblOrderTotal"
                                                            Grid.Row="5"
-                                                           Grid.Column="3"
+                                                           Grid.Column="2"
                                                            HorizontalAlignment="Right"
                                                            Style="{DynamicResource TextBlockNormal}"
                                                            Text="{DynamicResource C103}"
-                                                           TextWrapping="NoWrap" Margin="0,13,13,13" d:LayoutOverrides="Height" />
+                                                           TextWrapping="NoWrap" Margin="0,13" d:LayoutOverrides="Height" />
                                                 <cpcTextBox:TextBoxMoney x:Name="txtOrderTotal"
                                                                          Grid.Row="6"
-                                                                         Grid.Column="4"
-                                                                         Grid.ColumnSpan="2"
-                                                                         Margin="0"
+                                                                         Grid.Column="3"
+                                                                         Grid.ColumnSpan="3"
+                                                                         Margin="20,0,0,0"
                                                                          HorizontalContentAlignment="Right"
                                                                          ConverterCulture="{x:Static local:Define.ConverterCulture}"
                                                                          CurrencyStringFormat="{x:Static local:Define.CurrencyFormat}"
@@ -2495,6 +2460,40 @@
                                                                          TextWrapping="NoWrap"
                                                                          Value="{Binding SelectedSaleOrder.Total,
                                                                                          Mode=OneWay}" Background="#FF4E81C8" Foreground="White" FontSize="21.333" FontWeight="Bold" />
+                                                <Grid Grid.Column="3" Margin="0,2">
+                                                	<Grid.Style>
+                                                		 <Style TargetType="{x:Type Grid}">
+                                                				<Setter Property="Grid.Row" Value="2" />
+                                                				<Style.Triggers>
+                                                					<DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="False">
+                                                						<Setter Property="Grid.Row" Value="1" />
+                                                					</DataTrigger>
+                                                					<DataTrigger Binding="{Binding SelectedSaleOrder.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount}" Value="True">
+                                                						<Setter Property="Grid.Row" Value="2" />
+                                                					</DataTrigger>
+                                                				</Style.Triggers>
+                                                			</Style>                                  	
+													</Grid.Style>
+<!--  Style="{DynamicResource TextBlockNormal}"  -->
+                                                	<cpcTextBox:TextBoxNumeric x:Name="txtOrderTabTaxPercent"
+                                                		Width="35"
+                                                		Margin="0,0,12,0"
+                                                		HorizontalAlignment="Right"
+                                                		ConverterCulture="{x:Static local:Define.ConverterCulture}"
+                                                		IsReadOnly="True"
+                                                		NumericStringFormat="{}{0:N0}"
+                                                		Padding="2,0,2,0"
+                                                		TextWrapping="NoWrap"
+                                                		Value="{Binding SelectedSaleOrder.TaxPercent, Mode=OneWay}" Grid.Row="0">
+                                                	</cpcTextBox:TextBoxNumeric>
+                                                	<TextBlock x:Name="txtblOrderTabTaxPercent"
+                                                		HorizontalAlignment="Right"
+                                                		VerticalAlignment="Center"
+                                                		Style="{DynamicResource TextBlockNormal}"
+                                                		Text="%"
+                                                		TextWrapping="NoWrap" />
+                                                	<CheckBox x:Name="ckbNoTax" Content="Miễn thuế" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" FontFamily="Tahoma"/>
+                                                </Grid>
                                             </Grid>
                                         </Grid>
                                     </AdornerDecorator>
@@ -2950,8 +2949,8 @@
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="110" />
                                                 <ColumnDefinition />
-                                                <ColumnDefinition Width="66" />
-                                                <ColumnDefinition Width="222" />
+                                                <ColumnDefinition Width="75" />
+                                                <ColumnDefinition Width="313" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="25" />
@@ -3485,18 +3484,6 @@
                                 </cpcOtherControl:CPCTabItemControl>
                             </cpcOtherControl:CPCTabControl>
                         </Grid>
-                        <DatePicker x:Name="dtpOrderDate_Copy"
-                        	HorizontalAlignment="Left"
-                        	Background="White"
-                        	SelectedDate="{Binding SelectedSaleOrder.DueDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Height="21" Margin="628,-1,0,0" VerticalAlignment="Top" Width="90" />
-                        <TextBlock x:Name="txtblStatus_Copy"
-                        	Grid.Row="2"
-                        	Margin="556,4,0,0"
-                        	HorizontalAlignment="Left"
-                        	VerticalAlignment="Top"
-                        	Style="{DynamicResource TextBlockNormal}"
-                        	Text="{DynamicResource TBL_DueDate}"
-                        	TextWrapping="NoWrap" d:LayoutOverrides="HorizontalAlignment" />
                     </Grid>
                 </Grid>
             </Grid>
