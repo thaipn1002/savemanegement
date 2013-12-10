@@ -30,7 +30,7 @@
                 WindowStartupLocation="CenterScreen"
                 WindowState="Maximized"
                 Icon="/System.ico"
-                Title="Sale Management System"
+                Title="Chương trình quản lý bán hàng SMS"
                 mc:Ignorable="d">
     <!--Icon="/System.ico"
     Title="Sale Management System"-->
@@ -3792,7 +3792,7 @@
                             </StackPanel>
                         </StatusBarItem>
                         <StatusBarItem Margin="2,3,0,2"
-                                       Style="{DynamicResource StatusBarItem}">
+                                       Style="{DynamicResource StatusBarItem}" Visibility="Collapsed">
                             <StackPanel Margin="3,0"
                                         Orientation="Horizontal">
                                 <Button x:Name="btnTaskReminder"
@@ -3816,7 +3816,7 @@
                             </StackPanel>
                         </StatusBarItem>
                         <StatusBarItem Margin="2,3,0,2"
-                                       Style="{DynamicResource StatusBarItem}">
+                                       Style="{DynamicResource StatusBarItem}" Visibility="Collapsed">
                             <StackPanel Margin="3,0"
                                         Orientation="Horizontal">
 
@@ -3888,7 +3888,7 @@
                                         Style="{DynamicResource myButtonDeptStyle}"
                                         VerticalContentAlignment="Center"
                                         Padding="0"
-                                        Margin="0,1,0,0">
+                                        Margin="0,1,0,0" BorderThickness="2,2,4,2">
                                     <StackPanel Margin="0"
                                                 Orientation="Horizontal"
                                                 d:LayoutOverrides="Height"

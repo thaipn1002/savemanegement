@@ -132,8 +132,7 @@
                    Fill="{DynamicResource UserControl_Background_Image}" />
         <control:BusyIndicator IsBusy="{Binding IsBusy}">
             <Grid x:Name="grdProduct">
-                <Grid x:Name="grdSearch"
-                      d:IsHidden="True">
+                <Grid x:Name="grdSearch">
                     <Grid.Visibility>
                         <Binding Path="IsSearchMode"
                                  Mode="OneWay"
@@ -429,7 +428,7 @@
                     </dataGridControl:DataGridControl>
                 </Grid>
                 <Grid x:Name="grdContentProduct1"
-                      Grid.Column="1">
+                      Grid.Column="1" d:IsHidden="True">
                     <Grid.Visibility>
                         <Binding Path="IsSearchMode"
                                  Mode="OneWay"

@@ -12,7 +12,7 @@
         Background="{x:Null}"
         xmlns:helper="clr-namespace:CPC.Helper"
         xmlns:cpcTextBoxControl="clr-namespace:CPCToolkitExt.TextBoxControl;assembly=CPCToolkitExt"
-        Title="Sale Management System" MinWidth="480" MinHeight="240">
+        Title="Chương trình quản lý bán hàng SMS" MinWidth="480" MinHeight="240" Icon="/POS;component/Image/Logo/Sytem.png">
     <Grid>
         <Rectangle x:Name="Shadow"
                    Fill="Black"
@@ -146,7 +146,7 @@
                                           SelectedValuePath="Value"
                                           ItemsSource="{Binding Shifts}"
                                           SelectedItem="{Binding ShiftItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                          Width="92.4" Height="24" HorizontalAlignment="Left" />
+                                          Width="92.4" Height="24" HorizontalAlignment="Left" IsReadOnly="True" IsEnabled="False" />
                             </Grid>
                             <TextBlock x:Name="txtblChangePassword"
                                        HorizontalAlignment="Left"
