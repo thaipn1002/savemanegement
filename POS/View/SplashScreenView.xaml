@@ -28,7 +28,7 @@
 					<TextBlock x:Name="tblLoading" HorizontalAlignment="Left"
 						VerticalAlignment="Bottom"
 						FontWeight="Bold"
-						Text="{Binding StatusMessage, Mode=OneWay}" Grid.Column="1" Foreground="#FF0F7AFE" FontSize="14.667" Margin="82,0,0,0" />
+						Text="{Binding StatusMessage, Mode=OneWay}" Grid.Column="1" Foreground="#FF0F7AFE" FontSize="14.667" Margin="82,0,0,15" />
 				</Grid>
 			</Grid>
 		</Border>

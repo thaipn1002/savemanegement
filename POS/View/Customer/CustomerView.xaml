@@ -1049,10 +1049,10 @@
                             <ColumnDefinition Width="70"/>
 			 				<ColumnDefinition Width="140"/>
 			 				<ColumnDefinition/>
-			 				<ColumnDefinition Width="112.000252"/>
-			 				<ColumnDefinition Width="72"/>
-			 				<ColumnDefinition Width="104"/>
-			 				<ColumnDefinition Width="161"/>
+			 				<ColumnDefinition Width="114"/>
+			 				<ColumnDefinition Width="66"/>
+			 				<ColumnDefinition Width="109"/>
+			 				<ColumnDefinition Width="184"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
@@ -1097,13 +1097,13 @@
                                    TextWrapping="NoWrap" />
                         <ComboBox x:Name="cmbEmployee"
                                   Grid.Column="3"
-                                  Margin="1.999,2,10,2"
+                                  Margin="1.999,2,0,2"
                                   DisplayMemberPath="LegalName"
                                   ItemsSource="{Binding EmployeeCollection}"
                                   SelectedValue="{Binding SelectedCustomer.SaleRepId,
                                                           Mode=TwoWay,
                                                           UpdateSourceTrigger=PropertyChanged}"
-                                  SelectedValuePath="Id" Width="100" d:LayoutOverrides="HorizontalMargin" />
+                                  SelectedValuePath="Id" />
                         <TextBlock x:Name="txtblRewardMember"
                                    Grid.Column="3"
                                    Margin="110.596,0,0,0"
@@ -1126,7 +1126,7 @@
                                                       Mode=OneWay}" Padding="0" Visibility="Collapsed" d:LayoutOverrides="HorizontalAlignment" />
                         <TextBlock x:Name="txtblCustomerStartDate"
                                    Grid.Column="4"
-                                   Margin="2,0,0,0"
+                                   Margin="5,0,0,0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    Style="{DynamicResource TextBlockNormal}"
@@ -1134,8 +1134,6 @@
                                    TextWrapping="NoWrap" />
                         <DatePicker x:Name="dtpCustomerStartDate"
                                     Grid.Column="5"
-                                    Width="90"
-                                    HorizontalAlignment="Center"
                                     SelectedDate="{Binding SelectedCustomer.DateCreated,
                                                            Mode=TwoWay,
                                                            UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="Height" VerticalAlignment="Center" Margin="0,2" />
@@ -1201,7 +1199,7 @@
                         <TextBlock x:Name="txtblBasicStatus"
                                    Grid.Row="2"
                                    Grid.Column="4"
-                                   Margin="2,0,0,0"
+                                   Margin="5,0,0,0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Center"
                                    Style="{DynamicResource TextBlockNormal}"
@@ -1211,8 +1209,6 @@
                         <ComboBox x:Name="cmbBasicStatus"
                                   Grid.Row="1"
                                   Grid.Column="5"
-                                  Width="90"
-                                  HorizontalAlignment="Center"
                                   DisplayMemberPath="Text"
                                   IsHitTestVisible="True"
                                   ItemsSource="{x:Static helper:Common.StatusBasic}"
@@ -1768,7 +1764,7 @@
                                                       IsEnabled="{Binding IsChecked,
                                                                           ElementName=cbOtherInformation,
                                                                           Mode=OneWay}">
-                                                 <!-- <Grid.Visibility>
+                                                 <Grid.Visibility>
                                                         <Binding ElementName="cbOtherInformation"
                                                                  Mode="OneWay"
                                                                  Path="IsChecked"
@@ -1777,7 +1773,7 @@
                                                                 <converter:BoolToVisibilityConverter FalseToVisibility="Collapsed" />
                                                             </Binding.Converter>
                                                         </Binding>
-                                                    </Grid.Visibility>	-->
+                                                    </Grid.Visibility>	
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="90" />
                                                         <ColumnDefinition />
@@ -2275,10 +2271,9 @@
                                 <AdornerDecorator>
                                     <Grid x:Name="grdAdditionalInfo">
                                         <GroupBox x:Name="gbSalesTaxInformation"
-                                                  Width="299"
                                                   Margin="10,10,0,0"
                                                   HorizontalAlignment="Left"
-                                                  VerticalAlignment="Top" Visibility="Collapsed">
+                                                  VerticalAlignment="Top" Width="300">
                                             <GroupBox.Header>
                                                 <TextBlock x:Name="txtblTaxInformation"
                                                            FontWeight="Bold"
@@ -2444,9 +2439,7 @@
                                             </Grid>
                                         </GroupBox>
                                         <GroupBox x:Name="gbPricingLevel"
-                                                  Width="299"
-                                                  Height="153.223"
-                                                  Margin="10,10,0,0"
+                                                  Margin="10,200,0,0"
                                                   HorizontalAlignment="Left"
                                                   VerticalAlignment="Top">
                                             <GroupBox.Header>

@@ -1043,6 +1043,7 @@
     </Compile>
     <Compile Include="ViewModel\SalesOrder\SelectTrackingNumberViewModel.cs" />
     <Compile Include="ViewModel\Common\UpdateTransactionViewModel.cs" />
+    <Compile Include="ViewModel\SalesOrder\SOPaymentDetailViewModel.cs" />
     <Compile Include="ViewModel\SalesOrder\WorkOrderViewModel.cs" />
     <Compile Include="ViewModel\SalesTax\SalesTaxViewModel.cs" />
     <Compile Include="ViewModel\SalesTax\TaxOptionViewModel.cs" />

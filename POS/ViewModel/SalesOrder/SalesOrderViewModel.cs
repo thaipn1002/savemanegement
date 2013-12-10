@@ -1386,6 +1386,39 @@ namespace CPC.POS.ViewModel
 
         #endregion
 
+        #region PaymentHistoryCommand
+        /// <summary>
+        /// Gets the PaymentHistory Command.
+        /// <summary>
+
+        public RelayCommand<object> PaymentHistoryCommand { get; private set; }
+
+
+        /// <summary>
+        /// Method to check whether the EditItem command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        private bool OnPaymentHistoryCommandCanExecute(object param)
+        {
+            return param != null;
+        }
+
+        /// <summary>
+        /// Method to invoke when the EditItem command is executed.
+        /// </summary>
+        private void OnPaymentHistoryCommandExecute(object param)
+        {
+            base_ResourcePaymentModel PaymentModel = param as base_ResourcePaymentModel;
+            PaymentModel.PaymentDetailCollection = new CollectionBase<base_ResourcePaymentDetailModel>();
+            foreach (var item in PaymentModel.base_ResourcePayment.base_ResourcePaymentDetail)
+                PaymentModel.PaymentDetailCollection.Add(new base_ResourcePaymentDetailModel(item));
+            SOPaymentDetailViewModel viewmodel = new SOPaymentDetailViewModel(PaymentModel);
+            bool? dialogResult = _dialogService.ShowDialog<SOPaymentDetailView>(_ownerViewModel, viewmodel, "Chi tiết lần trả tiền");
+            if (dialogResult == true)
+                PaymentModel.EndUpdate();
+        }
+        #endregion
+
         //Return
         #region ReturnAllCommand
         /// <summary>
@@ -1607,6 +1640,7 @@ namespace CPC.POS.ViewModel
             DeleteReturnDetailCommand = new RelayCommand<object>(OnDeleteReturnDetailCommandExecute, OnDeleteReturnDetailCommandCanExecute);
             DeleteReturnDetailWithKeyCommand = new RelayCommand<object>(OnDeleteReturnDetailWithKeyCommandExecute, OnDeleteReturnDetailWithKeyCommandCanExecute);
             SaleOrderRefundedCommand = new RelayCommand<object>(OnSaleOrderRefundedCommandExecute, OnSaleOrderRefundedCommandCanExecute);
+            PaymentHistoryCommand = new RelayCommand<object>(OnPaymentHistoryCommandExecute, OnPaymentHistoryCommandCanExecute);
         }
 
         /// <summary>
@@ -3025,7 +3059,7 @@ namespace CPC.POS.ViewModel
             bool isPayFull = false;
             bool isRewardOnDiscount = Define.CONFIGURATION.IsRewardOnDiscount.HasValue ? Define.CONFIGURATION.IsRewardOnDiscount.Value : false;
             bool isApplyRewardDiscount = isRewardOnDiscount || (!isRewardOnDiscount && SelectedSaleOrder.DiscountPercent == 0);
-            
+
             if (resultReward == true)
             {
                 SelectedSaleOrder.RewardValueApply = 0;
