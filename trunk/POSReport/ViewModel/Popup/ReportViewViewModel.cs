@@ -122,7 +122,8 @@ namespace CPC.POSReport.ViewModel
             SamplePicture = source;
             Height = 0;
             InitCommand();
-            ReportWindow = reportWindow;            
+            ReportWindow = reportWindow;
+            ReportWindow.btnClose.IsEnabled = true;
         }
 
         /// <summary>

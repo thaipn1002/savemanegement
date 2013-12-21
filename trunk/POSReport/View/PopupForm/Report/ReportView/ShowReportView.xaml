@@ -35,10 +35,10 @@
                 <Grid x:Name="grdTopBar">
                     <TextBlock Text="{Binding ReportName}" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" HorizontalAlignment="Left" VerticalAlignment="Center" x:Name="txtblCCTo" Margin="10,0,0,0" Style="{DynamicResource TextBlockTitleFormPopup}"/>
                     <Rectangle StrokeThickness="0" x:Name="TopBarLine" VerticalAlignment="Bottom" Height="1" Fill="{DynamicResource TitleBarBorder}"/>
-                    <!--<StackPanel Orientation="Horizontal"
+                   <StackPanel Orientation="Horizontal"
 						HorizontalAlignment="Right"
 						x:Name="stkpCloseBtn" VerticalAlignment="Top" Height="22">
-                        <Button x:Name="btnMinimize"
+                         <!--<Button x:Name="btnMinimize"
                             Cursor="Hand" Click="btnMinimize_Click">                            
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}">
@@ -258,7 +258,7 @@
                                     </Setter>
                                 </Style>
                             </ToggleButton.Style>
-                        </ToggleButton>
+                        </ToggleButton>-->
                         <Button 
                             Click="btnClose_Click"
                             IsEnabled="False"
@@ -289,7 +289,7 @@
                             </Grid>
                         </Button>
                         
-                    </StackPanel>-->
+                    </StackPanel>
                 </Grid>
             </Border>
     <Grid Background="DarkGray">
@@ -436,7 +436,7 @@
                             </StackPanel>
                 </Button>
 
-                        <Button 
+                        <!--<Button 
                     x:Name="btnClose"
                     Height="28"
 					IsEnabled="False"
@@ -455,7 +455,7 @@
                                                            TextWrapping="NoWrap"
                                                            Style="{DynamicResource ButtonTextBlock}" />
                             </StackPanel>
-                        </Button>
+                        </Button>-->
                     </StackPanel>
         </Grid>
         <Grid Visibility="{Binding IsShowReport}" Grid.Row="1"> 
