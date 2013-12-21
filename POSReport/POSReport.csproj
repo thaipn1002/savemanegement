@@ -1066,6 +1066,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelTemplate.cs</LastGenOutput>
     </None>
+    <None Include="Properties\DataSources\CPC.POSReport.Database.POSEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
