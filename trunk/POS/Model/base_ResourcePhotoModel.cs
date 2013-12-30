@@ -281,7 +281,25 @@ namespace CPC.POS.Model
                 }
             }
         }
-
+        protected byte[] _imageBinary;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the ImagePath</para>
+        /// </summary>
+        public byte[] ImageBinary
+        {
+            get { return this._imageBinary; }
+            set
+            {
+                if (this._imageBinary != value)
+                {
+                    this.IsDirty = true;
+                    this._imageBinary = value;
+                    OnPropertyChanged(() => ImageBinary);
+                    PropertyChangedCompleted(() => ImageBinary);
+                }
+            }
+        }
         /// <summary>
         /// Copy values 
         /// </summary>

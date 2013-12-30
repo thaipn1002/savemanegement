@@ -23,7 +23,7 @@ namespace CPC.POS.Model
     /// Model for table base_ResourceReturnDetail
     /// </summary>
     [Serializable]
-    public partial class base_ResourceReturnDetailModel : ModelBase, IEditableObject, IDataErrorInfo
+    public partial class base_ResourceReturnDetailModel : ModelBase, IDataErrorInfo, IEditableObject
     {
         #region Constructor
 

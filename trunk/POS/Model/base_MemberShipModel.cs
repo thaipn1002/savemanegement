@@ -475,6 +475,26 @@ namespace CPC.POS.Model
             }
         }
 
+        protected decimal _totalCutOffThreshold;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the TotalCutOffThreshold</param>
+        /// </summary>
+        public decimal TotalCutOffThreshold
+        {
+            get { return this._totalCutOffThreshold; }
+            set
+            {
+                if (this._totalCutOffThreshold != value)
+                {
+                    this.IsDirty = true;
+                    this._totalCutOffThreshold = value;
+                    OnPropertyChanged(() => TotalCutOffThreshold);
+                    PropertyChangedCompleted(() => TotalCutOffThreshold);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -525,6 +545,7 @@ namespace CPC.POS.Model
             if (this.PercentRewardCode != null)
                 this.base_MemberShip.PercentRewardCode = this.PercentRewardCode.Trim();
             this.base_MemberShip.PercentRewardImg = this.PercentRewardImg;
+            this.base_MemberShip.TotalCutOffThreshold = this.TotalCutOffThreshold;
         }
 
         /// <summary>
@@ -554,6 +575,7 @@ namespace CPC.POS.Model
             this._pointRewardImg = this.base_MemberShip.PointRewardImg;
             this._percentRewardCode = this.base_MemberShip.PercentRewardCode;
             this._percentRewardImg = this.base_MemberShip.PercentRewardImg;
+            this._totalCutOffThreshold = this.base_MemberShip.TotalCutOffThreshold;
         }
 
         /// <summary>
@@ -583,6 +605,7 @@ namespace CPC.POS.Model
             this.PointRewardImg = this.base_MemberShip.PointRewardImg;
             this.PercentRewardCode = this.base_MemberShip.PercentRewardCode;
             this.PercentRewardImg = this.base_MemberShip.PercentRewardImg;
+            this.TotalCutOffThreshold = this.base_MemberShip.TotalCutOffThreshold;
         }
 
         #endregion

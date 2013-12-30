@@ -23,7 +23,7 @@ namespace CPC.POS.Model
     /// Model for table base_PurchaseOrderReceive
     /// </summary>
     [Serializable]
-    public partial class base_PurchaseOrderReceiveModel : ModelBase, IEditableObject, IDataErrorInfo
+    public partial class base_PurchaseOrderReceiveModel : ModelBase, IDataErrorInfo, IEditableObject
     {
         #region Constructor
 

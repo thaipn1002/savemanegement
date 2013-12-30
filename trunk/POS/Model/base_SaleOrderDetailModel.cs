@@ -23,7 +23,7 @@ namespace CPC.POS.Model
     /// Model for table base_SaleOrderDetail
     /// </summary>
     [Serializable]
-    public partial class base_SaleOrderDetailModel : ModelBase, IEditableObject, IDataErrorInfo
+    public partial class base_SaleOrderDetailModel : ModelBase, IDataErrorInfo, IEditableObject
     {
         #region Constructor
 
