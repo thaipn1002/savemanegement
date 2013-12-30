@@ -330,9 +330,6 @@
     <Compile Include="Model\base_GuestProfileModel.cs">
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\base_GuestRewardDetailModel.cs">
-      <DependentUpon>ModelTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\base_GuestRewardModel.cs">
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
@@ -462,7 +459,6 @@
     <Compile Include="Model\Custom\BackupModel.cs" />
     <Compile Include="Model\Custom\ComboItem.cs" />
     <Compile Include="Model\Custom\CheckBoxItemModel.cs" />
-    <Compile Include="Model\Custom\SyncModel.cs" />
     <Compile Include="Model\Custom\DepartmentRootModel.cs" />
     <Compile Include="Model\Custom\ItemModel.cs" />
     <Compile Include="Model\Custom\ItemSettingModel.cs" />
@@ -523,6 +519,9 @@
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Report\CrystalReport\Guest\rptCustomerProfile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCustomerProfile.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\CrystalReport\Guest\rptEmployee.cs">
@@ -546,19 +545,25 @@
       <DependentUpon>rptSalesOrder.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\CrystalReport\SO\rptSOQtyDetails.cs">
+      <DependentUpon>rptSOQtyDetails.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Report\CrystalReport\SO\rptPickPack.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptPickPack.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\CrystalReport\SO\rptSODetails1.cs">
+    <Compile Include="Report\CrystalReport\SO\rptSODetails.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSODetails.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\CrystalReport\SO\rptSOReturn1.cs">
+    <Compile Include="Report\CrystalReport\SO\rptSOReturn.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptSOReturn.rpt</DependentUpon>
@@ -617,9 +622,6 @@
       <DependentUpon>RepositoryTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\base_GuestGroupRepository.cs">
-      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\base_GuestRewardDetailRepository.cs">
       <DependentUpon>RepositoryTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\base_LayawayManagerRepository.cs">
@@ -1039,9 +1041,6 @@
     <Compile Include="View\Common\AddNewStateView.xaml.cs">
       <DependentUpon>AddNewStateView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Common\DateSearchView.xaml.cs">
-      <DependentUpon>DateSearchView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\SalesOrder\SOPaymentDetailView.xaml.cs">
       <DependentUpon>SOPaymentDetailView.xaml</DependentUpon>
     </Compile>
@@ -1411,7 +1410,7 @@
     </Compile>
     <EmbeddedResource Include="Report\CrystalReport\Guest\rptCustomerProfile.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptCustomerProfile1.cs</LastGenOutput>
+      <LastGenOutput>rptCustomerProfile.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport\Guest\rptEmployee.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1433,17 +1432,21 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSalesOrder.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrystalReport\SO\rptSOQtyDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSOQtyDetails.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport\SO\rptPickPack.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptPickPack.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport\SO\rptSODetails.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptSODetails1.cs</LastGenOutput>
+      <LastGenOutput>rptSODetails.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport\SO\rptSOReturn.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptSOReturn1.cs</LastGenOutput>
+      <LastGenOutput>rptSOReturn.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\CrystalReport\SubReport\rptHeaderA4Landscape.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1703,10 +1706,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Common\AddNewStateView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\Common\DateSearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -2480,9 +2479,6 @@
   <ItemGroup>
     <Resource Include="Image\Autoship.png" />
     <Resource Include="Image\Delivery.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\SalesIncrease.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
