@@ -28,7 +28,7 @@ namespace CPC.POS
         private LoginView _loginView;
         private bool IsUserAuthenicated { set; get; }
         private bool _isLogout = false;
-
+        private MainWindow _mainWindow;
         #endregion
 
         #region Properties
@@ -177,30 +177,30 @@ namespace CPC.POS
             try
             {
                 // Initial main window
-                MainWindow mainWindow = new MainWindow();
+                this._mainWindow = new MainWindow();
                 // Initial main view model
                 MainViewModel mainViewModel = new MainViewModel();
-                mainWindow.DataContext = mainViewModel;
+                this._mainWindow.DataContext = mainViewModel;
                 // Register Activated, Deactivated and StateChanged event to auto lock screen
                 this.Activated += (sender, e) => { IdleTimeHelper.LostFocusTime = null; };
                 this.Deactivated += (sender, e) => { IdleTimeHelper.LostFocusTime = DateTimeExt.Now; };
-                mainWindow.StateChanged += (sender, e) =>
+                this._mainWindow.StateChanged += (sender, e) =>
                 {
                     if (mainViewModel.IsLockScreen)
                     {
                         mainViewModel.IsLockScreen = false;
                         // Restore window when window state is minimized
-                        if (mainWindow.WindowState.Equals(WindowState.Minimized))
+                        if (this._mainWindow.WindowState.Equals(WindowState.Minimized))
                             IdleTimeHelper.RestoreWindow();
                         // Display lock screen view
                         mainViewModel.OnLockScreenCommandExecute();
                     }
-                    if (mainWindow.WindowState.Equals(WindowState.Minimized))
+                    if (this._mainWindow.WindowState.Equals(WindowState.Minimized))
                         IdleTimeHelper.LostFocusTime = DateTimeExt.Now;
                 };
 
                 // Register Closing event to process close main window
-                mainWindow.Closing += (sender, e) =>
+                this._mainWindow.Closing += (sender, e) =>
                 {
                     // Get can close main window
                     bool result = mainViewModel.CloseCommand.CanExecute(null);
@@ -214,7 +214,7 @@ namespace CPC.POS
                 };
 
                 // Show main window
-                mainWindow.Show();
+                this._mainWindow.Show();
             }
             catch (Exception ex)
             {
@@ -234,9 +234,8 @@ namespace CPC.POS
             {
                 this._isLogout = true;
                 //To close successful
-                if (Application.Current.ShutdownMode != ShutdownMode.OnExplicitShutdown)
-                    Application.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
-                App.Current.MainWindow.Close();
+                this._mainWindow.ribbon.IsMinimized = false;
+                this._mainWindow.Close();
                 if (App.Current.MainWindow == null)
                 {
                     CPC.POS.Properties.Settings.Default.Username = string.Empty;

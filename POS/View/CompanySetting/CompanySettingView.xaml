@@ -452,7 +452,7 @@
                     <Rectangle x:Name="LineSpliter"
                                Width="1"
                                HorizontalAlignment="Right"
-                               Fill="{DynamicResource Spilter_Line_Background}" />
+                               Fill="{DynamicResource Spilter_Line_Background}" d:IsHidden="True" />
                     <!--  Content config  -->
                     <Grid x:Name="grdContentCompany"
                           Grid.Column="1">
@@ -468,7 +468,7 @@
                                       Width="529"
                                       Margin="10,10,0,0"
                                       HorizontalAlignment="Left"
-                                      d:LayoutOverrides="GridBox">
+                                      d:LayoutOverrides="GridBox" d:IsHidden="True">
                                 <GroupBox.Header>
                                     <TextBlock x:Name="txtblOptionDefault"
                                                Style="{DynamicResource GroupboxTextBlock}"
@@ -917,7 +917,7 @@
                         </Grid>
                         <!--  StoreInfo  -->
                         <Grid x:Name="grdStoreInfo"
-                              Visibility="{Binding GridStoreInfoVisibility, Mode=OneWay}" d:IsHidden="True">
+                              Visibility="{Binding GridStoreInfoVisibility, Mode=OneWay}">
                             <GroupBox x:Name="gbCompanyInfo"
                                       Grid.Row="1"
                                       Width="360"
@@ -1682,7 +1682,7 @@
                             <GroupBox x:Name="gbPaymentMethods1"
                                       Width="529"
                                       Margin="10,10,10,0"
-                                      HorizontalAlignment="Left" d:IsHidden="True">
+                                      HorizontalAlignment="Left">
                                 <GroupBox.Header>
                                     <TextBlock x:Name="txtblPaymentMethods1"
                                                FontWeight="Bold"
@@ -2451,7 +2451,7 @@
                         </Grid>
                         <!--  Backup  -->
                         <Grid x:Name="grdBackup"
-                              Visibility="{Binding GridBackupVisibility, Mode=OneWay}">
+                              Visibility="{Binding GridBackupVisibility, Mode=OneWay}" d:IsHidden="True">
                             <Grid x:Name="grdBackup1">
                                 <GroupBox x:Name="gbBackup"
                                           Width="529"

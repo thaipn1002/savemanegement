@@ -16,6 +16,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Forms;
+using CPCToolkitExtLibraries;
 
 namespace CPC.POS.ViewModel
 {
@@ -325,13 +326,12 @@ namespace CPC.POS.ViewModel
         private void OnImportCommandExecute(object param)
         {
             // TODO: Handle command logic here
-
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.FileOk += delegate
                 {
-                    this.ImportData(param.ToString(), openFileDialog.FileName);
+                    this.ImportData((param as BackupModel).Name, openFileDialog.FileName);
                 };
                 openFileDialog.ShowDialog();
             }
@@ -576,7 +576,9 @@ namespace CPC.POS.ViewModel
             switch (tableName)
             {
                 case "Customer":
-                    this.ObjectData(filename);
+                    SyncModel customer = this.ObjectData(filename) as SyncModel;
+                    foreach (var item in customer.Content as ObservableCollection<object>)
+                        this.InsertCustomer(item as base_GuestModel);
                     break;
                 case "Employee":
                     break;
@@ -614,6 +616,58 @@ namespace CPC.POS.ViewModel
             Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, content);
             stream.Close();
+        }
+
+        private void InsertCustomer(base_GuestModel GuestModel)
+        {
+            //To set Customer
+            GuestModel.CreateBase_Guest();
+            GuestModel.Resource = new Guid();
+            if (GuestModel.PhotoCollection != null && GuestModel.PhotoCollection.Count > 0)
+            {
+                GuestModel.PhotoCollection.FirstOrDefault().IsNew = false;
+                GuestModel.PhotoCollection.FirstOrDefault().IsDirty = false;
+                GuestModel.Picture = GuestModel.PhotoCollection.FirstOrDefault().ImageBinary;
+            }
+            else
+                GuestModel.Picture = null;
+            //To set Additional 
+            if (GuestModel.AdditionalModel != null)
+            {
+                GuestModel.AdditionalModel.CreateAdditional();
+                GuestModel.AdditionalModel.ToEntity();
+                GuestModel.base_Guest.base_GuestAdditional.Add(GuestModel.AdditionalModel.base_GuestAdditional);
+            }
+            //To map Personal Info
+            if (GuestModel.PersonalInfoModel != null)
+            {
+                GuestModel.PersonalInfoModel.CreateBase_GuestProfile();
+                GuestModel.PersonalInfoModel.ToEntity();
+                GuestModel.base_Guest.base_GuestProfile.Add(GuestModel.PersonalInfoModel.base_GuestProfile);
+            }
+            base_GuestAddressModel addressModel;
+            bool firstAddress = true;
+            //To Convert from AddressControlCollection To AddressModel 
+            foreach (AddressControlModel addressControlModel in GuestModel.AddressControlCollection)
+            {
+                addressModel = new base_GuestAddressModel();
+                addressModel.DateCreated = DateTime.Now;
+                addressModel.DateUpdated = DateTime.Now;
+                addressModel.UserCreated = Define.USER != null ? Define.USER.UserName : string.Empty;
+                addressModel.ToModel(addressControlModel);
+                addressModel.IsDefault = firstAddress;
+                addressModel.EndUpdate();
+                //To convert data from model to entity
+                addressModel.ToEntity();
+                GuestModel.base_Guest.base_GuestAddress.Add(addressModel.base_GuestAddress);
+                firstAddress = false;
+                addressModel.EndUpdate();
+                addressControlModel.IsDirty = false;
+                addressControlModel.IsNew = false;
+            }
+            GuestModel.ToEntity();
+            _guestRepository.Add(GuestModel.base_Guest);
+            _guestRepository.Commit();
         }
         #endregion
 
@@ -660,5 +714,35 @@ namespace CPC.POS.ViewModel
         #endregion
 
         #endregion
+    }
+
+    public static class SyncDataHelper
+    {
+        private static string ExportPath = Define.CONFIGURATION.BackupPath + @"\Export\";
+        public static object ObjectData(string filename)
+        {
+            try
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
+                Object obj = (Object)formatter.Deserialize(stream);
+                stream.Close();
+                return obj;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public static void ExportData(object content, string tableName)
+        {
+            if (!Directory.Exists(ExportPath + tableName))
+                Directory.CreateDirectory(ExportPath + tableName);
+            string fileName = ExportPath + tableName + "\\" + string.Format("{0}_{1}.exp", tableName, DateTime.Now.ToString("yyMMddHHmmss")); ;
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, content);
+            stream.Close();
+        }
     }
 }

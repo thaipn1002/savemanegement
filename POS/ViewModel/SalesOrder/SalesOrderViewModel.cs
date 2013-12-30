@@ -614,7 +614,7 @@ namespace CPC.POS.ViewModel
         {
             if (this.SelectedSaleOrder == null)
                 return false;
-            return !this.SelectedSaleOrder.IsNew && SelectedSaleOrder.PaymentCollection != null && SelectedSaleOrder.PaymentCollection.Any(x => !x.IsNew && x.IsDeposit.HasValue && !x.IsDeposit.Value);
+            return !this.SelectedSaleOrder.IsNew;
         }
 
         /// <summary>
@@ -3767,7 +3767,7 @@ namespace CPC.POS.ViewModel
                     CheckDuplicateSoNum(saleOrderModel);
                     break;
                 case "SubTotal":
-                    CalculateAllTax(saleOrderModel);
+                    //CalculateAllTax(saleOrderModel);
                     saleOrderModel.CalcDiscountAmount();
                     break;
                 case "Total":
@@ -3794,8 +3794,8 @@ namespace CPC.POS.ViewModel
                         saleOrderModel.TaxAmount = saleOrderModel.ShipTaxAmount + saleOrderModel.ProductTaxAmount;
 
                     break;
-                case "TaxAmount":
-                    saleOrderModel.CalcTotal();
+                //case "TaxAmount":
+                //    saleOrderModel.CalcTotal();
                     break;
                 case "DiscountAmount":
                     saleOrderModel.CalcDiscountPercent();

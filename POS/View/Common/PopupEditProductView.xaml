@@ -54,7 +54,7 @@
                            VerticalAlignment="Center"
                            FontWeight="Bold"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Pricing"
+                           Text="Thay đổi giá"
                            TextWrapping="NoWrap" />
                 <Rectangle x:Name="LinePricing"
                            Height="1"
@@ -68,7 +68,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="UOM"
+                           Text="Đơn vị"
                            TextWrapping="NoWrap" />
                 <ComboBox x:Name="cmbUOM"
                           Grid.Row="2"
@@ -89,7 +89,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Price"
+                           Text="Giá"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBoxMoney x:Name="txtPrice"
                                              Grid.Row="2"
@@ -116,7 +116,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Quantity"
+                           Text="Số lượng"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBoxNumeric x:Name="txtQuantity"
                                                Grid.Row="2"
@@ -142,7 +142,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Amount"
+                           Text="Số tiền"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBoxMoney x:Name="txtAmount"
                                              Grid.Row="2"
@@ -157,8 +157,8 @@
                                              Value="{Binding SelectedProduct.Amount, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
                 <Grid x:Name="grdContentDiscountInformation"
                       Grid.Row="3"
-                      Grid.RowSpan="3">
-                    <Grid.Visibility>
+                      Grid.RowSpan="3" Visibility="Collapsed">
+                   <!--<Grid.Visibility>
                         <Binding Path="IsEditFromPO"
                                  Mode="OneWay"
                                  UpdateSourceTrigger="PropertyChanged">
@@ -166,7 +166,7 @@
                                 <converter:BoolToVisibilityConverter FalseToVisibility="Visible" />
                             </Binding.Converter>
                         </Binding>
-                    </Grid.Visibility>
+                    </Grid.Visibility>--> 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="25" />
                         <RowDefinition Height="25" />
@@ -232,7 +232,7 @@
                            VerticalAlignment="Center"
                            FontWeight="Bold"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Product"
+                           Text="Sản phẩm"
                            TextWrapping="NoWrap" />
                 <Rectangle x:Name="LineProduct"
                            Grid.Row="6"
@@ -247,7 +247,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Item Name"
+                           Text="Tên"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBox x:Name="txtItemName"
                                         Grid.Row="7"
@@ -264,7 +264,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Attribute"
+                           Text="Thuộc tính"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBox x:Name="txtAttribute"
                                         Grid.Row="8"
@@ -280,7 +280,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Size"
+                           Text="Kích thước"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBox x:Name="txtSize"
                                         Grid.Row="9"
@@ -296,7 +296,7 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
                            Style="{DynamicResource TextBlockNormal}"
-                           Text="Description"
+                           Text="Mô tả"
                            TextWrapping="NoWrap" />
                 <textBoxControl:TextBox x:Name="txtItemDescription"
                                         Grid.Row="10"
@@ -339,7 +339,7 @@
                                Margin="5,0,0,0"
                                VerticalAlignment="Center"
                                Style="{DynamicResource ButtonTextBlock}"
-                               Text="OK"
+                               Text="Chấp nhận"
                                TextWrapping="NoWrap" />
                 </StackPanel>
             </Button>
@@ -360,7 +360,7 @@
                                Margin="5,0,0,0"
                                VerticalAlignment="Center"
                                Style="{DynamicResource ButtonTextBlock}"
-                               Text="Cancel"
+                               Text="Hủy"
                                TextWrapping="NoWrap" />
                 </StackPanel>
             </Button>

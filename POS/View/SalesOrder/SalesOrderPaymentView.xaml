@@ -11,7 +11,7 @@
              xmlns:local="clr-namespace:CPC.POS"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              x:Name="UserControl"
-             Width="704"
+             Width="768"
              Height="399"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -42,7 +42,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="240" />
                 </Grid.ColumnDefinitions>
-                <Grid x:Name="grdDatagridTotalPayment" Width="400">
+                <Grid x:Name="grdDatagridTotalPayment">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition  />
@@ -75,6 +75,23 @@
                     		Style="{DynamicResource TextBlockNormal}"
                     		Text="{Binding LastPayment, ConverterCulture={x:Static local:Define.ConverterCulture}, Mode=OneWay, StringFormat={x:Static local:Define.CurrencyFormat}}"
                     		TextWrapping="NoWrap" />
+                    	<DatePicker x:Name="txtCreateDate"
+                    		Width="150"
+                    		HorizontalAlignment="Right"
+                    		Padding="2,0,2,0"
+                    		SelectedDate="{Binding PaymentModel.DateCreated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    		Grid.Column="1" VerticalAlignment="Center">
+                    		<i:Interaction.Behaviors>
+                    			<cpcBehavior:AutoFocusBehavior />
+                    		</i:Interaction.Behaviors>
+                    	</DatePicker>
+                    	<TextBlock Text="Ngày trả"
+                    		x:Name="txtblCreateDate"
+                    		HorizontalAlignment="Right"
+                    		VerticalAlignment="Center"
+                    		Margin="0,0,156,0"
+                    		TextWrapping="NoWrap"
+                    		Style="{DynamicResource TextBlockNormal}" Grid.Column="1" />
                         <!--Reward Amount Apply-->
                     </Grid>
 

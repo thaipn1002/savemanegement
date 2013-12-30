@@ -2482,7 +2482,13 @@
                                                 		NumericStringFormat="{}{0:N0}"
                                                 		Padding="2,0,2,0"
                                                 		TextWrapping="NoWrap"
-                                                		Value="{Binding SelectedSaleOrder.TaxPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0"/>
+                                                		Value="{Binding SelectedSaleOrder.TaxPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0">
+                                                    	<i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="LostFocus">
+                                                                                <command:EventToCommand Command="{Binding TaxChangedCommand}" CommandParameter="{Binding SelectedSaleOrder.TaxPercent}" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
+														</cpcTextBox:TextBoxNumeric>
                                                     <TextBlock x:Name="txtblOrderTabTaxPercent"
                                                 		HorizontalAlignment="Left"
                                                 		VerticalAlignment="Center"

@@ -805,16 +805,17 @@ namespace CPC.POS.ViewModel
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
         private bool OnPrintCommandCanExecute()
         {
-            return true;
+            return (this.SelectedCustomer != null && !this.SelectedCustomer.IsNew && !this.SelectedCustomer.IsDirty);
         }
-
-
         /// <summary>
         /// Method to invoke when the Print command is executed.
         /// </summary>
         private void OnPrintCommandExecute()
         {
-            // TODO: Handle command logic here
+            // Show Customer report
+            View.Report.ReportWindow rpt = new View.Report.ReportWindow();
+            string param = "'" + this.SelectedCustomer.Resource.ToString() + "'";
+            rpt.ShowReport("rptCustomerProfile", param);
         }
         #endregion
 
@@ -994,12 +995,12 @@ namespace CPC.POS.ViewModel
         /// </summary>
         private void OnLoadStepCommandExecute(object param)
         {
-            Expression<Func<base_Guest, bool>> predicate = PredicateBuilder.True<base_Guest>();
-            predicate = predicate.And(x => !x.IsPurged && x.Mark.Equals(CUSTOMER_MARK));
-            if (!string.IsNullOrWhiteSpace(FilterText))//Load Step Current With Search Current with Search
-                predicate = CreatePredicateWithConditionSearch(Keyword);
+            //Expression<Func<base_Guest, bool>> predicate = PredicateBuilder.True<base_Guest>();
+            //predicate = predicate.And(x => !x.IsPurged && x.Mark.Equals(CUSTOMER_MARK));
+            //if (!string.IsNullOrWhiteSpace(FilterText))//Load Step Current With Search Current with Search
+            //    predicate = CreatePredicateWithConditionSearch(Keyword);
 
-            LoadDataByPredicate(predicate, false, CustomerCollection.Count);
+            //LoadDataByPredicate(predicate, false, CustomerCollection.Count);
         }
         #endregion
 
@@ -1445,7 +1446,6 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
-
         //Extent
         #region InsertDateStampCommand
         /// <summary>
@@ -1477,6 +1477,44 @@ namespace CPC.POS.ViewModel
         }
 
 
+        #endregion
+
+        #region ExportDataCommand
+        public RelayCommand<object> ExportDataCommand { get; private set; }
+        /// <summary>
+        /// Method to check whether the DeletesCommand command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        private bool OnExportDataCommandCanExecute(object param)
+        {
+            if (param == null)
+                return false;
+            return (param as ObservableCollection<object>).Count > 0;
+        }
+
+        /// <summary>
+        /// Method to invoke when the DeletesCommand command is executed.
+        /// </summary>
+        private void OnExportDataCommandExecute(object param)
+        {
+            MessageBoxResultCustom result = MsgControl.ShowWarning("Bạn có muốn sao chép những khách hàng này ?", Language.Warning, MessageBoxButtonCustom.YesNo);
+            if (result.Is(MessageBoxResultCustom.Yes))
+            {
+                SyncModel model = new SyncModel();
+                model.Resource = new Guid();
+                model.Name = "Customer";
+                ObservableCollection<object> content = new ObservableCollection<object>();
+                if (param != null && param is ObservableCollection<object>)
+                {
+                    foreach (var item in (param as ObservableCollection<object>))
+                        content.Add(item);
+                }
+                model.Content = content;
+                model.CreatedDate = DateTime.Now;
+                SyncDataHelper.ExportData(model, model.Name);
+                MsgControl.ShowInfomation("Sao chép khách hàng thành công !", "Thông báo", MessageBoxButtonCustom.OK);
+            }
+        }
         #endregion
 
         #endregion
@@ -1513,6 +1551,7 @@ namespace CPC.POS.ViewModel
 
             InsertDateStampCommand = new RelayCommand<object>(OnInsertDateStampCommandExecute, OnInsertDateStampCommandCanExecute);
             EditItemCommand = new RelayCommand<object>(OnEditItemCommandExecute, OnEditItemCommandCanExecute);
+            ExportDataCommand = new RelayCommand<object>(OnExportDataCommandExecute, OnExportDataCommandCanExecute);
         }
 
         /// <summary>
@@ -1582,6 +1621,18 @@ namespace CPC.POS.ViewModel
             {
                 if (!CheckDuplicateCustomer(SelectedCustomer))
                 {
+                    //To save picture.
+                    if (this.SelectedCustomer.PhotoCollection != null && this.SelectedCustomer.PhotoCollection.Count > 0)
+                    {
+                        this.SelectedCustomer.PhotoCollection.FirstOrDefault().IsNew = false;
+                        this.SelectedCustomer.PhotoCollection.FirstOrDefault().IsDirty = false;
+                        this.SelectedCustomer.Picture = this.SelectedCustomer.PhotoCollection.FirstOrDefault().ImageBinary;
+                    }
+                    else
+                        this.SelectedCustomer.Picture = null;
+                    if (this.SelectedCustomer.PhotoCollection.DeletedItems != null &&
+                 this.SelectedCustomer.PhotoCollection.DeletedItems.Count > 0)
+                        this.SelectedCustomer.PhotoCollection.DeletedItems.Clear();
                     //Handle clear data if user not choose "Pricing Level" in Additional
                     SelectedCustomer.AdditionalModel.IsNoDiscount = false;
                     if (SelectedCustomer.AdditionalModel.PriceLevelType == (int)PriceLevelType.NoDiscount)//Radio button choice "No Discount"
@@ -1592,7 +1643,7 @@ namespace CPC.POS.ViewModel
                     }
                     else if (SelectedCustomer.AdditionalModel.PriceLevelType == (int)PriceLevelType.FixedDiscountOnAllItems)//Radio button choice "Fixed Discount"
                         SelectedCustomer.AdditionalModel.PriceSchemeId = 0;   //Set markdown Price Level
-                    else
+                    else if (SelectedCustomer.AdditionalModel.PriceLevelType == (int)PriceLevelType.MarkdownPriceLevel)
                         SelectedCustomer.AdditionalModel.FixDiscount = 0;
 
                     //For New Item
@@ -1639,17 +1690,12 @@ namespace CPC.POS.ViewModel
                 SelectedCustomer.base_Guest.base_GuestAdditional.Add(SelectedCustomer.AdditionalModel.base_GuestAdditional);
             }
 
-
             //Mapping Personal Info
             if (SelectedCustomer.PersonalInfoModel != null)
             {
                 SelectedCustomer.PersonalInfoModel.ToEntity();
                 SelectedCustomer.base_Guest.base_GuestProfile.Add(SelectedCustomer.PersonalInfoModel.base_GuestProfile);
             }
-
-            //Save photo
-            SavePhotoResource(SelectedCustomer);
-
             ///Created by Thaipn.
             base_GuestAddressModel addressModel;
             bool firstAddress = true;
@@ -1674,33 +1720,13 @@ namespace CPC.POS.ViewModel
 
             }
 
-            //Payment credit card
-            foreach (base_GuestPaymentCardModel paymentCardModel in SelectedCustomer.PaymentCardCollection.Where(x => !x.IsTemporary))
-            {
-                paymentCardModel.ToEntity();
-                SelectedCustomer.base_Guest.base_GuestPaymentCard.Add(paymentCardModel.base_GuestPaymentCard);
+            ////Payment credit card
+            //foreach (base_GuestPaymentCardModel paymentCardModel in SelectedCustomer.PaymentCardCollection.Where(x => !x.IsTemporary))
+            //{
+            //    paymentCardModel.ToEntity();
+            //    SelectedCustomer.base_Guest.base_GuestPaymentCard.Add(paymentCardModel.base_GuestPaymentCard);
 
-            }
-
-            //Guest Reward Member
-            if (SelectedCustomer.IsRewardMember)
-            {
-                base_MemberShipModel memberShipModel = NewMemberShipModel();
-                memberShipModel.ToEntity();
-                //Add To MemberShip Collection
-                SelectedCustomer.base_Guest.base_MemberShip.Add(memberShipModel.base_MemberShip);
-
-                if (SelectedCustomer.GuestRewardCollection != null)
-                {
-                    foreach (base_GuestRewardModel guestRewardModel in SelectedCustomer.GuestRewardCollection.Where(x => x.IsDirty))
-                    {
-                        guestRewardModel.ToEntity();
-                        if (guestRewardModel.IsNew)
-                            SelectedCustomer.base_Guest.base_GuestReward.Add(guestRewardModel.base_GuestReward);
-                    }
-                }
-            }
-
+            //}
             this.SelectedCustomer.ToEntity();
             _guestRepository.Add(this.SelectedCustomer.base_Guest);
             _guestRepository.Commit();
@@ -1708,6 +1734,100 @@ namespace CPC.POS.ViewModel
 
             SetIdNEndUpdate(SelectedCustomer);
 
+        }
+
+        /// <summary>
+        /// Update Customer
+        /// </summary>
+        private void UpdateCustomer()
+        {
+            SelectedCustomer.DateUpdated = DateTime.Now;
+            SelectedCustomer.UserUpdated = Define.USER != null ? Define.USER.LoginName : string.Empty;
+
+            //Set Customer Group Name For Show In Datagrid
+            base_GuestGroupModel guestGroupModel = GuestGroupCollection.SingleOrDefault(x => x.Resource.ToString().Equals(SelectedCustomer.GroupResource));
+            if (guestGroupModel != null)
+                SelectedCustomer.GroupName = guestGroupModel.Name;
+
+            SelectedCustomer.ToEntity();
+            if (SelectedCustomer.AdditionalModel != null)
+            {
+                SelectedCustomer.AdditionalModel.ToEntity();
+                if (SelectedCustomer.AdditionalModel.IsNew)
+                    SelectedCustomer.base_Guest.base_GuestAdditional.Add(SelectedCustomer.AdditionalModel.base_GuestAdditional);
+            }
+
+            //Map Personal Info Or ContactCollection
+            if (SelectedCustomer.PersonalInfoModel.IsDirty || SelectedCustomer.PersonalInfoModel.IsNew)//Individual
+            {
+                SelectedCustomer.PersonalInfoModel.ToEntity();
+                if (SelectedCustomer.PersonalInfoModel.IsNew)
+                    SelectedCustomer.base_Guest.base_GuestProfile.Add(SelectedCustomer.PersonalInfoModel.base_GuestProfile);
+            }
+
+            // Insert or update address
+            foreach (AddressControlModel addressControlModel in this.SelectedCustomer.AddressControlCollection.Where(x => x.IsDirty))
+            {
+                base_GuestAddressModel addressModel = new base_GuestAddressModel();
+
+                // Insert new address
+                if (addressControlModel.IsNew)
+                {
+                    addressModel.DateCreated = DateTimeExt.Now;
+                    addressModel.DateUpdated = DateTimeExt.Now;
+                    addressModel.UserCreated = Define.USER != null ? Define.USER.LoginName : string.Empty;
+                    // Map date from AddressControlModel to AddressModel
+                    addressModel.ToModel(addressControlModel);
+
+                    // Map data from model to entity
+                    addressModel.ToEntity();
+                    SelectedCustomer.base_Guest.base_GuestAddress.Add(addressModel.base_GuestAddress);
+                    addressModel.EndUpdate();
+
+                }
+                // Update address
+                else
+                {
+                    base_GuestAddress address = SelectedCustomer.base_Guest.base_GuestAddress.SingleOrDefault(x => x.AddressTypeId == addressControlModel.AddressTypeID);
+                    addressModel = new base_GuestAddressModel(address);
+
+                    addressModel.DateUpdated = DateTimeExt.Now;
+                    addressModel.UserCreated = Define.USER != null ? Define.USER.LoginName : string.Empty;
+                    // Map date from AddressControlModel to AddressModel
+                    addressModel.ToModel(addressControlModel);
+                    addressModel.ToEntity();
+                }
+
+                // Update default address
+                if (addressModel.IsDefault)
+                    SelectedCustomer.AddressModel = addressModel;
+
+                // Turn off IsDirty & IsNew
+                addressModel.EndUpdate();
+                addressControlModel.IsNew = false;
+                addressControlModel.IsDirty = false;
+            }
+
+            ////Remove Payment Card
+            //if (SelectedCustomer.PaymentCardCollection.DeletedItems != null && SelectedCustomer.PaymentCardCollection.DeletedItems.Count > 0)
+            //{
+            //    foreach (base_GuestPaymentCardModel paymentCardModel in SelectedCustomer.PaymentCardCollection.DeletedItems)
+            //    {
+            //        _guestPaymentCardRepository.Delete(paymentCardModel.base_GuestPaymentCard);
+            //    }
+            //    SelectedCustomer.PaymentCardCollection.DeletedItems.Clear();
+            //}
+
+            ////Update Or Add New PaymentCard
+            //foreach (base_GuestPaymentCardModel guestPaymentCardModel in SelectedCustomer.PaymentCardCollection.Where(x => x.IsDirty && !x.IsTemporary))
+            //{
+            //    guestPaymentCardModel.ToEntity();
+            //    if (guestPaymentCardModel.IsNew)//new item add to entity table
+            //        SelectedCustomer.base_Guest.base_GuestPaymentCard.Add(guestPaymentCardModel.base_GuestPaymentCard);
+            //}
+            _guestRepository.Commit();
+            //Set ID
+            SetIdNEndUpdate(SelectedCustomer);
         }
 
         /// <summary>
@@ -1760,144 +1880,6 @@ namespace CPC.POS.ViewModel
                     photoModel.EndUpdate();
                 }
             }
-        }
-
-        /// <summary>
-        /// Update Customer
-        /// </summary>
-        private void UpdateCustomer()
-        {
-            SelectedCustomer.DateUpdated = DateTime.Now;
-            SelectedCustomer.UserUpdated = Define.USER != null ? Define.USER.LoginName : string.Empty;
-
-            //Set Customer Group Name For Show In Datagrid
-            base_GuestGroupModel guestGroupModel = GuestGroupCollection.SingleOrDefault(x => x.Resource.ToString().Equals(SelectedCustomer.GroupResource));
-            if (guestGroupModel != null)
-                SelectedCustomer.GroupName = guestGroupModel.Name;
-
-            SelectedCustomer.ToEntity();
-            if (SelectedCustomer.AdditionalModel != null)
-            {
-                SelectedCustomer.AdditionalModel.ToEntity();
-                if (SelectedCustomer.AdditionalModel.IsNew)
-                    SelectedCustomer.base_Guest.base_GuestAdditional.Add(SelectedCustomer.AdditionalModel.base_GuestAdditional);
-            }
-
-            //Map Personal Info Or ContactCollection
-            if (SelectedCustomer.PersonalInfoModel.IsDirty || SelectedCustomer.PersonalInfoModel.IsNew)//Individual
-            {
-                SelectedCustomer.PersonalInfoModel.ToEntity();
-                if (SelectedCustomer.PersonalInfoModel.IsNew)
-                    SelectedCustomer.base_Guest.base_GuestProfile.Add(SelectedCustomer.PersonalInfoModel.base_GuestProfile);
-            }
-
-            // Insert or update address
-            // Created by Thaipn
-            foreach (AddressControlModel addressControlModel in this.SelectedCustomer.AddressControlCollection.Where(x => x.IsDirty))
-            {
-                base_GuestAddressModel addressModel = new base_GuestAddressModel();
-
-                // Insert new address
-                if (addressControlModel.IsNew)
-                {
-                    addressModel.DateCreated = DateTimeExt.Now;
-                    addressModel.UserCreated = string.Empty;
-                    // Map date from AddressControlModel to AddressModel
-                    addressModel.ToModel(addressControlModel);
-
-                    // Map data from model to entity
-                    addressModel.ToEntity();
-                    SelectedCustomer.base_Guest.base_GuestAddress.Add(addressModel.base_GuestAddress);
-                    addressModel.EndUpdate();
-
-                }
-                // Update address
-                else
-                {
-                    base_GuestAddress address = SelectedCustomer.base_Guest.base_GuestAddress.SingleOrDefault(x => x.AddressTypeId == addressControlModel.AddressTypeID);
-                    addressModel = new base_GuestAddressModel(address);
-
-                    addressModel.DateUpdated = DateTimeExt.Now;
-                    //addressModel.UserUpdated = string.Empty;
-                    // Map date from AddressControlModel to AddressModel
-                    addressModel.ToModel(addressControlModel);
-                    addressModel.ToEntity();
-                }
-
-                // Update default address
-                if (addressModel.IsDefault)
-                    SelectedCustomer.AddressModel = addressModel;
-
-                // Turn off IsDirty & IsNew
-                addressModel.EndUpdate();
-
-                addressControlModel.IsNew = false;
-                addressControlModel.IsDirty = false;
-            }
-            //Save Photo
-            SavePhotoResource(SelectedCustomer);
-
-            //Remove Payment Card
-            if (SelectedCustomer.PaymentCardCollection.DeletedItems != null && SelectedCustomer.PaymentCardCollection.DeletedItems.Count > 0)
-            {
-                foreach (base_GuestPaymentCardModel paymentCardModel in SelectedCustomer.PaymentCardCollection.DeletedItems)
-                {
-                    _guestPaymentCardRepository.Delete(paymentCardModel.base_GuestPaymentCard);
-                }
-                SelectedCustomer.PaymentCardCollection.DeletedItems.Clear();
-            }
-            //Update Or Add New PaymentCard
-            foreach (base_GuestPaymentCardModel guestPaymentCardModel in SelectedCustomer.PaymentCardCollection.Where(x => x.IsDirty && !x.IsTemporary))
-            {
-                guestPaymentCardModel.ToEntity();
-                if (guestPaymentCardModel.IsNew)//new item add to entity table
-                    SelectedCustomer.base_Guest.base_GuestPaymentCard.Add(guestPaymentCardModel.base_GuestPaymentCard);
-            }
-
-            if (SelectedCustomer.IsRewardMember)
-            {
-                _memberShipRepository.Refresh(SelectedCustomer.base_Guest.base_MemberShip);
-                if (!SelectedCustomer.base_Guest.base_MemberShip.Any())
-                {
-                    base_MemberShipModel memberShipModel = NewMemberShipModel();
-                    memberShipModel.ToEntity();
-                    //Add To MemberShip Collection
-                    SelectedCustomer.base_Guest.base_MemberShip.Add(memberShipModel.base_MemberShip);
-                }
-                else
-                {
-                    //Update Barcode for MemeberShip
-                    short memberShipActivedStatus = (short)MemberShipStatus.Actived;
-                    short membershipPendingStatus = (short)MemberShipStatus.Pending;
-                    base_MemberShip membership = SelectedCustomer.base_Guest.base_MemberShip.SingleOrDefault(x => x.IsPurged == false && (x.Status.Equals(memberShipActivedStatus) || x.Status.Equals(membershipPendingStatus)));
-                    if (membership != null)
-                    {
-                        base_MemberShipModel memberShipModel = new base_MemberShipModel(membership);
-                        IdCardBarcodeGen(memberShipModel);
-                        if (memberShipModel.IsDirty)
-                        {
-                            memberShipModel.ToEntity();
-                        }
-                    }
-                }
-
-                if (SelectedCustomer.GuestRewardCollection != null)
-                {
-                    //Add New Or Update GuestReward
-                    foreach (base_GuestRewardModel guestRewardModel in SelectedCustomer.GuestRewardCollection.Where(x => x.IsDirty))
-                    {
-                        guestRewardModel.ToEntity();
-                        if (guestRewardModel.IsNew)
-                            SelectedCustomer.base_Guest.base_GuestReward.Add(guestRewardModel.base_GuestReward);
-                        //else
-                        //    _guestRewardRepository.Update(guestRewardModel.base_GuestReward);
-                    }
-                }
-            }
-            _guestRepository.Commit();
-
-            //Set ID
-            SetIdNEndUpdate(SelectedCustomer);
         }
 
         /// <summary>
@@ -2292,7 +2274,7 @@ namespace CPC.POS.ViewModel
                 //Cout all Customer in Data base show on grid
                 TotalCustomers = _guestRepository.GetIQueryable(predicate).Count();
                 //Get data with range
-                IList<base_Guest> customers = _guestRepository.GetRange(currentIndex, NumberOfDisplayItems, "It.Id", predicate);
+                IList<base_Guest> customers = _guestRepository.GetRange(0, TotalCustomers, "It.Id", predicate);
                 //_guestRepository.Refresh(customers);
                 foreach (base_Guest customer in customers)
                 {
@@ -2363,31 +2345,23 @@ namespace CPC.POS.ViewModel
             base_GuestGroupModel guestGroupModel = GuestGroupCollection.SingleOrDefault(x => x.Resource.ToString().Equals(customerModel.GroupResource));
             if (guestGroupModel != null)
                 customerModel.GroupName = guestGroupModel.Name;
-
-            string resource = customerModel.Resource.ToString();
-            base_ResourcePhoto resourcePhoto = _photoRepository.Get(x => x.Resource.Equals(resource));
-            if (resourcePhoto != null)
-                customerModel.PhotoDefault = new base_ResourcePhotoModel(resourcePhoto)
-                {
-                    ImagePath = System.IO.Path.Combine(CUSTOMER_IMAGE_FOLDER, customerModel.GuestNo, resourcePhoto.LargePhotoFilename),
-                    IsDirty = false
-                };
-            else
-                customerModel.PhotoDefault = new base_ResourcePhotoModel();
-
-            // ==== Load PersonalInfoModel ====
-            LoadPersonalInfoModel(customerModel, RaisePropertyChanged);
-
-            //==== Load AdditionalModel ====
-            LoadGuestAdditional(customerModel, RaisePropertyChanged);
-            //End Additional;
-
-            //==== Load DefaultAdress Address ====
+            //Set Status Item
+            SetStatusItem(customerModel);
+            //Load PhotoCollection
+            LoadResourcePhoto(customerModel);
+            //Load DefaultAdress Address (Binding in main dtgrid)
             LoadAddress(customerModel, RaisePropertyChanged);
-
-            //LoadRelationCustomerModel(customerModel, RaisePropertyChanged);
-
+            LoadRelationCustomerModel(customerModel, true);
             customerModel.IsDirty = false;
+        }
+        /// <summary>
+        /// Set Status for display in grid
+        /// </summary>
+        /// <param name="customerModel"></param>
+        private void SetStatusItem(base_GuestModel customerModel)
+        {
+            int status = customerModel.IsActived ? 1 : 2;
+            customerModel.StatusItem = Common.StatusBasic.SingleOrDefault(x => x.Value.Equals((short)status));
         }
 
         /// <summary>
@@ -2397,15 +2371,19 @@ namespace CPC.POS.ViewModel
         /// <param name="RaisePropertyChanged"></param>
         private void LoadRelationCustomerModel(base_GuestModel customerModel, bool RaisePropertyChanged)
         {
+            //To load PersonalInfoModel ====
+            LoadPersonalInfoModel(customerModel, RaisePropertyChanged);
 
-            //Load PhotoCollection                                                    
+            //To load AdditionalModel ====
+            LoadGuestAdditional(customerModel, RaisePropertyChanged);
+
+            //To load PhotoCollection                                                    
             LoadResourcePhoto(customerModel);
 
+            ////To load PaymentCard ====
+            //LoadPayment(customerModel, RaisePropertyChanged);
 
-            //====Load PaymentCard ====
-            LoadPayment(customerModel, RaisePropertyChanged);
-
-            // Load resource note collection
+            //To load resource note collection
             LoadResourceNoteCollection(customerModel);
         }
 
@@ -2447,9 +2425,11 @@ namespace CPC.POS.ViewModel
                 customerModel.AdditionalModel = new base_GuestAdditionalModel(customerAdditional, RaisePropertyChanged);
 
                 //Set value for radiobutton "Pricing Level" (No discount / Fixed Discount / Markdown Price Level)
-                if (customerModel.AdditionalModel.PriceSchemeId > 0)
+                if (customerModel.AdditionalModel.PriceSchemeId > 0 && customerModel.AdditionalModel.FixDiscount.HasValue && customerModel.AdditionalModel.FixDiscount.Value > 0)
+                    customerModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.FixedDiscountOnAllItems + (int)PriceLevelType.MarkdownPriceLevel;//Set radio button is Mark down Price Level
+                else  if (customerModel.AdditionalModel.PriceSchemeId > 0)
                     customerModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.MarkdownPriceLevel;//Set radio button is Mark down Price Level
-                else if (customerModel.AdditionalModel.FixDiscount != null && customerModel.AdditionalModel.FixDiscount > 0)
+                else if (customerModel.AdditionalModel.FixDiscount.HasValue && customerModel.AdditionalModel.FixDiscount.Value > 0)
                     customerModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.FixedDiscountOnAllItems;//Set radio button is Fixed Discount
                 else
                     customerModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.NoDiscount;//Set radio Button is No Discount
@@ -2569,15 +2549,15 @@ namespace CPC.POS.ViewModel
         {
             if (guestModel.PhotoCollection == null)
             {
-                string resource = guestModel.Resource.ToString();
-                guestModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>(
-                    _photoRepository.GetAll(x => x.Resource.Equals(resource)).
-                    Select(x => new base_ResourcePhotoModel(x)
-                    {
-                        ImagePath = System.IO.Path.Combine(CUSTOMER_IMAGE_FOLDER, guestModel.GuestNo, x.LargePhotoFilename),
-                        IsDirty = false
-                    }));
-
+                guestModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>();
+                if (guestModel.Picture != null && guestModel.Picture.Length > 0)
+                {
+                    base_ResourcePhotoModel ResourcePhotoModel = new base_ResourcePhotoModel();
+                    ResourcePhotoModel.ImageBinary = guestModel.Picture;
+                    ResourcePhotoModel.IsDirty = false;
+                    ResourcePhotoModel.IsNew = false;
+                    guestModel.PhotoCollection.Add(ResourcePhotoModel);
+                }
             }
         }
 
@@ -2888,24 +2868,6 @@ namespace CPC.POS.ViewModel
 
             //Photo Resource
             customerModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>();
-            if (guestModel.PhotoCollection != null && guestModel.PhotoCollection.Any())
-            {
-                foreach (base_ResourcePhotoModel photoModel in guestModel.PhotoCollection)
-                {
-                    base_ResourcePhotoModel newPhotoModel = new base_ResourcePhotoModel();
-                    newPhotoModel.CopyFrom(photoModel);
-                    newPhotoModel.Id = 0;
-                    newPhotoModel.ImagePath = photoModel.ImagePath;
-                    newPhotoModel.IsNew = true;
-                    newPhotoModel.IsDirty = true;
-                    customerModel.PhotoCollection.Add(newPhotoModel);
-                }
-
-                if (customerModel.PhotoCollection.Count > 0)
-                    customerModel.PhotoDefault = customerModel.PhotoCollection.FirstOrDefault();
-                else
-                    customerModel.PhotoDefault = new base_ResourcePhotoModel();
-            }
 
             //Note
             customerModel.ResourceNoteCollection = new CollectionBase<base_ResourceNoteModel>();
@@ -2967,8 +2929,6 @@ namespace CPC.POS.ViewModel
         private void EditItem(base_GuestModel guestModel)
         {
             _selectedCustomer = guestModel;
-
-            LoadRelationCustomerModel(SelectedCustomer, true);
 
             SelectedCustomer.PropertyChanged -= new PropertyChangedEventHandler(SelectedCustomer_PropertyChanged);
             SelectedCustomer.PropertyChanged += new PropertyChangedEventHandler(SelectedCustomer_PropertyChanged);
