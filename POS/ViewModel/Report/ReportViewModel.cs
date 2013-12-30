@@ -78,6 +78,7 @@ namespace CPC.POS.ViewModel
         rptCustomerProfile customerProfileReport;
         rptEmployee employeeReport;
         rptVendorProfile vendorProfileReport;
+        rptSOQtyDetails sOQtyDetails;
 
         dsSODetails ds = new dsSODetails();
         DataTable dtConfig;
@@ -234,6 +235,7 @@ namespace CPC.POS.ViewModel
         {            
             try
             {
+                
                 #region -Get company Configuration-
                 string receiptMessage = string.Empty;
                 da = dbHelper.ExecuteQuery("v_configuration");
@@ -252,9 +254,20 @@ namespace CPC.POS.ViewModel
                 #endregion
                 // set param in sql function
                 string param = "'" + saleOrder.Resource.ToString() + "'";                
-                bool isReturn = (soType != "Return") ? false : true;                
+                bool isReturn = (soType != "Return") ? false : true;
+                if (soType == "SaleQty")
+                {
+                    GetSaleQty(saleOrder);
+                    return;
+                }
+                if (soType == "SaleNoDiscount")
+                {
+                    GetSaleNoDiscount(saleOrder, receiptMessage);
+                    return;
+                }
                 // Get Sale order
                 GetSaleOrder(saleOrder, isReturn, receiptMessage, soType);
+                
                 da.Clear();
                 if (soType == "PickPack")
                 {
@@ -363,6 +376,235 @@ namespace CPC.POS.ViewModel
                 Xceed.Wpf.Toolkit.MessageBox.Show(ex.ToString(), Language.Error, System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);   
                 return;
             }
+        }
+
+        private void GetSaleNoDiscount(Model.base_SaleOrderModel saleOrder, string receiptMessage)
+        {
+            // Set param in sql function
+            string resource = "'" + saleOrder.Resource.ToString() + "'";
+            string param = string.Format("{0},{1}", resource, false.ToString());
+            bool isChangeTax = false;
+            bool isHideTip = false;
+            bool isHideReward = false;
+            bool isHideRemark = false;
+            // Get Sale Order
+            da = dbHelper.ExecuteQuery("sp_pos_so_get_sale_order", param);
+            if (da.Rows.Count > 0)
+            {
+                // Format order date
+                string orderDate = ToShortDateString(DateTime.Parse(da.Rows[0][3].ToString()));
+                // Add data to data table
+                ds.Tables["SO"].Rows.Add(GetStoreNameByStoreCode(int.Parse(da.Rows[0][0].ToString())),
+                            da.Rows[0][1], da.Rows[0][2], orderDate, da.Rows[0][4], da.Rows[0][5], da.Rows[0][6],
+                            da.Rows[0][7], da.Rows[0][8], da.Rows[0][9], da.Rows[0][10], da.Rows[0][11],
+                            receiptMessage, da.Rows[0][12], da.Rows[0][13], da.Rows[0][14]
+                        );
+                isChangeTax = double.Parse(da.Rows[0][7].ToString()) != 0.0;
+                isHideTip = double.Parse(da.Rows[0][10].ToString()) == 0.0;
+                isHideRemark = da.Rows[0][12] == DBNull.Value;
+                isHideReward = (bool)da.Rows[0][13];
+            }
+            else
+            {
+                // add data to data table
+                ds.Tables["SO"].Rows.Add(
+                            GetStoreNameByStoreCode(saleOrder.StoreCode), saleOrder.SOCardImg, saleOrder.SONumber,
+                            ToShortDateString(saleOrder.OrderDate), saleOrder.UserCreated, saleOrder.SubTotal,
+                            saleOrder.TaxCode, saleOrder.DiscountAmount, saleOrder.Shipping,
+                            saleOrder.Total, 0, saleOrder.TaxAmount, receiptMessage,
+                            saleOrder.Remark, saleOrder.IsRedeeem, saleOrder.RewardAmount
+                        );
+                isChangeTax = saleOrder.DiscountAmount != (decimal)0.0;
+                isHideTip = true;
+                isHideRemark = string.IsNullOrEmpty(saleOrder.Remark);
+                isHideReward = saleOrder.IsRedeeem;
+            }
+            sOQtyDetails = new rptSOQtyDetails();
+            // Supppress control in crystal report
+            if (isChangeTax)
+            {
+                // Change label name from "Discount" to "Tax"
+                ((TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblDiscount"]).Text = "Tax";
+                // Change label name from "Tax" to "TDiscount"
+                ((TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblTax"]).Text = "Discount";
+            }
+            if (isHideTip && isHideReward == false)
+            {
+                // Hide Tip
+                sOQtyDetails.ReportDefinition.ReportObjects["lblTip"].ObjectFormat.EnableSuppress = true;
+                sOQtyDetails.ReportDefinition.ReportObjects["txtTip"].ObjectFormat.EnableSuppress = true;
+                // Hide Reward
+                sOQtyDetails.ReportDefinition.ReportObjects["lblReward"].ObjectFormat.EnableSuppress = true;
+                sOQtyDetails.ReportDefinition.ReportObjects["txtReward"].ObjectFormat.EnableSuppress = true;
+                // Hide line lnGrandTotal1
+                sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal1"].ObjectFormat.EnableSuppress = true;
+                // Show line lnGrandTotal2
+                sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal3"].ObjectFormat.EnableSuppress = false;
+                // Set new possition for lblGrandTotal
+                ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"]).Top = 1550;
+                ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"]).Left = 7770;
+                // Set new possition for txtGrandTotal
+                ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"]).Top = 1580;
+                ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"]).Left = 9430;
+            }
+            else
+            {
+                // Hide Tip and change orther object's position in report
+                if (isHideTip)
+                {
+                    // Hide Tip
+                    sOQtyDetails.ReportDefinition.ReportObjects["lblTip"].ObjectFormat.EnableSuppress = true;
+                    sOQtyDetails.ReportDefinition.ReportObjects["txtTip"].ObjectFormat.EnableSuppress = true;
+                    sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal1"].ObjectFormat.EnableSuppress = true;
+                    sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal2"].ObjectFormat.EnableSuppress = false;
+                    // Reset postion
+                    ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblReward"]).Top = 1500;
+                    ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblReward"]).Left = 7770;
+                    ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtReward"]).Top = 1530;
+                    ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtReward"]).Left = 9430;
+                    ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"]).Top = 1850;
+                    ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"]).Left = 7770;
+                    ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"]).Top = 1880;
+                    ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"]).Left = 9430;
+                }
+
+                // Hide Reward and change orther object's position in report
+                if (isHideReward == false)
+                {
+                    sOQtyDetails.ReportDefinition.ReportObjects["lblReward"].ObjectFormat.EnableSuppress = true;
+                    sOQtyDetails.ReportDefinition.ReportObjects["txtReward"].ObjectFormat.EnableSuppress = true;
+                    sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal1"].ObjectFormat.EnableSuppress = true;
+                    sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal2"].ObjectFormat.EnableSuppress = false;
+                    ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"]).Top = 1850;
+                    ((CrystalDecisions.CrystalReports.Engine.TextObject)sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"]).Left = 7770;
+                    ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"]).Top = 1880;
+                    ((CrystalDecisions.CrystalReports.Engine.FieldObject)sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"]).Left = 9430;
+                }
+            }
+            if (isHideRemark)
+            {
+                // Hide Remark
+                sOQtyDetails.ReportDefinition.ReportObjects["txtRemark"].ObjectFormat.EnableSuppress = true;
+            }
+            // Set param in sql function sp_pos_so_get_sale_order_details
+            da = dbHelper.ExecuteQuery("sp_pos_so_get_sale_order_details", string.Format("{0}, {1}", saleOrder.Id.ToString(), false.ToString()));
+            if (da.Rows.Count > 0)
+            {
+                ConvertImageToByteArray();
+                for (int i = 0; i < da.Rows.Count; i++)
+                {
+                    byte[] isReturned = null;
+                    if (da.Rows[i][6] != DBNull.Value && bool.Parse(da.Rows[i][6].ToString()))
+                    {
+                        // Set image show in report
+                        isReturned = trueImg;
+                    }
+                    double price = double.Parse(da.Rows[i][1].ToString()) - double.Parse(da.Rows[i][2].ToString());
+                    // Add data to data table 
+                    ds.Tables["SODetails"].Rows.Add(                            
+                            da.Rows[i][0], price, da.Rows[i][2], da.Rows[i][3],
+                            da.Rows[i][4], da.Rows[i][5], isReturned
+                        );
+                }
+                da.Clear();
+            }
+            else
+            {
+                ds.Tables["SODetails"].Rows.Add();
+            }
+            sOQtyDetails.DataDefinition.FormulaFields["CurrencySymbol"].Text = currencySymbol;
+            sOQtyDetails.Subreports[0].SetDataSource(ds.Tables["CompanyInfo"]);
+            sOQtyDetails.Subreports[1].SetDataSource(ds.Tables["Payment"]);
+            sOQtyDetails.SetDataSource(ds);
+            ReportSource = sOQtyDetails;
+        }
+
+        private void GetSaleQty(Model.base_SaleOrderModel saleOrder)
+        {
+            // Set param in sql function
+            string resource = "'" + saleOrder.Resource.ToString() + "'";
+            string param = string.Format("{0},{1}", resource, "false");
+            bool isHideRemark;
+            // Get Sale Order
+            da = dbHelper.ExecuteQuery("sp_pos_so_get_sale_order", param);
+            if (da.Rows.Count > 0)
+            {
+                // Format order date
+                string orderDate = ToShortDateString(DateTime.Parse(da.Rows[0][3].ToString()));
+                // Add data to data table
+                ds.Tables["SO"].Rows.Add(GetStoreNameByStoreCode(int.Parse(da.Rows[0][0].ToString())),
+                            da.Rows[0][1], da.Rows[0][2], orderDate, da.Rows[0][4], da.Rows[0][5], da.Rows[0][6],
+                            da.Rows[0][7], da.Rows[0][8], da.Rows[0][9], da.Rows[0][10], da.Rows[0][11],
+                            "", da.Rows[0][12], da.Rows[0][13], da.Rows[0][14]
+                        );
+                isHideRemark = da.Rows[0][12] == DBNull.Value;
+            }
+            else
+            {
+                // add data to data table
+                ds.Tables["SO"].Rows.Add(
+                            GetStoreNameByStoreCode(saleOrder.StoreCode), saleOrder.SOCardImg, saleOrder.SONumber,
+                            ToShortDateString(saleOrder.OrderDate), saleOrder.UserCreated, saleOrder.SubTotal,
+                            saleOrder.TaxCode, saleOrder.DiscountAmount, saleOrder.Shipping,
+                            saleOrder.Total, 0, saleOrder.TaxAmount, "",
+                            saleOrder.Remark, saleOrder.IsRedeeem, saleOrder.RewardAmount
+                        );
+                isHideRemark = saleOrder.Remark.Length == 0;
+            }
+            GetSODetails(saleOrder.Id.ToString(), false);
+            sOQtyDetails = new rptSOQtyDetails();
+            #region -Suppress control-
+            // Hide SubTotal
+            sOQtyDetails.ReportDefinition.ReportObjects["lblSubTotal"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtSubTotal"].ObjectFormat.EnableSuppress = true;
+            // Hide tax
+            sOQtyDetails.ReportDefinition.ReportObjects["lblTax"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtTax"].ObjectFormat.EnableSuppress = true;
+            // Hide discount
+            sOQtyDetails.ReportDefinition.ReportObjects["lblDiscount"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtDiscount"].ObjectFormat.EnableSuppress = true;
+            // Hide shipping
+            sOQtyDetails.ReportDefinition.ReportObjects["lblShipping"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtShipping"].ObjectFormat.EnableSuppress = true;
+            // Hide Tip
+            sOQtyDetails.ReportDefinition.ReportObjects["lblTip"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtTip"].ObjectFormat.EnableSuppress = true;
+            // Hide Line14 & Line15
+            sOQtyDetails.ReportDefinition.ReportObjects["Line14"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["Line15"].ObjectFormat.EnableSuppress = true;
+            // Hide Total
+            sOQtyDetails.ReportDefinition.ReportObjects["lblTotal"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtTotal"].ObjectFormat.EnableSuppress = true;
+            // Hide Reward
+            sOQtyDetails.ReportDefinition.ReportObjects["lblReward"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtReward"].ObjectFormat.EnableSuppress = true;
+            // Hide line lnGrandTotal
+            sOQtyDetails.ReportDefinition.ReportObjects["lnGrandTotal1"].ObjectFormat.EnableSuppress = true;
+            // Hide Grand Total
+            sOQtyDetails.ReportDefinition.ReportObjects["lblGrandTotal"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtGrandTotal"].ObjectFormat.EnableSuppress = true;
+            // Hide Total
+            sOQtyDetails.ReportDefinition.ReportObjects["lblPrice"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtPrice"].ObjectFormat.EnableSuppress = true;
+            // Hide Reward
+            sOQtyDetails.ReportDefinition.ReportObjects["lblAmount"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtAmount"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["lnProductName"].ObjectFormat.EnableSuppress = true;
+            sOQtyDetails.ReportDefinition.ReportObjects["lnQty"].ObjectFormat.EnableSuppress = true;
+            if (isHideRemark)
+            {
+                sOQtyDetails.ReportDefinition.ReportObjects["txtRemark"].ObjectFormat.EnableSuppress = true;
+            }
+            sOQtyDetails.ReportDefinition.ReportObjects["lblQty"].Width = 3600;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtQty"].Width = 3600;
+            sOQtyDetails.ReportDefinition.ReportObjects["lblProductName"].Width = 6820;
+            sOQtyDetails.ReportDefinition.ReportObjects["txtProductName"].Width = 6820;
+            #endregion
+            sOQtyDetails.DataDefinition.FormulaFields["CurrencySymbol"].Text = currencySymbol;
+            sOQtyDetails.Subreports[0].SetDataSource(ds.Tables["CompanyInfo"]);
+            sOQtyDetails.Subreports[1].SetDataSource(ds.Tables["Payment"]);
+            sOQtyDetails.SetDataSource(ds);
+            ReportSource = sOQtyDetails;
         }        
 
         #region -Export pdf file-
