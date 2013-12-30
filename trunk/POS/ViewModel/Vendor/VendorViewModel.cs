@@ -805,12 +805,7 @@ namespace CPC.POS.ViewModel
             SelectedVendor.TermNetDue = selectedItem.TermNetDue;
             SelectedVendor.TermPaidWithinDay = selectedItem.TermPaidWithinDay;
             SelectedVendor.AdditionalModel.FedTaxId = selectedItem.AdditionalModel.FedTaxId;
-            //SelectedVendor.AdditionalModel.TaxInfoType = selectedItem.AdditionalModel.TaxInfoType;
-            //SelectedVendor.AdditionalModel.SaleTaxLocation = selectedItem.AdditionalModel.SaleTaxLocation;
-            //SelectedVendor.AdditionalModel.TaxRate = selectedItem.AdditionalModel.TaxRate;
-            //SelectedVendor.AdditionalModel.IsTaxExemption = selectedItem.AdditionalModel.IsTaxExemption;
-            //SelectedVendor.AdditionalModel.TaxExemptionNo = selectedItem.AdditionalModel.TaxExemptionNo;
-
+ 
             SelectedVendor.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>();
             SelectedVendor.ContactCollection = new CollectionBase<base_GuestModel>();
             SelectedVendor.ResourceNoteCollection = new CollectionBase<base_ResourceNoteModel>();
@@ -1569,7 +1564,18 @@ namespace CPC.POS.ViewModel
             // Check duplicate vendor
             if (CheckDuplicateVendor(vendorModel))
                 return false;
-
+            //To save picture.
+            if (this.SelectedVendor.PhotoCollection != null && this.SelectedVendor.PhotoCollection.Count > 0)
+            {
+                this.SelectedVendor.PhotoCollection.FirstOrDefault().IsNew = false;
+                this.SelectedVendor.PhotoCollection.FirstOrDefault().IsDirty = false;
+                this.SelectedVendor.Picture = this.SelectedVendor.PhotoCollection.FirstOrDefault().ImageBinary;
+            }
+            else
+                this.SelectedVendor.Picture = null;
+            if (this.SelectedVendor.PhotoCollection.DeletedItems != null &&
+                 this.SelectedVendor.PhotoCollection.DeletedItems.Count > 0)
+                this.SelectedVendor.PhotoCollection.DeletedItems.Clear();
             //// Handle clear data if user not choose "Tax Information" in Additional with FexTaxId & TaxLocation
             //if (vendorModel.AdditionalModel.TaxInfoType.Is(TaxInfoType.FedTaxID))
             //    vendorModel.AdditionalModel.SaleTaxLocation = 0;
@@ -2091,17 +2097,17 @@ namespace CPC.POS.ViewModel
         {
             if (vendorModel.PhotoCollection == null)
             {
-                string resource = vendorModel.Resource.ToString();
-                vendorModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>(
-                    _photoRepository.GetAll(x => x.Resource.Equals(resource)).
-                    Select(x => new base_ResourcePhotoModel(x)
-                    {
-                        ImagePath = IMG_VENDOR_DIRECTORY + vendorModel.GuestNo + "\\" + x.LargePhotoFilename,
-                        IsDirty = false
-                    }));
-
-                // Set default photo
-                vendorModel.PhotoDefault = vendorModel.PhotoCollection.FirstOrDefault();
+                vendorModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>();
+                if (vendorModel.Picture != null && vendorModel.Picture.Length > 0)
+                {
+                    base_ResourcePhotoModel ResourcePhotoModel = new base_ResourcePhotoModel();
+                    ResourcePhotoModel.ImageBinary = vendorModel.Picture;
+                    ResourcePhotoModel.IsDirty = false;
+                    ResourcePhotoModel.IsNew = false;
+                    vendorModel.PhotoCollection.Add(ResourcePhotoModel);
+                    //// Set default photo
+                    vendorModel.PhotoDefault = vendorModel.PhotoCollection.FirstOrDefault();
+                }
             }
         }
 

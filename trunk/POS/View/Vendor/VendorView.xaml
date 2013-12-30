@@ -990,15 +990,15 @@
                                                              IsCheckError="True">
                                 <AdornerDecorator x:Name="adoVendorInfo">
                                     <Grid x:Name="grdVendorInfo">
-                                        <cpcControl:ImageList Width="160"
+                                        <cpcControl:ImageControl Width="160"
                                                               Height="149"
                                                               Margin="546,19,0,0"
                                                               HorizontalAlignment="Left"
                                                               VerticalAlignment="Top"
                                                               BorderThickness="1"
-                                                              DisplayMemberPath="ImagePath"
+                                                              DisplayMemberPath="ImageBinary"
                                                               ItemsSource="{Binding SelectedVendor.PhotoCollection}"
-                                                              MaxNumberOfImages="{Binding MaxNumberOfImages}" />
+                                                             />
                                         <GroupBox x:Name="gbVendorInformation"
                                                   Grid.Row="1"
                                                   Width="525"

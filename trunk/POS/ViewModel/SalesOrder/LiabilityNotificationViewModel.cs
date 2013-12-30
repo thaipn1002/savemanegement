@@ -991,7 +991,13 @@ namespace CPC.POS.ViewModel
             bgWorker.ProgressChanged += (sender, e) =>
             {
                 base_SaleOrderModel saleOrderModel = new base_SaleOrderModel((base_SaleOrder)e.UserState);
+                if (saleOrderModel.DueDate.HasValue)
+                {
+                    saleOrderModel.DueDay = saleOrderModel.DueDate.Value.Day - DateTimeExt.Now.Day;
+                    saleOrderModel.IsDirty = false;
+                }
                 SetSaleOrderToModel(saleOrderModel);
+                saleOrderModel.IsDirty = false;
                 SaleOrderCollection.Add(saleOrderModel);
             };
 

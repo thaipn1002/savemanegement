@@ -330,6 +330,9 @@
     <Compile Include="Model\base_GuestProfileModel.cs">
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\base_GuestRewardDetailModel.cs">
+      <DependentUpon>ModelTemplate.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\base_GuestRewardModel.cs">
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
@@ -459,6 +462,7 @@
     <Compile Include="Model\Custom\BackupModel.cs" />
     <Compile Include="Model\Custom\ComboItem.cs" />
     <Compile Include="Model\Custom\CheckBoxItemModel.cs" />
+    <Compile Include="Model\Custom\SyncModel.cs" />
     <Compile Include="Model\Custom\DepartmentRootModel.cs" />
     <Compile Include="Model\Custom\ItemModel.cs" />
     <Compile Include="Model\Custom\ItemSettingModel.cs" />
@@ -516,21 +520,6 @@
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\rpt_UserModel.cs">
-      <DependentUpon>ModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tims_HolidayModel.cs">
-      <DependentUpon>ModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tims_TimeLogModel.cs">
-      <DependentUpon>ModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tims_WorkPermissionModel.cs">
-      <DependentUpon>ModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tims_WorkScheduleModel.cs">
-      <DependentUpon>ModelTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\tims_WorkWeekModel.cs">
       <DependentUpon>ModelTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Report\CrystalReport\Guest\rptCustomerProfile.cs">
@@ -628,6 +617,9 @@
       <DependentUpon>RepositoryTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\base_GuestGroupRepository.cs">
+      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\base_GuestRewardDetailRepository.cs">
       <DependentUpon>RepositoryTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\base_LayawayManagerRepository.cs">
@@ -857,21 +849,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RepositoryTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repository\tims_HolidayRepository.cs">
-      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\tims_TimeLogRepository.cs">
-      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\tims_WorkPermissionRepository.cs">
-      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\tims_WorkScheduleRepository.cs">
-      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\tims_WorkWeekRepository.cs">
-      <DependentUpon>RepositoryTemplate.tt</DependentUpon>
-    </Compile>
     <Compile Include="Service\DialogService.cs" />
     <Compile Include="Service\FrameworkDialogs\FileDialogViewModel.cs" />
     <Compile Include="Service\FrameworkDialogs\FolderBrowse\FolderBrowserDialog.cs" />
@@ -1061,6 +1038,9 @@
     </Compile>
     <Compile Include="View\Common\AddNewStateView.xaml.cs">
       <DependentUpon>AddNewStateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\DateSearchView.xaml.cs">
+      <DependentUpon>DateSearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SalesOrder\SOPaymentDetailView.xaml.cs">
       <DependentUpon>SOPaymentDetailView.xaml</DependentUpon>
@@ -1723,6 +1703,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Common\AddNewStateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Common\DateSearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

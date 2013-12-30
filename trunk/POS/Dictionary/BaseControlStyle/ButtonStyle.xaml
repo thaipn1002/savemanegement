@@ -70,6 +70,20 @@
         </Setter>
     </Style>
     <Style TargetType="{x:Type Button}">
+    	<Style.Triggers>
+    		<Trigger Property="IsPressed" Value="True">
+    			<Setter Property="RenderTransform">
+    				<Setter.Value>
+    					<TransformGroup>
+    						<ScaleTransform ScaleX="0.95" ScaleY="0.95"/>
+    						<SkewTransform/>
+    						<RotateTransform/>
+    						<TranslateTransform/>
+    					</TransformGroup>
+    				</Setter.Value>
+    			</Setter>
+    		</Trigger>
+    	</Style.Triggers>
         <Setter Property="Foreground"
                 Value="{DynamicResource ButtonNormalForeground}" />
         <Setter Property="HorizontalContentAlignment"
@@ -83,9 +97,11 @@
                           Width="Auto"
                           Height="Auto"
                           Background="#02FFFFFF"
-                          Cursor="Hand">
+                          Cursor="Hand" RenderTransformOrigin="0.5,0.5">
                         <Rectangle x:Name="bg"
                                    Fill="{DynamicResource ButtonNormalBackground}"
+                                   RadiusX="0"
+                                   RadiusY="0"
                                    Stroke="{DynamicResource ButtonNormalBorder}"
                                    StrokeThickness="1" />
                         <!--
@@ -153,6 +169,17 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="RenderTransform">
+        	<Setter.Value>
+        		<TransformGroup>
+        			<ScaleTransform/>
+        			<SkewTransform/>
+        			<RotateTransform/>
+        			<TranslateTransform/>
+        		</TransformGroup>
+        	</Setter.Value>
         </Setter>
     </Style>
     <Style x:Key="ButtonTextBlock"
@@ -486,16 +513,22 @@
                         <Rectangle x:Name="bg"
                                    Fill="#B2FFFFFF"
                                    Opacity="1"
+                                   RadiusX="3"
+                                   RadiusY="3"
                                    Stroke="#B2FFFFFF"
                                    StrokeThickness="1" />
                         <Rectangle x:Name="Light"
                                    Margin="1,1,1,9"
                                    Opacity="0"
+                                   RadiusX="3"
+                                   RadiusY="3"
                                    StrokeThickness="1"
                                    Visibility="Visible" />
                         <Rectangle x:Name="Focused"
                                    Margin="1"
                                    Opacity="0"
+                                   RadiusX="3"
+                                   RadiusY="3"
                                    StrokeDashArray="2"
                                    StrokeThickness="1" />
                         <ContentPresenter x:Name="contentPresenter"

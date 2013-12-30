@@ -179,46 +179,58 @@
                     <Button x:Name="btnTitle"
                             FontWeight="Bold"
                             Style="{DynamicResource ButtonNameStyle}" />
-                    <ToggleButton x:Name="tgExpand"
-                                  Width="20"
-                                  Height="20"
-                                  Margin="0,0,25,0"
-                                  HorizontalAlignment="Right"
-                                  VerticalAlignment="Center"
-                                  Cursor="Hand"
-                                  Style="{DynamicResource ToggleButtonMiniMaxi}" />
-                    <Button x:Name="btnClose"
-                            Width="20"
-                            Height="20"
-                            Margin="0,0,3,0"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center"
-                            Cursor="Hand"
-                            Style="{DynamicResource ButtonMiniClose}">
-                        <Grid x:Name="grdClose">
-                            <Path Width="14"
-                                  Height="14"
-                                  HorizontalAlignment="Center"
-                                  VerticalAlignment="Center"
-                                  Data="M5.75,0.25 L9.25,0.25 9.25,5.75 14.75,5.75 14.75,9.25 9.25,9.25 9.25,14.75 5.75,14.75 5.75,9.25 0.25,9.25 0.25,5.75 5.75,5.75 z"
-                                  Fill="{DynamicResource TitleBar_ButtonClose_Arrow}"
-                                  RenderTransformOrigin="0.5,0.5"
-                                  Stretch="Fill"
-                                  StrokeThickness="0.5">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleX="1"
-                                                        ScaleY="1" />
-                                        <SkewTransform AngleX="0"
-                                                       AngleY="0" />
-                                        <RotateTransform Angle="-45" />
-                                        <TranslateTransform X="0"
-                                                            Y="0" />
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
-                        </Grid>
-                    </Button>
+                    <StackPanel x:Name="skpButton" HorizontalAlignment="Right" Margin="0,6" Orientation="Horizontal">
+                    	<Button x:Name="btnHelp"
+                    		Width="20"
+                    		Height="20"
+                    		HorizontalAlignment="Right"
+                    		VerticalAlignment="Center"
+                    		Cursor="Hand"
+							Command="{Binding HelpCommand}"
+                    		Style="{DynamicResource ButtonMiniClose}">
+                    		<Grid x:Name="grdhelp">
+                    			<Ellipse x:Name="elshelp" Width="14" Height="14" Fill="White" />
+                    			<TextBlock x:Name="txthelp" TextWrapping="Wrap" Text="?" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF477BBC"/>
+                    		</Grid>
+                    	</Button>
+                    	<ToggleButton x:Name="tgExpand"
+                    		Width="20"
+                    		Height="20"
+                    		HorizontalAlignment="Right"
+                    		VerticalAlignment="Center"
+                    		Cursor="Hand"
+                    		Style="{DynamicResource ToggleButtonMiniMaxi}" />
+                    	<Button x:Name="btnClose"
+                    		Width="20"
+                    		Height="20"
+                    		VerticalAlignment="Center"
+                    		Cursor="Hand"
+                    		Style="{DynamicResource ButtonMiniClose}">
+                    		<Grid x:Name="grdClose">
+                    			<Path Width="14"
+                    				Height="14"
+                    				HorizontalAlignment="Center"
+                    				VerticalAlignment="Center"
+                    				Data="M5.75,0.25 L9.25,0.25 9.25,5.75 14.75,5.75 14.75,9.25 9.25,9.25 9.25,14.75 5.75,14.75 5.75,9.25 0.25,9.25 0.25,5.75 5.75,5.75 z"
+                    				Fill="{DynamicResource TitleBar_ButtonClose_Arrow}"
+                    				RenderTransformOrigin="0.5,0.5"
+                    				Stretch="Fill"
+                    				StrokeThickness="0.5">
+                    				<Path.RenderTransform>
+                    					<TransformGroup>
+                    						<ScaleTransform ScaleX="1"
+                    							ScaleY="1" />
+                    						<SkewTransform AngleX="0"
+                    							AngleY="0" />
+                    						<RotateTransform Angle="-45" />
+                    						<TranslateTransform X="0"
+                    							Y="0" />
+                    					</TransformGroup>
+                    				</Path.RenderTransform>
+                    			</Path>
+                    		</Grid>
+                    	</Button>
+                    </StackPanel>
                 </Grid>
             </Border>
         </Grid>

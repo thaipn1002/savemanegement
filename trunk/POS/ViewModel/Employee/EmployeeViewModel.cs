@@ -909,6 +909,7 @@ namespace CPC.POS.ViewModel
                 addressModel.CreateGuestAddress();
                 this.SelectedItemEmployee.AddressCollection.Add(addressModel);
             }
+            this.SelectedItemEmployee.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>();
             //AddressCollection For "Address Control"
             this.SelectedItemEmployee.AddressControlCollection = new AddressControlCollection();
             //Set AddresssModel to address for "Address Control"
@@ -919,24 +920,6 @@ namespace CPC.POS.ViewModel
                 addressControlModel.IsNew = true;
                 this.SelectedItemEmployee.AddressControlCollection.Add(addressControlModel);
             }
-            //Load PhotoCollection
-            string resource = GuestModel.Resource.ToString();
-            this.SelectedItemEmployee.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>(
-                   _photoRepository.GetAll(x => x.Resource.Equals(resource)).
-                   Select(x => new base_ResourcePhotoModel(x)
-                   {
-                       IsDirty = true,
-                       IsNew = true,
-                       ImagePath = System.IO.Path.Combine(IMG_EMPLOYEE_DIRECTORY, GuestModel.GuestNo, x.LargePhotoFilename)
-                   }));
-            foreach (var itemImage in this.SelectedItemEmployee.PhotoCollection)
-                itemImage.CreateResourcePhoto();
-
-            if (this.SelectedItemEmployee.PhotoCollection.Count > 0)
-                this.SelectedItemEmployee.PhotoDefault = this.SelectedItemEmployee.PhotoCollection.FirstOrDefault();
-            else
-                this.SelectedItemEmployee.PhotoDefault = new base_ResourcePhotoModel();
-
             this.SelectedItemEmployee.Resource = Guid.NewGuid();
             this.SelectedItemEmployee.FirstName = GuestModel.FirstName + "(Copy)";
             this.SelectedItemEmployee.ResourceNoteCollection = new CollectionBase<base_ResourceNoteModel>();
@@ -1192,6 +1175,20 @@ namespace CPC.POS.ViewModel
             bool result = true;
             try
             {
+
+                //Save Picture
+                if (this.SelectedItemEmployee.PhotoCollection != null
+                    && this.SelectedItemEmployee.PhotoCollection.Count > 0)
+                {
+                    this.SelectedItemEmployee.PhotoCollection.FirstOrDefault().IsDirty = false;
+                    this.SelectedItemEmployee.PhotoCollection.FirstOrDefault().IsNew = false;
+                    this.SelectedItemEmployee.Picture = this.SelectedItemEmployee.PhotoCollection.FirstOrDefault().ImageBinary;
+                }
+                else
+                    this.SelectedItemEmployee.Picture = null;
+                if (this.SelectedItemEmployee.PhotoCollection.DeletedItems != null &&
+               this.SelectedItemEmployee.PhotoCollection.DeletedItems.Count > 0)
+                    this.SelectedItemEmployee.PhotoCollection.DeletedItems.Clear();
                 //To close detail grid of Employee after saving data.
                 if (this.SelectedItemEmployee.IsNew)
                     this.Insert();
@@ -1347,10 +1344,6 @@ namespace CPC.POS.ViewModel
                 fingerPrintModel.EndUpdate();
 
             }
-
-            //Save,Update or delete PhotoResource
-            SavePhotoResource(this.SelectedItemEmployee);
-
             _guestRepository.Commit();
             // To turn off IsDirty & IsNew
             this.SelectedItemEmployee.EndUpdate();
@@ -1467,39 +1460,6 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
-        #region Save Image
-        /// <summary>
-        /// Save images into folder if this ImageCollection have data.
-        /// </summary>
-        /// 
-        string IMG_EMPLOYEE_DIRECTORY = System.IO.Path.Combine(Define.CONFIGURATION.DefautlImagePath, "Employee\\");
-        private void SaveImage(base_ResourcePhotoModel model)
-        {
-            try
-            {
-                string imgGuestDirectory = IMG_EMPLOYEE_DIRECTORY + this.SelectedItemEmployee.GuestNo + "\\";
-                if (!System.IO.Directory.Exists(imgGuestDirectory))
-                    System.IO.Directory.CreateDirectory(imgGuestDirectory);
-                ///To check file on client and copy file to server
-                System.IO.FileInfo fileInfo = new System.IO.FileInfo(model.ImagePath);
-                if (fileInfo.Exists)
-                {
-                    ///To copy image to server
-                    string filename = System.IO.Path.Combine(imgGuestDirectory, model.LargePhotoFilename);
-                    System.IO.FileInfo file = new System.IO.FileInfo(filename);
-                    if (!file.Exists)
-                        fileInfo.CopyTo(filename, true);
-                    model.ImagePath = filename;
-                }
-                else
-                    model.ImagePath = string.Empty;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Save Image" + ex.ToString());
-            }
-        }
-        #endregion
 
         #region InitialData
         /// <summary>
@@ -1622,23 +1582,7 @@ namespace CPC.POS.ViewModel
             //Load DefaultAdress Address
             if (employeeModel.base_Guest.base_GuestAddress.Count > 0)
                 employeeModel.AddressModel = new base_GuestAddressModel(employeeModel.base_Guest.base_GuestAddress.SingleOrDefault(x => x.IsDefault));
-
-            //Load Schedule
-            if (employeeModel.base_Guest.base_GuestSchedule != null
-                      && employeeModel.base_Guest.base_GuestSchedule.Count > 0
-                      && employeeModel.base_Guest.base_GuestSchedule.Where(x => x.Status > 0).Count() > 0)
-            {
-                if (employeeModel.base_Guest.base_GuestSchedule.Count == 1)
-                {
-                    employeeModel.EmployeeWorkScheduleName = employeeModel.base_Guest.base_GuestSchedule.First().tims_WorkSchedule.WorkScheduleName;
-                }
-                var query = employeeModel.base_Guest.base_GuestSchedule.Where(x => x.Status > 0).LastOrDefault();
-                if (query != null)
-                    employeeModel.EmployeeWorkScheduleName = query.tims_WorkSchedule.WorkScheduleName;
-            }
-            else
-                employeeModel.EmployeeWorkScheduleName = "Employee not work schedule";
-
+       
             //Load FingerPrint
             employeeModel.EmployeeFingerprintCollection = new CollectionBase<base_GuestFingerPrintModel>(
                             employeeModel.base_Guest.base_GuestFingerPrint.Select(x => new base_GuestFingerPrintModel(x)));
@@ -1650,6 +1594,7 @@ namespace CPC.POS.ViewModel
             }
 
             //Load Resource Photo
+            employeeModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>();
             LoadResourcePhoto(employeeModel);
 
             //Load resource note collection
@@ -1702,17 +1647,15 @@ namespace CPC.POS.ViewModel
         /// <param name="guestModel"></param>
         private void LoadResourcePhoto(base_GuestModel guestModel)
         {
-            if (guestModel.PhotoCollection == null)
+            CollectionBase<base_ResourcePhotoModel> images = new CollectionBase<base_ResourcePhotoModel>();
+            if (guestModel.Picture != null && guestModel.Picture.Length > 0)
             {
-                string resource = guestModel.Resource.ToString();
-                guestModel.PhotoCollection = new CollectionBase<base_ResourcePhotoModel>(
-                    _photoRepository.GetAll(x => x.Resource.Equals(resource)).
-                    Select(x => new base_ResourcePhotoModel(x)
-                    {
-                        ImagePath = System.IO.Path.Combine(IMG_EMPLOYEE_DIRECTORY, guestModel.GuestNo, x.LargePhotoFilename),
-                        IsDirty = false
-                    }));
-
+                base_ResourcePhotoModel ResourcePhotoModel = new base_ResourcePhotoModel();
+                ResourcePhotoModel.ImageBinary = guestModel.Picture;
+                ResourcePhotoModel.IsDirty = false;
+                ResourcePhotoModel.IsNew = false;
+                images.Add(ResourcePhotoModel);
+                guestModel.PhotoCollection = images;
                 if (guestModel.PhotoCollection.Count > 0)
                     guestModel.PhotoDefault = guestModel.PhotoCollection.FirstOrDefault();
                 else
@@ -1751,8 +1694,6 @@ namespace CPC.POS.ViewModel
                     photoModel.ToEntity();
                     if (photoModel.IsNew)
                         _photoRepository.Add(photoModel.base_ResourcePhoto);
-                    //To save image to store.
-                    this.SaveImage(photoModel);
                     _photoRepository.Commit();
                     //set Id
                     photoModel.Id = photoModel.base_ResourcePhoto.Id;

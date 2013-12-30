@@ -41,49 +41,66 @@
                                              IsSynchronizedWithCurrentItem="False"
                                              ItemsSource="{Binding TableCollection}"
                                              RowHeight="30"
-											 IsEditedData="False"
-											 IsColunmHidden="False"
-                                             SelectedItem="{Binding SelectedCard}"
+                                             IsEditedData="False"
+                                             IsColunmHidden="False"
                                              Style="{DynamicResource DatagridWithRowHeader}"
                                              VisibilityNavigationBar="Collapsed">
                     <cpcDataGrid:DataGridControl.Columns>
                         <DataGridTextColumn Width="180"
-						                        Header="Tên bảng"
-												Binding="{Binding Name}"
-                                                IsReadOnly="true"/>
-						<DataGridTextColumn Width="180"
-						                        Header="Số dòng mới"
-                                                IsReadOnly="true"/>
+                                            Header="Tên bảng"
+                                            Binding="{Binding Name}"
+                                            IsReadOnly="true" />
+                        <DataGridTextColumn Width="180"
+                                            Header="Số dòng mới"
+                                            IsReadOnly="true" />
                         <DataGridTemplateColumn Width="*"
+                                                IsReadOnly="True"
                                                 MinWidth="150">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                	<Grid>
-                                		<Button  HorizontalAlignment="Left" d:LayoutOverrides="Height" Width="60" >
-                                			<Grid x:Name="stkpBtnOK" Width="Auto" Height="Auto">
-                                				<TextBlock x:Name="txtblOK"
-                                					VerticalAlignment="Center"
-                                					Style="{DynamicResource ButtonTextBlock}"
-                                					Text="Xuất"
-                                					TextWrapping="NoWrap" d:LayoutOverrides="Width" HorizontalAlignment="Right" Margin="18,0,5,0" />
-                                				<Image Height="18" HorizontalAlignment="Left" Width="Auto" Source="/POS;component/Image/Export.png"/>
-                                			</Grid>
-											</Button>
-                                		<Button  Width="60" d:LayoutOverrides="Height" Margin="70,0,0,0" >
-                                			<Grid x:Name="stkpBtnExport"
-                                				HorizontalAlignment="Center"
-                                				VerticalAlignment="Center">
-                                				<TextBlock x:Name="txtblExport"
-                                					Margin="20,0,0,0"
-                                					VerticalAlignment="Center"
-                                					Style="{DynamicResource ButtonTextBlock}"
-                                					Text="Nhập"
-                                					TextWrapping="NoWrap" d:LayoutOverrides="Width" />
-                                				<Image HorizontalAlignment="Left" Source="/POS;component/Image/Import.png" Height="18"/>
-                                			</Grid>
-											</Button>
-                                	</Grid>
-                                    
+                                    <Grid>
+                                        <!--<Button  HorizontalAlignment="Left"
+                                                 d:LayoutOverrides="Height"
+                                                 Width="60">
+                                            <Grid x:Name="stkpBtnOK"
+                                                  Width="Auto"
+                                                  Height="Auto">
+                                                <TextBlock x:Name="txtblOK"
+                                                           VerticalAlignment="Center"
+                                                           Style="{DynamicResource ButtonTextBlock}"
+                                                           Text="Xuất"
+                                                           TextWrapping="NoWrap"
+                                                           d:LayoutOverrides="Width"
+                                                           HorizontalAlignment="Right"
+                                                           Margin="18,0,5,0" />
+                                                <Image Height="18"
+                                                       HorizontalAlignment="Left"
+                                                       Width="Auto"
+                                                       Source="/POS;component/Image/Export.png" />
+                                            </Grid>
+                                        </Button>-->
+                                        <Button  Width="60"
+                                                 d:LayoutOverrides="Height"
+                                                 CommandParameter="{Binding .}"
+                                                 Command="{Binding DataContext.ImportCommand,RelativeSource={RelativeSource AncestorType={x:Type UserControl}, Mode=FindAncestor}}"
+                                                 Margin="70,0,0,0">
+                                            <Grid x:Name="stkpBtnExport"
+                                                  HorizontalAlignment="Center"
+                                                  VerticalAlignment="Center">
+                                                <TextBlock x:Name="txtblExport"
+                                                           Margin="20,0,0,0"
+                                                           VerticalAlignment="Center"
+                                                           Style="{DynamicResource ButtonTextBlock}"
+                                                           Text="Nhập"
+                                                           TextWrapping="NoWrap"
+                                                           d:LayoutOverrides="Width" />
+                                                <Image HorizontalAlignment="Left"
+                                                       Source="/POS;component/Image/Import.png"
+                                                       Height="18" />
+                                            </Grid>
+                                        </Button>
+                                    </Grid>
+
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

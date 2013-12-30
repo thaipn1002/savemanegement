@@ -25,7 +25,7 @@ namespace CPC.POS.ViewModel
         #region Define
 
         public RelayCommand<object> DoubleClickViewCommand { get; private set; }
-
+        public RelayCommand<object> SearchDateCommand { get; private set; }
         //Respository
         private base_StoreRepository _storeRepository = new base_StoreRepository();
         private base_SaleCommissionRepository _saleCommissionRepository = new base_SaleCommissionRepository();
@@ -64,6 +64,7 @@ namespace CPC.POS.ViewModel
             IsIncludeReturnFee = Define.CONFIGURATION.IsIncludeReturnFee;
             // Get permission
             GetPermission();
+            this.SearchDateCommand = new RelayCommand<object>(this.OnSearchDateCommandExecute,this.OnSearchDateCommandCanExecute);
         }
 
         public LiabilityViewModel(bool isList, object param)
@@ -510,6 +511,93 @@ namespace CPC.POS.ViewModel
 
         #endregion
 
+        #region DateTypes
+        private List<ComboItem> _dateTypes;
+        /// <summary>
+        /// Gets or sets the DateTypes.
+        /// </summary>
+        public List<ComboItem> DateTypes
+        {
+            get
+            {
+                _dateTypes = new List<ComboItem>();
+                ComboItem item1 = new ComboItem();
+                item1.IntValue = 0;
+                item1.Text = "";
+                _dateTypes.Add(item1);
+                ComboItem item2 = new ComboItem();
+                item2.IntValue = 0;
+                item2.Text = "Ngày tạo";
+                _dateTypes.Add(item2);
+                ComboItem item3 = new ComboItem();
+                item3.IntValue = 0;
+                item3.Text = "Ngày phải trả";
+                _dateTypes.Add(item3);
+                return _dateTypes;
+            }
+
+        }
+        #endregion
+
+        #region SelectedDateType
+        private ComboItem _selectedDateType;
+        /// <summary>
+        /// Gets or sets the SelectedDateType.
+        /// </summary>
+        public ComboItem SelectedDateType
+        {
+            get { return _selectedDateType; }
+            set
+            {
+                if (_selectedDateType != value)
+                {
+                    _selectedDateType = value;
+                    OnPropertyChanged(() => SelectedDateType);
+                    this.FromDate = null;
+                    this.ToDate = null;
+                }
+            }
+        }
+        #endregion
+
+        #region FromDate
+        private DateTime? _fromDate;
+        /// <summary>
+        /// Gets or sets the FromDate.
+        /// </summary>
+        public DateTime? FromDate
+        {
+            get { return _fromDate; }
+            set
+            {
+                if (_fromDate != value)
+                {
+                    _fromDate = value;
+                    OnPropertyChanged(() => FromDate);
+                }
+            }
+        }
+        #endregion
+
+        #region ToDate
+        private DateTime? _toDate;
+        /// <summary>
+        /// Gets or sets the ToDate.
+        /// </summary>
+        public DateTime? ToDate
+        {
+            get { return _toDate; }
+            set
+            {
+                if (_toDate != value)
+                {
+                    _toDate = value;
+                    OnPropertyChanged(() => ToDate);
+                }
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Commands Methods
@@ -540,7 +628,7 @@ namespace CPC.POS.ViewModel
         /// </summary>
         private void OnPrintCommandExecute(object param)
         {
-            
+
         }
         #endregion
 
@@ -606,6 +694,53 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
+        #region SearchDateCommand
+
+        /// <summary>
+        /// Method to check whether the SearchDateCommand command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        protected bool OnSearchDateCommandCanExecute(object param)
+        {
+            return true;
+        }
+
+        protected void OnSearchDateCommandExecute(object param)
+        {
+            DateSearchView searchView = new DateSearchView();
+            searchView.DataContext = this;
+            searchView.ShowDialog();
+            if (searchView.IsCancel)
+            {
+            }
+            else
+            {
+            }
+          //SearchAlert = string.Empty;
+            //if ((param == null || string.IsNullOrWhiteSpace(param.ToString())) && SearchOption == 0)//Search All
+            //{
+            //    Expression<Func<base_SaleOrder, bool>> predicate = CreatePredicateWithConditionSearch(Keyword);
+            //    LoadDataByPredicate(predicate, false, 0);
+
+            //}
+            //else if (param != null)
+            //{
+            //    Keyword = param.ToString();
+            //    if (SearchOption == 0)
+            //    {
+            //        //Thong bao Can co dk
+            //        SearchAlert = "Search Option is required";
+            //    }
+            //    else
+            //    {
+            //        Expression<Func<base_SaleOrder, bool>> predicate = CreatePredicateWithConditionSearch(Keyword);
+
+            //        LoadDataByPredicate(predicate, false, 0);
+            //    }
+            //}
+        }
+
+        #endregion
         #endregion "\Commands Methods"
 
         #region Private Methods
@@ -982,7 +1117,13 @@ namespace CPC.POS.ViewModel
             bgWorker.ProgressChanged += (sender, e) =>
             {
                 base_SaleOrderModel saleOrderModel = new base_SaleOrderModel((base_SaleOrder)e.UserState);
+                if (saleOrderModel.DueDate.HasValue)
+                {
+                    saleOrderModel.DueDay = saleOrderModel.DueDate.Value.Day - DateTimeExt.Now.Day;
+                    saleOrderModel.IsDirty = false;
+                }
                 SetSaleOrderToModel(saleOrderModel);
+                saleOrderModel.IsDirty = false;
                 SaleOrderCollection.Add(saleOrderModel);
             };
 

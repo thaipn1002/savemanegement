@@ -491,7 +491,7 @@
                                                      ItemsSource="{Binding EmployeeCollection}"
                                                      NumberOfItems="{Binding NumberOfItems}"
                                                      IsColunmHidden="True"
-                                                     
+                                                     IsPaging="False"
                                                      RowStyle="{StaticResource DataGridToggleRowStyle}"
                                                      SelectionMode="Extended"
                                                      SelectedIndex="0"
@@ -918,11 +918,11 @@
                             
 							<ColumnDefinition Width="80"/>
 							<ColumnDefinition Width="140"/>
-							<ColumnDefinition Width="0.633*"/>
+							<ColumnDefinition Width="0.709*"/>
 							<ColumnDefinition Width="85"/>
 							<ColumnDefinition Width="110"/>
-							<ColumnDefinition Width="0.367*"/>
-							<ColumnDefinition Width="56"/>
+							<ColumnDefinition Width="0.291*"/>
+							<ColumnDefinition Width="71"/>
 							<ColumnDefinition Width="126"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -1051,15 +1051,15 @@
                                     <Grid x:Name="grdEmployeeInfo"
                                           d:LayoutOverrides="Width, Height">
                                         <!--  Margin="546,19,0,0"  -->
-                                        <userControl:ImageList Width="160"
+                                        <userControl:ImageControl Width="160"
                                                                Height="160"
                                                                Margin="545,13,0,0"
                                                                HorizontalAlignment="Left"
                                                                VerticalAlignment="Top"
-                                                               DisplayMemberPath="ImagePath"
+                                                               DisplayMemberPath="ImageBinary"
                                                                Foreground="{x:Null}"
                                                                ItemsSource="{Binding SelectedItemEmployee.PhotoCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                               MaxNumberOfImages="{Binding MaxNumberOfImages}" />
+                                                               />
                                         <GroupBox x:Name="gbEmployeeInfo"
                                                   Width="525"
                                                   Margin="10,5,0,5"
@@ -2046,7 +2046,7 @@
                                                                                IntegerLength="4"
 																			   Padding="2,0,2,0"
                                                                                TextWrapping="NoWrap"
-                                                                               Value="{Binding SelectedItemEmployee.CommissionPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                               Value="{Binding SelectedItemEmployee.EmployeeCommissionPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                                                HorizontalAlignment="Left" />
                                                 <TextBlock x:Name="txtblPercent1"
                                                            Grid.Column="1"

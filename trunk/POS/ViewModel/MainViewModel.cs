@@ -1628,9 +1628,9 @@ namespace CPC.POS.ViewModel
                     break;
 
                 case "ExportData":
-                    CheckConnectionDB();
-                    //_dialogService.ShowDialog<ExportDataView>(this, new SyncDataViewModel(), null);
-                    //showPopup = true;
+                    //CheckConnectionDB();
+                    _dialogService.ShowDialog<ExportDataView>(this, new SyncDataViewModel(), null);
+                    showPopup = true;
                     break;
                 #endregion
             }

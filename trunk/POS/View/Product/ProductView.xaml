@@ -132,7 +132,7 @@
                    Fill="{DynamicResource UserControl_Background_Image}" />
         <control:BusyIndicator IsBusy="{Binding IsBusy}">
             <Grid x:Name="grdProduct">
-                <Grid x:Name="grdSearch">
+                <Grid x:Name="grdSearch" d:IsHidden="True">
                     <Grid.Visibility>
                         <Binding Path="IsSearchMode"
                                  Mode="OneWay"
@@ -428,7 +428,7 @@
                     </dataGridControl:DataGridControl>
                 </Grid>
                 <Grid x:Name="grdContentProduct1"
-                      Grid.Column="1" d:IsHidden="True">
+                      Grid.Column="1">
                     <Grid.Visibility>
                         <Binding Path="IsSearchMode"
                                  Mode="OneWay"
@@ -623,18 +623,16 @@
                                    TextWrapping="NoWrap" Foreground="#FF1900FF" />
                         <Grid x:Name="grdBasic"
                               Grid.Row="1"
-                              Width="747"
+                              Width="757"
                               Margin="0,10,0,0"
                               HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
-                               <ColumnDefinition Width="80"/>
-							<ColumnDefinition Width="140"/>
-							<ColumnDefinition Width="0.574*"/>
-							<ColumnDefinition Width="61"/>
-							<ColumnDefinition Width="137"/>
-							<ColumnDefinition Width="0.426*"/>
-							<ColumnDefinition Width="54.509"/>
-							<ColumnDefinition Width="130.491"/>
+                               <ColumnDefinition Width="59"/>
+							<ColumnDefinition Width="151"/>
+							<ColumnDefinition Width="50"/>
+							<ColumnDefinition Width="143"/>
+							<ColumnDefinition/>
+							<ColumnDefinition Width="270"/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="25" />
@@ -662,7 +660,7 @@
                                                     Text="{Binding SelectedProduct.Code, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                                                     TextWrapping="NoWrap" />
                             <TextBlock x:Name="txtblItemType"
-                                       Grid.Column="3"
+                                       Grid.Column="2"
                                        Margin="0"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
@@ -670,7 +668,7 @@
                                        Text="{DynamicResource PD_ItemType}"
                                        TextWrapping="NoWrap" />
                             <ComboBox x:Name="cmbItemType"
-                                      Grid.Column="4"
+                                      Grid.Column="3"
                                       Margin="0,2"
                                       VerticalAlignment="Stretch"
                                       DisplayMemberPath="Text"
@@ -679,16 +677,14 @@
                                       SelectedValue="{Binding SelectedProduct.ItemTypeId}"
                                       SelectedValuePath="Value" />
                             <TextBlock x:Name="txtblStartDate"
-                                       Grid.Column="6"
-                                       Margin="0"
-                                       HorizontalAlignment="Left"
+                                       Grid.Column="4"
                                        VerticalAlignment="Center"
                                        Style="{DynamicResource TextBlockNormal}"
                                        Text="{DynamicResource PD_Date}"
-                                       TextWrapping="NoWrap" />
+                                       TextWrapping="NoWrap" d:LayoutOverrides="Width" Margin="10,0,0,0" />
                             <DatePicker x:Name="dtpStartDate"
-                            	Grid.Column="7"
-                            	Width="90"
+                            	Grid.Column="5"
+                            	Width="100"
                             	Margin="0,2"
                             	HorizontalAlignment="Left"
                             	IsEnabled="{Binding AllowAccessPermission, Mode=OneWay}"
@@ -722,7 +718,7 @@
                             </AdornerDecorator>
                             <TextBlock x:Name="txtblCategory"
                                        Grid.Row="1"
-                                       Grid.Column="3"
+                                       Grid.Column="2"
                                        Margin="0"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
@@ -731,7 +727,7 @@
                                        TextWrapping="NoWrap" />
                             <comboBoxControl:ComboBoxControl x:Name="cmbItemCategory"
                                                              Grid.Row="1"
-                                                             Grid.Column="4"
+                                                             Grid.Column="3"
                                                              Margin="0,2"
                                                              VerticalAlignment="Stretch"
                                                              AddItemCommand="{Binding PopupDepartmentCommand}"
@@ -744,6 +740,34 @@
                                                              SelectedValuePath="Id"
                                                              Style="{DynamicResource ComboBoxControlStyle}"
                                                              VisibilityAddItem="{Binding AllowAddDepartment, Converter={StaticResource boolToVisibilityConverter}, Mode=OneWay}" />
+                            <TextBlock x:Name="txtblStartDate_Copy"
+                            	Grid.Column="4"
+                            	Margin="10,0,0,0"
+                            	HorizontalAlignment="Left"
+                            	VerticalAlignment="Center"
+                            	Style="{DynamicResource TextBlockNormal}"
+                            	TextWrapping="NoWrap" Grid.Row="1" Text="Ngày sản xuất" />
+                            <DatePicker x:Name="dtpStartDate_Copy"
+                            	Grid.Column="5"
+                            	Width="100"
+                            	Margin="0,2"
+                            	HorizontalAlignment="Left"
+                            	IsEnabled="{Binding AllowAccessPermission, Mode=OneWay}"
+                            	SelectedDate="{Binding SelectedProduct.MadeDate}" Grid.Row="1" />
+                            <DatePicker x:Name="dtpStartDate_Copy1"
+                            	Grid.Column="5"
+                            	Width="100"
+                            	Margin="0,2"
+                            	HorizontalAlignment="Right"
+                            	IsEnabled="{Binding AllowAccessPermission, Mode=OneWay}"
+                            	SelectedDate="{Binding SelectedProduct.ExpirationDate}" Grid.Row="1" />
+                            <TextBlock x:Name="txtblStartDate_Copy1"
+                            	Grid.Column="5"
+                            	Margin="0,0,103,0"
+                            	HorizontalAlignment="Right"
+                            	VerticalAlignment="Center"
+                            	Style="{DynamicResource TextBlockNormal}"
+                            	TextWrapping="NoWrap" Grid.Row="1" Text="Hạn sử dụng" />
                         </Grid>
                         <Grid x:Name="grdContentProduct"
                               Grid.Row="2"

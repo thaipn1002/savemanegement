@@ -772,7 +772,7 @@ namespace CPC.POS.ViewModel
                     SetPriceUOM(saleOrderDetailModel);
                     saleOrderDetailModel.UnitName = saleOrderDetailModel.ProductUOMCollection.Single(x => x.UOMId.Equals(saleOrderDetailModel.UOMId)).Name;
                     saleOrderDetailModel.ItemName = productModel.ProductName;
-                    
+
                     saleOrderDetailModel.ItemAtribute = productModel.Attribute;
                     saleOrderDetailModel.ItemSize = productModel.Size;
 
@@ -1013,6 +1013,35 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
+        #region TaxChanged Command
+        /// <summary>
+        /// Gets the TaxChanged Command.
+        /// <summary>
+
+        public RelayCommand<object> TaxChangedCommand { get; private set; }
+
+        /// <summary>
+        /// Method to check whether the TaxChanged command can be executed.
+        /// </summary>
+        /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
+        private bool OnTaxChangedCommandCanExecute(object param)
+        {
+            return param != null;
+        }
+
+
+        /// <summary>
+        /// Method to invoke when the TaxChanged command is executed.
+        /// </summary>
+        private void OnTaxChangedCommandExecute(object param)
+        {
+            if (param != null && Convert.ToDecimal(param) != this.SelectedSaleOrder.TaxPercent)
+            {
+               
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Private Methods
@@ -1053,6 +1082,8 @@ namespace CPC.POS.ViewModel
             DeleteSaleOrderDetailWithKeyCommand = new RelayCommand<object>(OnDeleteSaleOrderDetailWithKeyCommandExecute, OnDeleteSaleOrderDetailWithKeyCommandCanExecute);
 
             CustomerSearchCommand = new RelayCommand<object>(OnCustomerSearchCommandExecute, OnCustomerSearchCommandCanExecute);
+
+            this.TaxChangedCommand = new RelayCommand<object>(OnTaxChangedCommandExecute, OnTaxChangedCommandCanExecute);
         }
 
         //LoadData 
@@ -1716,7 +1747,9 @@ namespace CPC.POS.ViewModel
             //set Customer option in additional of markdownprice Level
             _saleOrderRepository.SetGuestAdditionalModel(SelectedSaleOrder);
 
-            if (SelectedSaleOrder.GuestModel.AdditionalModel != null && SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((short)PriceLevelType.MarkdownPriceLevel))
+            if (SelectedSaleOrder.GuestModel.AdditionalModel != null
+                && (SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((short)PriceLevelType.MarkdownPriceLevel)
+                 || SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType > ((short)PriceLevelType.MarkdownPriceLevel)))
                 SelectedSaleOrder.PriceSchemaId = SelectedSaleOrder.GuestModel.AdditionalModel.PriceSchemeId.Value;
 
 
@@ -1929,7 +1962,9 @@ namespace CPC.POS.ViewModel
             //Not calculate discount for layaway
             if (!SelectedSaleOrder.Mark.Equals(CPC.POS.MarkType.Layaway) && SelectedSaleOrder.SaleOrderDetailCollection != null && SelectedSaleOrder.SaleOrderDetailCollection.Any())
             {
-                if (SelectedSaleOrder.GuestModel.AdditionalModel != null && SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((short)PriceLevelType.FixedDiscountOnAllItems))
+                if (SelectedSaleOrder.GuestModel.AdditionalModel != null
+                    && (SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((short)PriceLevelType.FixedDiscountOnAllItems)
+                    || SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType > ((short)PriceLevelType.MarkdownPriceLevel)))
                 {
                     //"Do you want to apply customer discount?"
                     MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show(Language.GetMsg("SO_Message_ApplyCustomerDiscount"), Language.GetMsg("POSCaption"), MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes);
@@ -1941,7 +1976,9 @@ namespace CPC.POS.ViewModel
                         }
                     }
                 }
-                else if (SelectedSaleOrder.GuestModel.AdditionalModel != null && SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((short)PriceLevelType.MarkdownPriceLevel))
+                else if (SelectedSaleOrder.GuestModel.AdditionalModel != null
+                    && (SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((short)PriceLevelType.MarkdownPriceLevel)
+                     || SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType > ((short)PriceLevelType.MarkdownPriceLevel)))
                 {
                     PriceSchemaChanged();
                 }
@@ -1998,12 +2035,13 @@ namespace CPC.POS.ViewModel
         protected void CalculateDiscount(base_SaleOrderDetailModel salesOrderDetailModel)
         {
             //Not calculate Discount for layaway
-            if (!SelectedSaleOrder.Mark.Equals(CPC.POS.MarkType.Layaway))
+            if (SelectedSaleOrder.Mark.Equals(CPC.POS.MarkType.Layaway))
                 return;
 
             if (SelectedSaleOrder.GuestModel != null &&
                 SelectedSaleOrder.GuestModel.AdditionalModel != null
-                && SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((int)PriceLevelType.FixedDiscountOnAllItems))
+                && (SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType.Equals((int)PriceLevelType.FixedDiscountOnAllItems)
+                 || SelectedSaleOrder.GuestModel.AdditionalModel.PriceLevelType > ((short)PriceLevelType.MarkdownPriceLevel)))
                 CalcDiscountWithAdditional(salesOrderDetailModel);
             else
                 CalcProductDiscountWithProgram(salesOrderDetailModel);

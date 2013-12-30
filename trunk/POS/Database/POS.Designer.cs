@@ -40,10 +40,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_GuestSchedule_GuestId_base_Guest_Id", "base_Guest", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_Guest), "base_GuestSchedule", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_GuestSchedule), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_MemberShip_GuestId_base_Guest_Id", "base_Guest", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_Guest), "base_MemberShip", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_MemberShip), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_VendorProduct_VendorId_base_Guest_Id", "base_Guest", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_Guest), "base_VendorProduct", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_VendorProduct), true)]
-[assembly: EdmRelationshipAttribute("POSModel", "FK_tims_TimeLog_EmployeeId_base_Guest_Id", "base_Guest", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CPC.POS.Database.base_Guest), "tims_TimeLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.tims_TimeLog), true)]
-[assembly: EdmRelationshipAttribute("POSModel", "FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "base_Guest", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_Guest), "tims_WorkPermission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.tims_WorkPermission), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_GuestReward_RewardId_base_RewardManager_Id", "base_RewardManager", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_RewardManager), "base_GuestReward", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_GuestReward), true)]
-[assembly: EdmRelationshipAttribute("POSModel", "FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.tims_WorkSchedule), "base_GuestSchedule", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_GuestSchedule), true)]
+[assembly: EdmRelationshipAttribute("POSModel", "FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestReward", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_GuestReward), "base_GuestRewardDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_GuestRewardDetail), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_PricingChange_PricingManagerId_base_PricingManager_Id", "base_PricingManager", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_PricingManager), "base_PricingChange", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_PricingChange), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_PricingChange_ProductId_base_Product_Id", "base_Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_Product), "base_PricingChange", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_PricingChange), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_ProductGroup_ProductId_base_Product_Id", "base_Product", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.base_Product), "base_ProductGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_ProductGroup), true)]
@@ -67,9 +65,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_UserLogDetail_UserLogId_base_UserLog_Id", "base_UserLog", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CPC.POS.Database.base_UserLog), "base_UserLogDetail", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_UserLogDetail), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_base_VirtualFolder_ParentFolderId_base_VirtualFolderId", "base_VirtualFolder", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CPC.POS.Database.base_VirtualFolder), "base_VirtualFolder1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.base_VirtualFolder), true)]
 [assembly: EdmRelationshipAttribute("POSModel", "FK_rpt_Report_GroupId_rpt_Group_Id", "rpt_Group", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.rpt_Group), "rpt_Report", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.rpt_Report), true)]
-[assembly: EdmRelationshipAttribute("POSModel", "FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CPC.POS.Database.tims_WorkSchedule), "tims_TimeLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.tims_TimeLog), true)]
-[assembly: EdmRelationshipAttribute("POSModel", "FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CPC.POS.Database.tims_WorkSchedule), "tims_WorkWeek", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.tims_WorkWeek), true)]
-[assembly: EdmRelationshipAttribute("POSModel", "tims_TimeLogPermission", "tims_TimeLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.tims_TimeLog), "tims_WorkPermission", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CPC.POS.Database.tims_WorkPermission))]
 
 #endregion
 
@@ -568,6 +563,22 @@ namespace CPC.POS.Database
             }
         }
         private ObjectSet<base_GuestReward> _base_GuestReward;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<base_GuestRewardDetail> base_GuestRewardDetail
+        {
+            get
+            {
+                if ((_base_GuestRewardDetail == null))
+                {
+                    _base_GuestRewardDetail = base.CreateObjectSet<base_GuestRewardDetail>("base_GuestRewardDetail");
+                }
+                return _base_GuestRewardDetail;
+            }
+        }
+        private ObjectSet<base_GuestRewardDetail> _base_GuestRewardDetail;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1304,86 +1315,6 @@ namespace CPC.POS.Database
             }
         }
         private ObjectSet<rpt_User> _rpt_User;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tims_Holiday> tims_Holiday
-        {
-            get
-            {
-                if ((_tims_Holiday == null))
-                {
-                    _tims_Holiday = base.CreateObjectSet<tims_Holiday>("tims_Holiday");
-                }
-                return _tims_Holiday;
-            }
-        }
-        private ObjectSet<tims_Holiday> _tims_Holiday;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tims_TimeLog> tims_TimeLog
-        {
-            get
-            {
-                if ((_tims_TimeLog == null))
-                {
-                    _tims_TimeLog = base.CreateObjectSet<tims_TimeLog>("tims_TimeLog");
-                }
-                return _tims_TimeLog;
-            }
-        }
-        private ObjectSet<tims_TimeLog> _tims_TimeLog;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tims_WorkPermission> tims_WorkPermission
-        {
-            get
-            {
-                if ((_tims_WorkPermission == null))
-                {
-                    _tims_WorkPermission = base.CreateObjectSet<tims_WorkPermission>("tims_WorkPermission");
-                }
-                return _tims_WorkPermission;
-            }
-        }
-        private ObjectSet<tims_WorkPermission> _tims_WorkPermission;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tims_WorkSchedule> tims_WorkSchedule
-        {
-            get
-            {
-                if ((_tims_WorkSchedule == null))
-                {
-                    _tims_WorkSchedule = base.CreateObjectSet<tims_WorkSchedule>("tims_WorkSchedule");
-                }
-                return _tims_WorkSchedule;
-            }
-        }
-        private ObjectSet<tims_WorkSchedule> _tims_WorkSchedule;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<tims_WorkWeek> tims_WorkWeek
-        {
-            get
-            {
-                if ((_tims_WorkWeek == null))
-                {
-                    _tims_WorkWeek = base.CreateObjectSet<tims_WorkWeek>("tims_WorkWeek");
-                }
-                return _tims_WorkWeek;
-            }
-        }
-        private ObjectSet<tims_WorkWeek> _tims_WorkWeek;
 
         #endregion
         #region AddTo Methods
@@ -1610,6 +1541,14 @@ namespace CPC.POS.Database
         public void AddTobase_GuestReward(base_GuestReward base_GuestReward)
         {
             base.AddObject("base_GuestReward", base_GuestReward);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the base_GuestRewardDetail EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTobase_GuestRewardDetail(base_GuestRewardDetail base_GuestRewardDetail)
+        {
+            base.AddObject("base_GuestRewardDetail", base_GuestRewardDetail);
         }
     
         /// <summary>
@@ -1978,46 +1917,6 @@ namespace CPC.POS.Database
         public void AddTorpt_User(rpt_User rpt_User)
         {
             base.AddObject("rpt_User", rpt_User);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tims_Holiday EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotims_Holiday(tims_Holiday tims_Holiday)
-        {
-            base.AddObject("tims_Holiday", tims_Holiday);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tims_TimeLog EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotims_TimeLog(tims_TimeLog tims_TimeLog)
-        {
-            base.AddObject("tims_TimeLog", tims_TimeLog);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tims_WorkPermission EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotims_WorkPermission(tims_WorkPermission tims_WorkPermission)
-        {
-            base.AddObject("tims_WorkPermission", tims_WorkPermission);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tims_WorkSchedule EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotims_WorkSchedule(tims_WorkSchedule tims_WorkSchedule)
-        {
-            base.AddObject("tims_WorkSchedule", tims_WorkSchedule);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the tims_WorkWeek EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTotims_WorkWeek(tims_WorkWeek tims_WorkWeek)
-        {
-            base.AddObject("tims_WorkWeek", tims_WorkWeek);
         }
 
         #endregion
@@ -4352,7 +4251,9 @@ namespace CPC.POS.Database
         /// <param name="weekHour">Initial value of the WeekHour property.</param>
         /// <param name="refundVoucherThresHold">Initial value of the RefundVoucherThresHold property.</param>
         /// <param name="sysDate">Initial value of the SysDate property.</param>
-        public static base_Configuration Createbase_Configuration(global::System.Int32 defautlDiscountScheduleTime, global::System.Int16 defaultDiscountType, global::System.Int16 defaultDiscountStatus, global::System.Decimal tipPercent, global::System.Int16 workHour, global::System.Int32 id, global::System.Boolean isAllowShift, global::System.Boolean isRewardOnTax, global::System.Boolean isRewardOnMultiPayment, global::System.Boolean isIncludeReturnFee, global::System.Decimal returnFeePercent, global::System.Boolean isRewardLessThanDiscount, global::System.Boolean isCalRewardAfterRedeem, global::System.Boolean isRewardOnRetailer, global::System.Int16 negativeNumber, global::System.Int16 textNumberAlign, global::System.Boolean isAUPPG, global::System.Boolean isStateCode, global::System.Boolean isManualGenerate, global::System.Boolean isAllowFirstCap, global::System.Boolean isSendEmailCustomer, global::System.Boolean isAllowAntiExemptionTax, global::System.Boolean isManualPriceCalculation, global::System.Boolean isAllowPayMultiReward, global::System.Boolean isSumCashReward, global::System.Boolean isAllwayCommision, global::System.Int16 reminderDay, global::System.Int32 weekHour, global::System.Decimal refundVoucherThresHold, global::System.DateTime sysDate)
+        /// <param name="deptDate">Initial value of the DeptDate property.</param>
+        /// <param name="isAllowChangedTax">Initial value of the IsAllowChangedTax property.</param>
+        public static base_Configuration Createbase_Configuration(global::System.Int32 defautlDiscountScheduleTime, global::System.Int16 defaultDiscountType, global::System.Int16 defaultDiscountStatus, global::System.Decimal tipPercent, global::System.Int16 workHour, global::System.Int32 id, global::System.Boolean isAllowShift, global::System.Boolean isRewardOnTax, global::System.Boolean isRewardOnMultiPayment, global::System.Boolean isIncludeReturnFee, global::System.Decimal returnFeePercent, global::System.Boolean isRewardLessThanDiscount, global::System.Boolean isCalRewardAfterRedeem, global::System.Boolean isRewardOnRetailer, global::System.Int16 negativeNumber, global::System.Int16 textNumberAlign, global::System.Boolean isAUPPG, global::System.Boolean isStateCode, global::System.Boolean isManualGenerate, global::System.Boolean isAllowFirstCap, global::System.Boolean isSendEmailCustomer, global::System.Boolean isAllowAntiExemptionTax, global::System.Boolean isManualPriceCalculation, global::System.Boolean isAllowPayMultiReward, global::System.Boolean isSumCashReward, global::System.Boolean isAllwayCommision, global::System.Int16 reminderDay, global::System.Int32 weekHour, global::System.Decimal refundVoucherThresHold, global::System.DateTime sysDate, global::System.Int32 deptDate, global::System.Boolean isAllowChangedTax)
         {
             base_Configuration base_Configuration = new base_Configuration();
             base_Configuration.DefautlDiscountScheduleTime = defautlDiscountScheduleTime;
@@ -4385,6 +4286,8 @@ namespace CPC.POS.Database
             base_Configuration.WeekHour = weekHour;
             base_Configuration.RefundVoucherThresHold = refundVoucherThresHold;
             base_Configuration.SysDate = sysDate;
+            base_Configuration.DeptDate = deptDate;
+            base_Configuration.IsAllowChangedTax = isAllowChangedTax;
             return base_Configuration;
         }
 
@@ -6673,6 +6576,54 @@ namespace CPC.POS.Database
         private global::System.DateTime _SysDate;
         partial void OnSysDateChanging(global::System.DateTime value);
         partial void OnSysDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DeptDate
+        {
+            get
+            {
+                return _DeptDate;
+            }
+            set
+            {
+                OnDeptDateChanging(value);
+                ReportPropertyChanging("DeptDate");
+                _DeptDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DeptDate");
+                OnDeptDateChanged();
+            }
+        }
+        private global::System.Int32 _DeptDate;
+        partial void OnDeptDateChanging(global::System.Int32 value);
+        partial void OnDeptDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsAllowChangedTax
+        {
+            get
+            {
+                return _IsAllowChangedTax;
+            }
+            set
+            {
+                OnIsAllowChangedTaxChanging(value);
+                ReportPropertyChanging("IsAllowChangedTax");
+                _IsAllowChangedTax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsAllowChangedTax");
+                OnIsAllowChangedTaxChanged();
+            }
+        }
+        private global::System.Boolean _IsAllowChangedTax;
+        partial void OnIsAllowChangedTaxChanging(global::System.Boolean value);
+        partial void OnIsAllowChangedTaxChanged();
 
         #endregion
     
@@ -10503,6 +10454,30 @@ namespace CPC.POS.Database
         private global::System.Byte[] _Picture;
         partial void OnPictureChanging(global::System.Byte[] value);
         partial void OnPictureChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> EmployeeCommissionPercent
+        {
+            get
+            {
+                return _EmployeeCommissionPercent;
+            }
+            set
+            {
+                OnEmployeeCommissionPercentChanging(value);
+                ReportPropertyChanging("EmployeeCommissionPercent");
+                _EmployeeCommissionPercent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EmployeeCommissionPercent");
+                OnEmployeeCommissionPercentChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _EmployeeCommissionPercent;
+        partial void OnEmployeeCommissionPercentChanging(Nullable<global::System.Decimal> value);
+        partial void OnEmployeeCommissionPercentChanged();
 
         #endregion
     
@@ -10762,50 +10737,6 @@ namespace CPC.POS.Database
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<base_VendorProduct>("POSModel.FK_base_VendorProduct_VendorId_base_Guest_Id", "base_VendorProduct", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_TimeLog_EmployeeId_base_Guest_Id", "tims_TimeLog")]
-        public EntityCollection<tims_TimeLog> tims_TimeLog
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tims_TimeLog>("POSModel.FK_tims_TimeLog_EmployeeId_base_Guest_Id", "tims_TimeLog");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tims_TimeLog>("POSModel.FK_tims_TimeLog_EmployeeId_base_Guest_Id", "tims_TimeLog", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "tims_WorkPermission")]
-        public EntityCollection<tims_WorkPermission> tims_WorkPermission
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tims_WorkPermission>("POSModel.FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "tims_WorkPermission");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tims_WorkPermission>("POSModel.FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "tims_WorkPermission", value);
                 }
             }
         }
@@ -13832,6 +13763,54 @@ namespace CPC.POS.Database
         private global::System.String _Sign;
         partial void OnSignChanging(global::System.String value);
         partial void OnSignChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ScanCode
+        {
+            get
+            {
+                return _ScanCode;
+            }
+            set
+            {
+                OnScanCodeChanging(value);
+                ReportPropertyChanging("ScanCode");
+                _ScanCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ScanCode");
+                OnScanCodeChanged();
+            }
+        }
+        private global::System.String _ScanCode;
+        partial void OnScanCodeChanging(global::System.String value);
+        partial void OnScanCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] ScanCodeImg
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_ScanCodeImg);
+            }
+            set
+            {
+                OnScanCodeImgChanging(value);
+                ReportPropertyChanging("ScanCodeImg");
+                _ScanCodeImg = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ScanCodeImg");
+                OnScanCodeImgChanged();
+            }
+        }
+        private global::System.Byte[] _ScanCodeImg;
+        partial void OnScanCodeImgChanging(global::System.Byte[] value);
+        partial void OnScanCodeImgChanged();
 
         #endregion
     
@@ -13909,6 +13888,320 @@ namespace CPC.POS.Database
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<base_RewardManager>("POSModel.FK_base_GuestReward_RewardId_base_RewardManager_Id", "base_RewardManager", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestRewardDetail")]
+        public EntityCollection<base_GuestRewardDetail> base_GuestRewardDetail
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<base_GuestRewardDetail>("POSModel.FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestRewardDetail");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<base_GuestRewardDetail>("POSModel.FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestRewardDetail", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="POSModel", Name="base_GuestRewardDetail")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class base_GuestRewardDetail : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new base_GuestRewardDetail object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="rewardRedeemed">Initial value of the RewardRedeemed property.</param>
+        /// <param name="guestRewardId">Initial value of the GuestRewardId property.</param>
+        public static base_GuestRewardDetail Createbase_GuestRewardDetail(global::System.Int64 id, global::System.Decimal rewardRedeemed, global::System.Int64 guestRewardId)
+        {
+            base_GuestRewardDetail base_GuestRewardDetail = new base_GuestRewardDetail();
+            base_GuestRewardDetail.Id = id;
+            base_GuestRewardDetail.RewardRedeemed = rewardRedeemed;
+            base_GuestRewardDetail.GuestRewardId = guestRewardId;
+            return base_GuestRewardDetail;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _Id;
+        partial void OnIdChanging(global::System.Int64 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SaleOrderResource
+        {
+            get
+            {
+                return _SaleOrderResource;
+            }
+            set
+            {
+                OnSaleOrderResourceChanging(value);
+                ReportPropertyChanging("SaleOrderResource");
+                _SaleOrderResource = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SaleOrderResource");
+                OnSaleOrderResourceChanged();
+            }
+        }
+        private global::System.String _SaleOrderResource;
+        partial void OnSaleOrderResourceChanging(global::System.String value);
+        partial void OnSaleOrderResourceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SaleOrderNo
+        {
+            get
+            {
+                return _SaleOrderNo;
+            }
+            set
+            {
+                OnSaleOrderNoChanging(value);
+                ReportPropertyChanging("SaleOrderNo");
+                _SaleOrderNo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SaleOrderNo");
+                OnSaleOrderNoChanged();
+            }
+        }
+        private global::System.String _SaleOrderNo;
+        partial void OnSaleOrderNoChanging(global::System.String value);
+        partial void OnSaleOrderNoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal RewardRedeemed
+        {
+            get
+            {
+                return _RewardRedeemed;
+            }
+            set
+            {
+                OnRewardRedeemedChanging(value);
+                ReportPropertyChanging("RewardRedeemed");
+                _RewardRedeemed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RewardRedeemed");
+                OnRewardRedeemedChanged();
+            }
+        }
+        private global::System.Decimal _RewardRedeemed;
+        partial void OnRewardRedeemedChanging(global::System.Decimal value);
+        partial void OnRewardRedeemedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 GuestRewardId
+        {
+            get
+            {
+                return _GuestRewardId;
+            }
+            set
+            {
+                OnGuestRewardIdChanging(value);
+                ReportPropertyChanging("GuestRewardId");
+                _GuestRewardId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GuestRewardId");
+                OnGuestRewardIdChanged();
+            }
+        }
+        private global::System.Int64 _GuestRewardId;
+        partial void OnGuestRewardIdChanging(global::System.Int64 value);
+        partial void OnGuestRewardIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateApplied
+        {
+            get
+            {
+                return _DateApplied;
+            }
+            set
+            {
+                OnDateAppliedChanging(value);
+                ReportPropertyChanging("DateApplied");
+                _DateApplied = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateApplied");
+                OnDateAppliedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateApplied;
+        partial void OnDateAppliedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateAppliedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UserApplied
+        {
+            get
+            {
+                return _UserApplied;
+            }
+            set
+            {
+                OnUserAppliedChanging(value);
+                ReportPropertyChanging("UserApplied");
+                _UserApplied = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UserApplied");
+                OnUserAppliedChanged();
+            }
+        }
+        private global::System.String _UserApplied;
+        partial void OnUserAppliedChanging(global::System.String value);
+        partial void OnUserAppliedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Sign
+        {
+            get
+            {
+                return _Sign;
+            }
+            set
+            {
+                OnSignChanging(value);
+                ReportPropertyChanging("Sign");
+                _Sign = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Sign");
+                OnSignChanged();
+            }
+        }
+        private global::System.String _Sign;
+        partial void OnSignChanging(global::System.String value);
+        partial void OnSignChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Remark
+        {
+            get
+            {
+                return _Remark;
+            }
+            set
+            {
+                OnRemarkChanging(value);
+                ReportPropertyChanging("Remark");
+                _Remark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Remark");
+                OnRemarkChanged();
+            }
+        }
+        private global::System.String _Remark;
+        partial void OnRemarkChanging(global::System.String value);
+        partial void OnRemarkChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestReward")]
+        public base_GuestReward base_GuestReward
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_GuestReward>("POSModel.FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestReward").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_GuestReward>("POSModel.FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestReward").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<base_GuestReward> base_GuestRewardReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_GuestReward>("POSModel.FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestReward");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<base_GuestReward>("POSModel.FK_base_GuestRewardDetail_GuestRewardId_base_GuestReward_Id", "base_GuestReward", value);
                 }
             }
         }
@@ -14135,44 +14428,6 @@ namespace CPC.POS.Database
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<base_Guest>("POSModel.FK_base_GuestSchedule_GuestId_base_Guest_Id", "base_Guest", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule")]
-        public tims_WorkSchedule tims_WorkSchedule
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tims_WorkSchedule> tims_WorkScheduleReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tims_WorkSchedule>("POSModel.FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule", value);
                 }
             }
         }
@@ -14973,7 +15228,8 @@ namespace CPC.POS.Database
         /// <param name="totalCashReward">Initial value of the TotalCashReward property.</param>
         /// <param name="totalPointReward">Initial value of the TotalPointReward property.</param>
         /// <param name="totalPercentReward">Initial value of the TotalPercentReward property.</param>
-        public static base_MemberShip Createbase_MemberShip(global::System.Int64 id, global::System.Int64 guestId, global::System.Int16 status, global::System.Boolean isPurged, global::System.DateTime dateCreated, global::System.DateTime dateUpdated, global::System.Decimal totalCashReward, global::System.Decimal totalPointReward, global::System.Int32 totalPercentReward)
+        /// <param name="totalCutOffThreshold">Initial value of the TotalCutOffThreshold property.</param>
+        public static base_MemberShip Createbase_MemberShip(global::System.Int64 id, global::System.Int64 guestId, global::System.Int16 status, global::System.Boolean isPurged, global::System.DateTime dateCreated, global::System.DateTime dateUpdated, global::System.Decimal totalCashReward, global::System.Decimal totalPointReward, global::System.Int32 totalPercentReward, global::System.Decimal totalCutOffThreshold)
         {
             base_MemberShip base_MemberShip = new base_MemberShip();
             base_MemberShip.Id = id;
@@ -14985,6 +15241,7 @@ namespace CPC.POS.Database
             base_MemberShip.TotalCashReward = totalCashReward;
             base_MemberShip.TotalPointReward = totalPointReward;
             base_MemberShip.TotalPercentReward = totalPercentReward;
+            base_MemberShip.TotalCutOffThreshold = totalCutOffThreshold;
             return base_MemberShip;
         }
 
@@ -15497,6 +15754,30 @@ namespace CPC.POS.Database
         private global::System.Byte[] _PercentRewardImg;
         partial void OnPercentRewardImgChanging(global::System.Byte[] value);
         partial void OnPercentRewardImgChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal TotalCutOffThreshold
+        {
+            get
+            {
+                return _TotalCutOffThreshold;
+            }
+            set
+            {
+                OnTotalCutOffThresholdChanging(value);
+                ReportPropertyChanging("TotalCutOffThreshold");
+                _TotalCutOffThreshold = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalCutOffThreshold");
+                OnTotalCutOffThresholdChanged();
+            }
+        }
+        private global::System.Decimal _TotalCutOffThreshold;
+        partial void OnTotalCutOffThresholdChanging(global::System.Decimal value);
+        partial void OnTotalCutOffThresholdChanged();
 
         #endregion
     
@@ -18637,6 +18918,54 @@ namespace CPC.POS.Database
         private global::System.String _Shell;
         partial void OnShellChanging(global::System.String value);
         partial void OnShellChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> MadeDate
+        {
+            get
+            {
+                return _MadeDate;
+            }
+            set
+            {
+                OnMadeDateChanging(value);
+                ReportPropertyChanging("MadeDate");
+                _MadeDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MadeDate");
+                OnMadeDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _MadeDate;
+        partial void OnMadeDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnMadeDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ExpirationDate
+        {
+            get
+            {
+                return _ExpirationDate;
+            }
+            set
+            {
+                OnExpirationDateChanging(value);
+                ReportPropertyChanging("ExpirationDate");
+                _ExpirationDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ExpirationDate");
+                OnExpirationDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ExpirationDate;
+        partial void OnExpirationDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnExpirationDateChanged();
 
         #endregion
     
@@ -29700,7 +30029,8 @@ namespace CPC.POS.Database
         /// <param name="openACFee">Initial value of the OpenACFee property.</param>
         /// <param name="cancellationFee">Initial value of the CancellationFee property.</param>
         /// <param name="isReturned">Initial value of the IsReturned property.</param>
-        public static base_SaleOrder Createbase_SaleOrder(global::System.Int64 id, global::System.Int16 orderStatus, global::System.String customerResource, global::System.Int16 priceSchemaId, global::System.DateTime requestShipDate, global::System.Decimal subTotal, global::System.Int32 taxLocation, global::System.String taxCode, global::System.Decimal discountAmount, global::System.Decimal taxAmount, global::System.Decimal discountPercent, global::System.Decimal taxPercent, global::System.Decimal shipping, global::System.Decimal total, global::System.Decimal paid, global::System.Decimal balance, global::System.Decimal refundedAmount, global::System.Boolean isMultiPayment, global::System.Boolean isFullWorkflow, global::System.Decimal qtyOrdered, global::System.Decimal qtyDue, global::System.Decimal qtyReceived, global::System.Decimal unFilled, global::System.DateTime dateCreated, global::System.DateTime dateUpdated, global::System.Guid resource, global::System.Int16 bookingChanel, global::System.Int16 shippedCount, global::System.Decimal termDiscountPercent, global::System.Int16 termNetDue, global::System.Int16 termPaidWithinDay, global::System.Boolean isTaxExemption, global::System.Int16 shippedBox, global::System.Int16 packedQty, global::System.Decimal totalWeight, global::System.Int16 weightUnit, global::System.Int32 storeCode, global::System.Boolean isRedeeem, global::System.Boolean isPurge, global::System.Boolean isLocked, global::System.Decimal rewardAmount, global::System.Boolean isConverted, global::System.Boolean isVoided, global::System.Decimal openACFee, global::System.Decimal cancellationFee, global::System.Boolean isReturned)
+        /// <param name="isChangedTax">Initial value of the IsChangedTax property.</param>
+        public static base_SaleOrder Createbase_SaleOrder(global::System.Int64 id, global::System.Int16 orderStatus, global::System.String customerResource, global::System.Int16 priceSchemaId, global::System.DateTime requestShipDate, global::System.Decimal subTotal, global::System.Int32 taxLocation, global::System.String taxCode, global::System.Decimal discountAmount, global::System.Decimal taxAmount, global::System.Decimal discountPercent, global::System.Decimal taxPercent, global::System.Decimal shipping, global::System.Decimal total, global::System.Decimal paid, global::System.Decimal balance, global::System.Decimal refundedAmount, global::System.Boolean isMultiPayment, global::System.Boolean isFullWorkflow, global::System.Decimal qtyOrdered, global::System.Decimal qtyDue, global::System.Decimal qtyReceived, global::System.Decimal unFilled, global::System.DateTime dateCreated, global::System.DateTime dateUpdated, global::System.Guid resource, global::System.Int16 bookingChanel, global::System.Int16 shippedCount, global::System.Decimal termDiscountPercent, global::System.Int16 termNetDue, global::System.Int16 termPaidWithinDay, global::System.Boolean isTaxExemption, global::System.Int16 shippedBox, global::System.Int16 packedQty, global::System.Decimal totalWeight, global::System.Int16 weightUnit, global::System.Int32 storeCode, global::System.Boolean isRedeeem, global::System.Boolean isPurge, global::System.Boolean isLocked, global::System.Decimal rewardAmount, global::System.Boolean isConverted, global::System.Boolean isVoided, global::System.Decimal openACFee, global::System.Decimal cancellationFee, global::System.Boolean isReturned, global::System.Boolean isChangedTax)
         {
             base_SaleOrder base_SaleOrder = new base_SaleOrder();
             base_SaleOrder.Id = id;
@@ -29749,6 +30079,7 @@ namespace CPC.POS.Database
             base_SaleOrder.OpenACFee = openACFee;
             base_SaleOrder.CancellationFee = cancellationFee;
             base_SaleOrder.IsReturned = isReturned;
+            base_SaleOrder.IsChangedTax = isChangedTax;
             return base_SaleOrder;
         }
 
@@ -31413,6 +31744,54 @@ namespace CPC.POS.Database
         private global::System.Boolean _IsReturned;
         partial void OnIsReturnedChanging(global::System.Boolean value);
         partial void OnIsReturnedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SaleReference
+        {
+            get
+            {
+                return _SaleReference;
+            }
+            set
+            {
+                OnSaleReferenceChanging(value);
+                ReportPropertyChanging("SaleReference");
+                _SaleReference = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SaleReference");
+                OnSaleReferenceChanged();
+            }
+        }
+        private global::System.String _SaleReference;
+        partial void OnSaleReferenceChanging(global::System.String value);
+        partial void OnSaleReferenceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsChangedTax
+        {
+            get
+            {
+                return _IsChangedTax;
+            }
+            set
+            {
+                OnIsChangedTaxChanging(value);
+                ReportPropertyChanging("IsChangedTax");
+                _IsChangedTax = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsChangedTax");
+                OnIsChangedTaxChanged();
+            }
+        }
+        private global::System.Boolean _IsChangedTax;
+        partial void OnIsChangedTaxChanging(global::System.Boolean value);
+        partial void OnIsChangedTaxChanged();
 
         #endregion
     
@@ -39924,2241 +40303,6 @@ namespace CPC.POS.Database
 
         #endregion
     
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="POSModel", Name="tims_Holiday")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tims_Holiday : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new tims_Holiday object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        /// <param name="holidayOption">Initial value of the HolidayOption property.</param>
-        /// <param name="activeFlag">Initial value of the ActiveFlag property.</param>
-        /// <param name="dateCreated">Initial value of the DateCreated property.</param>
-        public static tims_Holiday Createtims_Holiday(global::System.Int32 id, global::System.String title, global::System.Int32 holidayOption, global::System.Boolean activeFlag, global::System.DateTime dateCreated)
-        {
-            tims_Holiday tims_Holiday = new tims_Holiday();
-            tims_Holiday.Id = id;
-            tims_Holiday.Title = title;
-            tims_Holiday.HolidayOption = holidayOption;
-            tims_Holiday.ActiveFlag = activeFlag;
-            tims_Holiday.DateCreated = dateCreated;
-            return tims_Holiday;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 HolidayOption
-        {
-            get
-            {
-                return _HolidayOption;
-            }
-            set
-            {
-                OnHolidayOptionChanging(value);
-                ReportPropertyChanging("HolidayOption");
-                _HolidayOption = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HolidayOption");
-                OnHolidayOptionChanged();
-            }
-        }
-        private global::System.Int32 _HolidayOption;
-        partial void OnHolidayOptionChanging(global::System.Int32 value);
-        partial void OnHolidayOptionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> FromDate
-        {
-            get
-            {
-                return _FromDate;
-            }
-            set
-            {
-                OnFromDateChanging(value);
-                ReportPropertyChanging("FromDate");
-                _FromDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FromDate");
-                OnFromDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _FromDate;
-        partial void OnFromDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnFromDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ToDate
-        {
-            get
-            {
-                return _ToDate;
-            }
-            set
-            {
-                OnToDateChanging(value);
-                ReportPropertyChanging("ToDate");
-                _ToDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ToDate");
-                OnToDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ToDate;
-        partial void OnToDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnToDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Month
-        {
-            get
-            {
-                return _Month;
-            }
-            set
-            {
-                OnMonthChanging(value);
-                ReportPropertyChanging("Month");
-                _Month = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Month");
-                OnMonthChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Month;
-        partial void OnMonthChanging(Nullable<global::System.Int32> value);
-        partial void OnMonthChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> Day
-        {
-            get
-            {
-                return _Day;
-            }
-            set
-            {
-                OnDayChanging(value);
-                ReportPropertyChanging("Day");
-                _Day = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Day");
-                OnDayChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _Day;
-        partial void OnDayChanging(Nullable<global::System.Int32> value);
-        partial void OnDayChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> DayOfWeek
-        {
-            get
-            {
-                return _DayOfWeek;
-            }
-            set
-            {
-                OnDayOfWeekChanging(value);
-                ReportPropertyChanging("DayOfWeek");
-                _DayOfWeek = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DayOfWeek");
-                OnDayOfWeekChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _DayOfWeek;
-        partial void OnDayOfWeekChanging(Nullable<global::System.Int32> value);
-        partial void OnDayOfWeekChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> WeekOfMonth
-        {
-            get
-            {
-                return _WeekOfMonth;
-            }
-            set
-            {
-                OnWeekOfMonthChanging(value);
-                ReportPropertyChanging("WeekOfMonth");
-                _WeekOfMonth = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WeekOfMonth");
-                OnWeekOfMonthChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _WeekOfMonth;
-        partial void OnWeekOfMonthChanging(Nullable<global::System.Int32> value);
-        partial void OnWeekOfMonthChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean ActiveFlag
-        {
-            get
-            {
-                return _ActiveFlag;
-            }
-            set
-            {
-                OnActiveFlagChanging(value);
-                ReportPropertyChanging("ActiveFlag");
-                _ActiveFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActiveFlag");
-                OnActiveFlagChanged();
-            }
-        }
-        private global::System.Boolean _ActiveFlag;
-        partial void OnActiveFlagChanging(global::System.Boolean value);
-        partial void OnActiveFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime DateCreated
-        {
-            get
-            {
-                return _DateCreated;
-            }
-            set
-            {
-                OnDateCreatedChanging(value);
-                ReportPropertyChanging("DateCreated");
-                _DateCreated = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DateCreated");
-                OnDateCreatedChanged();
-            }
-        }
-        private global::System.DateTime _DateCreated;
-        partial void OnDateCreatedChanging(global::System.DateTime value);
-        partial void OnDateCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DateUpdated
-        {
-            get
-            {
-                return _DateUpdated;
-            }
-            set
-            {
-                OnDateUpdatedChanging(value);
-                ReportPropertyChanging("DateUpdated");
-                _DateUpdated = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DateUpdated");
-                OnDateUpdatedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _DateUpdated;
-        partial void OnDateUpdatedChanging(Nullable<global::System.DateTime> value);
-        partial void OnDateUpdatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String UserCreated
-        {
-            get
-            {
-                return _UserCreated;
-            }
-            set
-            {
-                OnUserCreatedChanging(value);
-                ReportPropertyChanging("UserCreated");
-                _UserCreated = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("UserCreated");
-                OnUserCreatedChanged();
-            }
-        }
-        private global::System.String _UserCreated;
-        partial void OnUserCreatedChanging(global::System.String value);
-        partial void OnUserCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String UserUpdated
-        {
-            get
-            {
-                return _UserUpdated;
-            }
-            set
-            {
-                OnUserUpdatedChanging(value);
-                ReportPropertyChanging("UserUpdated");
-                _UserUpdated = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("UserUpdated");
-                OnUserUpdatedChanged();
-            }
-        }
-        private global::System.String _UserUpdated;
-        partial void OnUserUpdatedChanging(global::System.String value);
-        partial void OnUserUpdatedChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="POSModel", Name="tims_TimeLog")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tims_TimeLog : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new tims_TimeLog object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="clockIn">Initial value of the ClockIn property.</param>
-        /// <param name="manualClockInFlag">Initial value of the ManualClockInFlag property.</param>
-        /// <param name="manualClockOutFlag">Initial value of the ManualClockOutFlag property.</param>
-        /// <param name="workTime">Initial value of the WorkTime property.</param>
-        /// <param name="lunchTime">Initial value of the LunchTime property.</param>
-        /// <param name="overtimeBefore">Initial value of the OvertimeBefore property.</param>
-        /// <param name="deductLunchTimeFlag">Initial value of the DeductLunchTimeFlag property.</param>
-        /// <param name="activeFlag">Initial value of the ActiveFlag property.</param>
-        /// <param name="overtimeAfter">Initial value of the OvertimeAfter property.</param>
-        /// <param name="overtimeLunch">Initial value of the OvertimeLunch property.</param>
-        /// <param name="overtimeDayOff">Initial value of the OvertimeDayOff property.</param>
-        /// <param name="overtimeOptions">Initial value of the OvertimeOptions property.</param>
-        /// <param name="isHoliday">Initial value of the IsHoliday property.</param>
-        public static tims_TimeLog Createtims_TimeLog(global::System.Int32 id, global::System.DateTime clockIn, global::System.Boolean manualClockInFlag, global::System.Boolean manualClockOutFlag, global::System.Single workTime, global::System.Single lunchTime, global::System.Single overtimeBefore, global::System.Boolean deductLunchTimeFlag, global::System.Boolean activeFlag, global::System.Single overtimeAfter, global::System.Single overtimeLunch, global::System.Single overtimeDayOff, global::System.Int32 overtimeOptions, global::System.Boolean isHoliday)
-        {
-            tims_TimeLog tims_TimeLog = new tims_TimeLog();
-            tims_TimeLog.Id = id;
-            tims_TimeLog.ClockIn = clockIn;
-            tims_TimeLog.ManualClockInFlag = manualClockInFlag;
-            tims_TimeLog.ManualClockOutFlag = manualClockOutFlag;
-            tims_TimeLog.WorkTime = workTime;
-            tims_TimeLog.LunchTime = lunchTime;
-            tims_TimeLog.OvertimeBefore = overtimeBefore;
-            tims_TimeLog.DeductLunchTimeFlag = deductLunchTimeFlag;
-            tims_TimeLog.ActiveFlag = activeFlag;
-            tims_TimeLog.OvertimeAfter = overtimeAfter;
-            tims_TimeLog.OvertimeLunch = overtimeLunch;
-            tims_TimeLog.OvertimeDayOff = overtimeDayOff;
-            tims_TimeLog.OvertimeOptions = overtimeOptions;
-            tims_TimeLog.IsHoliday = isHoliday;
-            return tims_TimeLog;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> WorkScheduleId
-        {
-            get
-            {
-                return _WorkScheduleId;
-            }
-            set
-            {
-                OnWorkScheduleIdChanging(value);
-                ReportPropertyChanging("WorkScheduleId");
-                _WorkScheduleId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WorkScheduleId");
-                OnWorkScheduleIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _WorkScheduleId;
-        partial void OnWorkScheduleIdChanging(Nullable<global::System.Int32> value);
-        partial void OnWorkScheduleIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> PayrollId
-        {
-            get
-            {
-                return _PayrollId;
-            }
-            set
-            {
-                OnPayrollIdChanging(value);
-                ReportPropertyChanging("PayrollId");
-                _PayrollId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PayrollId");
-                OnPayrollIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _PayrollId;
-        partial void OnPayrollIdChanging(Nullable<global::System.Int32> value);
-        partial void OnPayrollIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime ClockIn
-        {
-            get
-            {
-                return _ClockIn;
-            }
-            set
-            {
-                OnClockInChanging(value);
-                ReportPropertyChanging("ClockIn");
-                _ClockIn = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ClockIn");
-                OnClockInChanged();
-            }
-        }
-        private global::System.DateTime _ClockIn;
-        partial void OnClockInChanging(global::System.DateTime value);
-        partial void OnClockInChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ClockOut
-        {
-            get
-            {
-                return _ClockOut;
-            }
-            set
-            {
-                OnClockOutChanging(value);
-                ReportPropertyChanging("ClockOut");
-                _ClockOut = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ClockOut");
-                OnClockOutChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ClockOut;
-        partial void OnClockOutChanging(Nullable<global::System.DateTime> value);
-        partial void OnClockOutChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean ManualClockInFlag
-        {
-            get
-            {
-                return _ManualClockInFlag;
-            }
-            set
-            {
-                OnManualClockInFlagChanging(value);
-                ReportPropertyChanging("ManualClockInFlag");
-                _ManualClockInFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ManualClockInFlag");
-                OnManualClockInFlagChanged();
-            }
-        }
-        private global::System.Boolean _ManualClockInFlag;
-        partial void OnManualClockInFlagChanging(global::System.Boolean value);
-        partial void OnManualClockInFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean ManualClockOutFlag
-        {
-            get
-            {
-                return _ManualClockOutFlag;
-            }
-            set
-            {
-                OnManualClockOutFlagChanging(value);
-                ReportPropertyChanging("ManualClockOutFlag");
-                _ManualClockOutFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ManualClockOutFlag");
-                OnManualClockOutFlagChanged();
-            }
-        }
-        private global::System.Boolean _ManualClockOutFlag;
-        partial void OnManualClockOutFlagChanging(global::System.Boolean value);
-        partial void OnManualClockOutFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single WorkTime
-        {
-            get
-            {
-                return _WorkTime;
-            }
-            set
-            {
-                OnWorkTimeChanging(value);
-                ReportPropertyChanging("WorkTime");
-                _WorkTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WorkTime");
-                OnWorkTimeChanged();
-            }
-        }
-        private global::System.Single _WorkTime;
-        partial void OnWorkTimeChanging(global::System.Single value);
-        partial void OnWorkTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single LunchTime
-        {
-            get
-            {
-                return _LunchTime;
-            }
-            set
-            {
-                OnLunchTimeChanging(value);
-                ReportPropertyChanging("LunchTime");
-                _LunchTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LunchTime");
-                OnLunchTimeChanged();
-            }
-        }
-        private global::System.Single _LunchTime;
-        partial void OnLunchTimeChanging(global::System.Single value);
-        partial void OnLunchTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single OvertimeBefore
-        {
-            get
-            {
-                return _OvertimeBefore;
-            }
-            set
-            {
-                OnOvertimeBeforeChanging(value);
-                ReportPropertyChanging("OvertimeBefore");
-                _OvertimeBefore = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("OvertimeBefore");
-                OnOvertimeBeforeChanged();
-            }
-        }
-        private global::System.Single _OvertimeBefore;
-        partial void OnOvertimeBeforeChanging(global::System.Single value);
-        partial void OnOvertimeBeforeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Reason
-        {
-            get
-            {
-                return _Reason;
-            }
-            set
-            {
-                OnReasonChanging(value);
-                ReportPropertyChanging("Reason");
-                _Reason = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Reason");
-                OnReasonChanged();
-            }
-        }
-        private global::System.String _Reason;
-        partial void OnReasonChanging(global::System.String value);
-        partial void OnReasonChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean DeductLunchTimeFlag
-        {
-            get
-            {
-                return _DeductLunchTimeFlag;
-            }
-            set
-            {
-                OnDeductLunchTimeFlagChanging(value);
-                ReportPropertyChanging("DeductLunchTimeFlag");
-                _DeductLunchTimeFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DeductLunchTimeFlag");
-                OnDeductLunchTimeFlagChanged();
-            }
-        }
-        private global::System.Boolean _DeductLunchTimeFlag;
-        partial void OnDeductLunchTimeFlagChanging(global::System.Boolean value);
-        partial void OnDeductLunchTimeFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Single> LateTime
-        {
-            get
-            {
-                return _LateTime;
-            }
-            set
-            {
-                OnLateTimeChanging(value);
-                ReportPropertyChanging("LateTime");
-                _LateTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LateTime");
-                OnLateTimeChanged();
-            }
-        }
-        private Nullable<global::System.Single> _LateTime;
-        partial void OnLateTimeChanging(Nullable<global::System.Single> value);
-        partial void OnLateTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Single> LeaveEarlyTime
-        {
-            get
-            {
-                return _LeaveEarlyTime;
-            }
-            set
-            {
-                OnLeaveEarlyTimeChanging(value);
-                ReportPropertyChanging("LeaveEarlyTime");
-                _LeaveEarlyTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LeaveEarlyTime");
-                OnLeaveEarlyTimeChanged();
-            }
-        }
-        private Nullable<global::System.Single> _LeaveEarlyTime;
-        partial void OnLeaveEarlyTimeChanging(Nullable<global::System.Single> value);
-        partial void OnLeaveEarlyTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean ActiveFlag
-        {
-            get
-            {
-                return _ActiveFlag;
-            }
-            set
-            {
-                OnActiveFlagChanging(value);
-                ReportPropertyChanging("ActiveFlag");
-                _ActiveFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActiveFlag");
-                OnActiveFlagChanged();
-            }
-        }
-        private global::System.Boolean _ActiveFlag;
-        partial void OnActiveFlagChanging(global::System.Boolean value);
-        partial void OnActiveFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DateUpdated
-        {
-            get
-            {
-                return _DateUpdated;
-            }
-            set
-            {
-                OnDateUpdatedChanging(value);
-                ReportPropertyChanging("DateUpdated");
-                _DateUpdated = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DateUpdated");
-                OnDateUpdatedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _DateUpdated;
-        partial void OnDateUpdatedChanging(Nullable<global::System.DateTime> value);
-        partial void OnDateUpdatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single OvertimeAfter
-        {
-            get
-            {
-                return _OvertimeAfter;
-            }
-            set
-            {
-                OnOvertimeAfterChanging(value);
-                ReportPropertyChanging("OvertimeAfter");
-                _OvertimeAfter = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("OvertimeAfter");
-                OnOvertimeAfterChanged();
-            }
-        }
-        private global::System.Single _OvertimeAfter;
-        partial void OnOvertimeAfterChanging(global::System.Single value);
-        partial void OnOvertimeAfterChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single OvertimeLunch
-        {
-            get
-            {
-                return _OvertimeLunch;
-            }
-            set
-            {
-                OnOvertimeLunchChanging(value);
-                ReportPropertyChanging("OvertimeLunch");
-                _OvertimeLunch = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("OvertimeLunch");
-                OnOvertimeLunchChanged();
-            }
-        }
-        private global::System.Single _OvertimeLunch;
-        partial void OnOvertimeLunchChanging(global::System.Single value);
-        partial void OnOvertimeLunchChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single OvertimeDayOff
-        {
-            get
-            {
-                return _OvertimeDayOff;
-            }
-            set
-            {
-                OnOvertimeDayOffChanging(value);
-                ReportPropertyChanging("OvertimeDayOff");
-                _OvertimeDayOff = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("OvertimeDayOff");
-                OnOvertimeDayOffChanged();
-            }
-        }
-        private global::System.Single _OvertimeDayOff;
-        partial void OnOvertimeDayOffChanging(global::System.Single value);
-        partial void OnOvertimeDayOffChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 OvertimeOptions
-        {
-            get
-            {
-                return _OvertimeOptions;
-            }
-            set
-            {
-                OnOvertimeOptionsChanging(value);
-                ReportPropertyChanging("OvertimeOptions");
-                _OvertimeOptions = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("OvertimeOptions");
-                OnOvertimeOptionsChanged();
-            }
-        }
-        private global::System.Int32 _OvertimeOptions;
-        partial void OnOvertimeOptionsChanging(global::System.Int32 value);
-        partial void OnOvertimeOptionsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String GuestResource
-        {
-            get
-            {
-                return _GuestResource;
-            }
-            set
-            {
-                OnGuestResourceChanging(value);
-                ReportPropertyChanging("GuestResource");
-                _GuestResource = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("GuestResource");
-                OnGuestResourceChanged();
-            }
-        }
-        private global::System.String _GuestResource;
-        partial void OnGuestResourceChanging(global::System.String value);
-        partial void OnGuestResourceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean IsHoliday
-        {
-            get
-            {
-                return _IsHoliday;
-            }
-            set
-            {
-                OnIsHolidayChanging(value);
-                ReportPropertyChanging("IsHoliday");
-                _IsHoliday = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsHoliday");
-                OnIsHolidayChanged();
-            }
-        }
-        private global::System.Boolean _IsHoliday;
-        partial void OnIsHolidayChanging(global::System.Boolean value);
-        partial void OnIsHolidayChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String HolidayDescription
-        {
-            get
-            {
-                return _HolidayDescription;
-            }
-            set
-            {
-                OnHolidayDescriptionChanging(value);
-                ReportPropertyChanging("HolidayDescription");
-                _HolidayDescription = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("HolidayDescription");
-                OnHolidayDescriptionChanged();
-            }
-        }
-        private global::System.String _HolidayDescription;
-        partial void OnHolidayDescriptionChanging(global::System.String value);
-        partial void OnHolidayDescriptionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String UserUpdated
-        {
-            get
-            {
-                return _UserUpdated;
-            }
-            set
-            {
-                OnUserUpdatedChanging(value);
-                ReportPropertyChanging("UserUpdated");
-                _UserUpdated = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("UserUpdated");
-                OnUserUpdatedChanged();
-            }
-        }
-        private global::System.String _UserUpdated;
-        partial void OnUserUpdatedChanging(global::System.String value);
-        partial void OnUserUpdatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int64> EmployeeId
-        {
-            get
-            {
-                return _EmployeeId;
-            }
-            set
-            {
-                OnEmployeeIdChanging(value);
-                ReportPropertyChanging("EmployeeId");
-                _EmployeeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EmployeeId");
-                OnEmployeeIdChanged();
-            }
-        }
-        private Nullable<global::System.Int64> _EmployeeId;
-        partial void OnEmployeeIdChanging(Nullable<global::System.Int64> value);
-        partial void OnEmployeeIdChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_TimeLog_EmployeeId_base_Guest_Id", "base_Guest")]
-        public base_Guest base_Guest
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_Guest>("POSModel.FK_tims_TimeLog_EmployeeId_base_Guest_Id", "base_Guest").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_Guest>("POSModel.FK_tims_TimeLog_EmployeeId_base_Guest_Id", "base_Guest").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<base_Guest> base_GuestReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_Guest>("POSModel.FK_tims_TimeLog_EmployeeId_base_Guest_Id", "base_Guest");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<base_Guest>("POSModel.FK_tims_TimeLog_EmployeeId_base_Guest_Id", "base_Guest", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule")]
-        public tims_WorkSchedule tims_WorkSchedule
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tims_WorkSchedule> tims_WorkScheduleReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "tims_TimeLogPermission", "tims_WorkPermission")]
-        public EntityCollection<tims_WorkPermission> tims_WorkPermission
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tims_WorkPermission>("POSModel.tims_TimeLogPermission", "tims_WorkPermission");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tims_WorkPermission>("POSModel.tims_TimeLogPermission", "tims_WorkPermission", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="POSModel", Name="tims_WorkPermission")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tims_WorkPermission : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new tims_WorkPermission object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="employeeId">Initial value of the EmployeeId property.</param>
-        /// <param name="permissionType">Initial value of the PermissionType property.</param>
-        /// <param name="fromDate">Initial value of the FromDate property.</param>
-        /// <param name="toDate">Initial value of the ToDate property.</param>
-        /// <param name="noOfDays">Initial value of the NoOfDays property.</param>
-        /// <param name="hourPerDay">Initial value of the HourPerDay property.</param>
-        /// <param name="paidFlag">Initial value of the PaidFlag property.</param>
-        /// <param name="activeFlag">Initial value of the ActiveFlag property.</param>
-        /// <param name="createdDate">Initial value of the CreatedDate property.</param>
-        /// <param name="createdById">Initial value of the CreatedById property.</param>
-        /// <param name="overtimeOptions">Initial value of the OvertimeOptions property.</param>
-        public static tims_WorkPermission Createtims_WorkPermission(global::System.Int32 id, global::System.Int64 employeeId, global::System.Int32 permissionType, global::System.DateTime fromDate, global::System.DateTime toDate, global::System.Int16 noOfDays, global::System.Single hourPerDay, global::System.Boolean paidFlag, global::System.Boolean activeFlag, global::System.DateTime createdDate, global::System.Int32 createdById, global::System.Int32 overtimeOptions)
-        {
-            tims_WorkPermission tims_WorkPermission = new tims_WorkPermission();
-            tims_WorkPermission.Id = id;
-            tims_WorkPermission.EmployeeId = employeeId;
-            tims_WorkPermission.PermissionType = permissionType;
-            tims_WorkPermission.FromDate = fromDate;
-            tims_WorkPermission.ToDate = toDate;
-            tims_WorkPermission.NoOfDays = noOfDays;
-            tims_WorkPermission.HourPerDay = hourPerDay;
-            tims_WorkPermission.PaidFlag = paidFlag;
-            tims_WorkPermission.ActiveFlag = activeFlag;
-            tims_WorkPermission.CreatedDate = createdDate;
-            tims_WorkPermission.CreatedById = createdById;
-            tims_WorkPermission.OvertimeOptions = overtimeOptions;
-            return tims_WorkPermission;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 EmployeeId
-        {
-            get
-            {
-                return _EmployeeId;
-            }
-            set
-            {
-                OnEmployeeIdChanging(value);
-                ReportPropertyChanging("EmployeeId");
-                _EmployeeId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EmployeeId");
-                OnEmployeeIdChanged();
-            }
-        }
-        private global::System.Int64 _EmployeeId;
-        partial void OnEmployeeIdChanging(global::System.Int64 value);
-        partial void OnEmployeeIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 PermissionType
-        {
-            get
-            {
-                return _PermissionType;
-            }
-            set
-            {
-                OnPermissionTypeChanging(value);
-                ReportPropertyChanging("PermissionType");
-                _PermissionType = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PermissionType");
-                OnPermissionTypeChanged();
-            }
-        }
-        private global::System.Int32 _PermissionType;
-        partial void OnPermissionTypeChanging(global::System.Int32 value);
-        partial void OnPermissionTypeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime FromDate
-        {
-            get
-            {
-                return _FromDate;
-            }
-            set
-            {
-                OnFromDateChanging(value);
-                ReportPropertyChanging("FromDate");
-                _FromDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("FromDate");
-                OnFromDateChanged();
-            }
-        }
-        private global::System.DateTime _FromDate;
-        partial void OnFromDateChanging(global::System.DateTime value);
-        partial void OnFromDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime ToDate
-        {
-            get
-            {
-                return _ToDate;
-            }
-            set
-            {
-                OnToDateChanging(value);
-                ReportPropertyChanging("ToDate");
-                _ToDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ToDate");
-                OnToDateChanged();
-            }
-        }
-        private global::System.DateTime _ToDate;
-        partial void OnToDateChanging(global::System.DateTime value);
-        partial void OnToDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Note
-        {
-            get
-            {
-                return _Note;
-            }
-            set
-            {
-                OnNoteChanging(value);
-                ReportPropertyChanging("Note");
-                _Note = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Note");
-                OnNoteChanged();
-            }
-        }
-        private global::System.String _Note;
-        partial void OnNoteChanging(global::System.String value);
-        partial void OnNoteChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int16 NoOfDays
-        {
-            get
-            {
-                return _NoOfDays;
-            }
-            set
-            {
-                OnNoOfDaysChanging(value);
-                ReportPropertyChanging("NoOfDays");
-                _NoOfDays = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("NoOfDays");
-                OnNoOfDaysChanged();
-            }
-        }
-        private global::System.Int16 _NoOfDays;
-        partial void OnNoOfDaysChanging(global::System.Int16 value);
-        partial void OnNoOfDaysChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Single HourPerDay
-        {
-            get
-            {
-                return _HourPerDay;
-            }
-            set
-            {
-                OnHourPerDayChanging(value);
-                ReportPropertyChanging("HourPerDay");
-                _HourPerDay = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("HourPerDay");
-                OnHourPerDayChanged();
-            }
-        }
-        private global::System.Single _HourPerDay;
-        partial void OnHourPerDayChanging(global::System.Single value);
-        partial void OnHourPerDayChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean PaidFlag
-        {
-            get
-            {
-                return _PaidFlag;
-            }
-            set
-            {
-                OnPaidFlagChanging(value);
-                ReportPropertyChanging("PaidFlag");
-                _PaidFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PaidFlag");
-                OnPaidFlagChanged();
-            }
-        }
-        private global::System.Boolean _PaidFlag;
-        partial void OnPaidFlagChanging(global::System.Boolean value);
-        partial void OnPaidFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean ActiveFlag
-        {
-            get
-            {
-                return _ActiveFlag;
-            }
-            set
-            {
-                OnActiveFlagChanging(value);
-                ReportPropertyChanging("ActiveFlag");
-                _ActiveFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ActiveFlag");
-                OnActiveFlagChanged();
-            }
-        }
-        private global::System.Boolean _ActiveFlag;
-        partial void OnActiveFlagChanging(global::System.Boolean value);
-        partial void OnActiveFlagChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime CreatedDate
-        {
-            get
-            {
-                return _CreatedDate;
-            }
-            set
-            {
-                OnCreatedDateChanging(value);
-                ReportPropertyChanging("CreatedDate");
-                _CreatedDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CreatedDate");
-                OnCreatedDateChanged();
-            }
-        }
-        private global::System.DateTime _CreatedDate;
-        partial void OnCreatedDateChanging(global::System.DateTime value);
-        partial void OnCreatedDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 CreatedById
-        {
-            get
-            {
-                return _CreatedById;
-            }
-            set
-            {
-                OnCreatedByIdChanging(value);
-                ReportPropertyChanging("CreatedById");
-                _CreatedById = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CreatedById");
-                OnCreatedByIdChanged();
-            }
-        }
-        private global::System.Int32 _CreatedById;
-        partial void OnCreatedByIdChanging(global::System.Int32 value);
-        partial void OnCreatedByIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ModifiedDate
-        {
-            get
-            {
-                return _ModifiedDate;
-            }
-            set
-            {
-                OnModifiedDateChanging(value);
-                ReportPropertyChanging("ModifiedDate");
-                _ModifiedDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ModifiedDate");
-                OnModifiedDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ModifiedDate;
-        partial void OnModifiedDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnModifiedDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> ModifiedById
-        {
-            get
-            {
-                return _ModifiedById;
-            }
-            set
-            {
-                OnModifiedByIdChanging(value);
-                ReportPropertyChanging("ModifiedById");
-                _ModifiedById = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ModifiedById");
-                OnModifiedByIdChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _ModifiedById;
-        partial void OnModifiedByIdChanging(Nullable<global::System.Int32> value);
-        partial void OnModifiedByIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 OvertimeOptions
-        {
-            get
-            {
-                return _OvertimeOptions;
-            }
-            set
-            {
-                OnOvertimeOptionsChanging(value);
-                ReportPropertyChanging("OvertimeOptions");
-                _OvertimeOptions = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("OvertimeOptions");
-                OnOvertimeOptionsChanged();
-            }
-        }
-        private global::System.Int32 _OvertimeOptions;
-        partial void OnOvertimeOptionsChanging(global::System.Int32 value);
-        partial void OnOvertimeOptionsChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "base_Guest")]
-        public base_Guest base_Guest
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_Guest>("POSModel.FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "base_Guest").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_Guest>("POSModel.FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "base_Guest").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<base_Guest> base_GuestReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<base_Guest>("POSModel.FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "base_Guest");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<base_Guest>("POSModel.FK_tims_WorkPermission_EmployeeId_base_Guest_Id", "base_Guest", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "tims_TimeLogPermission", "tims_TimeLog")]
-        public EntityCollection<tims_TimeLog> tims_TimeLog
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tims_TimeLog>("POSModel.tims_TimeLogPermission", "tims_TimeLog");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tims_TimeLog>("POSModel.tims_TimeLogPermission", "tims_TimeLog", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="POSModel", Name="tims_WorkSchedule")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tims_WorkSchedule : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new tims_WorkSchedule object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="workScheduleName">Initial value of the WorkScheduleName property.</param>
-        /// <param name="workScheduleType">Initial value of the WorkScheduleType property.</param>
-        /// <param name="rotate">Initial value of the Rotate property.</param>
-        /// <param name="status">Initial value of the Status property.</param>
-        /// <param name="dateCreated">Initial value of the DateCreated property.</param>
-        public static tims_WorkSchedule Createtims_WorkSchedule(global::System.Int32 id, global::System.String workScheduleName, global::System.Int32 workScheduleType, global::System.Int32 rotate, global::System.Int32 status, global::System.DateTime dateCreated)
-        {
-            tims_WorkSchedule tims_WorkSchedule = new tims_WorkSchedule();
-            tims_WorkSchedule.Id = id;
-            tims_WorkSchedule.WorkScheduleName = workScheduleName;
-            tims_WorkSchedule.WorkScheduleType = workScheduleType;
-            tims_WorkSchedule.Rotate = rotate;
-            tims_WorkSchedule.Status = status;
-            tims_WorkSchedule.DateCreated = dateCreated;
-            return tims_WorkSchedule;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String WorkScheduleName
-        {
-            get
-            {
-                return _WorkScheduleName;
-            }
-            set
-            {
-                OnWorkScheduleNameChanging(value);
-                ReportPropertyChanging("WorkScheduleName");
-                _WorkScheduleName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("WorkScheduleName");
-                OnWorkScheduleNameChanged();
-            }
-        }
-        private global::System.String _WorkScheduleName;
-        partial void OnWorkScheduleNameChanging(global::System.String value);
-        partial void OnWorkScheduleNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 WorkScheduleType
-        {
-            get
-            {
-                return _WorkScheduleType;
-            }
-            set
-            {
-                OnWorkScheduleTypeChanging(value);
-                ReportPropertyChanging("WorkScheduleType");
-                _WorkScheduleType = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WorkScheduleType");
-                OnWorkScheduleTypeChanged();
-            }
-        }
-        private global::System.Int32 _WorkScheduleType;
-        partial void OnWorkScheduleTypeChanging(global::System.Int32 value);
-        partial void OnWorkScheduleTypeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Rotate
-        {
-            get
-            {
-                return _Rotate;
-            }
-            set
-            {
-                OnRotateChanging(value);
-                ReportPropertyChanging("Rotate");
-                _Rotate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Rotate");
-                OnRotateChanged();
-            }
-        }
-        private global::System.Int32 _Rotate;
-        partial void OnRotateChanging(global::System.Int32 value);
-        partial void OnRotateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Status
-        {
-            get
-            {
-                return _Status;
-            }
-            set
-            {
-                OnStatusChanging(value);
-                ReportPropertyChanging("Status");
-                _Status = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Status");
-                OnStatusChanged();
-            }
-        }
-        private global::System.Int32 _Status;
-        partial void OnStatusChanging(global::System.Int32 value);
-        partial void OnStatusChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime DateCreated
-        {
-            get
-            {
-                return _DateCreated;
-            }
-            set
-            {
-                OnDateCreatedChanging(value);
-                ReportPropertyChanging("DateCreated");
-                _DateCreated = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DateCreated");
-                OnDateCreatedChanged();
-            }
-        }
-        private global::System.DateTime _DateCreated;
-        partial void OnDateCreatedChanging(global::System.DateTime value);
-        partial void OnDateCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String UserCreated
-        {
-            get
-            {
-                return _UserCreated;
-            }
-            set
-            {
-                OnUserCreatedChanging(value);
-                ReportPropertyChanging("UserCreated");
-                _UserCreated = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("UserCreated");
-                OnUserCreatedChanged();
-            }
-        }
-        private global::System.String _UserCreated;
-        partial void OnUserCreatedChanging(global::System.String value);
-        partial void OnUserCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String UserUpdated
-        {
-            get
-            {
-                return _UserUpdated;
-            }
-            set
-            {
-                OnUserUpdatedChanging(value);
-                ReportPropertyChanging("UserUpdated");
-                _UserUpdated = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("UserUpdated");
-                OnUserUpdatedChanged();
-            }
-        }
-        private global::System.String _UserUpdated;
-        partial void OnUserUpdatedChanging(global::System.String value);
-        partial void OnUserUpdatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> DateUpdated
-        {
-            get
-            {
-                return _DateUpdated;
-            }
-            set
-            {
-                OnDateUpdatedChanging(value);
-                ReportPropertyChanging("DateUpdated");
-                _DateUpdated = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DateUpdated");
-                OnDateUpdatedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _DateUpdated;
-        partial void OnDateUpdatedChanging(Nullable<global::System.DateTime> value);
-        partial void OnDateUpdatedChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "base_GuestSchedule")]
-        public EntityCollection<base_GuestSchedule> base_GuestSchedule
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<base_GuestSchedule>("POSModel.FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "base_GuestSchedule");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<base_GuestSchedule>("POSModel.FK_base_GuestSchedule_WorkScheduleId_tims_WorkSchedule_Id", "base_GuestSchedule", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_TimeLog")]
-        public EntityCollection<tims_TimeLog> tims_TimeLog
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tims_TimeLog>("POSModel.FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_TimeLog");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tims_TimeLog>("POSModel.FK_tims_TimeLog_WorkScheduleId_tims_WorkSchedule_Id", "tims_TimeLog", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkWeek")]
-        public EntityCollection<tims_WorkWeek> tims_WorkWeek
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<tims_WorkWeek>("POSModel.FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkWeek");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<tims_WorkWeek>("POSModel.FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkWeek", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="POSModel", Name="tims_WorkWeek")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class tims_WorkWeek : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new tims_WorkWeek object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="workScheduleId">Initial value of the WorkScheduleId property.</param>
-        /// <param name="week">Initial value of the Week property.</param>
-        /// <param name="day">Initial value of the Day property.</param>
-        /// <param name="workIn">Initial value of the WorkIn property.</param>
-        /// <param name="workOut">Initial value of the WorkOut property.</param>
-        /// <param name="lunchBreakFlag">Initial value of the LunchBreakFlag property.</param>
-        public static tims_WorkWeek Createtims_WorkWeek(global::System.Int32 id, global::System.Int32 workScheduleId, global::System.Int32 week, global::System.Int32 day, global::System.DateTime workIn, global::System.DateTime workOut, global::System.Boolean lunchBreakFlag)
-        {
-            tims_WorkWeek tims_WorkWeek = new tims_WorkWeek();
-            tims_WorkWeek.Id = id;
-            tims_WorkWeek.WorkScheduleId = workScheduleId;
-            tims_WorkWeek.Week = week;
-            tims_WorkWeek.Day = day;
-            tims_WorkWeek.WorkIn = workIn;
-            tims_WorkWeek.WorkOut = workOut;
-            tims_WorkWeek.LunchBreakFlag = lunchBreakFlag;
-            return tims_WorkWeek;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 WorkScheduleId
-        {
-            get
-            {
-                return _WorkScheduleId;
-            }
-            set
-            {
-                OnWorkScheduleIdChanging(value);
-                ReportPropertyChanging("WorkScheduleId");
-                _WorkScheduleId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WorkScheduleId");
-                OnWorkScheduleIdChanged();
-            }
-        }
-        private global::System.Int32 _WorkScheduleId;
-        partial void OnWorkScheduleIdChanging(global::System.Int32 value);
-        partial void OnWorkScheduleIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Week
-        {
-            get
-            {
-                return _Week;
-            }
-            set
-            {
-                OnWeekChanging(value);
-                ReportPropertyChanging("Week");
-                _Week = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Week");
-                OnWeekChanged();
-            }
-        }
-        private global::System.Int32 _Week;
-        partial void OnWeekChanging(global::System.Int32 value);
-        partial void OnWeekChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Day
-        {
-            get
-            {
-                return _Day;
-            }
-            set
-            {
-                OnDayChanging(value);
-                ReportPropertyChanging("Day");
-                _Day = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Day");
-                OnDayChanged();
-            }
-        }
-        private global::System.Int32 _Day;
-        partial void OnDayChanging(global::System.Int32 value);
-        partial void OnDayChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime WorkIn
-        {
-            get
-            {
-                return _WorkIn;
-            }
-            set
-            {
-                OnWorkInChanging(value);
-                ReportPropertyChanging("WorkIn");
-                _WorkIn = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WorkIn");
-                OnWorkInChanged();
-            }
-        }
-        private global::System.DateTime _WorkIn;
-        partial void OnWorkInChanging(global::System.DateTime value);
-        partial void OnWorkInChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime WorkOut
-        {
-            get
-            {
-                return _WorkOut;
-            }
-            set
-            {
-                OnWorkOutChanging(value);
-                ReportPropertyChanging("WorkOut");
-                _WorkOut = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("WorkOut");
-                OnWorkOutChanged();
-            }
-        }
-        private global::System.DateTime _WorkOut;
-        partial void OnWorkOutChanging(global::System.DateTime value);
-        partial void OnWorkOutChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> LunchOut
-        {
-            get
-            {
-                return _LunchOut;
-            }
-            set
-            {
-                OnLunchOutChanging(value);
-                ReportPropertyChanging("LunchOut");
-                _LunchOut = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LunchOut");
-                OnLunchOutChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _LunchOut;
-        partial void OnLunchOutChanging(Nullable<global::System.DateTime> value);
-        partial void OnLunchOutChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> LunchIn
-        {
-            get
-            {
-                return _LunchIn;
-            }
-            set
-            {
-                OnLunchInChanging(value);
-                ReportPropertyChanging("LunchIn");
-                _LunchIn = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LunchIn");
-                OnLunchInChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _LunchIn;
-        partial void OnLunchInChanging(Nullable<global::System.DateTime> value);
-        partial void OnLunchInChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean LunchBreakFlag
-        {
-            get
-            {
-                return _LunchBreakFlag;
-            }
-            set
-            {
-                OnLunchBreakFlagChanging(value);
-                ReportPropertyChanging("LunchBreakFlag");
-                _LunchBreakFlag = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("LunchBreakFlag");
-                OnLunchBreakFlagChanged();
-            }
-        }
-        private global::System.Boolean _LunchBreakFlag;
-        partial void OnLunchBreakFlagChanging(global::System.Boolean value);
-        partial void OnLunchBreakFlagChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("POSModel", "FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule")]
-        public tims_WorkSchedule tims_WorkSchedule
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<tims_WorkSchedule> tims_WorkScheduleReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<tims_WorkSchedule>("POSModel.FK_tims_WorkWeek_WorkScheduleId_tims_WorkSchedule_Id", "tims_WorkSchedule", value);
-                }
-            }
-        }
-
-        #endregion
     }
 
     #endregion

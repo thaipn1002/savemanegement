@@ -4,11 +4,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              x:Name="UserControl"
-             Width="460"
+             Width="480"
+			  Height="275"
              xmlns:cpcBehavior="clr-namespace:CPC.Toolkit.Behavior"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cpcTextBox="clr-namespace:CPCToolkitExt.TextBoxControl;assembly=CPCToolkitExt"
-             Height="275"
              mc:Ignorable="d">
     <UserControl.Resources />
     <Grid x:Name="grdReason">
