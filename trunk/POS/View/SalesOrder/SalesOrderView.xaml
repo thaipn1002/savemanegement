@@ -1214,6 +1214,21 @@
                                                 Content="Sales Return"
                                                 Style="{DynamicResource ButtonComboboxItemRemark}" />
                                     </ComboBoxItem>
+                                    <ComboBoxItem>
+                                        <Button Width="90"
+                                                Command="{Binding PrintCommand}"
+                                                CommandParameter="SaleQty"
+                                                Content="Sales Quantity"
+                                                Style="{DynamicResource ButtonComboboxItemRemark}" />
+                                    </ComboBoxItem>
+                                    <ComboBoxItem>
+                                        <Button Width="90"
+                                                Command="{Binding PrintCommand}"
+                                                CommandParameter="SaleNoDiscount"
+                                                Content="Sales No Discount"
+                                                Style="{DynamicResource ButtonComboboxItemRemark}" />
+                                    </ComboBoxItem>
+
                                 </ComboBox>
                                 <Rectangle x:Name="imgPrint1"
                                            Width="30"
