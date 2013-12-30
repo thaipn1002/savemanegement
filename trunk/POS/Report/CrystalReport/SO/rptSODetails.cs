@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CPC.POS.Report.CrystalReport.Guest {
+namespace CPC.POS.Report.CrystalReport.SO {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace CPC.POS.Report.CrystalReport.Guest {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class rptCustomerProfile : ReportClass {
+    public class rptSODetails : ReportClass {
         
-        public rptCustomerProfile() {
+        public rptSODetails() {
         }
         
         public override string ResourceName {
             get {
-                return "rptCustomerProfile.rpt";
+                return "rptSODetails.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CPC.POS.Report.CrystalReport.Guest {
         
         public override string FullResourceName {
             get {
-                return "CPC.POS.Report.CrystalReport.Guest.rptCustomerProfile.rpt";
+                return "CPC.POS.Report.CrystalReport.SO.rptSODetails.rpt";
             }
             set {
                 // Do nothing
@@ -82,17 +82,41 @@ namespace CPC.POS.Report.CrystalReport.Guest {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection3 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection2 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section ReportFooterSection1 {
+            get {
+                return this.ReportDefinition.Sections[6];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[7];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedrptCustomerProfile : Component, ICachedReport {
+    public class CachedrptSODetails : Component, ICachedReport {
         
-        public CachedrptCustomerProfile() {
+        public CachedrptSODetails() {
         }
         
         [Browsable(false)]
@@ -129,7 +153,7 @@ namespace CPC.POS.Report.CrystalReport.Guest {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            rptCustomerProfile rpt = new rptCustomerProfile();
+            rptSODetails rpt = new rptSODetails();
             rpt.Site = this.Site;
             return rpt;
         }
