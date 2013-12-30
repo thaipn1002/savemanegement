@@ -197,7 +197,7 @@
                                    VerticalAlignment="Center"
                                    FontStyle="Italic"
                                    Foreground="Red"
-                                   Text="Regular Price:"
+                                   Text="Giá thông thường:"
                                    TextWrapping="NoWrap" />
                         <TextBlock x:Name="txtblBindingRegularPrice"
                                    Margin="5,0,0,0"
@@ -216,7 +216,7 @@
                                    VerticalAlignment="Center"
                                    FontStyle="Italic"
                                    Foreground="Red"
-                                   Text="Unit Discount:"
+                                   Text="được giảm:"
                                    TextWrapping="NoWrap" />
                         <TextBlock x:Name="txtblBindingUnitDiscount"
                                    Margin="5,0,0,0"
@@ -234,7 +234,7 @@
                                    VerticalAlignment="Center"
                                    FontStyle="Italic"
                                    Foreground="Red"
-                                   Text="Total Discount:"
+                                   Text="Tổng số tiền được giảm:"
                                    TextWrapping="NoWrap" />
                         <TextBlock x:Name="txtblBindingTotalDiscount"
                                    Margin="5,0,0,0"
@@ -688,7 +688,7 @@
             <Rectangle x:Name="UserControl_Background_Image" Fill="{DynamicResource UserControl_Background_Image}" />
             <Grid x:Name="grdSaleOrder">
                 <!--  Search Grid  -->
-                <Grid x:Name="grdContentSearch">
+                <Grid x:Name="grdContentSearch" d:IsHidden="True">
                     <Grid.Visibility>
                         <Binding Mode="OneWay"
                                  Path="IsSearchMode"
@@ -1037,7 +1037,7 @@
                     </cpcDataGrid:DataGridControl>
                 </Grid>
 
-                <Grid x:Name="grdContentSalesOrder1" Grid.Column="1" d:IsHidden="True">
+                <Grid x:Name="grdContentSalesOrder1" Grid.Column="1">
                     <Grid.Visibility>
                         <Binding Mode="OneWay"
                                  Path="IsSearchMode"
@@ -2479,11 +2479,10 @@
                                                 		Width="53"
                                                 		HorizontalAlignment="Left"
                                                 		ConverterCulture="{x:Static local:Define.ConverterCulture}"
-                                                		IsReadOnly="True"
                                                 		NumericStringFormat="{}{0:N0}"
                                                 		Padding="2,0,2,0"
                                                 		TextWrapping="NoWrap"
-                                                		Value="{Binding SelectedSaleOrder.TaxPercent, Mode=OneWay}" Grid.Row="0" Margin="0"/>
+                                                		Value="{Binding SelectedSaleOrder.TaxPercent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Margin="0"/>
                                                     <TextBlock x:Name="txtblOrderTabTaxPercent"
                                                 		HorizontalAlignment="Left"
                                                 		VerticalAlignment="Center"
