@@ -341,9 +341,10 @@ namespace CPC.POS.Repository
                 if (customerAdditional != null && saleOrderModel != null)
                 {
                     saleOrderModel.GuestModel.AdditionalModel = new CPC.POS.Model.base_GuestAdditionalModel(customerAdditional);
-
+                    if (saleOrderModel.GuestModel.AdditionalModel.PriceSchemeId > 0 && saleOrderModel.GuestModel.AdditionalModel.FixDiscount.HasValue && saleOrderModel.GuestModel.AdditionalModel.FixDiscount.Value > 0)
+                        saleOrderModel.GuestModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.FixedDiscountOnAllItems + (int)PriceLevelType.MarkdownPriceLevel;//Set radio button is Mark down Price Level
                     //Set value for radiobutton "Pricing Level" (No discount / Fixed Discount / Markdown Price Level)
-                    if (saleOrderModel.GuestModel.AdditionalModel.PriceSchemeId > 0)
+                    else if (saleOrderModel.GuestModel.AdditionalModel.PriceSchemeId > 0)
                         saleOrderModel.GuestModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.MarkdownPriceLevel;//Set radio button is Mark down Price Level
                     else if (saleOrderModel.GuestModel.AdditionalModel.FixDiscount != null && saleOrderModel.GuestModel.AdditionalModel.FixDiscount > 0)
                         saleOrderModel.GuestModel.AdditionalModel.PriceLevelType = (int)PriceLevelType.FixedDiscountOnAllItems;//Set radio button is Fixed Discount
