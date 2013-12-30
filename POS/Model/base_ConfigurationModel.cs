@@ -1955,6 +1955,46 @@ namespace CPC.POS.Model
             }
         }
 
+        protected int _deptDate;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the DeptDate</param>
+        /// </summary>
+        public int DeptDate
+        {
+            get { return this._deptDate; }
+            set
+            {
+                if (this._deptDate != value)
+                {
+                    this.IsDirty = true;
+                    this._deptDate = value;
+                    OnPropertyChanged(() => DeptDate);
+                    PropertyChangedCompleted(() => DeptDate);
+                }
+            }
+        }
+
+        protected bool _isAllowChangedTax;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the IsAllowChangedTax</param>
+        /// </summary>
+        public bool IsAllowChangedTax
+        {
+            get { return this._isAllowChangedTax; }
+            set
+            {
+                if (this._isAllowChangedTax != value)
+                {
+                    this.IsDirty = true;
+                    this._isAllowChangedTax = value;
+                    OnPropertyChanged(() => IsAllowChangedTax);
+                    PropertyChangedCompleted(() => IsAllowChangedTax);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -2096,6 +2136,8 @@ namespace CPC.POS.Model
             this.base_Configuration.WeekHour = this.WeekHour;
             this.base_Configuration.RefundVoucherThresHold = this.RefundVoucherThresHold;
             this.base_Configuration.SysDate = this.SysDate;
+            this.base_Configuration.DeptDate = this.DeptDate;
+            this.base_Configuration.IsAllowChangedTax = this.IsAllowChangedTax;
         }
 
         /// <summary>
@@ -2199,6 +2241,8 @@ namespace CPC.POS.Model
             this._weekHour = this.base_Configuration.WeekHour;
             this._refundVoucherThresHold = this.base_Configuration.RefundVoucherThresHold;
             this._sysDate = this.base_Configuration.SysDate;
+            this._deptDate = this.base_Configuration.DeptDate;
+            this._isAllowChangedTax = this.base_Configuration.IsAllowChangedTax;
         }
 
         /// <summary>
@@ -2302,6 +2346,8 @@ namespace CPC.POS.Model
             this.WeekHour = this.base_Configuration.WeekHour;
             this.RefundVoucherThresHold = this.base_Configuration.RefundVoucherThresHold;
             this.SysDate = this.base_Configuration.SysDate;
+            this.DeptDate = this.base_Configuration.DeptDate;
+            this.IsAllowChangedTax = this.base_Configuration.IsAllowChangedTax;
         }
 
         #endregion

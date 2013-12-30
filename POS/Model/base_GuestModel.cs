@@ -1476,6 +1476,26 @@ namespace CPC.POS.Model
             }
         }
 
+        protected Nullable<decimal> _employeeCommissionPercent;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the EmployeeCommissionPercent</param>
+        /// </summary>
+        public Nullable<decimal> EmployeeCommissionPercent
+        {
+            get { return this._employeeCommissionPercent; }
+            set
+            {
+                if (this._employeeCommissionPercent != value)
+                {
+                    this.IsDirty = true;
+                    this._employeeCommissionPercent = value;
+                    OnPropertyChanged(() => EmployeeCommissionPercent);
+                    PropertyChangedCompleted(() => EmployeeCommissionPercent);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -1601,6 +1621,7 @@ namespace CPC.POS.Model
                 this.base_Guest.ManagerResource = this.ManagerResource.Trim();
             this.base_Guest.IsVIP = this.IsVIP;
             this.base_Guest.Picture = this.Picture;
+            this.base_Guest.EmployeeCommissionPercent = this.EmployeeCommissionPercent;
         }
 
         /// <summary>
@@ -1680,6 +1701,7 @@ namespace CPC.POS.Model
             this._managerResource = this.base_Guest.ManagerResource;
             this._isVIP = this.base_Guest.IsVIP;
             this._picture = this.base_Guest.Picture;
+            this._employeeCommissionPercent = this.base_Guest.EmployeeCommissionPercent;
         }
 
         /// <summary>
@@ -1759,6 +1781,7 @@ namespace CPC.POS.Model
             this.ManagerResource = this.base_Guest.ManagerResource;
             this.IsVIP = this.base_Guest.IsVIP;
             this.Picture = this.base_Guest.Picture;
+            this.EmployeeCommissionPercent = this.base_Guest.EmployeeCommissionPercent;
         }
 
         #endregion
@@ -1784,8 +1807,7 @@ namespace CPC.POS.Model
                 return legalName;
             }
         }
-
-        private ObservableCollection<base_GuestAddressModel> _addressCollection;
+         private ObservableCollection<base_GuestAddressModel> _addressCollection;
         /// <summary>
         /// Gets or sets the AddressCollection.
         /// </summary>
@@ -1804,8 +1826,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
-        private CollectionBase<base_GuestModel> _contactCollection;
+         private CollectionBase<base_GuestModel> _contactCollection;
         /// <summary>
         /// Gets or sets the ContactCollection.
         /// </summary>
@@ -1824,7 +1845,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private CollectionBase<base_ResourcePhotoModel> _photoCollection;
         /// <summary>
         /// Gets or sets the PhotoCollection.
@@ -1844,7 +1864,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private base_GuestAdditionalModel _additionalModel;
         /// <summary>
         /// Gets or sets the AdditionModel.
@@ -1864,7 +1883,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private base_GuestProfileModel _personalInfoModel;
         /// <summary>
         /// Gets or sets the PersonalInfo.
@@ -1886,7 +1904,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private base_GuestAddressModel _addressModel;
         /// <summary>
         /// Gets or sets the primary AddressModel.
@@ -1906,7 +1923,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private base_GuestModel _contactModel;
         /// <summary>
         /// Gets or sets the primary ContactModel.
@@ -1926,7 +1942,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private AddressControlCollection _addressControlCollection;
         /// <summary>
         /// Gets or sets the AddressCollection.
@@ -1967,8 +1982,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
-        private base_ResourcePhotoModel _photoDefault = new base_ResourcePhotoModel();
+         private base_ResourcePhotoModel _photoDefault = new base_ResourcePhotoModel();
         /// <summary>
         /// Gets the PhotoDefault.
         /// </summary>
@@ -1987,7 +2001,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private CollectionBase<base_GuestPaymentCardModel> _paymentCardCollection;
         /// <summary>
         /// Gets or sets the PaymentCardCollection.
@@ -2007,7 +2020,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private CollectionBase<base_ResourceNoteModel> _resourceNoteCollection;
         /// <summary>
         /// Gets or sets the ResourceNoteCollection.
@@ -2027,7 +2039,6 @@ namespace CPC.POS.Model
                 }
             }
         }
-
         private CollectionBase<base_GuestFingerPrintModel> _employeeFingerprintCollection;
         /// <summary>
         /// Gets or sets the EmployeeFingerprintCollection.
@@ -2047,7 +2058,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
+        [NonSerialized]
         private ObservableCollection<base_ProductModel> _productCollection;
         /// <summary>
         /// Gets or sets the ProductCollection.
@@ -2064,7 +2075,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
+        [NonSerialized]
         private ObservableCollection<base_PurchaseOrderModel> _purchaseOrderCollection;
         /// <summary>
         /// Gets or sets the PurchaseOrderCollection.
@@ -2081,7 +2092,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
+        [NonSerialized]
         private ObservableCollection<base_SaleOrderModel> _saleOrderCollection;
         /// <summary>
         /// Gets or sets the SaleOrderCollection.
@@ -2098,7 +2109,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
+        [NonSerialized]
         private ObservableCollection<base_SaleOrderModel> _liabilitiesCollection;
         /// <summary>
         /// Gets or sets the LiabilitiesCollection.
@@ -2184,6 +2195,7 @@ namespace CPC.POS.Model
         #endregion
 
         #region GuestRewardCollection
+        [NonSerialized]
         private CollectionBase<base_GuestRewardModel> _guestRewardCollection;
         /// <summary>
         /// Gets or sets the GuestRewardCollection.
@@ -2244,7 +2256,7 @@ namespace CPC.POS.Model
         #endregion
 
         #region PreviousEmployeeSchedule
-
+        [NonSerialized]
         private base_GuestScheduleModel _previousEmployeeSchedule;
         /// <summary>
         /// Gets or sets the PreviousEmployeeSchedule.
@@ -2268,7 +2280,7 @@ namespace CPC.POS.Model
         #endregion
 
         #region CurrentEmployeeSchedule
-
+        [NonSerialized]
         private base_GuestScheduleModel _currentEmployeeSchedule;
         /// <summary>
         /// Gets or sets the CurrentEmployeeSchedule.
@@ -2292,7 +2304,7 @@ namespace CPC.POS.Model
         #endregion
 
         #region NextEmployeeSchedule
-
+        [NonSerialized]
         private base_GuestScheduleModel _nextEmployeeSchedule;
         /// <summary>
         /// Gets or sets the NextEmployeeSchedule.
@@ -2316,6 +2328,7 @@ namespace CPC.POS.Model
         #endregion
 
         #region EmployeeScheduleCollection
+        [NonSerialized]
         private ObservableCollection<base_GuestScheduleModel> _employeeScheduleCollection;
         /// <summary>
         /// Property Base
@@ -2333,28 +2346,6 @@ namespace CPC.POS.Model
                 {
                     _employeeScheduleCollection = value;
                     OnPropertyChanged(() => EmployeeScheduleCollection);
-                }
-            }
-        }
-        #endregion
-
-        #region TimeLogCollection
-        private CollectionBase<tims_TimeLogModel> _timeLogCollection;
-        /// <summary>
-        /// Gets or sets the TimeLogCollection.
-        /// </summary>
-        public CollectionBase<tims_TimeLogModel> TimeLogCollection
-        {
-            get
-            {
-                return _timeLogCollection;
-            }
-            set
-            {
-                if (_timeLogCollection != value)
-                {
-                    _timeLogCollection = value;
-                    OnPropertyChanged(() => TimeLogCollection);
                 }
             }
         }
@@ -2391,36 +2382,11 @@ namespace CPC.POS.Model
         {
             get
             {
-                if (this.base_Guest != null && this.base_Guest.tims_TimeLog != null)
-                    return TimeSpan.FromHours(this.base_Guest.tims_TimeLog.Where(x => x.ClockOut.HasValue).Sum(y => (y.ClockOut.Value - y.ClockIn).TotalHours)).ToHours();
-
                 return "0:00";
             }
         }
         #endregion
 
-        #region WorkPermissionCollection
-        private ObservableCollection<tims_WorkPermissionModel> _workPermissionCollection;
-        /// <summary>
-        /// Extension property for WorkPermissionManagerView
-        /// <para> Gets or sets the WorkPermissionCollection.</para>
-        /// </summary>
-        public ObservableCollection<tims_WorkPermissionModel> WorkPermissionCollection
-        {
-            get
-            {
-                return _workPermissionCollection;
-            }
-            set
-            {
-                if (_workPermissionCollection != value)
-                {
-                    _workPermissionCollection = value;
-                    OnPropertyChanged(() => WorkPermissionCollection);
-                }
-            }
-        }
-        #endregion
 
         #region DuplicateWorkPermission
         private bool _duplicateWorkpermission = false;
@@ -2560,6 +2526,7 @@ namespace CPC.POS.Model
         }
 
         #region GuestCollection
+        [NonSerialized]
         private IEnumerable<base_GuestModel> _guestCollection = new List<base_GuestModel>();
         /// <summary>
         /// Gets or sets the GuestCollection.
@@ -2599,6 +2566,7 @@ namespace CPC.POS.Model
         #endregion
 
         #region MembershipValidated
+        [NonSerialized]
         private base_MemberShipModel _memberShipValidated;
         /// <summary>
         /// Gets or sets the MembershipValidated.
@@ -2616,7 +2584,7 @@ namespace CPC.POS.Model
             }
         }
         #endregion
-
+        [NonSerialized]
         private ComboItem _statusItem;
         /// <summary>
         /// Gets or sets the StatusItem.
@@ -2633,7 +2601,7 @@ namespace CPC.POS.Model
                 }
             }
         }
-
+        [NonSerialized]
         private ComboItem _countryItem;
         /// <summary>
         /// Gets or sets the CountryItem.

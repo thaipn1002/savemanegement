@@ -1775,6 +1775,46 @@ namespace CPC.POS.Model
             }
         }
 
+        protected Nullable<System.DateTime> _madeDate;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the MadeDate</param>
+        /// </summary>
+        public Nullable<System.DateTime> MadeDate
+        {
+            get { return this._madeDate; }
+            set
+            {
+                if (this._madeDate != value)
+                {
+                    this.IsDirty = true;
+                    this._madeDate = value;
+                    OnPropertyChanged(() => MadeDate);
+                    PropertyChangedCompleted(() => MadeDate);
+                }
+            }
+        }
+
+        protected Nullable<System.DateTime> _expirationDate;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the ExpirationDate</param>
+        /// </summary>
+        public Nullable<System.DateTime> ExpirationDate
+        {
+            get { return this._expirationDate; }
+            set
+            {
+                if (this._expirationDate != value)
+                {
+                    this.IsDirty = true;
+                    this._expirationDate = value;
+                    OnPropertyChanged(() => ExpirationDate);
+                    PropertyChangedCompleted(() => ExpirationDate);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -1908,6 +1948,8 @@ namespace CPC.POS.Model
                 this.base_Product.Aisle = this.Aisle.Trim();
             if (this.Shell != null)
                 this.base_Product.Shell = this.Shell.Trim();
+            this.base_Product.MadeDate = this.MadeDate;
+            this.base_Product.ExpirationDate = this.ExpirationDate;
         }
 
         /// <summary>
@@ -2002,6 +2044,8 @@ namespace CPC.POS.Model
             this._iPriceTo = this.base_Product.IPriceTo;
             this._aisle = this.base_Product.Aisle;
             this._shell = this.base_Product.Shell;
+            this._madeDate = this.base_Product.MadeDate;
+            this._expirationDate = this.base_Product.ExpirationDate;
         }
 
         /// <summary>
@@ -2096,6 +2140,8 @@ namespace CPC.POS.Model
             this.IPriceTo = this.base_Product.IPriceTo;
             this.Aisle = this.base_Product.Aisle;
             this.Shell = this.base_Product.Shell;
+            this.MadeDate = this.base_Product.MadeDate;
+            this.ExpirationDate = this.base_Product.ExpirationDate;
         }
 
         #endregion

@@ -1435,6 +1435,46 @@ namespace CPC.POS.Model
             }
         }
 
+        protected string _saleReference;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the SaleReference</param>
+        /// </summary>
+        public string SaleReference
+        {
+            get { return this._saleReference; }
+            set
+            {
+                if (this._saleReference != value)
+                {
+                    this.IsDirty = true;
+                    this._saleReference = value;
+                    OnPropertyChanged(() => SaleReference);
+                    PropertyChangedCompleted(() => SaleReference);
+                }
+            }
+        }
+
+        protected bool _isChangedTax;
+        /// <summary>
+        /// Property Model
+        /// <param>Gets or sets the IsChangedTax</param>
+        /// </summary>
+        public bool IsChangedTax
+        {
+            get { return this._isChangedTax; }
+            set
+            {
+                if (this._isChangedTax != value)
+                {
+                    this.IsDirty = true;
+                    this._isChangedTax = value;
+                    OnPropertyChanged(() => IsChangedTax);
+                    PropertyChangedCompleted(() => IsChangedTax);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -1544,6 +1584,9 @@ namespace CPC.POS.Model
             this.base_SaleOrder.OpenACFee = this.OpenACFee;
             this.base_SaleOrder.CancellationFee = this.CancellationFee;
             this.base_SaleOrder.IsReturned = this.IsReturned;
+            if (this.SaleReference != null)
+                this.base_SaleOrder.SaleReference = this.SaleReference.Trim();
+            this.base_SaleOrder.IsChangedTax = this.IsChangedTax;
         }
 
         /// <summary>
@@ -1621,6 +1664,8 @@ namespace CPC.POS.Model
             this._openACFee = this.base_SaleOrder.OpenACFee;
             this._cancellationFee = this.base_SaleOrder.CancellationFee;
             this._isReturned = this.base_SaleOrder.IsReturned;
+            this._saleReference = this.base_SaleOrder.SaleReference;
+            this._isChangedTax = this.base_SaleOrder.IsChangedTax;
         }
 
         /// <summary>
@@ -1698,6 +1743,8 @@ namespace CPC.POS.Model
             this.OpenACFee = this.base_SaleOrder.OpenACFee;
             this.CancellationFee = this.base_SaleOrder.CancellationFee;
             this.IsReturned = this.base_SaleOrder.IsReturned;
+            this.SaleReference = this.base_SaleOrder.SaleReference;
+            this.IsChangedTax = this.base_SaleOrder.IsChangedTax;
         }
 
         #endregion
@@ -2399,6 +2446,7 @@ namespace CPC.POS.Model
 
         #endregion
 
+        #region DueDay
         protected int _dueDay;
         /// <summary>
         /// Property Model
@@ -2414,11 +2462,35 @@ namespace CPC.POS.Model
             {
                 if (this._dueDay != value)
                 {
-                     this._dueDay = value;
-                     OnPropertyChanged(() => DueDay);
+                    this._dueDay = value;
+                    OnPropertyChanged(() => DueDay);
+                }
+            }
+        } 
+        #endregion
+
+        #region IsChangeTax
+        private bool _isChangeTax;
+        /// <summary>
+        /// Gets or sets the IsChangeTax.
+        /// <para>Using for show deposit function in quotation</para>
+        /// </summary>
+        public bool IsChangeTax
+        {
+            get
+            {
+                return _isChangeTax;
+            }
+            set
+            {
+                if (_isChangeTax != value)
+                {
+                    _isChangeTax = value;
+                    OnPropertyChanged(() => IsChangeTax);
                 }
             }
         }
+        #endregion
 
         #endregion
 

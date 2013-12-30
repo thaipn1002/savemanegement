@@ -16,7 +16,6 @@ using System.Linq.Expressions;
 using CPC.Helper;
 using CPC.POS.Database;
 using CPC.Toolkit.Base;
-using CPC.POS;
 
 namespace CPC.POS.Model
 {

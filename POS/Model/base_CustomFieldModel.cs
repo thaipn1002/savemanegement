@@ -24,7 +24,7 @@ namespace CPC.POS.Model
     /// Model for table base_CustomField
     /// </summary>
     [Serializable]
-    public partial class base_CustomFieldModel : ModelBase, IEditableObject, IDataErrorInfo
+    public partial class base_CustomFieldModel : ModelBase, IDataErrorInfo, IEditableObject
     {
         #region Constructor
 

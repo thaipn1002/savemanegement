@@ -544,7 +544,7 @@ namespace CPC.POS.Model
 
 
         #region DisableSaleTaxLocation
-        private bool _enableSaleTaxLocation=true;
+        private bool _enableSaleTaxLocation = true;
         /// <summary>
         /// Gets or sets the DisableSaleTaxLocation.
         /// </summary>
@@ -602,6 +602,10 @@ namespace CPC.POS.Model
         public void RaisePropertyChanged(string propertyName)
         {
             OnPropertyChanged(propertyName);
+        }
+        public void CreateAdditional()
+        {
+            this.base_GuestAdditional = new base_GuestAdditional();
         }
 
         #region Override Methods
@@ -662,7 +666,8 @@ namespace CPC.POS.Model
                     case "IsNoDiscount":
                         break;
                     case "FixDiscount":
-                        if (PriceLevelType.Is(CPC.POS.PriceLevelType.FixedDiscountOnAllItems) && (!FixDiscount.HasValue || FixDiscount <= 0))
+                        if ((PriceLevelType.Is(CPC.POS.PriceLevelType.FixedDiscountOnAllItems)
+                            || PriceLevelType > (int)(CPC.POS.PriceLevelType.MarkdownPriceLevel)) && (!FixDiscount.HasValue || FixDiscount <= 0))
                             message = "Fix Discount is required";
                         break;
                     case "Unit":
