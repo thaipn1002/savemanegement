@@ -2465,7 +2465,6 @@
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="25" />
                                                 <RowDefinition Height="25" />
-                                                <RowDefinition Height="25" />
                                             </Grid.RowDefinitions>
                                             <RadioButton x:Name="cbNoDicount"
                                                          Margin="10,0,0,0"
@@ -2476,14 +2475,12 @@
 														 IsChecked="{Binding SelectedCustomer.AdditionalModel.PriceLevelType, ConverterParameter={x:Static local:PriceLevelType.NoDiscount}, Converter={StaticResource enumPriceTypeToBoolConverter}, UpdateSourceTrigger=PropertyChanged}"
                                                          Visibility="Collapsed" />
                                             <CheckBox x:Name="cbItemFixedDiscount"
-                                                         Grid.Row="1"
                                                          Margin="10,0,0,0"
                                                          HorizontalAlignment="Left"
                                                          VerticalAlignment="Center"
                                                          Content="{DynamicResource Text_FixedDiscAllItem}"
                                                          IsChecked="{Binding SelectedCustomer.AdditionalModel.PriceLevelType, ConverterParameter={x:Static local:PriceLevelType.FixedDiscountOnAllItems}, Converter={StaticResource enumPriceTypeToBoolConverter}, UpdateSourceTrigger=PropertyChanged}" />
                                             <cpcTextbox:TextBoxNumeric x:Name="txtDiscountRate"
-                                                                       Grid.Row="1"
                                                                        Width="64"
                                                                        Margin="172,2,0,2"
                                                                        HorizontalAlignment="Left"
@@ -2503,7 +2500,6 @@
                                                 </i:Interaction.Behaviors>
                                             </cpcTextbox:TextBoxNumeric>
                                             <ComboBox x:Name="cmbDiscountRate"
-                                                      Grid.Row="1"
                                                       Width="40"
                                                       Margin="0,2,10,2"
                                                       HorizontalAlignment="Right"

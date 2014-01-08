@@ -40,7 +40,7 @@ namespace CPC.POS.ViewModel
         private base_ProductStoreRepository _productStoreRespository = new base_ProductStoreRepository();
         private base_ProductUOMRepository _productUOMRepository = new base_ProductUOMRepository();
 
-
+        private Expression<Func<base_SaleOrder, bool>> _predicate;
 
 
         private enum SaleOrderTab
@@ -64,7 +64,7 @@ namespace CPC.POS.ViewModel
             IsIncludeReturnFee = Define.CONFIGURATION.IsIncludeReturnFee;
             // Get permission
             GetPermission();
-            this.SearchDateCommand = new RelayCommand<object>(this.OnSearchDateCommandExecute,this.OnSearchDateCommandCanExecute);
+            this.SearchDateCommand = new RelayCommand<object>(this.OnSearchDateCommandExecute, this.OnSearchDateCommandCanExecute);
         }
 
         public LiabilityViewModel(bool isList, object param)
@@ -521,16 +521,12 @@ namespace CPC.POS.ViewModel
             get
             {
                 _dateTypes = new List<ComboItem>();
-                ComboItem item1 = new ComboItem();
-                item1.IntValue = 0;
-                item1.Text = "";
-                _dateTypes.Add(item1);
                 ComboItem item2 = new ComboItem();
-                item2.IntValue = 0;
+                item2.IntValue = 1;
                 item2.Text = "Ngày tạo";
                 _dateTypes.Add(item2);
                 ComboItem item3 = new ComboItem();
-                item3.IntValue = 0;
+                item3.IntValue = 2;
                 item3.Text = "Ngày phải trả";
                 _dateTypes.Add(item3);
                 return _dateTypes;
@@ -598,6 +594,25 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
+        #region ContentDate
+        private string _contentDate="Tìm kiếm theo ngày";
+        /// <summary>
+        /// Gets or sets the ContentDate.
+        /// </summary>
+        public string ContentDate
+        {
+            get { return _contentDate; }
+            set
+            {
+                if (_contentDate != value)
+                {
+                    _contentDate = value;
+                    OnPropertyChanged(() => ContentDate);
+                }
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Commands Methods
@@ -647,7 +662,7 @@ namespace CPC.POS.ViewModel
             SearchAlert = string.Empty;
             if ((param == null || string.IsNullOrWhiteSpace(param.ToString())) && SearchOption == 0)//Search All
             {
-                Expression<Func<base_SaleOrder, bool>> predicate = CreatePredicateWithConditionSearch(Keyword);
+                Expression<Func<base_SaleOrder, bool>> predicate = this.CreatePredicateWithDate(Keyword);
                 LoadDataByPredicate(predicate, false, 0);
 
             }
@@ -661,8 +676,7 @@ namespace CPC.POS.ViewModel
                 }
                 else
                 {
-                    Expression<Func<base_SaleOrder, bool>> predicate = CreatePredicateWithConditionSearch(Keyword);
-
+                    Expression<Func<base_SaleOrder, bool>> predicate = this.CreatePredicateWithDate(Keyword);
                     LoadDataByPredicate(predicate, false, 0);
                 }
             }
@@ -707,40 +721,20 @@ namespace CPC.POS.ViewModel
 
         protected void OnSearchDateCommandExecute(object param)
         {
-            DateSearchView searchView = new DateSearchView();
-            searchView.DataContext = this;
-            searchView.ShowDialog();
-            if (searchView.IsCancel)
-            {
-            }
-            else
-            {
-            }
-          //SearchAlert = string.Empty;
-            //if ((param == null || string.IsNullOrWhiteSpace(param.ToString())) && SearchOption == 0)//Search All
+            bool? result = _dialogService.ShowDialog<DateSearchView>(_ownerViewModel, this, "Add New State");
+            this.ContentDate = "Tìm kiếm theo ngày";
+            //if (searchView.IsCancel)
             //{
-            //    Expression<Func<base_SaleOrder, bool>> predicate = CreatePredicateWithConditionSearch(Keyword);
-            //    LoadDataByPredicate(predicate, false, 0);
-
+            //    this.SelectedDateType = null;
+            //    this.FromDate = null;
+            //    this.ToDate = null;
             //}
-            //else if (param != null)
-            //{
-            //    Keyword = param.ToString();
-            //    if (SearchOption == 0)
-            //    {
-            //        //Thong bao Can co dk
-            //        SearchAlert = "Search Option is required";
-            //    }
-            //    else
-            //    {
-            //        Expression<Func<base_SaleOrder, bool>> predicate = CreatePredicateWithConditionSearch(Keyword);
-
-            //        LoadDataByPredicate(predicate, false, 0);
-            //    }
-            //}
+            Expression<Func<base_SaleOrder, bool>> predicate = this.CreatePredicateWithDate(Keyword);
+            LoadDataByPredicate(predicate, false, 0);
         }
 
         #endregion
+
         #endregion "\Commands Methods"
 
         #region Private Methods
@@ -1164,6 +1158,54 @@ namespace CPC.POS.ViewModel
                 {
                     var customerList = CustomerCollection.Where(y => y.LastName.ToLower().Contains(keyword.ToLower()) || y.FirstName.ToLower().Contains(keyword.ToLower())).Select(x => x.Resource.ToString());
                     predicate = predicate.And(x => customerList.Contains(x.CustomerResource));
+                }
+            }
+            return predicate;
+        }
+
+        private Expression<Func<base_SaleOrder, bool>> CreatePredicateWithDate(string keyword)
+        {
+            Expression<Func<base_SaleOrder, bool>> predicate = PredicateBuilder.True<base_SaleOrder>();
+            predicate = predicate.And(x => ((x.RefundedAmount != null && x.Balance > 0 && x.Paid + x.Balance - (x.RefundedAmount) != x.Total)) || (x.Balance > 0 && x.RefundedAmount == 0));
+            if (!string.IsNullOrWhiteSpace(keyword) && SearchOption > 0)
+            {
+                if (SearchOption.Has(SearchOptions.SoNum))
+                    predicate = predicate.And(x => x.SONumber.ToLower().Contains(keyword.ToLower()));
+                if (SearchOption.Has(SearchOptions.Customer))
+                {
+                    var customerList = CustomerCollection.Where(y => y.LastName.ToLower().Contains(keyword.ToLower()) || y.FirstName.ToLower().Contains(keyword.ToLower())).Select(x => x.Resource.ToString());
+                    predicate = predicate.And(x => customerList.Contains(x.CustomerResource));
+                }
+            }
+            if (this.SelectedDateType != null)
+            {
+                this.ContentDate = "Tìm kiếm theo : "+ this.SelectedDateType.Text;
+                //To search with OrderDate
+                if (this.SelectedDateType.IntValue == 1)
+                {
+                    if (this.FromDate.HasValue)
+                    {
+                        this.ContentDate = this.ContentDate + " Từ ngày : " + this.FromDate;
+                        predicate = predicate.And(x => x.OrderDate.HasValue && x.OrderDate.Value >= this.FromDate);
+                    }
+                    if (this.ToDate.HasValue)
+                    {
+                        this.ContentDate = this.ContentDate + " đến ngày : " + this.ToDate;
+                        predicate = predicate.And(x => x.OrderDate.HasValue && x.OrderDate.Value <= this.ToDate);
+                    }
+                }
+                else
+                {
+                    if (this.FromDate.HasValue)
+                    {
+                        this.ContentDate = this.ContentDate + " Từ ngày : " + this.FromDate;
+                        predicate = predicate.And(x => x.DueDate.HasValue && x.DueDate.Value >= this.FromDate);
+                    }
+                    if (this.ToDate.HasValue)
+                    {
+                        this.ContentDate = this.ContentDate + " đến ngày : " + this.ToDate;
+                        predicate = predicate.And(x => x.DueDate.HasValue && x.DueDate.Value <= this.ToDate);
+                    }
                 }
             }
             return predicate;

@@ -27,7 +27,9 @@
                         <ScrollViewer x:Name="srv"
                                       Focusable="False"
                                       Padding="{TemplateBinding Padding}"
-                                      Template="{DynamicResource ScrollViewerControlTemplate}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                                      Template="{DynamicResource ScrollViewerControlTemplate}"
+                                      HorizontalContentAlignment="Center"
+                                      VerticalContentAlignment="Center">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </ScrollViewer>
                     </Border>
@@ -63,7 +65,7 @@
         </Style.Triggers>
     </Style>
 
-   <Style x:Key="ScrollBarLineButtonStyle"
+    <Style x:Key="ScrollBarLineButtonStyle"
            TargetType="{x:Type RepeatButton}">
         <Setter Property="OverridesDefaultStyle"
                 Value="true" />
@@ -184,6 +186,7 @@
                        Style="{DynamicResource ScrollBarStyle}" />
         </Grid>
     </ControlTemplate>
+
     <Style x:Key="myImageButtonStyle"
            TargetType="{x:Type Button}">
         <Setter Property="Foreground"
@@ -212,19 +215,22 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                		<Trigger Property="IsMouseOver" Value="True">
-                			<Setter Property="BorderThickness" TargetName="Border_main" Value="0.5"/>
-                		</Trigger>
-                		<Trigger Property="IsKeyboardFocused"
-                			Value="True" />
-                		<Trigger Property="ToggleButton.IsChecked"
-                			Value="True" />
-                		<Trigger Property="IsEnabled"
-                			Value="False">
-                			<Setter Property="Foreground"
-                				Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
-                		</Trigger>
-                	</ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="BorderThickness"
+                                    TargetName="Border_main"
+                                    Value="0.5" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused"
+                                 Value="True" />
+                        <Trigger Property="ToggleButton.IsChecked"
+                                 Value="True" />
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -243,7 +249,8 @@
         </Setter>
         <Setter Property="BorderBrush"
                 Value="#FF9B958E" />
-        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Cursor"
+                Value="Hand" />
     </Style>
 
     <Style TargetType="{x:Type local:ImageList}">
@@ -269,10 +276,10 @@
                                        Visibility="Visible">
                                     <Image.ContextMenu>
                                         <ContextMenu>
-                                            <MenuItem x:Name="mniDeleteImage" Foreground="#FF515459"
-                                                      Header="Xóa" />
-                                            <MenuItem x:Name="mniEditImage"  Foreground="#FF515459"
-                                                      Header="Sửa" />
+                                            <MenuItem x:Name="mniDeleteImage"
+                                                      Header="Delete" />
+                                            <MenuItem x:Name="mniEditImage"
+                                                      Header="Edit" />
                                         </ContextMenu>
                                     </Image.ContextMenu>
                                 </Image>
@@ -282,37 +289,232 @@
                                       Visibility="Collapsed">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto"  />
+                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Button x:Name="PART_ButtonAdd"
                                             Grid.Column="0"
                                             Margin="2"
-                                            Style="{DynamicResource ButtonImage}" Width="45" Height="20">
-                                       <StackPanel HorizontalAlignment="Center" x:Name="stkpBtnAddImage" VerticalAlignment="Center" Orientation="Horizontal">
-														<Rectangle x:Name="imgAddImage" Fill="{DynamicResource AddContact}" Height="13" Width="13"/>
-														<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Thêm"  Foreground="#FF515459" TextWrapping="NoWrap" x:Name="txtblAddImage"  Style="{DynamicResource ButtonImageTextBlock}"/>
-													</StackPanel>
+                                            Style="{DynamicResource ButtonImage}"
+                                            Width="45"
+                                            Height="20">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    x:Name="stkpBtnAddImage"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <Rectangle x:Name="imgAddImage"
+                                                       Fill="{DynamicResource AddContact}"
+                                                       Height="13"
+                                                       Width="13" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       Text="Add"
+                                                       TextWrapping="NoWrap"
+                                                       x:Name="txtblAddImage"
+                                                       Style="{DynamicResource ButtonImageTextBlock}" />
+                                        </StackPanel>
                                     </Button>
                                     <Button x:Name="PART_ButtonChange"
                                             Grid.Column="1"
                                             Margin="2"
-                                            Style="{DynamicResource ButtonImage}" Width="45" Height="20">
-                                       <StackPanel HorizontalAlignment="Center" x:Name="stkpBtnEditImage" VerticalAlignment="Center" Orientation="Horizontal">
-														<Rectangle x:Name="imgEditImage" Fill="{DynamicResource Edit}" Height="13" Width="13"/>
-														<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Edit" TextWrapping="NoWrap" x:Name="txtblEditImage"  Style="{DynamicResource ButtonImageTextBlock}"/>
-													</StackPanel>
+                                            Style="{DynamicResource ButtonImage}"
+                                            Width="45"
+                                            Height="20">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    x:Name="stkpBtnEditImage"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <Rectangle x:Name="imgEditImage"
+                                                       Fill="{DynamicResource Edit}"
+                                                       Height="13"
+                                                       Width="13" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       Text="Edit"
+                                                       TextWrapping="NoWrap"
+                                                       x:Name="txtblEditImage"
+                                                       Style="{DynamicResource ButtonImageTextBlock}" />
+                                        </StackPanel>
                                     </Button>
                                     <Button x:Name="PART_ButtonRemove"
                                             Grid.Column="2"
                                             Margin="2,2,0,2"
-                                            Style="{DynamicResource ButtonImage}" Background="#FFF5F7FA" BorderBrush="#FFD4D6D6" Height="20" Width="55">
-                                        <StackPanel HorizontalAlignment="Center" x:Name="stkpBtnDeleteImage" VerticalAlignment="Center" Orientation="Horizontal">
-														<Rectangle x:Name="imgDeleteImage" Fill="{DynamicResource DeleteRed}" Height="13" Width="13"/>
-														<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Delete" TextWrapping="NoWrap" x:Name="txtblDeleteImage"  Style="{DynamicResource ButtonImageTextBlock}"/>
-													</StackPanel>
+                                            Style="{DynamicResource ButtonImage}"
+                                            Background="#FFF5F7FA"
+                                            BorderBrush="#FFD4D6D6"
+                                            Height="20"
+                                            Width="55">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    x:Name="stkpBtnDeleteImage"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <Rectangle x:Name="imgDeleteImage"
+                                                       Fill="{DynamicResource DeleteRed}"
+                                                       Height="13"
+                                                       Width="13" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       Text="Delete"
+                                                       TextWrapping="NoWrap"
+                                                       x:Name="txtblDeleteImage"
+                                                       Style="{DynamicResource ButtonImageTextBlock}" />
+                                        </StackPanel>
                                     </Button>
-                                    <Rectangle Grid.ColumnSpan="3" Fill="#FF9A9395" Stroke="{x:Null}" VerticalAlignment="Bottom" Height="0.5" Margin="0" Visibility="Collapsed"/>
+                                    <Rectangle Grid.ColumnSpan="3"
+                                               Fill="#FF9A9395"
+                                               Stroke="{x:Null}"
+                                               VerticalAlignment="Bottom"
+                                               Height="0.5"
+                                               Margin="0"
+                                               Visibility="Collapsed" />
+                                </Grid>
+                            </Grid>
+
+                            <Grid x:Name="PART_GRIDLISTBOX"
+                                  Grid.Row="1"
+                                  Visibility="Collapsed"
+                                  VerticalAlignment="Bottom">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ListBox x:Name="PART_ListBox"
+                                         HorizontalAlignment="Stretch"
+                                         Style="{DynamicResource ImageListBoxStyle}"
+                                         Margin="4"
+                                         Height="30"
+                                         Background="{TemplateBinding Background}"
+                                         BorderBrush="{TemplateBinding BorderBrush}"
+                                         ItemTemplate="{DynamicResource myItemDataTemplate}" />
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background"
+                Value="{x:Null}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="BorderBrush"
+                Value="#FFA0A0A0" />
+    </Style>
+
+    <Style TargetType="{x:Type local:ImageControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ImageControl}">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="2"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid x:Name="PART_GRIDIMAGE"
+                                  Background="#07DA6B6B">
+                                <Image x:Name="PART_Image"
+                                       Margin="1"
+                                       Stretch="Fill"
+                                       VerticalAlignment="Stretch"
+                                       Visibility="Visible">
+                                    <Image.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem x:Name="mniDeleteImage"
+                                                      Header="Delete" />
+                                            <MenuItem x:Name="mniEditImage"
+                                                      Header="Edit" />
+                                        </ContextMenu>
+                                    </Image.ContextMenu>
+                                </Image>
+                                <Grid HorizontalAlignment="Center"
+                                      x:Name="PART_GRIDBUTTON"
+                                      VerticalAlignment="Center"
+                                      Visibility="Collapsed">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button x:Name="PART_ButtonAdd"
+                                            Grid.Column="0"
+                                            Margin="2"
+                                            Style="{DynamicResource ButtonImage}"
+                                            Width="45"
+                                            Height="20">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    x:Name="stkpBtnAddImage"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <Rectangle x:Name="imgAddImage"
+                                                       Fill="{DynamicResource AddContact}"
+                                                       Height="13"
+                                                       Width="13" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       Text="Add"
+                                                       TextWrapping="NoWrap"
+                                                       x:Name="txtblAddImage"
+                                                       Style="{DynamicResource ButtonImageTextBlock}" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button x:Name="PART_ButtonChange"
+                                            Grid.Column="1"
+                                            Margin="2"
+                                            Style="{DynamicResource ButtonImage}"
+                                            Width="45"
+                                            Height="20">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    x:Name="stkpBtnEditImage"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <Rectangle x:Name="imgEditImage"
+                                                       Fill="{DynamicResource Edit}"
+                                                       Height="13"
+                                                       Width="13" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       Text="Edit"
+                                                       TextWrapping="NoWrap"
+                                                       x:Name="txtblEditImage"
+                                                       Style="{DynamicResource ButtonImageTextBlock}" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Button x:Name="PART_ButtonRemove"
+                                            Grid.Column="2"
+                                            Margin="2,2,0,2"
+                                            Style="{DynamicResource ButtonImage}"
+                                            Background="#FFF5F7FA"
+                                            BorderBrush="#FFD4D6D6"
+                                            Height="20"
+                                            Width="55">
+                                        <StackPanel HorizontalAlignment="Center"
+                                                    x:Name="stkpBtnDeleteImage"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal">
+                                            <Rectangle x:Name="imgDeleteImage"
+                                                       Fill="{DynamicResource DeleteRed}"
+                                                       Height="13"
+                                                       Width="13" />
+                                            <TextBlock Margin="5,0,0,0"
+                                                       VerticalAlignment="Center"
+                                                       Text="Delete"
+                                                       TextWrapping="NoWrap"
+                                                       x:Name="txtblDeleteImage"
+                                                       Style="{DynamicResource ButtonImageTextBlock}" />
+                                        </StackPanel>
+                                    </Button>
+                                    <Rectangle Grid.ColumnSpan="3"
+                                               Fill="#FF9A9395"
+                                               Stroke="{x:Null}"
+                                               VerticalAlignment="Bottom"
+                                               Height="0.5"
+                                               Margin="0"
+                                               Visibility="Collapsed" />
                                 </Grid>
                             </Grid>
 

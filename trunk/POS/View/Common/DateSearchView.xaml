@@ -1,4 +1,4 @@
-﻿<Window x:Class="CPC.POS.View.DateSearchView"
+﻿<UserControl x:Class="CPC.POS.View.DateSearchView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,7 @@
              xmlns:cpcBehavior="clr-namespace:CPC.Toolkit.Behavior"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cpcTextBox="clr-namespace:CPCToolkitExt.TextBoxControl;assembly=CPCToolkitExt"
-             mc:Ignorable="d" WindowStyle="None" ResizeMode="NoResize" ShowInTaskbar="False" AllowsTransparency="True" Height="128">
+             mc:Ignorable="d" Height="128">
     <Grid x:Name="grdReason">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -19,16 +19,16 @@
                 Background="{DynamicResource TabControlBackground}"
                 BorderBrush="{DynamicResource TabControlBorder}"
                 BorderThickness="1">
-        	<Grid x:Name="grdContentReason"
+            <Grid x:Name="grdContentReason"
                   Margin="10">
-            	<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Từ ngày" VerticalAlignment="Center" Margin="115,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Từ ngày" VerticalAlignment="Center" Margin="115,0,0,0"/>
                 <DatePicker Width="100" SelectedDate="{Binding FromDate}" Height="20" HorizontalAlignment="Left" Margin="164,0,0,0" VerticalAlignment="Center"/>
                 <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Đến ngày" VerticalAlignment="Center" Margin="271,0,0,0"/>
                 <DatePicker Width="100" Height="20" SelectedDate="{Binding ToDate}" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Center"/>
-                <ComboBox HorizontalAlignment="Left" DisplayMemberPath="Text" SelectedValuePath="IntValue" SelectedValue="{Binding SelectedDateType}" ItemsSource="{Binding DateTypes}" Width="100" d:LayoutOverrides="Height">
-                	</ComboBox>
-			</Grid>
-            
+                <ComboBox HorizontalAlignment="Left" DisplayMemberPath="Text" SelectedItem="{Binding SelectedDateType}" ItemsSource="{Binding DateTypes}" Width="100" d:LayoutOverrides="Height">
+                </ComboBox>
+            </Grid>
+
         </Border>
         <Rectangle x:Name="Line"
                    Grid.Row="1"
@@ -87,4 +87,4 @@
             </Button>
         </StackPanel>
     </Grid>
-</Window>
+</UserControl>

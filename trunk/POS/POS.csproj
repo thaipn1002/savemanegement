@@ -474,6 +474,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Custom\QueryModel.cs" />
+    <Compile Include="Model\Custom\SyncModel.cs" />
     <Compile Include="Model\ModelTemplate.cs">
       <DependentUpon>ModelTemplate.tt</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -1040,6 +1041,9 @@
     </Compile>
     <Compile Include="View\Common\AddNewStateView.xaml.cs">
       <DependentUpon>AddNewStateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Common\DateSearchView.xaml.cs">
+      <DependentUpon>DateSearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SalesOrder\SOPaymentDetailView.xaml.cs">
       <DependentUpon>SOPaymentDetailView.xaml</DependentUpon>
@@ -1706,6 +1710,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Common\AddNewStateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Common\DateSearchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

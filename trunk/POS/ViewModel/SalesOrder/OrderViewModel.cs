@@ -1015,29 +1015,32 @@ namespace CPC.POS.ViewModel
 
         #region TaxChanged Command
         /// <summary>
-        /// Gets the TaxChanged Command.
+        /// Gets the QtyChanged Command.
         /// <summary>
 
         public RelayCommand<object> TaxChangedCommand { get; private set; }
 
         /// <summary>
-        /// Method to check whether the TaxChanged command can be executed.
+        /// Method to check whether the QtyChanged command can be executed.
         /// </summary>
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
-        private bool OnTaxChangedCommandCanExecute(object param)
+        private bool OnTaxChangedCanExecute(object param)
         {
-            return param != null;
+            return SelectedSaleOrderDetail != null && SelectedSaleOrderDetail.ProductModel != null;
         }
 
-
         /// <summary>
-        /// Method to invoke when the TaxChanged command is executed.
+        /// Method to invoke when the QtyChanged command is executed.
         /// </summary>
-        private void OnTaxChangedCommandExecute(object param)
+        private void OnTaxChangedExecute(object param)
         {
-            if (param != null && Convert.ToDecimal(param) != this.SelectedSaleOrder.TaxPercent)
+            if (this.SelectedSaleOrder.IsSetTax)
+                this.SelectedSaleOrder.IsChangedTax = false;
+            else
             {
-               
+                this.OnChangingTax(this.SelectedSaleOrder);
+                this.SelectedSaleOrder.Remark = string.Format("Bạn đã thay đổi thuế từ {0}% thành {1}%", this.SelectedSaleOrder.base_SaleOrder.TaxPercent, this.SelectedSaleOrder.TaxPercent);
+                this.SelectedSaleOrder.IsChangedTax = true;
             }
         }
         #endregion
@@ -1083,7 +1086,7 @@ namespace CPC.POS.ViewModel
 
             CustomerSearchCommand = new RelayCommand<object>(OnCustomerSearchCommandExecute, OnCustomerSearchCommandCanExecute);
 
-            this.TaxChangedCommand = new RelayCommand<object>(OnTaxChangedCommandExecute, OnTaxChangedCommandCanExecute);
+            this.TaxChangedCommand = new RelayCommand<object>(OnTaxChangedExecute, OnTaxChangedCanExecute);
         }
 
         //LoadData 
@@ -1893,6 +1896,7 @@ namespace CPC.POS.ViewModel
         {
             if (saleOrderModel.TaxLocationModel.TaxCodeModel != null)
             {
+                saleOrderModel.IsSetTax = false;
                 if (saleOrderModel.SaleOrderDetailCollection.Count(x => x.ProductModel.IsCoupon) == saleOrderModel.SaleOrderDetailCollection.Count())
                 {
                     saleOrderModel.ProductTaxAmount = 0;
@@ -1917,7 +1921,9 @@ namespace CPC.POS.ViewModel
                         decimal taxPercent = 0;
                         _saleOrderRepository.CalcSingleTax(saleOrderModel, saleOrderModel.SubTotal, out taxPercent, out taxAmount);
                         saleOrderModel.ProductTaxAmount = taxAmount;
+                        saleOrderModel.IsSetTax = true;
                         saleOrderModel.TaxPercent = taxPercent;
+                        saleOrderModel.IsSetTax = false;
                     }
                 }
 
@@ -2807,6 +2813,7 @@ namespace CPC.POS.ViewModel
             }
         }
 
+
         #endregion
 
         #region Public Methods
@@ -2978,6 +2985,22 @@ namespace CPC.POS.ViewModel
             }
         }
 
+
+        public void OnChangingTax(base_SaleOrderModel saleOrderModel)
+        {
+            if (Convert.ToInt32(saleOrderModel.TaxLocationModel.TaxCodeModel.TaxOption).Is(SalesTaxOption.Single))
+            {
+                base_SaleTaxLocationOptionModel taxOptionModel = saleOrderModel.TaxLocationModel.TaxCodeModel.SaleTaxLocationOptionCollection.FirstOrDefault();
+                if (saleOrderModel.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount)
+                    saleOrderModel.ProductTaxAmount = (saleOrderModel.SubTotal - saleOrderModel.DiscountAmount) * saleOrderModel.TaxPercent / 100;
+                else
+                    saleOrderModel.ProductTaxAmount = saleOrderModel.SubTotal * saleOrderModel.TaxPercent / 100;
+            }
+            else
+                saleOrderModel.ProductTaxAmount = 0;
+            saleOrderModel.TaxAmount = saleOrderModel.ProductTaxAmount + saleOrderModel.ShipTaxAmount;
+            saleOrderModel.CalcSubTotal();
+        }
         #endregion
 
         #region Permissions

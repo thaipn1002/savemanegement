@@ -3767,7 +3767,10 @@ namespace CPC.POS.ViewModel
                     CheckDuplicateSoNum(saleOrderModel);
                     break;
                 case "SubTotal":
-                    //CalculateAllTax(saleOrderModel);
+                    if (this.SelectedSaleOrder.IsSetTax)
+                        CalculateAllTax(saleOrderModel);
+                    else if (this.SelectedSaleOrder.IsChangedTax)
+                        this.OnChangingTax(this.SelectedSaleOrder);
                     saleOrderModel.CalcDiscountAmount();
                     break;
                 case "Total":
@@ -3787,16 +3790,16 @@ namespace CPC.POS.ViewModel
                     saleOrderModel.CalcTotal();
                     break;
                 case "ProductTaxAmount":
+                    break;
                 case "ShipTaxAmount":
                     if (saleOrderModel.TaxLocationModel.TaxCodeModel.IsTaxAfterDiscount)
                         saleOrderModel.TaxAmount = saleOrderModel.ProductTaxAmount + saleOrderModel.ShipTaxAmount - saleOrderModel.DiscountAmount;
                     else
                         saleOrderModel.TaxAmount = saleOrderModel.ShipTaxAmount + saleOrderModel.ProductTaxAmount;
-
                     break;
                 //case "TaxAmount":
                 //    saleOrderModel.CalcTotal();
-                    break;
+                //    break;
                 case "DiscountAmount":
                     saleOrderModel.CalcDiscountPercent();
                     saleOrderModel.SkipDisc = false;
@@ -3807,22 +3810,20 @@ namespace CPC.POS.ViewModel
                         else
                             saleOrderModel.TaxAmount = saleOrderModel.ShipTaxAmount + saleOrderModel.ProductTaxAmount;
                     }
-
                     saleOrderModel.CalcTotal();
                     break;
                 case "DiscountPercent":
                     saleOrderModel.CalcDiscountAmount();
                     saleOrderModel.SkipDisc = false;
                     break;
+
                 case "PriceSchemaId"://Update Price When Price Schema Changed
                     PriceSchemaChanged();
-
                     saleOrderModel.PriceLevelItem = Common.PriceSchemas.SingleOrDefault(x => Convert.ToInt16(x.ObjValue).Equals(saleOrderModel.PriceSchemaId));
                     break;
                 case "OrderStatus":
                     SetAllowChangeOrder(saleOrderModel);
                     saleOrderModel.SetFullPayment();
-
                     //Set Text Status
                     saleOrderModel.ItemStatus = Common.StatusSalesOrders.SingleOrDefault(x => Convert.ToInt16(x.ObjValue).Equals(saleOrderModel.OrderStatus));
                     break;
@@ -3832,13 +3833,6 @@ namespace CPC.POS.ViewModel
                 case "TotalPaid":
                     saleOrderModel.ReturnModel.CalcBalance(saleOrderModel.TotalPaid);
                     break;
-                //case "BookingChanel":
-                //    SetSaleTaxLocationForSaleOrder(saleOrderModel);
-                //    break;
-
-
-
-
             }
         }
 
