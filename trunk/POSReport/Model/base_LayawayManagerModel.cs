@@ -92,162 +92,302 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected decimal _deposit;
+        protected short _status;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the Deposit</para>
+        /// <para>Gets or sets the Status</para>
         /// </summary>
-        public decimal Deposit
+        public short Status
         {
-            get { return this._deposit; }
+            get { return this._status; }
             set
             {
-                if (this._deposit != value)
+                if (this._status != value)
                 {
                     this.IsDirty = true;
-                    this._deposit = value;
-                    OnPropertyChanged(() => Deposit);
-                    PropertyChangedCompleted(() => Deposit);
+                    this._status = value;
+                    OnPropertyChanged(() => Status);
+                    PropertyChangedCompleted(() => Status);
                 }
             }
         }
 
-        protected short _depositUnit;
+        protected System.DateTime _startDate;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the DepositUnit</para>
+        /// <para>Gets or sets the StartDate</para>
         /// </summary>
-        public short DepositUnit
+        public System.DateTime StartDate
         {
-            get { return this._depositUnit; }
+            get { return this._startDate; }
             set
             {
-                if (this._depositUnit != value)
+                if (this._startDate != value)
                 {
                     this.IsDirty = true;
-                    this._depositUnit = value;
-                    OnPropertyChanged(() => DepositUnit);
-                    PropertyChangedCompleted(() => DepositUnit);
+                    this._startDate = value;
+                    OnPropertyChanged(() => StartDate);
+                    PropertyChangedCompleted(() => StartDate);
                 }
             }
         }
 
-        protected int _term;
+        protected System.DateTime _endDate;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the Term</para>
+        /// <para>Gets or sets the EndDate</para>
         /// </summary>
-        public int Term
+        public System.DateTime EndDate
         {
-            get { return this._term; }
+            get { return this._endDate; }
             set
             {
-                if (this._term != value)
+                if (this._endDate != value)
                 {
                     this.IsDirty = true;
-                    this._term = value;
-                    OnPropertyChanged(() => Term);
-                    PropertyChangedCompleted(() => Term);
+                    this._endDate = value;
+                    OnPropertyChanged(() => EndDate);
+                    PropertyChangedCompleted(() => EndDate);
                 }
             }
         }
 
-        protected Nullable<int> _paymentSchedule;
+        protected decimal _openACFee;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the PaymentSchedule</para>
+        /// <para>Gets or sets the OpenACFee</para>
         /// </summary>
-        public Nullable<int> PaymentSchedule
+        public decimal OpenACFee
         {
-            get { return this._paymentSchedule; }
+            get { return this._openACFee; }
             set
             {
-                if (this._paymentSchedule != value)
+                if (this._openACFee != value)
                 {
                     this.IsDirty = true;
-                    this._paymentSchedule = value;
-                    OnPropertyChanged(() => PaymentSchedule);
-                    PropertyChangedCompleted(() => PaymentSchedule);
+                    this._openACFee = value;
+                    OnPropertyChanged(() => OpenACFee);
+                    PropertyChangedCompleted(() => OpenACFee);
                 }
             }
         }
 
-        protected Nullable<short> _paymentScheduleType;
+        protected decimal _minimumPurchase;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the PaymentScheduleType</para>
+        /// <para>Gets or sets the MinimumPurchase</para>
         /// </summary>
-        public Nullable<short> PaymentScheduleType
+        public decimal MinimumPurchase
         {
-            get { return this._paymentScheduleType; }
+            get { return this._minimumPurchase; }
             set
             {
-                if (this._paymentScheduleType != value)
+                if (this._minimumPurchase != value)
                 {
                     this.IsDirty = true;
-                    this._paymentScheduleType = value;
-                    OnPropertyChanged(() => PaymentScheduleType);
-                    PropertyChangedCompleted(() => PaymentScheduleType);
+                    this._minimumPurchase = value;
+                    OnPropertyChanged(() => MinimumPurchase);
+                    PropertyChangedCompleted(() => MinimumPurchase);
                 }
             }
         }
 
-        protected decimal _fee;
+        protected bool _isPayOff;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the Fee</para>
+        /// <para>Gets or sets the IsPayOff</para>
         /// </summary>
-        public decimal Fee
+        public bool IsPayOff
         {
-            get { return this._fee; }
+            get { return this._isPayOff; }
             set
             {
-                if (this._fee != value)
+                if (this._isPayOff != value)
                 {
                     this.IsDirty = true;
-                    this._fee = value;
-                    OnPropertyChanged(() => Fee);
-                    PropertyChangedCompleted(() => Fee);
+                    this._isPayOff = value;
+                    OnPropertyChanged(() => IsPayOff);
+                    PropertyChangedCompleted(() => IsPayOff);
                 }
             }
         }
 
-        protected short _feeUnit;
+        protected Nullable<System.DateTime> _payOffBy;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the FeeUnit</para>
+        /// <para>Gets or sets the PayOffBy</para>
         /// </summary>
-        public short FeeUnit
+        public Nullable<System.DateTime> PayOffBy
         {
-            get { return this._feeUnit; }
+            get { return this._payOffBy; }
             set
             {
-                if (this._feeUnit != value)
+                if (this._payOffBy != value)
                 {
                     this.IsDirty = true;
-                    this._feeUnit = value;
-                    OnPropertyChanged(() => FeeUnit);
-                    PropertyChangedCompleted(() => FeeUnit);
+                    this._payOffBy = value;
+                    OnPropertyChanged(() => PayOffBy);
+                    PropertyChangedCompleted(() => PayOffBy);
                 }
             }
         }
 
-        protected decimal _openFee;
+        protected bool _isPickup;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the OpenFee</para>
+        /// <para>Gets or sets the IsPickup</para>
         /// </summary>
-        public decimal OpenFee
+        public bool IsPickup
         {
-            get { return this._openFee; }
+            get { return this._isPickup; }
             set
             {
-                if (this._openFee != value)
+                if (this._isPickup != value)
                 {
                     this.IsDirty = true;
-                    this._openFee = value;
-                    OnPropertyChanged(() => OpenFee);
-                    PropertyChangedCompleted(() => OpenFee);
+                    this._isPickup = value;
+                    OnPropertyChanged(() => IsPickup);
+                    PropertyChangedCompleted(() => IsPickup);
+                }
+            }
+        }
+
+        protected Nullable<System.DateTime> _pickupBy;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the PickupBy</para>
+        /// </summary>
+        public Nullable<System.DateTime> PickupBy
+        {
+            get { return this._pickupBy; }
+            set
+            {
+                if (this._pickupBy != value)
+                {
+                    this.IsDirty = true;
+                    this._pickupBy = value;
+                    OnPropertyChanged(() => PickupBy);
+                    PropertyChangedCompleted(() => PickupBy);
+                }
+            }
+        }
+
+        protected decimal _depositAmount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the DepositAmount</para>
+        /// </summary>
+        public decimal DepositAmount
+        {
+            get { return this._depositAmount; }
+            set
+            {
+                if (this._depositAmount != value)
+                {
+                    this.IsDirty = true;
+                    this._depositAmount = value;
+                    OnPropertyChanged(() => DepositAmount);
+                    PropertyChangedCompleted(() => DepositAmount);
+                }
+            }
+        }
+
+        protected decimal _depositPercent;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the DepositPercent</para>
+        /// </summary>
+        public decimal DepositPercent
+        {
+            get { return this._depositPercent; }
+            set
+            {
+                if (this._depositPercent != value)
+                {
+                    this.IsDirty = true;
+                    this._depositPercent = value;
+                    OnPropertyChanged(() => DepositPercent);
+                    PropertyChangedCompleted(() => DepositPercent);
+                }
+            }
+        }
+
+        protected decimal _layawayFee;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the LayawayFee</para>
+        /// </summary>
+        public decimal LayawayFee
+        {
+            get { return this._layawayFee; }
+            set
+            {
+                if (this._layawayFee != value)
+                {
+                    this.IsDirty = true;
+                    this._layawayFee = value;
+                    OnPropertyChanged(() => LayawayFee);
+                    PropertyChangedCompleted(() => LayawayFee);
+                }
+            }
+        }
+
+        protected short _layawayFeeUnit;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the LayawayFeeUnit</para>
+        /// </summary>
+        public short LayawayFeeUnit
+        {
+            get { return this._layawayFeeUnit; }
+            set
+            {
+                if (this._layawayFeeUnit != value)
+                {
+                    this.IsDirty = true;
+                    this._layawayFeeUnit = value;
+                    OnPropertyChanged(() => LayawayFeeUnit);
+                    PropertyChangedCompleted(() => LayawayFeeUnit);
+                }
+            }
+        }
+
+        protected decimal _otherFee;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the OtherFee</para>
+        /// </summary>
+        public decimal OtherFee
+        {
+            get { return this._otherFee; }
+            set
+            {
+                if (this._otherFee != value)
+                {
+                    this.IsDirty = true;
+                    this._otherFee = value;
+                    OnPropertyChanged(() => OtherFee);
+                    PropertyChangedCompleted(() => OtherFee);
+                }
+            }
+        }
+
+        protected short _otherFeeUnit;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the OtherFeeUnit</para>
+        /// </summary>
+        public short OtherFeeUnit
+        {
+            get { return this._otherFeeUnit; }
+            set
+            {
+                if (this._otherFeeUnit != value)
+                {
+                    this.IsDirty = true;
+                    this._otherFeeUnit = value;
+                    OnPropertyChanged(() => OtherFeeUnit);
+                    PropertyChangedCompleted(() => OtherFeeUnit);
                 }
             }
         }
@@ -292,62 +432,82 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected decimal _minimumPurchase;
+        protected bool _isNoCancelFee;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the MinimumPurchase</para>
+        /// <para>Gets or sets the IsNoCancelFee</para>
         /// </summary>
-        public decimal MinimumPurchase
+        public bool IsNoCancelFee
         {
-            get { return this._minimumPurchase; }
+            get { return this._isNoCancelFee; }
             set
             {
-                if (this._minimumPurchase != value)
+                if (this._isNoCancelFee != value)
                 {
                     this.IsDirty = true;
-                    this._minimumPurchase = value;
-                    OnPropertyChanged(() => MinimumPurchase);
-                    PropertyChangedCompleted(() => MinimumPurchase);
+                    this._isNoCancelFee = value;
+                    OnPropertyChanged(() => IsNoCancelFee);
+                    PropertyChangedCompleted(() => IsNoCancelFee);
                 }
             }
         }
 
-        protected decimal _lateFee;
+        protected short _cancelWithinDay;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the LateFee</para>
+        /// <para>Gets or sets the CancelWithinDay</para>
         /// </summary>
-        public decimal LateFee
+        public short CancelWithinDay
         {
-            get { return this._lateFee; }
+            get { return this._cancelWithinDay; }
             set
             {
-                if (this._lateFee != value)
+                if (this._cancelWithinDay != value)
                 {
                     this.IsDirty = true;
-                    this._lateFee = value;
-                    OnPropertyChanged(() => LateFee);
-                    PropertyChangedCompleted(() => LateFee);
+                    this._cancelWithinDay = value;
+                    OnPropertyChanged(() => CancelWithinDay);
+                    PropertyChangedCompleted(() => CancelWithinDay);
                 }
             }
         }
 
-        protected short _status;
+        protected short _paymentTerm;
         /// <summary>
         /// Property Model
-        /// <para>Gets or sets the Status</para>
+        /// <para>Gets or sets the PaymentTerm</para>
         /// </summary>
-        public short Status
+        public short PaymentTerm
         {
-            get { return this._status; }
+            get { return this._paymentTerm; }
             set
             {
-                if (this._status != value)
+                if (this._paymentTerm != value)
                 {
                     this.IsDirty = true;
-                    this._status = value;
-                    OnPropertyChanged(() => Status);
-                    PropertyChangedCompleted(() => Status);
+                    this._paymentTerm = value;
+                    OnPropertyChanged(() => PaymentTerm);
+                    PropertyChangedCompleted(() => PaymentTerm);
+                }
+            }
+        }
+
+        protected Nullable<short> _paymentPeriod;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the PaymentPeriod</para>
+        /// </summary>
+        public Nullable<short> PaymentPeriod
+        {
+            get { return this._paymentPeriod; }
+            set
+            {
+                if (this._paymentPeriod != value)
+                {
+                    this.IsDirty = true;
+                    this._paymentPeriod = value;
+                    OnPropertyChanged(() => PaymentPeriod);
+                    PropertyChangedCompleted(() => PaymentPeriod);
                 }
             }
         }
@@ -472,46 +632,6 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected Nullable<System.DateTime> _startDate;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the StartDate</para>
-        /// </summary>
-        public Nullable<System.DateTime> StartDate
-        {
-            get { return this._startDate; }
-            set
-            {
-                if (this._startDate != value)
-                {
-                    this.IsDirty = true;
-                    this._startDate = value;
-                    OnPropertyChanged(() => StartDate);
-                    PropertyChangedCompleted(() => StartDate);
-                }
-            }
-        }
-
-        protected Nullable<System.DateTime> _endDate;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the EndDate</para>
-        /// </summary>
-        public Nullable<System.DateTime> EndDate
-        {
-            get { return this._endDate; }
-            set
-            {
-                if (this._endDate != value)
-                {
-                    this.IsDirty = true;
-                    this._endDate = value;
-                    OnPropertyChanged(() => EndDate);
-                    PropertyChangedCompleted(() => EndDate);
-                }
-            }
-        }
-
         #endregion
 
         #region Public Methods
@@ -535,27 +655,33 @@ namespace CPC.POSReport.Model
             if (IsNew)
                 this.base_LayawayManager.Id = this.Id;
             this.base_LayawayManager.Name = this.Name;
-            this.base_LayawayManager.Deposit = this.Deposit;
-            this.base_LayawayManager.DepositUnit = this.DepositUnit;
-            this.base_LayawayManager.Term = this.Term;
-            this.base_LayawayManager.PaymentSchedule = this.PaymentSchedule;
-            this.base_LayawayManager.PaymentScheduleType = this.PaymentScheduleType;
-            this.base_LayawayManager.Fee = this.Fee;
-            this.base_LayawayManager.FeeUnit = this.FeeUnit;
-            this.base_LayawayManager.OpenFee = this.OpenFee;
+            this.base_LayawayManager.Status = this.Status;
+            this.base_LayawayManager.StartDate = this.StartDate;
+            this.base_LayawayManager.EndDate = this.EndDate;
+            this.base_LayawayManager.OpenACFee = this.OpenACFee;
+            this.base_LayawayManager.MinimumPurchase = this.MinimumPurchase;
+            this.base_LayawayManager.IsPayOff = this.IsPayOff;
+            this.base_LayawayManager.PayOffBy = this.PayOffBy;
+            this.base_LayawayManager.IsPickup = this.IsPickup;
+            this.base_LayawayManager.PickupBy = this.PickupBy;
+            this.base_LayawayManager.DepositAmount = this.DepositAmount;
+            this.base_LayawayManager.DepositPercent = this.DepositPercent;
+            this.base_LayawayManager.LayawayFee = this.LayawayFee;
+            this.base_LayawayManager.LayawayFeeUnit = this.LayawayFeeUnit;
+            this.base_LayawayManager.OtherFee = this.OtherFee;
+            this.base_LayawayManager.OtherFeeUnit = this.OtherFeeUnit;
             this.base_LayawayManager.CancellationFee = this.CancellationFee;
             this.base_LayawayManager.CancellationUnit = this.CancellationUnit;
-            this.base_LayawayManager.MinimumPurchase = this.MinimumPurchase;
-            this.base_LayawayManager.LateFee = this.LateFee;
-            this.base_LayawayManager.Status = this.Status;
+            this.base_LayawayManager.IsNoCancelFee = this.IsNoCancelFee;
+            this.base_LayawayManager.CancelWithinDay = this.CancelWithinDay;
+            this.base_LayawayManager.PaymentTerm = this.PaymentTerm;
+            this.base_LayawayManager.PaymentPeriod = this.PaymentPeriod;
             this.base_LayawayManager.DateCreated = this.DateCreated;
             this.base_LayawayManager.UserCreated = this.UserCreated;
             this.base_LayawayManager.DateUpdated = this.DateUpdated;
             this.base_LayawayManager.UserUpdated = this.UserUpdated;
             this.base_LayawayManager.Resource = this.Resource;
             this.base_LayawayManager.ReasonReActive = this.ReasonReActive;
-            this.base_LayawayManager.StartDate = this.StartDate;
-            this.base_LayawayManager.EndDate = this.EndDate;
         }
 
         /// <summary>
@@ -566,27 +692,33 @@ namespace CPC.POSReport.Model
         {
             this._id = this.base_LayawayManager.Id;
             this._name = this.base_LayawayManager.Name;
-            this._deposit = this.base_LayawayManager.Deposit;
-            this._depositUnit = this.base_LayawayManager.DepositUnit;
-            this._term = this.base_LayawayManager.Term;
-            this._paymentSchedule = this.base_LayawayManager.PaymentSchedule;
-            this._paymentScheduleType = this.base_LayawayManager.PaymentScheduleType;
-            this._fee = this.base_LayawayManager.Fee;
-            this._feeUnit = this.base_LayawayManager.FeeUnit;
-            this._openFee = this.base_LayawayManager.OpenFee;
+            this._status = this.base_LayawayManager.Status;
+            this._startDate = this.base_LayawayManager.StartDate;
+            this._endDate = this.base_LayawayManager.EndDate;
+            this._openACFee = this.base_LayawayManager.OpenACFee;
+            this._minimumPurchase = this.base_LayawayManager.MinimumPurchase;
+            this._isPayOff = this.base_LayawayManager.IsPayOff;
+            this._payOffBy = this.base_LayawayManager.PayOffBy;
+            this._isPickup = this.base_LayawayManager.IsPickup;
+            this._pickupBy = this.base_LayawayManager.PickupBy;
+            this._depositAmount = this.base_LayawayManager.DepositAmount;
+            this._depositPercent = this.base_LayawayManager.DepositPercent;
+            this._layawayFee = this.base_LayawayManager.LayawayFee;
+            this._layawayFeeUnit = this.base_LayawayManager.LayawayFeeUnit;
+            this._otherFee = this.base_LayawayManager.OtherFee;
+            this._otherFeeUnit = this.base_LayawayManager.OtherFeeUnit;
             this._cancellationFee = this.base_LayawayManager.CancellationFee;
             this._cancellationUnit = this.base_LayawayManager.CancellationUnit;
-            this._minimumPurchase = this.base_LayawayManager.MinimumPurchase;
-            this._lateFee = this.base_LayawayManager.LateFee;
-            this._status = this.base_LayawayManager.Status;
+            this._isNoCancelFee = this.base_LayawayManager.IsNoCancelFee;
+            this._cancelWithinDay = this.base_LayawayManager.CancelWithinDay;
+            this._paymentTerm = this.base_LayawayManager.PaymentTerm;
+            this._paymentPeriod = this.base_LayawayManager.PaymentPeriod;
             this._dateCreated = this.base_LayawayManager.DateCreated;
             this._userCreated = this.base_LayawayManager.UserCreated;
             this._dateUpdated = this.base_LayawayManager.DateUpdated;
             this._userUpdated = this.base_LayawayManager.UserUpdated;
             this._resource = this.base_LayawayManager.Resource;
             this._reasonReActive = this.base_LayawayManager.ReasonReActive;
-            this._startDate = this.base_LayawayManager.StartDate;
-            this._endDate = this.base_LayawayManager.EndDate;
         }
 
         /// <summary>
@@ -597,27 +729,33 @@ namespace CPC.POSReport.Model
         {
             this.Id = this.base_LayawayManager.Id;
             this.Name = this.base_LayawayManager.Name;
-            this.Deposit = this.base_LayawayManager.Deposit;
-            this.DepositUnit = this.base_LayawayManager.DepositUnit;
-            this.Term = this.base_LayawayManager.Term;
-            this.PaymentSchedule = this.base_LayawayManager.PaymentSchedule;
-            this.PaymentScheduleType = this.base_LayawayManager.PaymentScheduleType;
-            this.Fee = this.base_LayawayManager.Fee;
-            this.FeeUnit = this.base_LayawayManager.FeeUnit;
-            this.OpenFee = this.base_LayawayManager.OpenFee;
+            this.Status = this.base_LayawayManager.Status;
+            this.StartDate = this.base_LayawayManager.StartDate;
+            this.EndDate = this.base_LayawayManager.EndDate;
+            this.OpenACFee = this.base_LayawayManager.OpenACFee;
+            this.MinimumPurchase = this.base_LayawayManager.MinimumPurchase;
+            this.IsPayOff = this.base_LayawayManager.IsPayOff;
+            this.PayOffBy = this.base_LayawayManager.PayOffBy;
+            this.IsPickup = this.base_LayawayManager.IsPickup;
+            this.PickupBy = this.base_LayawayManager.PickupBy;
+            this.DepositAmount = this.base_LayawayManager.DepositAmount;
+            this.DepositPercent = this.base_LayawayManager.DepositPercent;
+            this.LayawayFee = this.base_LayawayManager.LayawayFee;
+            this.LayawayFeeUnit = this.base_LayawayManager.LayawayFeeUnit;
+            this.OtherFee = this.base_LayawayManager.OtherFee;
+            this.OtherFeeUnit = this.base_LayawayManager.OtherFeeUnit;
             this.CancellationFee = this.base_LayawayManager.CancellationFee;
             this.CancellationUnit = this.base_LayawayManager.CancellationUnit;
-            this.MinimumPurchase = this.base_LayawayManager.MinimumPurchase;
-            this.LateFee = this.base_LayawayManager.LateFee;
-            this.Status = this.base_LayawayManager.Status;
+            this.IsNoCancelFee = this.base_LayawayManager.IsNoCancelFee;
+            this.CancelWithinDay = this.base_LayawayManager.CancelWithinDay;
+            this.PaymentTerm = this.base_LayawayManager.PaymentTerm;
+            this.PaymentPeriod = this.base_LayawayManager.PaymentPeriod;
             this.DateCreated = this.base_LayawayManager.DateCreated;
             this.UserCreated = this.base_LayawayManager.UserCreated;
             this.DateUpdated = this.base_LayawayManager.DateUpdated;
             this.UserUpdated = this.base_LayawayManager.UserUpdated;
             this.Resource = this.base_LayawayManager.Resource;
             this.ReasonReActive = this.base_LayawayManager.ReasonReActive;
-            this.StartDate = this.base_LayawayManager.StartDate;
-            this.EndDate = this.base_LayawayManager.EndDate;
         }
 
         #endregion

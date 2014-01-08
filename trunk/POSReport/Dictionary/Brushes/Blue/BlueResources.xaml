@@ -3,11 +3,11 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 	
 	<Visibility x:Key="TabControlVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="TabControlBackground" Color="#FF213859"/>
-	<SolidColorBrush x:Key="TabControlBorder" Color="White"/>
+	<SolidColorBrush x:Key="TabControlBackground" Color="#C1F5F5F5"/>
+	<SolidColorBrush x:Key="TabControlBorder" Color="Gray"/>
 	<Visibility x:Key="TabItemControlVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="TabItemControlBackground" Color="#FF254366"/>
-	<SolidColorBrush x:Key="TabItemControl_IsSelectedBackground" Color="#FF213859"/>
+	<SolidColorBrush x:Key="TabItemControlBackground" Color="#FF467ABC"/>
+	<SolidColorBrush x:Key="TabItemControl_IsSelectedBackground" Color="#FFFEFEFE"/>
 	<SolidColorBrush x:Key="TabItemControlForeground" Color="White"/>
 	<Visibility x:Key="TabItem_LeftlVisibility">Collapsed</Visibility>
 	<!--<LinearGradientBrush x:Key="TabItem_LeftControlBackground" EndPoint="0.5,1" StartPoint="0.5,0" MappingMode="RelativeToBoundingBox">
@@ -23,45 +23,42 @@
 	</LinearGradientBrush>
 	<SolidColorBrush x:Key="TabItem_LeftControlForeground" Color="White"/>-->
 	<Visibility x:Key="ButtonNormalVisibility">Visible</Visibility>
-	<LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0.5,1" StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-	</LinearGradientBrush>
+	<SolidColorBrush x:Key="ButtonNormalBackground" Color="White"/>
 		<LinearGradientBrush x:Key="ButtonNormal_IsMouseOver_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+			<GradientStop Color="#FFD1D5D8" Offset="0"/>
+		<GradientStop Color="#FFD7D8DA" Offset="1"/>
+		<GradientStop Color="#FFDDE1E7" Offset="0.516"/>
 		</LinearGradientBrush>
 		<!--<LinearGradientBrush x:Key="ButtonNormal_IsKeyboardFocused_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
 			<GradientStop Color="#FF970101" Offset="0"/>
 			<GradientStop Color="#FF970101" Offset="1"/>
 		</LinearGradientBrush>-->
 		<LinearGradientBrush x:Key="ButtonNormal_IsPress_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+			<GradientStop Color="#FFD0D1D2" Offset="0.004"/>
+		<GradientStop Color="#FFD3D7DA" Offset="1"/>
+		<GradientStop Color="#FFD6D9DE" Offset="0.504"/>
 		</LinearGradientBrush>
 		<LinearGradientBrush x:Key="ButtonNormal_IsEnable_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-			<GradientStop Color="#FF2A486E" Offset="0.008"/>
-		<GradientStop Color="#FF2A486E" Offset="0.992"/>
+		<GradientStop Color="#FFB9BCC0" Offset="0.512"/>
+		<GradientStop Color="#FFD3D8DA" Offset="0.004"/>
+		<GradientStop Color="#FFD5D6D8" Offset="1"/>
 		</LinearGradientBrush>
 		<LinearGradientBrush x:Key="ButtonNormalLight" EndPoint="0.5,1" StartPoint="0.5,0">
 			<GradientStop Color="White" Offset="0"/>
 			<GradientStop Offset="1"/>
 		</LinearGradientBrush>
 		<!--<SolidColorBrush x:Key="ButtonNormal_IsKeyboardFocused_Border" Color="White"/>-->
-		<SolidColorBrush x:Key="ButtonNormalBorder" Color="White"/>
-		<SolidColorBrush x:Key="ButtonNormalForeground" Color="White"/>
+		<SolidColorBrush x:Key="ButtonNormalBorder" Color="#FFD0CDCD"/>
+		<SolidColorBrush x:Key="ButtonNormalForeground" Color="#FF1D1D1D"/>
 		<Visibility x:Key="ToggleButtonDayVisibility">Visible</Visibility>
-	<LinearGradientBrush x:Key="ToggleButtonDayBackground" EndPoint="0.5,1"  StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-	</LinearGradientBrush>
+	<SolidColorBrush x:Key="ToggleButtonDayBackground" Color="#FF467ABC"/>
 		<LinearGradientBrush x:Key="ToggleButtonDay_IsMouseOver_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
 			<GradientStop Color="#FF2A486E" Offset="0"/>
 		<GradientStop Color="#FF2A486E" Offset="1"/>
 		</LinearGradientBrush>
 		<LinearGradientBrush x:Key="ToggleButtonDay_IsKeyboardFocused_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" >
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+			<GradientStop Color="#FF5590DC" Offset="0"/>
+		<GradientStop Color="#FF72A0DA" Offset="1"/>
 		</LinearGradientBrush>
 		<LinearGradientBrush x:Key="ToggleButtonDay_IsPress_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
 			<GradientStop Color="#FF2A486E" Offset="0"/>
@@ -77,27 +74,24 @@
 		</LinearGradientBrush>
 		<SolidColorBrush x:Key="ToggleButtonDay_IsKeyboardFocused_Border" Color="White"/>
 		<SolidColorBrush x:Key="ToggleButtonDayBorder" Color="White"/>
-		<SolidColorBrush x:Key="ToggleButtonDayForeground" Color="White"/>
+		<SolidColorBrush x:Key="ToggleButtonDayForeground" Color="#FF333333"/>
 		<Visibility x:Key="ButtonSystemVisibility">Visible</Visibility>
-		<LinearGradientBrush x:Key="ButtonSystemBackground" EndPoint="0.5,1"  StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-	</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonSystemBackground" Color="White"/>
 		<LinearGradientBrush x:Key="ButtonSystem_IsMouseOver_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+			<GradientStop Color="#FF7399C8" Offset="0"/>
+		<GradientStop Color="#FF7399C8" Offset="1"/>
+		<GradientStop Color="#FF3E71B8" Offset="0.496"/>
 		</LinearGradientBrush>
-		<LinearGradientBrush x:Key="ButtonSystem_IsKeyboardFocused_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonSystem_IsKeyboardFocused_Background" Color="#FF7BA1D2"/>
 		<LinearGradientBrush x:Key="ButtonSystem_IsPress_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+			<GradientStop Color="#FF7399C8" Offset="0"/>
+		<GradientStop Color="#FF7399C8" Offset="1"/>
+		<GradientStop Color="#FF5982B6" Offset="0.472"/>
 		</LinearGradientBrush>
-		<LinearGradientBrush x:Key="ButtonSystem_IsEnable_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+		<LinearGradientBrush x:Key="ButtonSystem_IsEnable_Background" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFB1A4A4" Offset="0"/>
+			<GradientStop Color="#FFD0CACA" Offset="1"/>
+			<GradientStop Color="#FFA59B9B" Offset="0.504"/>
 		</LinearGradientBrush>
 		<LinearGradientBrush x:Key="ButtonSystemLight" EndPoint="0.5,1" StartPoint="0.5,0">
 			<GradientStop Color="White" Offset="0"/>
@@ -107,30 +101,18 @@
 		<SolidColorBrush x:Key="ButtonSystemBorder" Color="White"/>
 		<SolidColorBrush x:Key="ButtonSystemForeground" Color="White"/>
 		<Visibility x:Key="ButtonImageVisibility">Visible</Visibility>
-		<SolidColorBrush x:Key="ButtonImageForeground" Color="Black"/>
+		<SolidColorBrush x:Key="ButtonImageForeground" Color="White"/>
 		<Visibility x:Key="ButtonAdvanceSearchVisibility">Visible</Visibility>
-		<SolidColorBrush x:Key="ButtonAdvanceSearch_Foreground" Color="#FF00FF04"/>
+		<SolidColorBrush x:Key="ButtonAdvanceSearch_Foreground" Color="#FF007FFF"/>
 		<Visibility x:Key="ButtonKeyboardVisibility">Visible</Visibility>
-	<LinearGradientBrush x:Key="ButtonKeyboardBackground" EndPoint="0.5,1"  StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-	</LinearGradientBrush>
-		<LinearGradientBrush x:Key="ButtonKeyboard_IsMouseOver_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-		</LinearGradientBrush>
-		<LinearGradientBrush x:Key="ButtonKeyboard_IsKeyboardFocused_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-		</LinearGradientBrush>
+	<SolidColorBrush x:Key="ButtonKeyboardBackground" Color="#FF648EC4"/>
+		<SolidColorBrush x:Key="ButtonKeyboard_IsMouseOver_Background" Color="#FF648EC4"/>
+		<SolidColorBrush x:Key="ButtonKeyboard_IsKeyboardFocused_Background" Color="#FF467ABC"/>
 		<LinearGradientBrush x:Key="ButtonKeyboard_IsPress_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0" Opacity="0.8">
 			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
+		<GradientStop Color="#FF648EC4" Offset="1"/>
 		</LinearGradientBrush>
-		<LinearGradientBrush x:Key="ButtonKeyboard_IsEnable_Background" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-		<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonKeyboard_IsEnable_Background" Color="#FF648EC4"/>
 		<LinearGradientBrush x:Key="ButtonKeyboardLight" EndPoint="0.5,1" StartPoint="0.5,0">
 			<GradientStop Color="White" Offset="0"/>
 			<GradientStop Offset="1"/>
@@ -203,32 +185,32 @@
 		<SolidColorBrush x:Key="TextBlockDatagridBottomTotal_Foreground" Color="Black"/>
 	<Visibility x:Key="DataGrid + DatagridTreeViewVisibility">Visible</Visibility>
 	<Visibility x:Key="DataGridVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="DatagridAlternatingRowbackground" Color="#FFE5F1FF"/>
+	<SolidColorBrush x:Key="DatagridAlternatingRowbackground" Color="#FFE4E7E9"/>
 	<SolidColorBrush x:Key="DatagridBackground" Color="White"/>
-		<SolidColorBrush x:Key="DatagridBorderBrush" Color="White"/>
-		<SolidColorBrush x:Key="DatagridForeground" Color="Black"/>
-		<SolidColorBrush x:Key="DatagridHorizontal_VerticalGridLinesBrush" Color="Gray"/>
-		<SolidColorBrush x:Key="DatagridColumnHeaderBackground" Color="#FF254366"/>
-		<SolidColorBrush x:Key="DatagridColumnHeaderBorder" Color="#FF305785"/>
+		<SolidColorBrush x:Key="DatagridBorderBrush" Color="#FFC2C6C9"/>
+		<SolidColorBrush x:Key="DatagridForeground" Color="#FF2F2F2F"/>
+		<SolidColorBrush x:Key="DatagridHorizontal_VerticalGridLinesBrush" Color="#FFBEC2C5"/>
+		<SolidColorBrush x:Key="DatagridColumnHeaderBackground" Color="#FF467ABC"/>
+		<SolidColorBrush x:Key="DatagridColumnHeaderBorder" Color="#FFBEC2C5"/>
 		<SolidColorBrush x:Key="DatagridColumnHeader_Arrow_Background" Color="#CCFFFFFF"/>
-		<SolidColorBrush x:Key="PART_RightHeaderGripperBackground" Color="#FF305785"/>
+		<SolidColorBrush x:Key="PART_RightHeaderGripperBackground" Color="#FF578CD1"/>
 		<SolidColorBrush x:Key="DatagridRow_Group_Background"
 			Color="#FF99C8FF" />
 		<SolidColorBrush x:Key="DatagridRow_Child_Background"
 			Color="#FFB3CAE5" />
-		<SolidColorBrush x:Key="Datagrid_RowDetailTemplate_Background1" Color="#FF227AD2"/>
-		<LinearGradientBrush x:Key="Datagrid_RowDetailTemplate_Background2" EndPoint="0.5,1" StartPoint="0.5,0">
-			<GradientStop Color="#FF0A325A" Offset="0"/>
-			<GradientStop Color="#FF0E4B87" Offset="0.992"/>
-			<GradientStop Color="#FF0F569D" Offset="0.534"/>
-		</LinearGradientBrush>
+		<SolidColorBrush x:Key="Datagrid_RowDetailTemplate_Background1" Color="#FF88AAD6"/>
+		<SolidColorBrush x:Key="Datagrid_RowDetailTemplate_Background2" Color="#FF6E9BD4"/>
 		<SolidColorBrush x:Key="Datagrid_RowDetailTemplate_Border" Color="White"/>
 		<SolidColorBrush x:Key="Datagrid_RowDetailTemplate_Foreground" Color="White"/>
-		<SolidColorBrush x:Key="DatagridRow_IsMouseOver_Background" Color="#FF74A8DC"/>
-		<SolidColorBrush x:Key="DatagridCell_IsSelected_Background" Color="#FFA8D4FF"/>
+		<LinearGradientBrush x:Key="DatagridRow_IsMouseOver_Background" EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFD5D7DA" Offset="0.008"/>
+			<GradientStop Color="#FFD5D7DA" Offset="0.992"/>
+			<GradientStop Color="#FFE0E2E4" Offset="0.504"/>
+		</LinearGradientBrush>
 		<SolidColorBrush x:Key="DatagridCell_IsSelected_Foreground" Color="White"/>
-		<SolidColorBrush x:Key="DatagridBottomBackground" Color="#FFD8EBFF"/>
-		<SolidColorBrush x:Key="DatagridBottomBorder" Color="White"/>
+		<SolidColorBrush x:Key="DatagridBottomBackground" Color="#FFEEF1F3"/>
+		<SolidColorBrush x:Key="DatagridCell_IsSelected_Background" Color="#FF78AEE4"/>
+		<SolidColorBrush x:Key="DatagridBottomBorder" Color="#FFBEC2C5"/>
 		<Visibility x:Key="DatagridTreeViewVisibility">Visible</Visibility>
 	<SolidColorBrush x:Key="DatagridTreeViewRowbackground" Color="White"/>
 		<SolidColorBrush x:Key="DatagridTreeViewBackground" Color="#19FFFFFF"/>
@@ -276,10 +258,7 @@
 		<GradientStop Color="#FF51A9FF" Offset="1"/>
 		</LinearGradientBrush>-->
 		<Visibility x:Key="ButtonAddress_mySearchbtnStyleVisibility">Visible</Visibility>
-		<LinearGradientBrush x:Key="ButtonAddressBackground" EndPoint="0.5,1" StartPoint="0.5,0">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonAddressBackground" Color="#FF467ABC"/>
 		<LinearGradientBrush x:Key="ButtonAddress_IsMouseOver_Background" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.8">
 			<GradientStop Color="#FF2A486E" Offset="0"/>
 		<GradientStop Color="#FF2A486E" Offset="1"/>
@@ -288,10 +267,7 @@
 		<GradientStop Color="#FF2A486E" Offset="0"/>
 		<GradientStop Color="#FF2A486E" Offset="1"/>
 		</LinearGradientBrush>
-		<LinearGradientBrush x:Key="ButtonAddress_IsKeyboardFocused_Background" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="1">
-			<GradientStop Color="#FF2A486E" Offset="0"/>
-		<GradientStop Color="#FF2A486E" Offset="1"/>
-		</LinearGradientBrush>
+		<SolidColorBrush x:Key="ButtonAddress_IsKeyboardFocused_Background" Color="#FF467ABC"/>
 		<SolidColorBrush x:Key="ButtonAddress_IsKeyboardFocused_Border" Color="White"/>
 		<SolidColorBrush x:Key="ButtonAddressBorder" Color="White"/>
 		<Visibility x:Key="AddressComboStyle_SearchComboStyleVisibility">Visible</Visibility>
@@ -340,11 +316,11 @@
 			<GradientStop Color="White" Offset="1"/>
 		</LinearGradientBrush>
 		<SolidColorBrush x:Key="ComboboxRemarkArrow" Color="White"/>
-		<SolidColorBrush x:Key="ButtonComboboxItemRemarkTextBlockForeground" Color="Black"/>
+		<SolidColorBrush x:Key="ButtonComboboxItemRemarkTextBlockForeground" Color="White"/>
 		
 		<Visibility x:Key="ButtonBarSearchVisibility">Visible</Visibility>
 	
-	<SolidColorBrush x:Key="ButtonBarSearchBackground" Color="#FF425E80"/>
+	<SolidColorBrush x:Key="ButtonBarSearchBackground" Color="#FF467ABC"/>
 	<LinearGradientBrush x:Key="ButtonBarSearch_IsMouseOver_Background" EndPoint="1,0" StartPoint="0,0" Opacity="0.8">
 		<GradientStop Color="#FF425E80"/>
 		<GradientStop Color="#FF425E80" Offset="1"/>
@@ -353,18 +329,18 @@
 		<GradientStop Color="#FF425E80"/>
 		<GradientStop Color="#FF425E80" Offset="1"/>
 	</LinearGradientBrush>
-	<SolidColorBrush x:Key="ButtonBarSearchBorder" Color="White"/>
+	<SolidColorBrush x:Key="ButtonBarSearchBorder" Color="#FFBFB5B5"/>
 	<SolidColorBrush x:Key="ButtonBarSearchForeground" Color="White"/>
 	<Visibility x:Key="Expander_BillingShippingInformationVisibility">Collapsed</Visibility>
 	<!--<SolidColorBrush x:Key="Expander_BillingShippingInformation_Foreground" Color="White"/>
 		<SolidColorBrush x:Key="Expander_BillingShippingInformation_Add_Device_Background" Color="White"/>
 		<SolidColorBrush x:Key="Expander_BillingShippingInformation_Line_Background" Color="#FFEA4016"/>-->
 	<Visibility x:Key="GroupboxVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="GroupboxBackground" Color="#19FFFFFF"/>
-	<SolidColorBrush x:Key="GroupboxBorder" Color="White"/>
-	<SolidColorBrush x:Key="GroupboxHeaderForeground" Color="White"/>
+	<SolidColorBrush x:Key="GroupboxBackground" Color="#C1F5F5F5"/>
+	<SolidColorBrush x:Key="GroupboxBorder" Color="#FFBDBDBD"/>
+	<SolidColorBrush x:Key="GroupboxHeaderForeground" Color="#FF807A7A"/>
 	<Visibility x:Key="TextblockVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="TextBlockNormalForeground" Color="White"/>
+	<SolidColorBrush x:Key="TextBlockNormalForeground" Color="#FF434040"/>
 	<Visibility x:Key="TextBlockBasicVisibility">Visible</Visibility>
 	<SolidColorBrush x:Key="TextBlockBasicForeground" Color="#FFFF8000"/>
 	<Visibility x:Key="TextBlockScheduleTitleVisibility">Visible</Visibility>
@@ -373,15 +349,11 @@
 	
 	<Visibility x:Key="CheckBox_RadioBtnVisibility">Visible</Visibility>
 	<SolidColorBrush x:Key="ChechboxRadiobutton_Background" Color="White"/>
-	<SolidColorBrush x:Key="ChechboxRadiobutton_Border" Color="#FF254366"/>
-	<SolidColorBrush x:Key="ChechboxRadiobutton_Foreground" Color="White"/>
+	<SolidColorBrush x:Key="ChechboxRadiobutton_Border" Color="#FF497CBB"/>
+	<SolidColorBrush x:Key="ChechboxRadiobutton_Foreground" Color="#FF434040"/>
 	<SolidColorBrush x:Key="ChechboxRadiobuttonCheckIcon_Background" Color="#FF3380CB"/>
 	<SolidColorBrush x:Key="ChechboxRadiobutton_IsMouseOver_Border" Color="#FF3380CB"/>
 	<SolidColorBrush x:Key="ChechboxRadiobutton_IsCheckNull_Background" Color="#FF1C86ED"/>
-	<Visibility x:Key="RadioButtonONOFFVisibility">Visible</Visibility>
-	 <SolidColorBrush x:Key="RadioButtonON_Background" Color="#FF83B520"/>
-	 <SolidColorBrush x:Key="RadioButtonOFF_Background" Color="#FFB20D11"/>
-	 <SolidColorBrush x:Key="RadioButtonONOFF_Border" Color="White"/>
 		 <Visibility x:Key="ComboboxItemVisibility">Visible</Visibility>
 	 <SolidColorBrush x:Key="Combobox_MouseOver_Background"
 	 	Color="#FFBAD3ED" />
@@ -389,11 +361,11 @@
 	<SolidColorBrush x:Key="ComboboxToggleButtonBackground"
 		Color="#FF75B2EB" />
 	<SolidColorBrush x:Key="ComboboxToggleButtonArrowBackground"
-		Color="#FF254366" />
+		Color="White" />
 	<SolidColorBrush x:Key="TextBoxCanlendarComboboxBorderBrush" Color="#FF254366"/>
 	<SolidColorBrush x:Key="TextBoxCanlendarComboboxRequiredBorderBrush" Color="Red"/>
 		<SolidColorBrush x:Key="TextBoxCanlendarComboboxTypingBackground" Color="#FFFFF500"/>
-	<SolidColorBrush x:Key="Spilter_Line_Background" Color="White"/>
+	<SolidColorBrush x:Key="Spilter_Line_Background" Color="#FF8A8689"/>
 	
 	<Visibility x:Key="SearchVisibility">Visible</Visibility>
         <LinearGradientBrush x:Key="SearchBackground" EndPoint="0.5,1" StartPoint="0.5,0">
@@ -415,32 +387,32 @@
 	<Visibility x:Key="ExpanderVisible">Visible</Visibility>
 	<LinearGradientBrush x:Key="ExpanderBackground" EndPoint="0.5,1" StartPoint="0.5,0">
 		<GradientStop Color="#FF315987" Offset="0"/>
-		<GradientStop Color="#FF315987" Offset="1"/>
+		<GradientStop Color="#FF4287D6" Offset="1"/>
 	</LinearGradientBrush>
-	<SolidColorBrush x:Key="ExpanderForeground" Color="White"/>
-	<SolidColorBrush x:Key="ExpanderBorderBrush" Color="White"/>
+	<SolidColorBrush x:Key="ExpanderForeground" Color="#FF434040"/>
+	<SolidColorBrush x:Key="ExpanderBorderBrush" Color="#FF9B9E9F"/>
 	<SolidColorBrush x:Key="Expander_Plus_Minus_Background" Color="White"/>
 	<Visibility x:Key="TreeViewVisible">Visible</Visibility>
 	<SolidColorBrush x:Key="TreeViewBackground" Color="#19FFFFFF"/>
 		<SolidColorBrush x:Key="TreeViewBorderBrush" Color="White"/>
-		<SolidColorBrush x:Key="TreeViewForeground" Color="White"/>
+		<SolidColorBrush x:Key="TreeViewForeground" Color="#FF434040"/>
 		<Visibility x:Key="TreeViewItemVisible">Visible</Visibility>
-		<SolidColorBrush x:Key="TreeviewItemForeground" Color="White"/>
+		<SolidColorBrush x:Key="TreeviewItemForeground" Color="#FF434040"/>
 	<SolidColorBrush Color="#003B3B3B" x:Key="TreeviewItem_IsSelected_Background"/>
 	<SolidColorBrush x:Key="TreeviewItem_IsSelected_BorderBrush"/>
 	<Visibility x:Key="ListBoxVisible">Visible</Visibility>
 	<SolidColorBrush x:Key="ListBoxBackground"/>
-	<SolidColorBrush x:Key="ListBoxBorderBrush" Color="White"/>
-	<SolidColorBrush x:Key="ListBoxForeground" Color="White"/>
-	<SolidColorBrush x:Key="ListBox_IsSelected_Background" Color="#FF2F4159"/>
+	<SolidColorBrush x:Key="ListBoxBorderBrush" Color="#FFC2C6C9"/>
+	<SolidColorBrush x:Key="ListBoxForeground" Color="#FF434040"/>
+	<SolidColorBrush x:Key="ListBox_IsSelected_Background" Color="#FF467ABC"/>
 	 <Visibility x:Key="Menu">Visible</Visibility>
     <Visibility x:Key="ContextMenu">Visible</Visibility>
-	<SolidColorBrush x:Key="ContextMenuItem_IsMouseOver_Background" Color="#FFBAD3ED"/>
+	<SolidColorBrush x:Key="ContextMenuItem_IsMouseOver_Background" Color="#FF467ABC"/>
 	<!--<SolidColorBrush x:Key="ContextMenuItem_Icon_Background" Color="#FFD5D1D1"/>-->
-	<SolidColorBrush x:Key="ContextMenuBorder" Color="Black"/>
+	<SolidColorBrush x:Key="ContextMenuBorder" Color="#FF7D7878"/>
 	<SolidColorBrush x:Key="ContextMenuBackground" Color="White"/>
 	<Visibility x:Key="ScrollBar">Visible</Visibility>
-	<SolidColorBrush x:Key="ScrollBar_Background" Color="#FF2A4B73"/>
+	<SolidColorBrush x:Key="ScrollBar_Background" Color="White"/>
 	<!--<SolidColorBrush x:Key="RepeatButton_OutBorder" Color="#FFC00000"/>
 		<SolidColorBrush x:Key="RepeatButton_InBorder" Color="White"/>
 		<LinearGradientBrush x:Key="RepeatButton_Background" EndPoint="0.5,1" StartPoint="0.5,0">
@@ -455,16 +427,13 @@
 		<GradientStop Color="#FFFF4D4D" Offset="0.49"/>
 		<GradientStop Color="#FFC00000" Offset="0.5"/>
 		</LinearGradientBrush>-->
-		<SolidColorBrush x:Key="RepeatButton_Arrow_Background" Color="#CCFFFFFF"/>
-		<SolidColorBrush x:Key="ScrollBarThumb_Background" Color="#CCFFFFFF"/>
+		<SolidColorBrush x:Key="RepeatButton_Arrow_Background" Color="#FF717375"/>
+		<SolidColorBrush x:Key="ScrollBarThumb_Background" Color="#FFB4B4B4"/>
 		<!--<SolidColorBrush x:Key="ScrollBarThumb_IsDragging_Background" Color="Red"/>-->
 	<Visibility x:Key="UserControlVisibility">Visible</Visibility>
-	<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" x:Key="UserControlBackground">
-		<GradientStop Color="#FF10243F" Offset="1"/>
-		<GradientStop Color="#FF294364"/>
-	</LinearGradientBrush>
-	<ImageBrush x:Key="UserControl_Background_Image" />
-	<ImageBrush x:Key="UserControl_Background_ReportImage" ImageSource="/Image/Report/BackgroundReportBlue.jpg"/>
+	<SolidColorBrush x:Key="UserControlBackground" Color="White"/>
+	<SolidColorBrush x:Key="UserControl_Background_Image" Color="White"/>
+	<SolidColorBrush x:Key="UserControl_Background_ReportImage" Color="White"/>
 	<Visibility x:Key="TIMECLOCK">Visible</Visibility>
 	<Visibility x:Key="TimeClockDisplay">Visible</Visibility>
 	<SolidColorBrush x:Key="TimeClockDisplayBorder" Color="White" />
@@ -482,9 +451,9 @@
 		<SolidColorBrush x:Key="TimeClockDisplayClockOutBackground" Color="#FFFD0000"/>
 		<SolidColorBrush x:Key="TimeClockDisplayClockOutForeground" Color="White"/>
 	<Visibility x:Key="TitleBarVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="TitleBarBackground" Color="#FF4F7199"/>
-	<SolidColorBrush x:Key="TitleBarBorder" Color="White" />
-	<SolidColorBrush x:Key="TitleBarForeground" Color="White"/>
+	<SolidColorBrush x:Key="TitleBarBackground" Color="#FF467ABC"/>
+	<SolidColorBrush x:Key="TitleBarBorder" Color="#FF6B6666" />
+	<SolidColorBrush x:Key="TitleBarForeground" Color="#FFFEFEFE"/>
 	<Visibility x:Key="ButtonMinimizeVisibility">Visible</Visibility>
 	<LinearGradientBrush x:Key="TitleBar_ToggleBtnMiniMaxi_Arrow_Background" EndPoint="0.5,1" StartPoint="0.5,0">
 		<GradientStop Color="White" Offset="0.326"/>
@@ -511,17 +480,14 @@
 		<SolidColorBrush x:Key="ButtonTitleBar_IsMouseOver_Background" Color="#FF51A9FF" Opacity="0.8"/>
 		<SolidColorBrush x:Key="ButtonTitleBar_IsPress_Background" Color="#FF51A9FF" Opacity="0.8"/>
 		<SolidColorBrush x:Key="ButtonTitleBar_IsEnable_Background" Color="#FF51A9FF"/>
-		<SolidColorBrush x:Key="ButtonTitleBarBackground" Color="#FF51A9FF"/>
+		<SolidColorBrush x:Key="ButtonTitleBarBackground" Color="#FF467ABC"/>
 		<SolidColorBrush x:Key="ButtonTitleBarBorder" Color="White"/>
 		<SolidColorBrush x:Key="ButtonTitleBarForeground" Color="White"/>
 		<SolidColorBrush x:Key="ButtonTitleBar_IsKeyboardFocused_Border" Color="White"/>
 	<Visibility x:Key="MainFormVisibility">Visible</Visibility>
 	
-	<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" x:Key="MainForm_Background">
-		<GradientStop Color="#FF6591CD" Offset="1"/>
-		<GradientStop Color="#FF9BBBE4"/>
-	</LinearGradientBrush>
-	<SolidColorBrush x:Key="MainForm_Border" Color="Black"/>
+	<SolidColorBrush x:Key="MainForm_Background" Color="White"/>
+	<SolidColorBrush x:Key="MainForm_Border" Color="#FF737070"/>
 	<Visibility x:Key="Ribbon_TitleBarVisibility">Visible</Visibility>
 	<LinearGradientBrush x:Key="Ribbon_TitleBarBackground" EndPoint="0.5,1"
 		StartPoint="0.5,0">
@@ -537,17 +503,17 @@
 	<SolidColorBrush x:Key="Ribbon_TitleBar_Button_Close_Background" Color="White"/>
 	<Visibility x:Key="Ribbon_TabVisibility">Visible</Visibility>
 	<SolidColorBrush
-		Color="#FFBFDBFF" x:Key="Ribbon_Tab_Background"
+		Color="#FF467ABC" x:Key="Ribbon_Tab_Background"
 		/>
-	<SolidColorBrush Color="#FF8DB2E3" x:Key="Ribbon_Tab_Border"/>
-	<SolidColorBrush Color="#FF3E6AAA" x:Key="Ribbon_Tab_Foreground"/>
+	<SolidColorBrush Color="#FF787B7F" x:Key="Ribbon_Tab_Border"/>
+	<SolidColorBrush Color="White" x:Key="Ribbon_Tab_Foreground"/>
 	<Visibility x:Key="RibbonGroupVisibility">Visible</Visibility>
-	<SolidColorBrush x:Key="RibbonGroupBackground" Color="#FFC1D9F1"/>
-	<SolidColorBrush x:Key="RibbonGroupBorder" Color="#FF8DB2E3"/>
-	<SolidColorBrush x:Key="RibbonGroupForeground" Color="#FF3E6AAA"/>
+	<SolidColorBrush x:Key="RibbonGroupBackground" Color="#FF467ABC"/>
+	<SolidColorBrush x:Key="RibbonGroupBorder" Color="#FF888181"/>
+	<SolidColorBrush x:Key="RibbonGroupForeground" Color="White"/>
 	<Visibility x:Key="Bottom_TitleBarVisibility">Visible</Visibility>
 	    <SolidColorBrush
-		Color="#FFBAD3F5" x:Key="Bottom_TitleBar_Background"
+		Color="#FFFEFEFE" x:Key="Bottom_TitleBar_Background"
                          />
     <SolidColorBrush
 	    	Color="#FF567DB0" x:Key="Bottom_TitleBar_Border"
@@ -555,7 +521,7 @@
     <SolidColorBrush
     	Color="#FFE1EEFF" x:Key="Bottom_TitleBar_Border2"
     	/>
-    <SolidColorBrush Color="#FF3E6AAA" x:Key="Bottom_TitleBar_Foreground"/>
+    <SolidColorBrush Color="#FF3D3D3D" x:Key="Bottom_TitleBar_Foreground"/>
 	<Visibility x:Key="Bottom_TitleBar_ComboboxVisibility">Visible</Visibility>
     		<SolidColorBrush x:Key="Bottom_TitleBar_Combobox_Border" Color="White"/>
 	<SolidColorBrush x:Key="Bottom_TitleBar_Combobox_Arrow_Background" Color="White"/>
@@ -637,5 +603,8 @@
     		<SolidColorBrush x:Key="Part_Popup_Middle_Left_Background" Color="#7F424242"/>
     		<SolidColorBrush x:Key="Part_Popup_Middle_Center_Background" Color="White"/>
     		<SolidColorBrush x:Key="Part_Popup_Middle_Right_Background" Color="#7F424242"/>
+    		<SolidColorBrush x:Key="ControlBorder" Color="Gray"/>
+    		<SolidColorBrush x:Key="Ribbon_ButtonItemForceground" Color="#FF3E6AAA"/>
+    		<SolidColorBrush x:Key="RegularPolygonBackground" Color="White"/>
 	<!-- Resource dictionary entries should be defined here. -->
 </ResourceDictionary>

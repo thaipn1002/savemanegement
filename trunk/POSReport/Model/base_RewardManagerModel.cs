@@ -92,6 +92,126 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected string _name;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the Name</para>
+        /// </summary>
+        public string Name
+        {
+            get { return this._name; }
+            set
+            {
+                if (this._name != value)
+                {
+                    this.IsDirty = true;
+                    this._name = value;
+                    OnPropertyChanged(() => Name);
+                    PropertyChangedCompleted(() => Name);
+                }
+            }
+        }
+
+        protected short _status;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the Status</para>
+        /// </summary>
+        public short Status
+        {
+            get { return this._status; }
+            set
+            {
+                if (this._status != value)
+                {
+                    this.IsDirty = true;
+                    this._status = value;
+                    OnPropertyChanged(() => Status);
+                    PropertyChangedCompleted(() => Status);
+                }
+            }
+        }
+
+        protected System.DateTime _startDate;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the StartDate</para>
+        /// </summary>
+        public System.DateTime StartDate
+        {
+            get { return this._startDate; }
+            set
+            {
+                if (this._startDate != value)
+                {
+                    this.IsDirty = true;
+                    this._startDate = value;
+                    OnPropertyChanged(() => StartDate);
+                    PropertyChangedCompleted(() => StartDate);
+                }
+            }
+        }
+
+        protected Nullable<System.DateTime> _endDate;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the EndDate</para>
+        /// </summary>
+        public Nullable<System.DateTime> EndDate
+        {
+            get { return this._endDate; }
+            set
+            {
+                if (this._endDate != value)
+                {
+                    this.IsDirty = true;
+                    this._endDate = value;
+                    OnPropertyChanged(() => EndDate);
+                    PropertyChangedCompleted(() => EndDate);
+                }
+            }
+        }
+
+        protected bool _isNoEndDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the IsNoEndDay</para>
+        /// </summary>
+        public bool IsNoEndDay
+        {
+            get { return this._isNoEndDay; }
+            set
+            {
+                if (this._isNoEndDay != value)
+                {
+                    this.IsDirty = true;
+                    this._isNoEndDay = value;
+                    OnPropertyChanged(() => IsNoEndDay);
+                    PropertyChangedCompleted(() => IsNoEndDay);
+                }
+            }
+        }
+
+        protected short _rewardType;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the RewardType</para>
+        /// </summary>
+        public short RewardType
+        {
+            get { return this._rewardType; }
+            set
+            {
+                if (this._rewardType != value)
+                {
+                    this.IsDirty = true;
+                    this._rewardType = value;
+                    OnPropertyChanged(() => RewardType);
+                    PropertyChangedCompleted(() => RewardType);
+                }
+            }
+        }
+
         protected decimal _purchaseThreshold;
         /// <summary>
         /// Property Model
@@ -168,6 +288,646 @@ namespace CPC.POSReport.Model
                     this._rewardExpiration = value;
                     OnPropertyChanged(() => RewardExpiration);
                     PropertyChangedCompleted(() => RewardExpiration);
+                }
+            }
+        }
+
+        protected decimal _dollarConverter;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the DollarConverter</para>
+        /// </summary>
+        public decimal DollarConverter
+        {
+            get { return this._dollarConverter; }
+            set
+            {
+                if (this._dollarConverter != value)
+                {
+                    this.IsDirty = true;
+                    this._dollarConverter = value;
+                    OnPropertyChanged(() => DollarConverter);
+                    PropertyChangedCompleted(() => DollarConverter);
+                }
+            }
+        }
+
+        protected int _pointConverter;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the PointConverter</para>
+        /// </summary>
+        public int PointConverter
+        {
+            get { return this._pointConverter; }
+            set
+            {
+                if (this._pointConverter != value)
+                {
+                    this.IsDirty = true;
+                    this._pointConverter = value;
+                    OnPropertyChanged(() => PointConverter);
+                    PropertyChangedCompleted(() => PointConverter);
+                }
+            }
+        }
+
+        protected decimal _l1Amount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L1Amount</para>
+        /// </summary>
+        public decimal L1Amount
+        {
+            get { return this._l1Amount; }
+            set
+            {
+                if (this._l1Amount != value)
+                {
+                    this.IsDirty = true;
+                    this._l1Amount = value;
+                    OnPropertyChanged(() => L1Amount);
+                    PropertyChangedCompleted(() => L1Amount);
+                }
+            }
+        }
+
+        protected decimal _l1Markup;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L1Markup</para>
+        /// </summary>
+        public decimal L1Markup
+        {
+            get { return this._l1Markup; }
+            set
+            {
+                if (this._l1Markup != value)
+                {
+                    this.IsDirty = true;
+                    this._l1Markup = value;
+                    OnPropertyChanged(() => L1Markup);
+                    PropertyChangedCompleted(() => L1Markup);
+                }
+            }
+        }
+
+        protected decimal _l2Amount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L2Amount</para>
+        /// </summary>
+        public decimal L2Amount
+        {
+            get { return this._l2Amount; }
+            set
+            {
+                if (this._l2Amount != value)
+                {
+                    this.IsDirty = true;
+                    this._l2Amount = value;
+                    OnPropertyChanged(() => L2Amount);
+                    PropertyChangedCompleted(() => L2Amount);
+                }
+            }
+        }
+
+        protected decimal _l2Markup;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L2Markup</para>
+        /// </summary>
+        public decimal L2Markup
+        {
+            get { return this._l2Markup; }
+            set
+            {
+                if (this._l2Markup != value)
+                {
+                    this.IsDirty = true;
+                    this._l2Markup = value;
+                    OnPropertyChanged(() => L2Markup);
+                    PropertyChangedCompleted(() => L2Markup);
+                }
+            }
+        }
+
+        protected decimal _l3Amount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L3Amount</para>
+        /// </summary>
+        public decimal L3Amount
+        {
+            get { return this._l3Amount; }
+            set
+            {
+                if (this._l3Amount != value)
+                {
+                    this.IsDirty = true;
+                    this._l3Amount = value;
+                    OnPropertyChanged(() => L3Amount);
+                    PropertyChangedCompleted(() => L3Amount);
+                }
+            }
+        }
+
+        protected decimal _l3Markup;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L3Markup</para>
+        /// </summary>
+        public decimal L3Markup
+        {
+            get { return this._l3Markup; }
+            set
+            {
+                if (this._l3Markup != value)
+                {
+                    this.IsDirty = true;
+                    this._l3Markup = value;
+                    OnPropertyChanged(() => L3Markup);
+                    PropertyChangedCompleted(() => L3Markup);
+                }
+            }
+        }
+
+        protected decimal _l4Amount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L4Amount</para>
+        /// </summary>
+        public decimal L4Amount
+        {
+            get { return this._l4Amount; }
+            set
+            {
+                if (this._l4Amount != value)
+                {
+                    this.IsDirty = true;
+                    this._l4Amount = value;
+                    OnPropertyChanged(() => L4Amount);
+                    PropertyChangedCompleted(() => L4Amount);
+                }
+            }
+        }
+
+        protected decimal _l4Markup;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L4Markup</para>
+        /// </summary>
+        public decimal L4Markup
+        {
+            get { return this._l4Markup; }
+            set
+            {
+                if (this._l4Markup != value)
+                {
+                    this.IsDirty = true;
+                    this._l4Markup = value;
+                    OnPropertyChanged(() => L4Markup);
+                    PropertyChangedCompleted(() => L4Markup);
+                }
+            }
+        }
+
+        protected decimal _l5Amount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L5Amount</para>
+        /// </summary>
+        public decimal L5Amount
+        {
+            get { return this._l5Amount; }
+            set
+            {
+                if (this._l5Amount != value)
+                {
+                    this.IsDirty = true;
+                    this._l5Amount = value;
+                    OnPropertyChanged(() => L5Amount);
+                    PropertyChangedCompleted(() => L5Amount);
+                }
+            }
+        }
+
+        protected decimal _l5Markup;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L5Markup</para>
+        /// </summary>
+        public decimal L5Markup
+        {
+            get { return this._l5Markup; }
+            set
+            {
+                if (this._l5Markup != value)
+                {
+                    this.IsDirty = true;
+                    this._l5Markup = value;
+                    OnPropertyChanged(() => L5Markup);
+                    PropertyChangedCompleted(() => L5Markup);
+                }
+            }
+        }
+
+        protected decimal _l6Amount;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L6Amount</para>
+        /// </summary>
+        public decimal L6Amount
+        {
+            get { return this._l6Amount; }
+            set
+            {
+                if (this._l6Amount != value)
+                {
+                    this.IsDirty = true;
+                    this._l6Amount = value;
+                    OnPropertyChanged(() => L6Amount);
+                    PropertyChangedCompleted(() => L6Amount);
+                }
+            }
+        }
+
+        protected decimal _l6Markup;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the L6Markup</para>
+        /// </summary>
+        public decimal L6Markup
+        {
+            get { return this._l6Markup; }
+            set
+            {
+                if (this._l6Markup != value)
+                {
+                    this.IsDirty = true;
+                    this._l6Markup = value;
+                    OnPropertyChanged(() => L6Markup);
+                    PropertyChangedCompleted(() => L6Markup);
+                }
+            }
+        }
+
+        protected short _cutOffType;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the CutOffType</para>
+        /// </summary>
+        public short CutOffType
+        {
+            get { return this._cutOffType; }
+            set
+            {
+                if (this._cutOffType != value)
+                {
+                    this.IsDirty = true;
+                    this._cutOffType = value;
+                    OnPropertyChanged(() => CutOffType);
+                    PropertyChangedCompleted(() => CutOffType);
+                }
+            }
+        }
+
+        protected short _cutOffScheduleType;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the CutOffScheduleType</para>
+        /// </summary>
+        public short CutOffScheduleType
+        {
+            get { return this._cutOffScheduleType; }
+            set
+            {
+                if (this._cutOffScheduleType != value)
+                {
+                    this.IsDirty = true;
+                    this._cutOffScheduleType = value;
+                    OnPropertyChanged(() => CutOffScheduleType);
+                    PropertyChangedCompleted(() => CutOffScheduleType);
+                }
+            }
+        }
+
+        protected decimal _cutOffCash;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the CutOffCash</para>
+        /// </summary>
+        public decimal CutOffCash
+        {
+            get { return this._cutOffCash; }
+            set
+            {
+                if (this._cutOffCash != value)
+                {
+                    this.IsDirty = true;
+                    this._cutOffCash = value;
+                    OnPropertyChanged(() => CutOffCash);
+                    PropertyChangedCompleted(() => CutOffCash);
+                }
+            }
+        }
+
+        protected int _cutOffPoint;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the CutOffPoint</para>
+        /// </summary>
+        public int CutOffPoint
+        {
+            get { return this._cutOffPoint; }
+            set
+            {
+                if (this._cutOffPoint != value)
+                {
+                    this.IsDirty = true;
+                    this._cutOffPoint = value;
+                    OnPropertyChanged(() => CutOffPoint);
+                    PropertyChangedCompleted(() => CutOffPoint);
+                }
+            }
+        }
+
+        protected short _weeklyNumber;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the WeeklyNumber</para>
+        /// </summary>
+        public short WeeklyNumber
+        {
+            get { return this._weeklyNumber; }
+            set
+            {
+                if (this._weeklyNumber != value)
+                {
+                    this.IsDirty = true;
+                    this._weeklyNumber = value;
+                    OnPropertyChanged(() => WeeklyNumber);
+                    PropertyChangedCompleted(() => WeeklyNumber);
+                }
+            }
+        }
+
+        protected short _weeklyOnDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the WeeklyOnDay</para>
+        /// </summary>
+        public short WeeklyOnDay
+        {
+            get { return this._weeklyOnDay; }
+            set
+            {
+                if (this._weeklyOnDay != value)
+                {
+                    this.IsDirty = true;
+                    this._weeklyOnDay = value;
+                    OnPropertyChanged(() => WeeklyOnDay);
+                    PropertyChangedCompleted(() => WeeklyOnDay);
+                }
+            }
+        }
+
+        protected short _monthlyDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the MonthlyDay</para>
+        /// </summary>
+        public short MonthlyDay
+        {
+            get { return this._monthlyDay; }
+            set
+            {
+                if (this._monthlyDay != value)
+                {
+                    this.IsDirty = true;
+                    this._monthlyDay = value;
+                    OnPropertyChanged(() => MonthlyDay);
+                    PropertyChangedCompleted(() => MonthlyDay);
+                }
+            }
+        }
+
+        protected short _monthlyEveryMonth;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the MonthlyEveryMonth</para>
+        /// </summary>
+        public short MonthlyEveryMonth
+        {
+            get { return this._monthlyEveryMonth; }
+            set
+            {
+                if (this._monthlyEveryMonth != value)
+                {
+                    this.IsDirty = true;
+                    this._monthlyEveryMonth = value;
+                    OnPropertyChanged(() => MonthlyEveryMonth);
+                    PropertyChangedCompleted(() => MonthlyEveryMonth);
+                }
+            }
+        }
+
+        protected short _yearlyOnDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the YearlyOnDay</para>
+        /// </summary>
+        public short YearlyOnDay
+        {
+            get { return this._yearlyOnDay; }
+            set
+            {
+                if (this._yearlyOnDay != value)
+                {
+                    this.IsDirty = true;
+                    this._yearlyOnDay = value;
+                    OnPropertyChanged(() => YearlyOnDay);
+                    PropertyChangedCompleted(() => YearlyOnDay);
+                }
+            }
+        }
+
+        protected short _yearlyDateOnDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the YearlyDateOnDay</para>
+        /// </summary>
+        public short YearlyDateOnDay
+        {
+            get { return this._yearlyDateOnDay; }
+            set
+            {
+                if (this._yearlyDateOnDay != value)
+                {
+                    this.IsDirty = true;
+                    this._yearlyDateOnDay = value;
+                    OnPropertyChanged(() => YearlyDateOnDay);
+                    PropertyChangedCompleted(() => YearlyDateOnDay);
+                }
+            }
+        }
+
+        protected short _mOption;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the MOption</para>
+        /// </summary>
+        public short MOption
+        {
+            get { return this._mOption; }
+            set
+            {
+                if (this._mOption != value)
+                {
+                    this.IsDirty = true;
+                    this._mOption = value;
+                    OnPropertyChanged(() => MOption);
+                    PropertyChangedCompleted(() => MOption);
+                }
+            }
+        }
+
+        protected short _mSequence;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the MSequence</para>
+        /// </summary>
+        public short MSequence
+        {
+            get { return this._mSequence; }
+            set
+            {
+                if (this._mSequence != value)
+                {
+                    this.IsDirty = true;
+                    this._mSequence = value;
+                    OnPropertyChanged(() => MSequence);
+                    PropertyChangedCompleted(() => MSequence);
+                }
+            }
+        }
+
+        protected short _mSequenceOnDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the MSequenceOnDay</para>
+        /// </summary>
+        public short MSequenceOnDay
+        {
+            get { return this._mSequenceOnDay; }
+            set
+            {
+                if (this._mSequenceOnDay != value)
+                {
+                    this.IsDirty = true;
+                    this._mSequenceOnDay = value;
+                    OnPropertyChanged(() => MSequenceOnDay);
+                    PropertyChangedCompleted(() => MSequenceOnDay);
+                }
+            }
+        }
+
+        protected short _mSequenceOnMonth;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the MSequenceOnMonth</para>
+        /// </summary>
+        public short MSequenceOnMonth
+        {
+            get { return this._mSequenceOnMonth; }
+            set
+            {
+                if (this._mSequenceOnMonth != value)
+                {
+                    this.IsDirty = true;
+                    this._mSequenceOnMonth = value;
+                    OnPropertyChanged(() => MSequenceOnMonth);
+                    PropertyChangedCompleted(() => MSequenceOnMonth);
+                }
+            }
+        }
+
+        protected short _yOption;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the YOption</para>
+        /// </summary>
+        public short YOption
+        {
+            get { return this._yOption; }
+            set
+            {
+                if (this._yOption != value)
+                {
+                    this.IsDirty = true;
+                    this._yOption = value;
+                    OnPropertyChanged(() => YOption);
+                    PropertyChangedCompleted(() => YOption);
+                }
+            }
+        }
+
+        protected short _ySequence;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the YSequence</para>
+        /// </summary>
+        public short YSequence
+        {
+            get { return this._ySequence; }
+            set
+            {
+                if (this._ySequence != value)
+                {
+                    this.IsDirty = true;
+                    this._ySequence = value;
+                    OnPropertyChanged(() => YSequence);
+                    PropertyChangedCompleted(() => YSequence);
+                }
+            }
+        }
+
+        protected short _ySequenceOnDay;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the YSequenceOnDay</para>
+        /// </summary>
+        public short YSequenceOnDay
+        {
+            get { return this._ySequenceOnDay; }
+            set
+            {
+                if (this._ySequenceOnDay != value)
+                {
+                    this.IsDirty = true;
+                    this._ySequenceOnDay = value;
+                    OnPropertyChanged(() => YSequenceOnDay);
+                    PropertyChangedCompleted(() => YSequenceOnDay);
+                }
+            }
+        }
+
+        protected short _ySequenceOnMonth;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the YSequenceOnMonth</para>
+        /// </summary>
+        public short YSequenceOnMonth
+        {
+            get { return this._ySequenceOnMonth; }
+            set
+            {
+                if (this._ySequenceOnMonth != value)
+                {
+                    this.IsDirty = true;
+                    this._ySequenceOnMonth = value;
+                    OnPropertyChanged(() => YSequenceOnMonth);
+                    PropertyChangedCompleted(() => YSequenceOnMonth);
                 }
             }
         }
@@ -352,66 +1112,6 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected Nullable<System.DateTime> _startDate;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the StartDate</para>
-        /// </summary>
-        public Nullable<System.DateTime> StartDate
-        {
-            get { return this._startDate; }
-            set
-            {
-                if (this._startDate != value)
-                {
-                    this.IsDirty = true;
-                    this._startDate = value;
-                    OnPropertyChanged(() => StartDate);
-                    PropertyChangedCompleted(() => StartDate);
-                }
-            }
-        }
-
-        protected Nullable<System.DateTime> _endDate;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the EndDate</para>
-        /// </summary>
-        public Nullable<System.DateTime> EndDate
-        {
-            get { return this._endDate; }
-            set
-            {
-                if (this._endDate != value)
-                {
-                    this.IsDirty = true;
-                    this._endDate = value;
-                    OnPropertyChanged(() => EndDate);
-                    PropertyChangedCompleted(() => EndDate);
-                }
-            }
-        }
-
-        protected bool _isNoEndDay;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the IsNoEndDay</para>
-        /// </summary>
-        public bool IsNoEndDay
-        {
-            get { return this._isNoEndDay; }
-            set
-            {
-                if (this._isNoEndDay != value)
-                {
-                    this.IsDirty = true;
-                    this._isNoEndDay = value;
-                    OnPropertyChanged(() => IsNoEndDay);
-                    PropertyChangedCompleted(() => IsNoEndDay);
-                }
-            }
-        }
-
         protected decimal _totalRewardRedeemed;
         /// <summary>
         /// Property Model
@@ -428,26 +1128,6 @@ namespace CPC.POSReport.Model
                     this._totalRewardRedeemed = value;
                     OnPropertyChanged(() => TotalRewardRedeemed);
                     PropertyChangedCompleted(() => TotalRewardRedeemed);
-                }
-            }
-        }
-
-        protected bool _isActived;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the IsActived</para>
-        /// </summary>
-        public bool IsActived
-        {
-            get { return this._isActived; }
-            set
-            {
-                if (this._isActived != value)
-                {
-                    this.IsDirty = true;
-                    this._isActived = value;
-                    OnPropertyChanged(() => IsActived);
-                    PropertyChangedCompleted(() => IsActived);
                 }
             }
         }
@@ -515,10 +1195,48 @@ namespace CPC.POSReport.Model
             if (IsNew)
                 this.base_RewardManager.Id = this.Id;
             this.base_RewardManager.StoreCode = this.StoreCode;
+            this.base_RewardManager.Name = this.Name;
+            this.base_RewardManager.Status = this.Status;
+            this.base_RewardManager.StartDate = this.StartDate;
+            this.base_RewardManager.EndDate = this.EndDate;
+            this.base_RewardManager.IsNoEndDay = this.IsNoEndDay;
+            this.base_RewardManager.RewardType = this.RewardType;
             this.base_RewardManager.PurchaseThreshold = this.PurchaseThreshold;
             this.base_RewardManager.RewardAmount = this.RewardAmount;
             this.base_RewardManager.RewardAmtType = this.RewardAmtType;
             this.base_RewardManager.RewardExpiration = this.RewardExpiration;
+            this.base_RewardManager.DollarConverter = this.DollarConverter;
+            this.base_RewardManager.PointConverter = this.PointConverter;
+            this.base_RewardManager.L1Amount = this.L1Amount;
+            this.base_RewardManager.L1Markup = this.L1Markup;
+            this.base_RewardManager.L2Amount = this.L2Amount;
+            this.base_RewardManager.L2Markup = this.L2Markup;
+            this.base_RewardManager.L3Amount = this.L3Amount;
+            this.base_RewardManager.L3Markup = this.L3Markup;
+            this.base_RewardManager.L4Amount = this.L4Amount;
+            this.base_RewardManager.L4Markup = this.L4Markup;
+            this.base_RewardManager.L5Amount = this.L5Amount;
+            this.base_RewardManager.L5Markup = this.L5Markup;
+            this.base_RewardManager.L6Amount = this.L6Amount;
+            this.base_RewardManager.L6Markup = this.L6Markup;
+            this.base_RewardManager.CutOffType = this.CutOffType;
+            this.base_RewardManager.CutOffScheduleType = this.CutOffScheduleType;
+            this.base_RewardManager.CutOffCash = this.CutOffCash;
+            this.base_RewardManager.CutOffPoint = this.CutOffPoint;
+            this.base_RewardManager.WeeklyNumber = this.WeeklyNumber;
+            this.base_RewardManager.WeeklyOnDay = this.WeeklyOnDay;
+            this.base_RewardManager.MonthlyDay = this.MonthlyDay;
+            this.base_RewardManager.MonthlyEveryMonth = this.MonthlyEveryMonth;
+            this.base_RewardManager.YearlyOnDay = this.YearlyOnDay;
+            this.base_RewardManager.YearlyDateOnDay = this.YearlyDateOnDay;
+            this.base_RewardManager.MOption = this.MOption;
+            this.base_RewardManager.MSequence = this.MSequence;
+            this.base_RewardManager.MSequenceOnDay = this.MSequenceOnDay;
+            this.base_RewardManager.MSequenceOnMonth = this.MSequenceOnMonth;
+            this.base_RewardManager.YOption = this.YOption;
+            this.base_RewardManager.YSequence = this.YSequence;
+            this.base_RewardManager.YSequenceOnDay = this.YSequenceOnDay;
+            this.base_RewardManager.YSequenceOnMonth = this.YSequenceOnMonth;
             this.base_RewardManager.IsAutoEnroll = this.IsAutoEnroll;
             this.base_RewardManager.IsPromptEnroll = this.IsPromptEnroll;
             this.base_RewardManager.IsInformCashier = this.IsInformCashier;
@@ -528,11 +1246,7 @@ namespace CPC.POSReport.Model
             this.base_RewardManager.RedemptionAfterDays = this.RedemptionAfterDays;
             this.base_RewardManager.IsBlockPurchaseRedeem = this.IsBlockPurchaseRedeem;
             this.base_RewardManager.IsTrackingPeriod = this.IsTrackingPeriod;
-            this.base_RewardManager.StartDate = this.StartDate;
-            this.base_RewardManager.EndDate = this.EndDate;
-            this.base_RewardManager.IsNoEndDay = this.IsNoEndDay;
             this.base_RewardManager.TotalRewardRedeemed = this.TotalRewardRedeemed;
-            this.base_RewardManager.IsActived = this.IsActived;
             this.base_RewardManager.ReasonReActive = this.ReasonReActive;
             this.base_RewardManager.DateCreated = this.DateCreated;
         }
@@ -545,10 +1259,48 @@ namespace CPC.POSReport.Model
         {
             this._id = this.base_RewardManager.Id;
             this._storeCode = this.base_RewardManager.StoreCode;
+            this._name = this.base_RewardManager.Name;
+            this._status = this.base_RewardManager.Status;
+            this._startDate = this.base_RewardManager.StartDate;
+            this._endDate = this.base_RewardManager.EndDate;
+            this._isNoEndDay = this.base_RewardManager.IsNoEndDay;
+            this._rewardType = this.base_RewardManager.RewardType;
             this._purchaseThreshold = this.base_RewardManager.PurchaseThreshold;
             this._rewardAmount = this.base_RewardManager.RewardAmount;
             this._rewardAmtType = this.base_RewardManager.RewardAmtType;
             this._rewardExpiration = this.base_RewardManager.RewardExpiration;
+            this._dollarConverter = this.base_RewardManager.DollarConverter;
+            this._pointConverter = this.base_RewardManager.PointConverter;
+            this._l1Amount = this.base_RewardManager.L1Amount;
+            this._l1Markup = this.base_RewardManager.L1Markup;
+            this._l2Amount = this.base_RewardManager.L2Amount;
+            this._l2Markup = this.base_RewardManager.L2Markup;
+            this._l3Amount = this.base_RewardManager.L3Amount;
+            this._l3Markup = this.base_RewardManager.L3Markup;
+            this._l4Amount = this.base_RewardManager.L4Amount;
+            this._l4Markup = this.base_RewardManager.L4Markup;
+            this._l5Amount = this.base_RewardManager.L5Amount;
+            this._l5Markup = this.base_RewardManager.L5Markup;
+            this._l6Amount = this.base_RewardManager.L6Amount;
+            this._l6Markup = this.base_RewardManager.L6Markup;
+            this._cutOffType = this.base_RewardManager.CutOffType;
+            this._cutOffScheduleType = this.base_RewardManager.CutOffScheduleType;
+            this._cutOffCash = this.base_RewardManager.CutOffCash;
+            this._cutOffPoint = this.base_RewardManager.CutOffPoint;
+            this._weeklyNumber = this.base_RewardManager.WeeklyNumber;
+            this._weeklyOnDay = this.base_RewardManager.WeeklyOnDay;
+            this._monthlyDay = this.base_RewardManager.MonthlyDay;
+            this._monthlyEveryMonth = this.base_RewardManager.MonthlyEveryMonth;
+            this._yearlyOnDay = this.base_RewardManager.YearlyOnDay;
+            this._yearlyDateOnDay = this.base_RewardManager.YearlyDateOnDay;
+            this._mOption = this.base_RewardManager.MOption;
+            this._mSequence = this.base_RewardManager.MSequence;
+            this._mSequenceOnDay = this.base_RewardManager.MSequenceOnDay;
+            this._mSequenceOnMonth = this.base_RewardManager.MSequenceOnMonth;
+            this._yOption = this.base_RewardManager.YOption;
+            this._ySequence = this.base_RewardManager.YSequence;
+            this._ySequenceOnDay = this.base_RewardManager.YSequenceOnDay;
+            this._ySequenceOnMonth = this.base_RewardManager.YSequenceOnMonth;
             this._isAutoEnroll = this.base_RewardManager.IsAutoEnroll;
             this._isPromptEnroll = this.base_RewardManager.IsPromptEnroll;
             this._isInformCashier = this.base_RewardManager.IsInformCashier;
@@ -558,11 +1310,7 @@ namespace CPC.POSReport.Model
             this._redemptionAfterDays = this.base_RewardManager.RedemptionAfterDays;
             this._isBlockPurchaseRedeem = this.base_RewardManager.IsBlockPurchaseRedeem;
             this._isTrackingPeriod = this.base_RewardManager.IsTrackingPeriod;
-            this._startDate = this.base_RewardManager.StartDate;
-            this._endDate = this.base_RewardManager.EndDate;
-            this._isNoEndDay = this.base_RewardManager.IsNoEndDay;
             this._totalRewardRedeemed = this.base_RewardManager.TotalRewardRedeemed;
-            this._isActived = this.base_RewardManager.IsActived;
             this._reasonReActive = this.base_RewardManager.ReasonReActive;
             this._dateCreated = this.base_RewardManager.DateCreated;
         }
@@ -575,10 +1323,48 @@ namespace CPC.POSReport.Model
         {
             this.Id = this.base_RewardManager.Id;
             this.StoreCode = this.base_RewardManager.StoreCode;
+            this.Name = this.base_RewardManager.Name;
+            this.Status = this.base_RewardManager.Status;
+            this.StartDate = this.base_RewardManager.StartDate;
+            this.EndDate = this.base_RewardManager.EndDate;
+            this.IsNoEndDay = this.base_RewardManager.IsNoEndDay;
+            this.RewardType = this.base_RewardManager.RewardType;
             this.PurchaseThreshold = this.base_RewardManager.PurchaseThreshold;
             this.RewardAmount = this.base_RewardManager.RewardAmount;
             this.RewardAmtType = this.base_RewardManager.RewardAmtType;
             this.RewardExpiration = this.base_RewardManager.RewardExpiration;
+            this.DollarConverter = this.base_RewardManager.DollarConverter;
+            this.PointConverter = this.base_RewardManager.PointConverter;
+            this.L1Amount = this.base_RewardManager.L1Amount;
+            this.L1Markup = this.base_RewardManager.L1Markup;
+            this.L2Amount = this.base_RewardManager.L2Amount;
+            this.L2Markup = this.base_RewardManager.L2Markup;
+            this.L3Amount = this.base_RewardManager.L3Amount;
+            this.L3Markup = this.base_RewardManager.L3Markup;
+            this.L4Amount = this.base_RewardManager.L4Amount;
+            this.L4Markup = this.base_RewardManager.L4Markup;
+            this.L5Amount = this.base_RewardManager.L5Amount;
+            this.L5Markup = this.base_RewardManager.L5Markup;
+            this.L6Amount = this.base_RewardManager.L6Amount;
+            this.L6Markup = this.base_RewardManager.L6Markup;
+            this.CutOffType = this.base_RewardManager.CutOffType;
+            this.CutOffScheduleType = this.base_RewardManager.CutOffScheduleType;
+            this.CutOffCash = this.base_RewardManager.CutOffCash;
+            this.CutOffPoint = this.base_RewardManager.CutOffPoint;
+            this.WeeklyNumber = this.base_RewardManager.WeeklyNumber;
+            this.WeeklyOnDay = this.base_RewardManager.WeeklyOnDay;
+            this.MonthlyDay = this.base_RewardManager.MonthlyDay;
+            this.MonthlyEveryMonth = this.base_RewardManager.MonthlyEveryMonth;
+            this.YearlyOnDay = this.base_RewardManager.YearlyOnDay;
+            this.YearlyDateOnDay = this.base_RewardManager.YearlyDateOnDay;
+            this.MOption = this.base_RewardManager.MOption;
+            this.MSequence = this.base_RewardManager.MSequence;
+            this.MSequenceOnDay = this.base_RewardManager.MSequenceOnDay;
+            this.MSequenceOnMonth = this.base_RewardManager.MSequenceOnMonth;
+            this.YOption = this.base_RewardManager.YOption;
+            this.YSequence = this.base_RewardManager.YSequence;
+            this.YSequenceOnDay = this.base_RewardManager.YSequenceOnDay;
+            this.YSequenceOnMonth = this.base_RewardManager.YSequenceOnMonth;
             this.IsAutoEnroll = this.base_RewardManager.IsAutoEnroll;
             this.IsPromptEnroll = this.base_RewardManager.IsPromptEnroll;
             this.IsInformCashier = this.base_RewardManager.IsInformCashier;
@@ -588,11 +1374,7 @@ namespace CPC.POSReport.Model
             this.RedemptionAfterDays = this.base_RewardManager.RedemptionAfterDays;
             this.IsBlockPurchaseRedeem = this.base_RewardManager.IsBlockPurchaseRedeem;
             this.IsTrackingPeriod = this.base_RewardManager.IsTrackingPeriod;
-            this.StartDate = this.base_RewardManager.StartDate;
-            this.EndDate = this.base_RewardManager.EndDate;
-            this.IsNoEndDay = this.base_RewardManager.IsNoEndDay;
             this.TotalRewardRedeemed = this.base_RewardManager.TotalRewardRedeemed;
-            this.IsActived = this.base_RewardManager.IsActived;
             this.ReasonReActive = this.base_RewardManager.ReasonReActive;
             this.DateCreated = this.base_RewardManager.DateCreated;
         }

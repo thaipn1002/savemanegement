@@ -7,8 +7,8 @@
          
     	<ResourceDictionary>
     		<ResourceDictionary.MergedDictionaries>
-    			<ResourceDictionary Source="Dictionary/Brushes/Grey/GreyImageResources.xaml"/>
-    			<ResourceDictionary Source="Dictionary/Brushes/Grey/GreyResources.xaml"/>
+    			<ResourceDictionary Source="Dictionary/Brushes/Blue/BlueImageResources.xaml"/>
+                <ResourceDictionary Source="Dictionary/Brushes/Blue/BlueResources.xaml"/>
     			<ResourceDictionary Source="Dictionary/BaseControlStyle/ButtonStyle.xaml"/>
     			<ResourceDictionary Source="Dictionary/BaseControlStyle/CheckboxStyle.xaml"/>
     			<ResourceDictionary Source="Dictionary/BaseControlStyle/ComboboxStyle.xaml"/>

@@ -912,6 +912,26 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected bool _isReturned;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the IsReturned</para>
+        /// </summary>
+        public bool IsReturned
+        {
+            get { return this._isReturned; }
+            set
+            {
+                if (this._isReturned != value)
+                {
+                    this.IsDirty = true;
+                    this._isReturned = value;
+                    OnPropertyChanged(() => IsReturned);
+                    PropertyChangedCompleted(() => IsReturned);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -976,6 +996,7 @@ namespace CPC.POSReport.Model
             this.base_PurchaseOrder.Shift = this.Shift;
             this.base_PurchaseOrder.POCard = this.POCard;
             this.base_PurchaseOrder.POCardImg = this.POCardImg;
+            this.base_PurchaseOrder.IsReturned = this.IsReturned;
         }
 
         /// <summary>
@@ -1027,6 +1048,7 @@ namespace CPC.POSReport.Model
             this._shift = this.base_PurchaseOrder.Shift;
             this._pOCard = this.base_PurchaseOrder.POCard;
             this._pOCardImg = this.base_PurchaseOrder.POCardImg;
+            this._isReturned = this.base_PurchaseOrder.IsReturned;
         }
 
         /// <summary>
@@ -1078,6 +1100,7 @@ namespace CPC.POSReport.Model
             this.Shift = this.base_PurchaseOrder.Shift;
             this.POCard = this.base_PurchaseOrder.POCard;
             this.POCardImg = this.base_PurchaseOrder.POCardImg;
+            this.IsReturned = this.base_PurchaseOrder.IsReturned;
         }
 
         #endregion

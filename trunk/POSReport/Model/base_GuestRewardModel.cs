@@ -412,6 +412,46 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected string _scanCode;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the ScanCode</para>
+        /// </summary>
+        public string ScanCode
+        {
+            get { return this._scanCode; }
+            set
+            {
+                if (this._scanCode != value)
+                {
+                    this.IsDirty = true;
+                    this._scanCode = value;
+                    OnPropertyChanged(() => ScanCode);
+                    PropertyChangedCompleted(() => ScanCode);
+                }
+            }
+        }
+
+        protected byte[] _scanCodeImg;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the ScanCodeImg</para>
+        /// </summary>
+        public byte[] ScanCodeImg
+        {
+            get { return this._scanCodeImg; }
+            set
+            {
+                if (this._scanCodeImg != value)
+                {
+                    this.IsDirty = true;
+                    this._scanCodeImg = value;
+                    OnPropertyChanged(() => ScanCodeImg);
+                    PropertyChangedCompleted(() => ScanCodeImg);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -451,6 +491,8 @@ namespace CPC.POSReport.Model
             this.base_GuestReward.RewardSetupAmount = this.RewardSetupAmount;
             this.base_GuestReward.RewardSetupUnit = this.RewardSetupUnit;
             this.base_GuestReward.Sign = this.Sign;
+            this.base_GuestReward.ScanCode = this.ScanCode;
+            this.base_GuestReward.ScanCodeImg = this.ScanCodeImg;
         }
 
         /// <summary>
@@ -477,6 +519,8 @@ namespace CPC.POSReport.Model
             this._rewardSetupAmount = this.base_GuestReward.RewardSetupAmount;
             this._rewardSetupUnit = this.base_GuestReward.RewardSetupUnit;
             this._sign = this.base_GuestReward.Sign;
+            this._scanCode = this.base_GuestReward.ScanCode;
+            this._scanCodeImg = this.base_GuestReward.ScanCodeImg;
         }
 
         /// <summary>
@@ -503,6 +547,8 @@ namespace CPC.POSReport.Model
             this.RewardSetupAmount = this.base_GuestReward.RewardSetupAmount;
             this.RewardSetupUnit = this.base_GuestReward.RewardSetupUnit;
             this.Sign = this.base_GuestReward.Sign;
+            this.ScanCode = this.base_GuestReward.ScanCode;
+            this.ScanCodeImg = this.base_GuestReward.ScanCodeImg;
         }
 
         #endregion

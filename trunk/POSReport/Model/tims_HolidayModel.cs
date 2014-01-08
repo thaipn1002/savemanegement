@@ -92,26 +92,6 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected string _description;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the Description</para>
-        /// </summary>
-        public string Description
-        {
-            get { return this._description; }
-            set
-            {
-                if (this._description != value)
-                {
-                    this.IsDirty = true;
-                    this._description = value;
-                    OnPropertyChanged(() => Description);
-                    PropertyChangedCompleted(() => Description);
-                }
-            }
-        }
-
         protected int _holidayOption;
         /// <summary>
         /// Property Model
@@ -375,7 +355,6 @@ namespace CPC.POSReport.Model
             if (IsNew)
                 this.tims_Holiday.Id = this.Id;
             this.tims_Holiday.Title = this.Title;
-            this.tims_Holiday.Description = this.Description;
             this.tims_Holiday.HolidayOption = this.HolidayOption;
             this.tims_Holiday.FromDate = this.FromDate;
             this.tims_Holiday.ToDate = this.ToDate;
@@ -398,7 +377,6 @@ namespace CPC.POSReport.Model
         {
             this._id = this.tims_Holiday.Id;
             this._title = this.tims_Holiday.Title;
-            this._description = this.tims_Holiday.Description;
             this._holidayOption = this.tims_Holiday.HolidayOption;
             this._fromDate = this.tims_Holiday.FromDate;
             this._toDate = this.tims_Holiday.ToDate;
@@ -421,7 +399,6 @@ namespace CPC.POSReport.Model
         {
             this.Id = this.tims_Holiday.Id;
             this.Title = this.tims_Holiday.Title;
-            this.Description = this.tims_Holiday.Description;
             this.HolidayOption = this.tims_Holiday.HolidayOption;
             this.FromDate = this.tims_Holiday.FromDate;
             this.ToDate = this.tims_Holiday.ToDate;
