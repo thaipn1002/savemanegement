@@ -2469,28 +2469,30 @@ namespace CPC.POS.Model
         } 
         #endregion
 
-        #region IsChangeTax
-        private bool _isChangeTax;
+        #region IsSetTax
+        private bool _isSetTax;
         /// <summary>
-        /// Gets or sets the IsChangeTax.
+        /// Gets or sets the IsSetTax.
         /// <para>Using for show deposit function in quotation</para>
         /// </summary>
-        public bool IsChangeTax
+        public bool IsSetTax
         {
             get
             {
-                return _isChangeTax;
+                return _isSetTax;
             }
             set
             {
-                if (_isChangeTax != value)
+                if (_isSetTax != value)
                 {
-                    _isChangeTax = value;
-                    OnPropertyChanged(() => IsChangeTax);
+                    _isSetTax = value;
+                    OnPropertyChanged(() => IsSetTax);
                 }
             }
         }
         #endregion
+
+
 
         #endregion
 

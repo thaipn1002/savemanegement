@@ -742,7 +742,6 @@ namespace CPC.Control
     [TemplatePart(Name = "PART_GRIDLISTBOX", Type = typeof(Grid))]
     public class ImageControl : ListBox
     {
-
         #region Fields
 
         /// <summary>

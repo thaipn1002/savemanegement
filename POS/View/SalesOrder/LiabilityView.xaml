@@ -674,7 +674,7 @@
                                                Foreground="#FFFDFF00"
                                                Text="{Binding SearchAlert}"
                                                TextWrapping="Wrap" />
-                                    <Button Content="Tìm kiếm theo ngày" Command="{Binding SearchDateCommand}" Width="120"/>
+                                    <Button Content="{Binding ContentDate}" Command="{Binding SearchDateCommand}" />
                                 </StackPanel>
                             </Grid>
                         </Grid>

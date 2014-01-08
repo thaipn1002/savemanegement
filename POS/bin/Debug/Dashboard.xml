@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Dashboard>
   <StackPanel Key="StackPanel1" Index="0">
-    <Demonstrator Name="CustomerHighestProfitView" Index="0">
+    <Demonstrator Name="CustomerHighestSaleView" Index="0">
       <Configuration Total="5" ChartTypeID="1" />
     </Demonstrator>
     <Demonstrator Name="CustomerHighestSaleView" Index="1">

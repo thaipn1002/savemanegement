@@ -19,7 +19,7 @@
 
     <!-- TimeClockManualEventEditing -->
     <sys:String x:Key="TimeClockManualEventEditing_gbSearch_HeaderSearch">Tìm kiếm</sys:String>
-    <sys:String x:Key="TimeClockManualEventEditing_gbSearch_FromDate">From Date:</sys:String>
+    <sys:String x:Key="TimeClockManualEventEditing_gbSearch_FromDate">Từ ngày</sys:String>
     <sys:String x:Key="TimeClockManualEventEditing_DatagridEmployeeName_EmployeeNo">Mã nhân viên</sys:String>
     <sys:String x:Key="TimeClockManualEventEditing_DatagridEmployeeName_FirstName">Họ</sys:String>
     <sys:String x:Key="TimeClockManualEventEditing_DatagridEmployeeName_LastName">Tên</sys:String>
@@ -38,8 +38,8 @@
 
     <!-- MessageBoxCaption -->
     <sys:String x:Key="ErrorCaption">Lỗi</sys:String>
-    <sys:String x:Key="WarningCaption">Cảnh Báo</sys:String>
-    <sys:String x:Key="InformationCaption">Thông Tin</sys:String>
+    <sys:String x:Key="WarningCaption">Cảnh báo</sys:String>
+    <sys:String x:Key="InformationCaption">Thông báo</sys:String>
     <sys:String x:Key="DeleteCaption">Xóa</sys:String>
     <sys:String x:Key="SaveCaption">Lưu</sys:String>
     <sys:String x:Key="POSCaption">POS</sys:String>
@@ -66,14 +66,14 @@
     <sys:String x:Key="M117">Không thể đổi tên {0}. Một thư mục với cái tên mà bạn chỉ định đã tồn tại.</sys:String>
     <sys:String x:Key="M118">Không thể đổi tên {0}. Một tập tin với cái tên mà bạn chỉ định đã tồn tại.</sys:String>
     <sys:String x:Key="M119">Hãy chọn một mục trong danh sách.</sys:String>
-    <sys:String x:Key="M120">You should close product view before apply to adjust product(s) in store(s) !</sys:String>
-    <sys:String x:Key="M121">Do you want to adjust numbers of product(s) in store(s) ?</sys:String>
+    <sys:String x:Key="M120">Bạn phải đóng cửa sổ sản phẩm trước khi thay đổi số lượng sản phẩm!</sys:String>
+    <sys:String x:Key="M121">Bạn có muốn thay đổi sản phẩm trong kho ?</sys:String>
     <sys:String x:Key="M122">The products aren't counted.Do you want that application will count them ?</sys:String>
-    <sys:String x:Key="M123">You should close product view before apply to transfer product(s) in store(s) !</sys:String>
-    <sys:String x:Key="M124">You should close product view before apply to revert product(s) in store(s) !</sys:String>
+    <sys:String x:Key="M123">Bạn phải đóng cửa sổ sản phẩm trước khi chuyển sản phẩm sang các kho !</sys:String>
+    <sys:String x:Key="M124">Bạn phải đóng cửa sổ sản phẩm trước khi chuyển sản phẩm về kho cũ !</sys:String>
     <sys:String x:Key="M125">Current total refund is less than reality total refund.</sys:String>
-    <sys:String x:Key="M126">Select folder used for save images.</sys:String>
-    <sys:String x:Key="M127">Select folder used for save backup files.</sys:String>
+    <sys:String x:Key="M126">Chọn thư mục để lưu hình ảnh.</sys:String>
+    <sys:String x:Key="M127">Chọn thư mục để sao lưu dữ liệu.</sys:String>
     <!--PopupAttributeAndSize-->
     <sys:String x:Key="M128">Kích thước đã tồn tại</sys:String>
     <sys:String x:Key="M129">Thuộc tính đã tồn tại</sys:String>
@@ -118,15 +118,15 @@
     <sys:String x:Key="C100">Sản phẩm</sys:String>
     <sys:String x:Key="C101">Kỳ hạn</sys:String>
     <sys:String x:Key="C102">Ghi chú</sys:String>
-    <sys:String x:Key="C103">Thành  tiền</sys:String>
-    <sys:String x:Key="C104">Tìm nâng cao</sys:String>
-    <sys:String x:Key="C105">Ngày Trả</sys:String>
-    <sys:String x:Key="C106">Thanh Toán Bằng:</sys:String>
+    <sys:String x:Key="C103">Thành tiền</sys:String>
+    <sys:String x:Key="C104">Tìm kiếm nâng cao</sys:String>
+    <sys:String x:Key="C105">Ngày trả</sys:String>
+    <sys:String x:Key="C106">Thanh toán bằng:</sys:String>
     <sys:String x:Key="C107">Trả</sys:String>
-    <sys:String x:Key="C108">Còn Lại</sys:String>
-    <sys:String x:Key="C109">Trả Tất Cả</sys:String>
-    <sys:String x:Key="C110">Tiền Nhận Về:</sys:String>
-    <sys:String x:Key="C111">Phí Trả Hàng:</sys:String>
+    <sys:String x:Key="C108">Còn lại</sys:String>
+    <sys:String x:Key="C109">Trả tất cả</sys:String>
+    <sys:String x:Key="C110">Tiền nhận về:</sys:String>
+    <sys:String x:Key="C111">Phí trả hàng:</sys:String>
     <sys:String x:Key="C112">Tổng cộng</sys:String>
     <sys:String x:Key="C113">Tìm kiếm</sys:String>
     <sys:String x:Key="C114">Mã sản phẩm</sys:String>
@@ -138,35 +138,35 @@
     <sys:String x:Key="C120">Số lượng</sys:String>
     <sys:String x:Key="C121">Giảm giá</sys:String>
     <sys:String x:Key="C122">Thành tiền</sys:String>
-    <sys:String x:Key="C123">Thanh Toán</sys:String>
-    <sys:String x:Key="C124">Trả Hàng</sys:String>
-    <sys:String x:Key="C125">Tạo Mới</sys:String>
-    <sys:String x:Key="C126">Chỉnh Sửa</sys:String>
-    <sys:String x:Key="C127">Xóa Mục Đã Chọn</sys:String>
-    <sys:String x:Key="C128">Tạo Bản Sao</sys:String>
+    <sys:String x:Key="C123">Thanh toán</sys:String>
+    <sys:String x:Key="C124">Trả hàng</sys:String>
+    <sys:String x:Key="C125">Tạo mới</sys:String>
+    <sys:String x:Key="C126">Chỉnh sửa</sys:String>
+    <sys:String x:Key="C127">Xóa mục đã chọn</sys:String>
+    <sys:String x:Key="C128">Tạo bản sao</sys:String>
     <sys:String x:Key="C129">Sửa Serial</sys:String>
-    <sys:String x:Key="C130">Ngày Trả</sys:String>
-    <sys:String x:Key="C131">SL Trả</sys:String>
+    <sys:String x:Key="C130">Ngày trả</sys:String>
+    <sys:String x:Key="C131">SL trả</sys:String>
     <sys:String x:Key="C132">Đã Trả</sys:String>
-    <sys:String x:Key="C133">Ngày Thanh Toán Nợ</sys:String>
+    <sys:String x:Key="C133">Ngày thanh toán nợ</sys:String>
     <sys:String x:Key="C134">Nhà PP</sys:String>
-    <sys:String x:Key="C135">Từ Khóa</sys:String>
-    <sys:String x:Key="C136">Đặt Hàng</sys:String>
-    <sys:String x:Key="C137">Kích Hoạt</sys:String>
+    <sys:String x:Key="C135">Từ khóa</sys:String>
+    <sys:String x:Key="C136">Đặt hàng</sys:String>
+    <sys:String x:Key="C137">Kích hoạt</sys:String>
     <sys:String x:Key="C138">Mô tả</sys:String>
     <sys:String x:Key="C139">Giá bán</sys:String>
     <sys:String x:Key="C140">Mới</sys:String>
-    <sys:String x:Key="C141">Chỉnh Sửa</sys:String>
+    <sys:String x:Key="C141">Chỉnh sửa</sys:String>
     <sys:String x:Key="C142">Lưu</sys:String>
     <sys:String x:Key="C143">Hủy</sys:String>
     <sys:String x:Key="C144">Loại thuế</sys:String>
     <sys:String x:Key="C145">% Lợi Nhuận</sys:String>
     <sys:String x:Key="C146">% Tăng Giá</sys:String>
-    <sys:String x:Key="C147">Nơi Nhận</sys:String>
-    <sys:String x:Key="C148">Ngày Đặt</sys:String>
-    <sys:String x:Key="C149">Ngày Nhận</sys:String>
-    <sys:String x:Key="C150">Ngày Hủy</sys:String>
-    <sys:String x:Key="C151">Trạng Thái</sys:String>
+    <sys:String x:Key="C147">Nơi nhận</sys:String>
+    <sys:String x:Key="C148">Ngày đặt</sys:String>
+    <sys:String x:Key="C149">Ngày nhận</sys:String>
+    <sys:String x:Key="C150">Ngày hủy</sys:String>
+    <sys:String x:Key="C151">Trạng thái</sys:String>
     <sys:String x:Key="C152">SL tồn kho</sys:String>
     <sys:String x:Key="C153">Trong hóa đơn</sys:String>
     <sys:String x:Key="C154">Số lượng để bán</sys:String>
@@ -178,8 +178,8 @@
     <sys:String x:Key="C160">Người tạo</sys:String>
     <sys:String x:Key="C161">Ngày thực hiện</sys:String>
     <sys:String x:Key="C162">Người thực hiện</sys:String>
-    <sys:String x:Key="C163">Ngày phục hồi</sys:String>
-    <sys:String x:Key="C164">Người phục hồi</sys:String>
+    <sys:String x:Key="C163">Ngày khôi phục</sys:String>
+    <sys:String x:Key="C164">Người khôi phục</sys:String>
     <sys:String x:Key="C165">Sản phẩm</sys:String>
     <sys:String x:Key="C166">Tất cả sản phẩm</sys:String>
     <sys:String x:Key="C167">Tất cả sản phẩm trong danh mục</sys:String>
@@ -203,7 +203,7 @@
     <sys:String x:Key="C185">Website</sys:String>
     <sys:String x:Key="C186">Chọn</sys:String>
     <sys:String x:Key="C187">Xóa</sys:String>
-    <sys:String x:Key="C188">Mật Khẩu</sys:String>
+    <sys:String x:Key="C188">Mật khẩu</sys:String>
     <sys:String x:Key="C189">Sáp nhập</sys:String>
     <sys:String x:Key="C190">Ghi chú</sys:String>
     <!-- End Common -->
@@ -216,40 +216,40 @@
     <!-- End DataGrid Language -->
 
     <!-- PurchaseOrderView -->
-    <sys:String x:Key="PO100">Đặt Hàng</sys:String>
-    <sys:String x:Key="PO101">Số ĐĐH</sys:String>
-    <sys:String x:Key="PO111">Ngày Thanh Toán Nợ:</sys:String>
-    <sys:String x:Key="PO112">Nhận Tất Cả</sys:String>
-    <sys:String x:Key="PO113">Tổng SL Đặt:</sys:String>
-    <sys:String x:Key="PO114">Tổng SL Nhận:</sys:String>
-    <sys:String x:Key="PO115">Đã Nhận</sys:String>
-    <sys:String x:Key="PO116">Nhận Hàng</sys:String>
-    <sys:String x:Key="PO117">SL Nợ</sys:String>
-    <sys:String x:Key="PO118">SL Nhận</sys:String>
-    <sys:String x:Key="PO119">Ngày Nhận</sys:String>
-    <sys:String x:Key="PO120">Ngày Đặt</sys:String>
-    <sys:String x:Key="PO121">SL Đặt</sys:String>
-    <sys:String x:Key="PO122">SL Nợ</sys:String>
-    <sys:String x:Key="PO123">SL Nhận</sys:String>
-    <sys:String x:Key="PO124">% SL Nợ</sys:String>
+    <sys:String x:Key="PO100">Đặt hàng</sys:String>
+    <sys:String x:Key="PO101">Mã HĐ</sys:String>
+    <sys:String x:Key="PO111">Ngày thanh toán nợ:</sys:String>
+    <sys:String x:Key="PO112">Nhận Tất cả</sys:String>
+    <sys:String x:Key="PO113">Tổng SL đặt:</sys:String>
+    <sys:String x:Key="PO114">Tổng SL nhận:</sys:String>
+    <sys:String x:Key="PO115">Đã nhận</sys:String>
+    <sys:String x:Key="PO116">Nhận hàng</sys:String>
+    <sys:String x:Key="PO117">SL nợ</sys:String>
+    <sys:String x:Key="PO118">SL nhận</sys:String>
+    <sys:String x:Key="PO119">Ngày nhận</sys:String>
+    <sys:String x:Key="PO120">Ngày đặt</sys:String>
+    <sys:String x:Key="PO121">SL đặt</sys:String>
+    <sys:String x:Key="PO122">SL nợ</sys:String>
+    <sys:String x:Key="PO123">SL nhận</sys:String>
+    <sys:String x:Key="PO124">% SL nợ</sys:String>
     <sys:String x:Key="PO125">Số ĐĐH</sys:String>
     <!--End PurchaseOrderView -->
 
     <!-- DepartmentView -->
-    <sys:String x:Key="D100">Tất Cả Thể Loại</sys:String>
-    <sys:String x:Key="D101">Tất Cả Sản Phẩm</sys:String>
-    <sys:String x:Key="D102">Lĩnh Vực</sys:String>
-    <sys:String x:Key="D103">Tên Lĩnh Vực:</sys:String>
-    <sys:String x:Key="D104">Tên Thể Loại:</sys:String>
-    <sys:String x:Key="D105">Tên Nhà PP:</sys:String>
+    <sys:String x:Key="D100">Tất cả</sys:String>
+    <sys:String x:Key="D101">Tất Cả sản phẩm</sys:String>
+    <sys:String x:Key="D102">Lĩnh vực</sys:String>
+    <sys:String x:Key="D103">Tên lĩnh vực</sys:String>
+    <sys:String x:Key="D104">Tên thể loại</sys:String>
+    <sys:String x:Key="D105">Tên Nhà PP</sys:String>
     <sys:String x:Key="D106">Tên</sys:String>
-    <sys:String x:Key="D107">Tạo Mới Lĩnh Vực</sys:String>
-    <sys:String x:Key="D108">Sửa Lĩnh Vực</sys:String>
-    <sys:String x:Key="D109">Tạo Mới Thể Loại</sys:String>
-    <sys:String x:Key="D110">Sửa Thể Loại</sys:String>
-    <sys:String x:Key="D111">Tạo Mới Nhà PP</sys:String>
+    <sys:String x:Key="D107">Tạo mới</sys:String>
+    <sys:String x:Key="D108">Sửa lĩnh vực</sys:String>
+    <sys:String x:Key="D109">Tạo mới</sys:String>
+    <sys:String x:Key="D110">Sửa thể loại</sys:String>
+    <sys:String x:Key="D111">Tạo mới nhà PP</sys:String>
     <sys:String x:Key="D112">Sửa Nhà PP</sys:String>
-    <sys:String x:Key="D113">Tất Cả Lĩnh Vực</sys:String>
+    <sys:String x:Key="D113">Tất cả lĩnh vực</sys:String>
     <!--End DepartmentView -->
 
     <!-- AttachmentView -->
@@ -261,13 +261,13 @@
     <!--End AttachmentView -->
 
     <!-- CompanySettingView -->
-    <sys:String x:Key="CS100">Thông Tin Cửa Hàng</sys:String>
+    <sys:String x:Key="CS100">Thông tin cửa hàng</sys:String>
     <sys:String x:Key="CS101">Số ĐT</sys:String>
     <sys:String x:Key="CS102">Internet</sys:String>
-    <sys:String x:Key="CS103">Số Cửa Hàng</sys:String>
-    <sys:String x:Key="CS104">Chọn số cửa hàng của công ty bạn.</sys:String>
+    <sys:String x:Key="CS103">Số cửa hàng</sys:String>
+    <sys:String x:Key="CS104">Chọn số cửa hàng</sys:String>
     <sys:String x:Key="CS105">Đơn vị tính</sys:String>
-    <sys:String x:Key="CS106">Nhiều Đơn Vị Đo Lường</sys:String>
+    <sys:String x:Key="CS106">Nhiều đơn vị đo lường</sys:String>
     <sys:String x:Key="CS107">Cho phép thiết lập nhiều đơn vị đo lường cho hàng tồn kho, không tồn kho và các sản phẩm dịch vụ khác.</sys:String>
     <sys:String x:Key="CS108">Ví dụ cho trường hợp sử dụng nhiều đơn vị đo lường:</sys:String>
     <sys:String x:Key="CS109">I order dog food in cases of 24 cans. I sell dog food by the individual can and by the case.</sys:String>
@@ -289,9 +289,9 @@
     <sys:String x:Key="CS119">Chọn các phương thức thanh toán mà bạn chấp nhận.</sys:String>
     <sys:String x:Key="CS120">Sử dụng</sys:String>
     <sys:String x:Key="CS121">như là phương thức thanh toán mặc định cho các hóa đơn mới.</sys:String>
-    <sys:String x:Key="CS122">Loại Thẻ</sys:String>
+    <sys:String x:Key="CS122">Loại thẻ</sys:String>
     <sys:String x:Key="CS123">Chọn các loại thẻ mà bạn chấp nhận</sys:String>
-    <sys:String x:Key="CS124">Loại Thẻ Quà Tặng</sys:String>
+    <sys:String x:Key="CS124">Loại thẻ quà tặng</sys:String>
     <sys:String x:Key="CS125">Chọn loại thẻ quà tặng mà bạn chấp nhận</sys:String>
     <sys:String x:Key="CS126">Mẹo</sys:String>
     <sys:String x:Key="CS127">Thu thập lời khuyên của khách hàng về tín dụng, tài khoản và các giao dịch thẻ quà tặng</sys:String>
@@ -300,7 +300,7 @@
     <!--Khi manally changing discount status from deactive to active, you can associate a discount reason.
     Khí manally thay đổi trạng thái giảm giá từ deactive để hoạt động, bạn có thể kết hợp một lý do giảm giá.-->
     <sys:String x:Key="CS129">Yêu cầu phải ghi nhận lý do giảm giá.</sys:String>
-    <sys:String x:Key="CS130">Cài Đặt Email</sys:String>
+    <sys:String x:Key="CS130">Cài Đặt email</sys:String>
     <sys:String x:Key="CS131">Kết nối tới tài khoảng email at your Internet service provide ( ISP) or your organization mail server.</sys:String>
     <sys:String x:Key="CS132">ISP Server &amp; Port</sys:String>
     <sys:String x:Key="CS133">Mail Server</sys:String>
