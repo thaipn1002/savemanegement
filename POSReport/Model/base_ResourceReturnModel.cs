@@ -372,12 +372,12 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected Nullable<decimal> _redeemed;
+        protected decimal _redeemed;
         /// <summary>
         /// Property Model
         /// <para>Gets or sets the Redeemed</para>
         /// </summary>
-        public Nullable<decimal> Redeemed
+        public decimal Redeemed
         {
             get { return this._redeemed; }
             set

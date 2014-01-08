@@ -72,26 +72,6 @@ namespace CPC.POSReport.Model
             }
         }
 
-        protected Nullable<long> _employeeId;
-        /// <summary>
-        /// Property Model
-        /// <para>Gets or sets the EmployeeId</para>
-        /// </summary>
-        public Nullable<long> EmployeeId
-        {
-            get { return this._employeeId; }
-            set
-            {
-                if (this._employeeId != value)
-                {
-                    this.IsDirty = true;
-                    this._employeeId = value;
-                    OnPropertyChanged(() => EmployeeId);
-                    PropertyChangedCompleted(() => EmployeeId);
-                }
-            }
-        }
-
         protected Nullable<int> _workScheduleId;
         /// <summary>
         /// Property Model
@@ -552,6 +532,26 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected Nullable<long> _employeeId;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the EmployeeId</para>
+        /// </summary>
+        public Nullable<long> EmployeeId
+        {
+            get { return this._employeeId; }
+            set
+            {
+                if (this._employeeId != value)
+                {
+                    this.IsDirty = true;
+                    this._employeeId = value;
+                    OnPropertyChanged(() => EmployeeId);
+                    PropertyChangedCompleted(() => EmployeeId);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -574,7 +574,6 @@ namespace CPC.POSReport.Model
         {
             if (IsNew)
                 this.tims_TimeLog.Id = this.Id;
-            this.tims_TimeLog.EmployeeId = this.EmployeeId;
             this.tims_TimeLog.WorkScheduleId = this.WorkScheduleId;
             this.tims_TimeLog.PayrollId = this.PayrollId;
             this.tims_TimeLog.ClockIn = this.ClockIn;
@@ -598,6 +597,7 @@ namespace CPC.POSReport.Model
             this.tims_TimeLog.IsHoliday = this.IsHoliday;
             this.tims_TimeLog.HolidayDescription = this.HolidayDescription;
             this.tims_TimeLog.UserUpdated = this.UserUpdated;
+            this.tims_TimeLog.EmployeeId = this.EmployeeId;
         }
 
         /// <summary>
@@ -607,7 +607,6 @@ namespace CPC.POSReport.Model
         public void ToModel()
         {
             this._id = this.tims_TimeLog.Id;
-            this._employeeId = this.tims_TimeLog.EmployeeId;
             this._workScheduleId = this.tims_TimeLog.WorkScheduleId;
             this._payrollId = this.tims_TimeLog.PayrollId;
             this._clockIn = this.tims_TimeLog.ClockIn;
@@ -631,6 +630,7 @@ namespace CPC.POSReport.Model
             this._isHoliday = this.tims_TimeLog.IsHoliday;
             this._holidayDescription = this.tims_TimeLog.HolidayDescription;
             this._userUpdated = this.tims_TimeLog.UserUpdated;
+            this._employeeId = this.tims_TimeLog.EmployeeId;
         }
 
         /// <summary>
@@ -640,7 +640,6 @@ namespace CPC.POSReport.Model
         public void ToModelAndRaise()
         {
             this.Id = this.tims_TimeLog.Id;
-            this.EmployeeId = this.tims_TimeLog.EmployeeId;
             this.WorkScheduleId = this.tims_TimeLog.WorkScheduleId;
             this.PayrollId = this.tims_TimeLog.PayrollId;
             this.ClockIn = this.tims_TimeLog.ClockIn;
@@ -664,6 +663,7 @@ namespace CPC.POSReport.Model
             this.IsHoliday = this.tims_TimeLog.IsHoliday;
             this.HolidayDescription = this.tims_TimeLog.HolidayDescription;
             this.UserUpdated = this.tims_TimeLog.UserUpdated;
+            this.EmployeeId = this.tims_TimeLog.EmployeeId;
         }
 
         #endregion

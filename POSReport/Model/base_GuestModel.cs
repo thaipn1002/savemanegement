@@ -1452,6 +1452,46 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected byte[] _picture;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the Picture</para>
+        /// </summary>
+        public byte[] Picture
+        {
+            get { return this._picture; }
+            set
+            {
+                if (this._picture != value)
+                {
+                    this.IsDirty = true;
+                    this._picture = value;
+                    OnPropertyChanged(() => Picture);
+                    PropertyChangedCompleted(() => Picture);
+                }
+            }
+        }
+
+        protected Nullable<decimal> _employeeCommissionPercent;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the EmployeeCommissionPercent</para>
+        /// </summary>
+        public Nullable<decimal> EmployeeCommissionPercent
+        {
+            get { return this._employeeCommissionPercent; }
+            set
+            {
+                if (this._employeeCommissionPercent != value)
+                {
+                    this.IsDirty = true;
+                    this._employeeCommissionPercent = value;
+                    OnPropertyChanged(() => EmployeeCommissionPercent);
+                    PropertyChangedCompleted(() => EmployeeCommissionPercent);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -1543,6 +1583,8 @@ namespace CPC.POSReport.Model
             this.base_Guest.CreditLine = this.CreditLine;
             this.base_Guest.ManagerResource = this.ManagerResource;
             this.base_Guest.IsVIP = this.IsVIP;
+            this.base_Guest.Picture = this.Picture;
+            this.base_Guest.EmployeeCommissionPercent = this.EmployeeCommissionPercent;
         }
 
         /// <summary>
@@ -1621,6 +1663,8 @@ namespace CPC.POSReport.Model
             this._creditLine = this.base_Guest.CreditLine;
             this._managerResource = this.base_Guest.ManagerResource;
             this._isVIP = this.base_Guest.IsVIP;
+            this._picture = this.base_Guest.Picture;
+            this._employeeCommissionPercent = this.base_Guest.EmployeeCommissionPercent;
         }
 
         /// <summary>
@@ -1699,6 +1743,8 @@ namespace CPC.POSReport.Model
             this.CreditLine = this.base_Guest.CreditLine;
             this.ManagerResource = this.base_Guest.ManagerResource;
             this.IsVIP = this.base_Guest.IsVIP;
+            this.Picture = this.base_Guest.Picture;
+            this.EmployeeCommissionPercent = this.base_Guest.EmployeeCommissionPercent;
         }
 
         #endregion

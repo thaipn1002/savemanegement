@@ -432,6 +432,26 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected string _storeCardNo;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the StoreCardNo</para>
+        /// </summary>
+        public string StoreCardNo
+        {
+            get { return this._storeCardNo; }
+            set
+            {
+                if (this._storeCardNo != value)
+                {
+                    this.IsDirty = true;
+                    this._storeCardNo = value;
+                    OnPropertyChanged(() => StoreCardNo);
+                    PropertyChangedCompleted(() => StoreCardNo);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -472,6 +492,7 @@ namespace CPC.POSReport.Model
             this.base_ResourceReturnDetail.ParentResource = this.ParentResource;
             this.base_ResourceReturnDetail.VAT = this.VAT;
             this.base_ResourceReturnDetail.RewardRedeem = this.RewardRedeem;
+            this.base_ResourceReturnDetail.StoreCardNo = this.StoreCardNo;
         }
 
         /// <summary>
@@ -499,6 +520,7 @@ namespace CPC.POSReport.Model
             this._parentResource = this.base_ResourceReturnDetail.ParentResource;
             this._vAT = this.base_ResourceReturnDetail.VAT;
             this._rewardRedeem = this.base_ResourceReturnDetail.RewardRedeem;
+            this._storeCardNo = this.base_ResourceReturnDetail.StoreCardNo;
         }
 
         /// <summary>
@@ -526,6 +548,7 @@ namespace CPC.POSReport.Model
             this.ParentResource = this.base_ResourceReturnDetail.ParentResource;
             this.VAT = this.base_ResourceReturnDetail.VAT;
             this.RewardRedeem = this.base_ResourceReturnDetail.RewardRedeem;
+            this.StoreCardNo = this.base_ResourceReturnDetail.StoreCardNo;
         }
 
         #endregion

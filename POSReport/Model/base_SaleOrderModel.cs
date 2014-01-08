@@ -1372,6 +1372,86 @@ namespace CPC.POSReport.Model
             }
         }
 
+        protected decimal _openACFee;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the OpenACFee</para>
+        /// </summary>
+        public decimal OpenACFee
+        {
+            get { return this._openACFee; }
+            set
+            {
+                if (this._openACFee != value)
+                {
+                    this.IsDirty = true;
+                    this._openACFee = value;
+                    OnPropertyChanged(() => OpenACFee);
+                    PropertyChangedCompleted(() => OpenACFee);
+                }
+            }
+        }
+
+        protected decimal _cancellationFee;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the CancellationFee</para>
+        /// </summary>
+        public decimal CancellationFee
+        {
+            get { return this._cancellationFee; }
+            set
+            {
+                if (this._cancellationFee != value)
+                {
+                    this.IsDirty = true;
+                    this._cancellationFee = value;
+                    OnPropertyChanged(() => CancellationFee);
+                    PropertyChangedCompleted(() => CancellationFee);
+                }
+            }
+        }
+
+        protected bool _isReturned;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the IsReturned</para>
+        /// </summary>
+        public bool IsReturned
+        {
+            get { return this._isReturned; }
+            set
+            {
+                if (this._isReturned != value)
+                {
+                    this.IsDirty = true;
+                    this._isReturned = value;
+                    OnPropertyChanged(() => IsReturned);
+                    PropertyChangedCompleted(() => IsReturned);
+                }
+            }
+        }
+
+        protected string _saleReference;
+        /// <summary>
+        /// Property Model
+        /// <para>Gets or sets the SaleReference</para>
+        /// </summary>
+        public string SaleReference
+        {
+            get { return this._saleReference; }
+            set
+            {
+                if (this._saleReference != value)
+                {
+                    this.IsDirty = true;
+                    this._saleReference = value;
+                    OnPropertyChanged(() => SaleReference);
+                    PropertyChangedCompleted(() => SaleReference);
+                }
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -1459,6 +1539,10 @@ namespace CPC.POSReport.Model
             this.base_SaleOrder.SOCardImg = this.SOCardImg;
             this.base_SaleOrder.VoidReason = this.VoidReason;
             this.base_SaleOrder.IsVoided = this.IsVoided;
+            this.base_SaleOrder.OpenACFee = this.OpenACFee;
+            this.base_SaleOrder.CancellationFee = this.CancellationFee;
+            this.base_SaleOrder.IsReturned = this.IsReturned;
+            this.base_SaleOrder.SaleReference = this.SaleReference;
         }
 
         /// <summary>
@@ -1533,6 +1617,10 @@ namespace CPC.POSReport.Model
             this._sOCardImg = this.base_SaleOrder.SOCardImg;
             this._voidReason = this.base_SaleOrder.VoidReason;
             this._isVoided = this.base_SaleOrder.IsVoided;
+            this._openACFee = this.base_SaleOrder.OpenACFee;
+            this._cancellationFee = this.base_SaleOrder.CancellationFee;
+            this._isReturned = this.base_SaleOrder.IsReturned;
+            this._saleReference = this.base_SaleOrder.SaleReference;
         }
 
         /// <summary>
@@ -1607,6 +1695,10 @@ namespace CPC.POSReport.Model
             this.SOCardImg = this.base_SaleOrder.SOCardImg;
             this.VoidReason = this.base_SaleOrder.VoidReason;
             this.IsVoided = this.base_SaleOrder.IsVoided;
+            this.OpenACFee = this.base_SaleOrder.OpenACFee;
+            this.CancellationFee = this.base_SaleOrder.CancellationFee;
+            this.IsReturned = this.base_SaleOrder.IsReturned;
+            this.SaleReference = this.base_SaleOrder.SaleReference;
         }
 
         #endregion
