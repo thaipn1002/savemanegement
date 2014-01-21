@@ -102,6 +102,8 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontFamily" Value="Tahoma"/>
         <Style.Triggers>
             <Trigger Property="VirtualizingStackPanel.IsVirtualizing"
                      Value="true">
@@ -134,12 +136,11 @@
                 Value="1" />
         <Setter Property="FocusVisualStyle"
                 Value="{StaticResource TreeViewItemFocusVisual}" />
-        <Setter Property="IsExpanded" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TreeViewItem}">
                     <Grid x:Name="grid"
-                          >
+                          Background="#02FFFFFF">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
@@ -158,6 +159,13 @@
                                       VerticalAlignment="Center"
                                       Width="Auto"
                                       Height="Auto" />
+                        <Rectangle x:Name="Image"
+                                   Grid.Column="1"
+                                   Width="16"
+                                   Height="16"
+                                   VerticalAlignment="Center"
+                                   Visibility="Collapsed"
+                                   Fill="{DynamicResource OK}" />
                         <Border x:Name="Bd"
                                 VerticalAlignment="Center"
                                 BorderThickness="{TemplateBinding BorderThickness}"
@@ -199,14 +207,17 @@
                         </Trigger>
                         <Trigger Property="IsSelected"
                                  Value="true">
-                            <Setter Property="Foreground"
+                            <!--<Setter Property="Foreground"
                                     Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
                             <Setter Property="Background"
                                     TargetName="Bd"
                                     Value="{DynamicResource TreeviewItem_IsSelected_Background}" />
                             <Setter Property="BorderBrush"
                                     TargetName="Bd"
-                                    Value="{DynamicResource TreeviewItem_IsSelected_BorderBrush}" />
+                                    Value="{DynamicResource TreeviewItem_IsSelected_BorderBrush}" />-->
+                            <Setter Property="Visibility"
+                                    TargetName="Image"
+                                    Value="Visible" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -414,7 +425,8 @@
         <Setter Property="FontSize"
                 Value="11" />
         <Setter Property="Foreground"
-                Value="White" />
+                Value="Black" />
+        <Setter Property="FontFamily" Value="Tahoma"/>
     </Style>
     <!--<Setter Property="Foreground"
                                     Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
