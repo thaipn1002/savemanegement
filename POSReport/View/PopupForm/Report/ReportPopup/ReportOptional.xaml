@@ -51,7 +51,7 @@
                 			<ColumnDefinition/>
                 		</Grid.ColumnDefinitions>                        
                 		<TextBlock 
-                			Text="Store Name"
+                			Text="Tên cửa hàng"
                             Visibility="{Binding IsShowStore}"
                 			TextWrapping="NoWrap"
                 			Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{DynamicResource TextBlockNormal}" />
@@ -69,7 +69,7 @@
                         </ComboBox>
                         <TextBlock 
                             Visibility="{Binding IsShowDepart00}"
-                			Text="Department"
+                			Text="Lĩnh vực"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
                 			Style="{DynamicResource TextBlockNormal}" d:LayoutOverrides="GridBox" HorizontalAlignment="Left" Margin="5,0,0,0" />
@@ -88,7 +88,7 @@
                         </ComboBox>
 
                         <TextBlock 
-                			Text="Product"
+                			Text="Sản phẩm"
                             Visibility="{Binding IsShowProduct01}"
                             TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -116,7 +116,7 @@
                 			SelectedItem="{Binding ToStoreModel}" Grid.Column="1" Margin="180,2,0,2" Grid.Row="0" HorizontalAlignment="Left" Width="110" d:LayoutOverrides="GridBox"/>                        
                         
                         <TextBlock 
-                			Text="Category"
+                			Text="Danh mục"
                             Visibility="{Binding IsShowCategory01}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -137,7 +137,7 @@
                         
 
                         <TextBlock 
-                			Text="Category"
+                			Text="Danh mục"
                             Visibility="{Binding IsShowCategory10}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -159,7 +159,7 @@
 
                         <TextBlock 
                 			x:Name="txtblTransferStockStatus"
-                			Text="Transfer stt"
+                			Text="Tình trạng chuyển hàng"
                             Visibility="{Binding IsShowTransferStockStatus}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -175,7 +175,7 @@
 
                         <TextBlock 
                             Visibility="{Binding IsShowProduct11}"
-                			Text="Product"
+                			Text="Sản phẩm"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
                 			Grid.Row="1" 
@@ -188,7 +188,7 @@
                 			SelectedItem="{Binding ProductModel}" Margin="180,2,0,2" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="1" Width="110"/>
 
                         <TextBlock
-                			Text="SO Status"
+                			Text="Tình trạng HĐ"
                             Visibility="{Binding IsShowSOStatus11}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -200,7 +200,7 @@
                 			DisplayMemberPath="Text"                                    
                 			SelectedItem="{Binding SOStatus}" Margin="0,2,0,2" Grid.Row="1" HorizontalAlignment="Left" Width="110" Grid.Column="1"/>
                         <TextBlock 
-                			Text="Customer"
+                			Text="Khách hàng"
                             Visibility="{Binding IsShowCustomer11}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -249,7 +249,7 @@
                 			Width="110" d:LayoutOverrides="Height" Grid.Row="2" />                                               
                         
                         <TextBlock
-                			Text="SO Status"
+                			Text="Tình trạng HĐ"
                             Visibility="{Binding IsShowAdjustment}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -261,7 +261,7 @@
                 			DisplayMemberPath="Text"                                    
                 			SelectedItem="{Binding AdjustmentStatus}" Margin="0,2,0,2" Grid.Row="3" HorizontalAlignment="Left" Width="110" Grid.Column="1"/>
                         <TextBlock 
-                			Text="SO Reason"
+                			Text="Lý do"
                             Visibility="{Binding IsShowAdjustment}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -275,7 +275,7 @@
                 			SelectedItem="{Binding AdjustmentReason}" Grid.Column="1" Margin="180,2,0,2" Grid.Row="3" HorizontalAlignment="Left" Width="110"/>
 
                        <TextBlock
-                			Text="SO Status"
+                			Text="Tình trạng HĐ"
                             Visibility="{Binding IsShowSOStatus33}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -287,7 +287,7 @@
                 			DisplayMemberPath="Text"                                    
                 			SelectedItem="{Binding SOStatus}" Margin="0,2,0,2" Grid.Row="3" HorizontalAlignment="Left" Width="110" Grid.Column="1"/>
                         <TextBlock 
-                			Text="Customer"
+                			Text="Khách hàng"
                             Visibility="{Binding IsShowCustomer33}"
                 			TextWrapping="NoWrap" 
                 			VerticalAlignment="Center" 
@@ -302,7 +302,7 @@
 
                         <TextBlock 
                             Visibility="{Binding IsShowShipDate}"
-                			Text="Ship from"
+                			Text="Vận chuyển từ"
                 			TextWrapping="NoWrap"
                 			HorizontalAlignment="Left" Style="{DynamicResource TextBlockNormal}" Grid.Row="3" VerticalAlignment="Center" Margin="5,0,0,0" d:IsHidden="True" />
                         <DatePicker
@@ -315,7 +315,7 @@
                 			Width="110" d:LayoutOverrides="Height" Grid.Row="3"  />
                         <TextBlock 
                             Visibility="{Binding IsShowShipDate}"
-                			Text="Ship to"
+                			Text="Vận chuyển đến"
                 			TextWrapping="NoWrap" Style="{DynamicResource TextBlockNormal}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125
 							,0,0,0" />
                         <DatePicker 
@@ -342,7 +342,7 @@
 						x:Name="btnOK" Height="28" Width="80" >
 						<StackPanel HorizontalAlignment="Center" x:Name="stkpBtnOK" VerticalAlignment="Center" Orientation="Horizontal">
 							<Rectangle x:Name="imgOK" Fill="{DynamicResource OK}" Height="20" Width="20"/>
-							<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="OK" TextWrapping="NoWrap" x:Name="txtblOK" Style="{DynamicResource ButtonTextBlock}"/>
+							<TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Text="Chấp nhận" TextWrapping="NoWrap" x:Name="txtblOK" Style="{DynamicResource ButtonTextBlock}"/>
 						</StackPanel>
 					</Button>
 					<Button
@@ -351,7 +351,7 @@
 						x:Name="btnCancel" Height="28" Width="80" Margin="10,0,0,0" >
 						<StackPanel HorizontalAlignment="Center" x:Name="stkpBtnCancel" VerticalAlignment="Center" Orientation="Horizontal">
 							<Rectangle x:Name="imgCancel" Fill="{DynamicResource Cancel}" Height="20" Width="20"/>
-							<TextBlock Margin="5,0,0,0" x:Name="txtblExit" VerticalAlignment="Center" Text="Cancel" TextWrapping="NoWrap" Style="{DynamicResource ButtonTextBlock}"/>
+							<TextBlock Margin="5,0,0,0" x:Name="txtblExit" VerticalAlignment="Center" Text="Hủy" TextWrapping="NoWrap" Style="{DynamicResource ButtonTextBlock}"/>
 						</StackPanel>
 					</Button>
 				</StackPanel>
