@@ -14,7 +14,7 @@
         xmlns:helper="clr-namespace:CPC.POSReport.Function.Helper"
        Title="Sale Management System"
         MinWidth="480"
-        MinHeight="240">
+        MinHeight="240" Icon="/POSReport;component/Report1.ico">
     <Grid>
         <Rectangle x:Name="Shadow"
                    Fill="Black"

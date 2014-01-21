@@ -71,7 +71,7 @@
                                Height="13"
                                Width="13" />
                 </MenuItem.Icon>
-            </MenuItem> 
+            </MenuItem>
             <MenuItem Header="Assign authorize report"
                       Command="{Binding Tag.ReportPermissionCommand, RelativeSource={RelativeSource AncestorType=ContextMenu, Mode=FindAncestor}}">
                 <MenuItem.Icon>
@@ -79,8 +79,8 @@
                                Height="13"
                                Width="13" />
                 </MenuItem.Icon>
-            </MenuItem>				
-			
+            </MenuItem>
+
             <MenuItem Header="No show report"
                       Command="{Binding Tag.NoShowReportCommand, RelativeSource={RelativeSource AncestorType=ContextMenu, Mode=FindAncestor}}">
                 <MenuItem.Icon>
@@ -2585,55 +2585,55 @@
         </Style>
         <Style x:Key="StatusBarItem"
         	TargetType="{x:Type StatusBarItem}">
-        	<Setter Property="Padding"
+            <Setter Property="Padding"
         		Value="1" />
-        	<Setter Property="Background"
+            <Setter Property="Background"
         		Value="Transparent" />
-        	<Setter Property="HorizontalContentAlignment"
+            <Setter Property="HorizontalContentAlignment"
         		Value="Left" />
-        	<Setter Property="VerticalContentAlignment"
+            <Setter Property="VerticalContentAlignment"
         		Value="Center" />
-        	<Setter Property="Template">
-        		<Setter.Value>
-        			<ControlTemplate TargetType="{x:Type StatusBarItem}">
-        				<Border BorderBrush="{DynamicResource Bottom_TitleBar_Border}"
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type StatusBarItem}">
+                        <Border BorderBrush="{DynamicResource Bottom_TitleBar_Border}"
         					BorderThickness="1,1,0,0">
-        					<Border Width="Auto"
+                            <Border Width="Auto"
         						Height="Auto"
         						Background="{TemplateBinding Background}"
         						BorderBrush="{DynamicResource Bottom_TitleBar_Border2}"
         						BorderThickness="0,0,1,1"
         						SnapsToDevicePixels="true">
-        						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
         							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
         							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-        					</Border>
-        				</Border>
-        				<ControlTemplate.Triggers>
-        					<Trigger Property="IsEnabled"
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled"
         						Value="false">
-        						<Setter Property="Foreground"
+                                <Setter Property="Foreground"
         							Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
-        					</Trigger>
-        				</ControlTemplate.Triggers>
-        			</ControlTemplate>
-        		</Setter.Value>
-        	</Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style x:Key="StatusBarItemTextBlock"
         	TargetType="{x:Type TextBlock}">
-        	<Setter Property="TextWrapping"
+            <Setter Property="TextWrapping"
         		Value="NoWrap" />
-        	<Setter Property="TextTrimming"
+            <Setter Property="TextTrimming"
         		Value="None" />
-        	<Setter Property="FontSize"
+            <Setter Property="FontSize"
         		Value="11" />
-        	<Setter Property="Foreground"
+            <Setter Property="Foreground"
         		Value="{DynamicResource Bottom_TitleBar_Foreground}" />
-        	<Setter Property="FontFamily"
+            <Setter Property="FontFamily"
         		Value="Tahoma" />
         </Style>
-        <!--endregion RibbonStyle-->        
+        <!--endregion RibbonStyle-->
     </r:RibbonWindow.Resources>
     <r:RibbonWindow.InputBindings>
         <KeyBinding Key="O"
@@ -2693,7 +2693,7 @@
                         <r:RibbonApplicationMenuItem ImageSource="\Image\RibbonImages\Gray\RibbonExit.png"
                                                      Header="Exit Application"
                                                      Click="Exit_Click"
-                                                     Command="{Binding ExitCommand}" />											 
+                                                     Command="{Binding ExitCommand}" />
                     </r:RibbonApplicationMenu>
                 </r:Ribbon.ApplicationMenu>
                 <!--<r:RibbonTab Header="Home"> 
@@ -2713,13 +2713,13 @@
             </r:Ribbon>
 
             <Grid x:Name="grdMain" Grid.Row="1" Background="{DynamicResource UserControl_Background_ReportImage}">
-            	<Grid.RowDefinitions>
-            		 <RowDefinition x:Name="RibbonRow"
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="RibbonRow"
                                    Height="Auto" />
                     <RowDefinition x:Name="ClientRow" />
                     <RowDefinition x:Name="StatusRow"
                                    Height="Auto" />
-            	</Grid.RowDefinitions>
+                </Grid.RowDefinitions>
                 <Border x:Name="brdSubReport"
                         Margin="5"
                         BorderBrush="{DynamicResource TabControlBorder}"
@@ -3260,7 +3260,8 @@
                                                                         Binding="{Binding CCReport}"
                                                                         ElementStyle="{StaticResource CellMidleLeft}"
                                                                         Width="*"
-                                                                        d:IsHidden="True" />                                                </DataGrid.Columns>
+                                                                        d:IsHidden="True" />
+                                                </DataGrid.Columns>
                                             </DataGrid>
                                         </Grid>
                                     </GroupBox>
@@ -3393,16 +3394,16 @@
                                                                         ElementStyle="{StaticResource CellMidleLeft}"
                                                                         Width="250"
                                                                         d:IsHidden="True" />
-													<DataGridTextColumn Header="Date Printed"
+                                                    <DataGridTextColumn Header="Date Printed"
                                                                         Binding="{Binding CreatedDate}"
                                                                         ElementStyle="{StaticResource CellMidleCenter}"
                                                                         Width="150"
                                                                         d:IsHidden="True" />
-                                                                                                        
+
                                                 </DataGrid.Columns>
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseDoubleClick">
-                                                        <i:InvokeCommandAction Command="{Binding DataContext.OpenPdfFileCommand,RelativeSource={RelativeSource AncestorLevel=1,AncestorType=Window,Mode=FindAncestor}}">                                                            
+                                                        <i:InvokeCommandAction Command="{Binding DataContext.OpenPdfFileCommand,RelativeSource={RelativeSource AncestorLevel=1,AncestorType=Window,Mode=FindAncestor}}">
                                                         </i:InvokeCommandAction>
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
@@ -3489,7 +3490,7 @@
                                                   Margin="5,0,5,5"
                                                   Grid.Row="2">
                                             <DataGrid.Columns>
-												<DataGridTemplateColumn Width="25">
+                                                <DataGridTemplateColumn Width="25">
                                                     <DataGridTemplateColumn.HeaderTemplate>
                                                         <DataTemplate>
                                                             <Grid>
@@ -3526,7 +3527,7 @@
                                                                     Binding="{Binding UserCreated}"
                                                                     IsReadOnly="True"
                                                                     Width="150" />
-                                                
+
                                             </DataGrid.Columns>
                                         </DataGrid>
                                     </Grid>
@@ -3563,7 +3564,7 @@
                                             <TextBlock Margin="5,0,0,0"
                                                        x:Name="txtblNew"
                                                        VerticalAlignment="Center"
-                                                       Text="New"
+                                                       Text="Tạo mới"
                                                        TextWrapping="NoWrap"
                                                        Style="{DynamicResource ButtonTextBlock}" />
                                         </StackPanel>
@@ -3584,7 +3585,7 @@
                                             <TextBlock Margin="5,0,0,0"
                                                        x:Name="txtblSave"
                                                        VerticalAlignment="Center"
-                                                       Text="Save"
+                                                       Text="Lưu"
                                                        TextWrapping="NoWrap"
                                                        Style="{DynamicResource ButtonTextBlock}" />
                                         </StackPanel>
@@ -3605,7 +3606,7 @@
                                             <TextBlock Margin="5,0,0,0"
                                                        x:Name="txtblDelete"
                                                        VerticalAlignment="Center"
-                                                       Text="Delete"
+                                                       Text="Xóa"
                                                        TextWrapping="NoWrap"
                                                        Style="{DynamicResource ButtonTextBlock}" />
                                         </StackPanel>
@@ -3625,7 +3626,7 @@
                                                        Width="20" />
                                             <TextBlock Margin="5,0,0,0"
                                                        VerticalAlignment="Center"
-                                                       Text="Preview"
+                                                       Text="Xem trước"
                                                        TextWrapping="NoWrap"
                                                        x:Name="txtblPreview"
                                                        Style="{DynamicResource ButtonTextBlock}" />
@@ -3647,7 +3648,7 @@
                                             <TextBlock Margin="5,0,0,0"
                                                        x:Name="txtblClose"
                                                        VerticalAlignment="Center"
-                                                       Text="Close"
+                                                       Text="Đóng"
                                                        TextWrapping="NoWrap"
                                                        Style="{DynamicResource ButtonTextBlock}" />
                                         </StackPanel>
@@ -3686,7 +3687,7 @@
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <TextBlock x:Name="txtblReportCode"
-                                               Text="Report Code"
+                                               Text="Mã báo cáo"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3710,7 +3711,7 @@
                                         </i:Interaction.Triggers>
                                     </TextBox>
                                     <TextBlock x:Name="txtblReportGroup"
-                                               Text="Parent Report "
+                                               Text="Báo cáo chính "
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3727,7 +3728,7 @@
                                               Width="157"
                                               HorizontalAlignment="Left" />
                                     <TextBlock x:Name="txtblReportName"
-                                               Text="Report Name"
+                                               Text="Tên báo cáo"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3743,7 +3744,7 @@
                                              HorizontalAlignment="Left"                                             
                                              Width="373" />
                                     <TextBlock x:Name="txtblPrinterName"
-                                               Text="Printer Name"
+                                               Text="Tên người in"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3759,7 +3760,7 @@
                                               HorizontalAlignment="Left"
                                               Width="373" />
                                     <TextBlock x:Name="txtblReportFile"
-                                               Text="Report File"
+                                               Text="Tên tập tin"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3786,7 +3787,7 @@
                                             HorizontalAlignment="Left"
                                             Width="21" />
                                     <TextBlock x:Name="txtblPaperSize"
-                                               Text="Paper Size"
+                                               Text="Cỡ giấy"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3864,7 +3865,7 @@
                                              Width="120"                                             
                                              HorizontalAlignment="Left" />
                                     <TextBlock x:Name="txtblReportInformation"
-                                               Text="Report Information"
+                                               Text="Thông tin báo cáo"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3884,7 +3885,7 @@
                                              Width="373"                                             
                                              HorizontalAlignment="Left" />
                                     <TextBlock x:Name="txtblSampleReport"
-                                               Text="Sample Report"
+                                               Text="Báo cáo mẫu"
                                                TextWrapping="NoWrap"
                                                HorizontalAlignment="Left"
                                                Style="{DynamicResource TextBlockNormal}"
@@ -3922,7 +3923,7 @@
                                                        Width="18" />
                                             <TextBlock Margin="5,0,0,0"
                                                        VerticalAlignment="Center"
-                                                       Text="Load Picture"
+                                                       Text="Tải hình ảnh"
                                                        TextWrapping="NoWrap"
                                                        x:Name="txtblLoadPicture"
                                                        Style="{DynamicResource ButtonTextBlock}" />
@@ -3945,7 +3946,7 @@
                                                        Width="18" />
                                             <TextBlock Margin="5,0,0,0"
                                                        VerticalAlignment="Center"
-                                                       Text="Clear Picture"
+                                                       Text="Xóa hình ảnh"
                                                        TextWrapping="NoWrap"
                                                        x:Name="txtblClearPicture"
                                                        Style="{DynamicResource ButtonTextBlock}" />
@@ -3965,7 +3966,7 @@
                         BorderBrush="{DynamicResource Bottom_TitleBar_Border}"
                         BorderThickness="0,1,0,0">
                     <DockPanel>
-                		<StatusBarItem Margin="3,3,0,1"
+                        <StatusBarItem Margin="3,3,0,1"
                                        Style="{DynamicResource StatusBarItem}">
                             <StackPanel x:Name="stkpUser"
                                         Margin="3,0"
@@ -3994,25 +3995,25 @@
                                            VerticalAlignment="Center" />
                             </StackPanel>
                         </StatusBarItem>
-                		<StatusBarItem Margin="2,3,0,1"
+                        <StatusBarItem Margin="2,3,0,1"
                 			Style="{DynamicResource StatusBarItem}">
-                			<StackPanel x:Name="stkpStore1"
+                            <StackPanel x:Name="stkpStore1"
                 				Margin="3,0"
                 				Orientation="Horizontal">
-                				<Rectangle x:Name="imgWorkStation"
+                                <Rectangle x:Name="imgWorkStation"
                 					Width="14"
                 					Height="14"
                 					Margin="0,0,5,0"
                 					Fill="{DynamicResource WorkStation}" />
-                				<TextBlock x:Name="txtblServer"
+                                <TextBlock x:Name="txtblServer"
                 					Margin="0,0,2,0"        
                                            ToolTip="Computer name"
                 					Style="{DynamicResource StatusBarItemTextBlock}"     
                                            Text="{Binding ComputerName}"
                 					VerticalAlignment="Center" />
-                			</StackPanel>
-                		</StatusBarItem>
-                		<StatusBarItem Margin="2,3,0,1"
+                            </StackPanel>
+                        </StatusBarItem>
+                        <StatusBarItem Margin="2,3,0,1"
                                        Style="{DynamicResource StatusBarItem}">
                             <StackPanel Margin="3,0"
                                         Orientation="Horizontal">
@@ -4029,8 +4030,8 @@
                                            VerticalAlignment="Center" />
                             </StackPanel>
                         </StatusBarItem>
-						
-						<StatusBarItem Margin="2,3,0,1"
+
+                        <StatusBarItem Margin="2,3,0,1"
                                        Style="{DynamicResource StatusBarItem}">
                             <StackPanel Margin="3,0"
                                         Orientation="Horizontal">
@@ -4047,7 +4048,7 @@
                                            VerticalAlignment="Center" />
                             </StackPanel>
                         </StatusBarItem>
-                	</DockPanel>
+                    </DockPanel>
                 </Border>
             </Grid>
 
