@@ -2827,7 +2827,7 @@
                                             <StackPanel x:Name="stkpPrintProperty"
                                                         Orientation="Horizontal">
                                                 <TextBlock x:Name="txtblPrintProperties"
-                                                           Text="Print Properties:"
+                                                           Text="Thuộc tính của:"
                                                            TextWrapping="NoWrap"
                                                            Style="{DynamicResource GroupboxTextBlock}"
                                                            d:LayoutOverrides="Width" />
@@ -2854,12 +2854,12 @@
                                                 <RowDefinition Height="25" />
                                             </Grid.RowDefinitions>
                                             <TextBlock x:Name="txtblPrinterName1"
-                                                       Text="Printer Name:"
+                                                       Text="Tên người in:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
                                                        VerticalAlignment="Center"
-                                                       Margin="10,0,0,0" />
+                                                       Margin="5,0,0,0" />
                                             <TextBlock x:Name="txtblBindingPrinterName"
                                                        Text="{Binding CurrentPrinter}"
                                                        TextWrapping="NoWrap"
@@ -2870,12 +2870,12 @@
                                                        Margin="0"
                                                        Grid.Column="2" />
                                             <TextBlock x:Name="txtblPaperSize1"
-                                                       Text="Paper Size:"
+                                                       Text="Kích thước trang:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
                                                        VerticalAlignment="Center"
-                                                       Margin="10,0,0,0"
+                                                       Margin="5,0,0,0"
                                                        Grid.Row="1" />
                                             <TextBlock x:Name="txtblBindingPaperSize"
                                                        Text="{Binding ReportModel.PaperName}"
@@ -2888,7 +2888,7 @@
                                                        Grid.Row="1"
                                                        Grid.Column="1" />
                                             <TextBlock x:Name="txtblNoCopy1"
-                                                       Text="No. Copy:"
+                                                       Text="Số bản sao:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
@@ -2907,12 +2907,12 @@
                                                        Grid.Row="1"
                                                        Grid.Column="1" />
                                             <TextBlock x:Name="txtblPrintTimes"
-                                                       Text="Print Times:"
+                                                       Text="Thời gian in:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
                                                        VerticalAlignment="Center"
-                                                       Margin="10,0,0,0"
+                                                       Margin="5,0,0,0"
                                                        Grid.Row="2" />
                                             <TextBlock x:Name="txtblBindingPrintTimes"
                                                        Text="{Binding ReportModel.PrintTimes}"
@@ -2925,7 +2925,7 @@
                                                        Grid.Row="2"
                                                        Grid.Column="1" />
                                             <TextBlock x:Name="txtblScreenTimes"
-                                                       Text="Screen Times:"
+                                                       Text="Thời gian hiển thị:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
@@ -2941,16 +2941,16 @@
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
                                                        VerticalAlignment="Center"
-                                                       Margin="250,0,0,0"
+                                                       Margin="266,0,0,0"
                                                        Grid.Row="2"
                                                        Grid.Column="1" />
                                             <TextBlock x:Name="txtblReportFile1"
-                                                       Text="Report File:"
+                                                       Text="Tên tập tin:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
                                                        VerticalAlignment="Center"
-                                                       Margin="10,0,0,0"
+                                                       Margin="5,0,0,0"
                                                        Grid.Row="3" />
                                             <TextBlock x:Name="txtblBindingReportFile"
                                                        Text="{Binding ReportModel.FormatFile}"
@@ -2963,12 +2963,12 @@
                                                        Grid.Row="3"
                                                        Grid.Column="1" />
                                             <TextBlock x:Name="txtblLastUpdateBy"
-                                                       Text="Last Update By:"
+                                                       Text="Cập nhập lần cuối bởi:"
                                                        TextWrapping="NoWrap"
                                                        HorizontalAlignment="Left"
                                                        Style="{DynamicResource TextBlockNormal}"
                                                        VerticalAlignment="Center"
-                                                       Margin="10,0,0,0"
+                                                       Margin="5,0,0,0"
                                                        Grid.Row="4" />
                                             <TextBlock x:Name="txtblBindingLastUpdateBy"
                                                        TextWrapping="NoWrap"
@@ -3014,7 +3014,7 @@
                                                 <TextBlock Margin="5,0,0,0"
                                                            x:Name="txtblPrintProperty"
                                                            VerticalAlignment="Center"
-                                                           Text="Print Property"
+                                                           Text="Thuộc tính in"
                                                            TextWrapping="NoWrap"
                                                            Style="{DynamicResource ButtonTextBlock}" />
                                             </StackPanel>
@@ -3057,7 +3057,7 @@
                                                            Width="20" />
                                                 <TextBlock Margin="5,0,0,0"
                                                            VerticalAlignment="Center"
-                                                           Text="Screen"
+                                                           Text="Hiển thị"
                                                            TextWrapping="NoWrap"
                                                            x:Name="txtblScreen"
                                                            Style="{DynamicResource ButtonTextBlock}" />
@@ -3079,7 +3079,7 @@
                                                            Width="20" />
                                                 <TextBlock Margin="5,0,0,0"
                                                            VerticalAlignment="Center"
-                                                           Text="Set Copies"
+                                                           Text="Chọn bản sao"
                                                            TextWrapping="NoWrap"
                                                            x:Name="txtblSetCopy"
                                                            Style="{DynamicResource ButtonTextBlock}" />
@@ -3087,7 +3087,7 @@
                                         </Button>
                                     </StackPanel>
                                 </Grid>
-                                <Grid x:Name="grdPrintProperty">
+                                <Grid x:Name="grdPrintProperty" d:IsHidden="True">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="87" />
                                         <RowDefinition Height="50" />
@@ -3212,7 +3212,7 @@
                                     </StackPanel>
                                 </Grid>
                                 <Grid x:Name="grdSetCopies"
-                                      Visibility="{Binding IsShowSetCopy}">
+                                      Visibility="{Binding IsShowSetCopy}" d:IsHidden="True">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="200" />
                                         <RowDefinition Height="50" />
@@ -3342,7 +3342,7 @@
                                 <TabControl Visibility="{Binding IsShowSampleReport}"
                                             x:Name="TabSampleHistoryReport"
                                             Margin="10,0,10,10"
-                                            Grid.Row="1">
+                                            Grid.Row="1" d:IsHidden="True">
                                     <TabItem x:Name="tabitemSampleReport"
                                              Header="Sample Report">
                                         <Grid x:Name="grdSampleReport">
@@ -3413,7 +3413,7 @@
                                 </TabControl>
                             </Grid>
                             <Grid x:Name="mainGrid"
-                                  Visibility="{Binding IsShowMainGrid}">
+                                  Visibility="{Binding IsShowMainGrid}" d:IsHidden="True">
                                 <GroupBox Visibility="{Binding IsShowHiddenReport}"
                                           x:Name="gbAuthorize"
                                           Grid.Column="4"
@@ -3537,7 +3537,7 @@
                             <!--Edit report-->
                             <Grid x:Name="grdRightClick"
                                   Visibility="{Binding IsShowEditReport}"
-                                  Background="#19FFFFFF">
+                                  Background="#19FFFFFF" d:IsHidden="True">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50" />
                                     <RowDefinition />
@@ -3964,7 +3964,7 @@
                         Height="26"
                         Background="{DynamicResource Bottom_TitleBar_Background}"
                         BorderBrush="{DynamicResource Bottom_TitleBar_Border}"
-                        BorderThickness="0,1,0,0">
+                        BorderThickness="0,1,0,0" d:IsHidden="True">
                     <DockPanel>
                         <StatusBarItem Margin="3,3,0,1"
                                        Style="{DynamicResource StatusBarItem}">
