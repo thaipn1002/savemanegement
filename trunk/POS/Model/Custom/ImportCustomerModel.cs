@@ -22,6 +22,8 @@ namespace CPC.POS.Model
     [Serializable]
     public partial class ImportCustomerModel : ModelBase
     {
+
+        private bool _isCheckAllFlag = false;
         #region Constructor
 
         // Default constructor
