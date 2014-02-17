@@ -35,6 +35,8 @@ namespace CPC.POS.ViewModel
         //To define VendorType to use it in class.
         private string _vendorType = MarkType.Vendor.ToDescription();
         private string ExportPath = Define.CONFIGURATION.BackupPath + @"\Backup\";
+        private bool _isCheckAllFlag = false;
+        private bool _isCheckItemFlag = false;
         #endregion
 
         #region Constructors
@@ -120,6 +122,32 @@ namespace CPC.POS.ViewModel
                 {
                     _filePath = value;
                     OnPropertyChanged(() => FilePath);
+                }
+            }
+        }
+        #endregion
+
+        #region IsCheckedAll
+        private bool? _isCheckedAll = false;
+        /// <summary>
+        /// Gets or sets the IsCheckedAll.
+        /// </summary>
+        public bool? IsCheckedAll
+        {
+            get { return _isCheckedAll; }
+            set
+            {
+                if (_isCheckedAll != value)
+                {
+                    this._isCheckAllFlag = true;
+                    _isCheckedAll = value;
+                    if (!this._isCheckItemFlag && value.HasValue)
+                    {
+                        foreach (ImportCustomerModel item in this.CustomerCollection)
+                            item.IsChecked = value.Value;
+                    }
+                    OnPropertyChanged(() => IsCheckedAll);
+                    this._isCheckAllFlag = false;
                 }
             }
         }
@@ -337,7 +365,6 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
-
         #region GetTables
         private void GetTables()
         {
@@ -468,7 +495,30 @@ namespace CPC.POS.ViewModel
                 else
                     model.City=tp;
                 if (model.CustomerID==0 && !string.IsNullOrEmpty(model.CustomerName))
+                {
+                    model.PropertyChanged+=model_PropertyChanged;
                     CustomerCollection.Add(model);
+                }
+            }
+        }
+
+        void model_PropertyChanged(object sender , PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case "IsChecked":
+                    if (!this._isCheckAllFlag)
+                    {
+                        this._isCheckItemFlag = true;
+                        if (this.CustomerCollection.Count(x => x.IsChecked) == this.CustomerCollection.Count)
+                            this.IsCheckedAll = true;
+                        else
+                            this.IsCheckedAll = false;
+                        this._isCheckItemFlag = false;
+                        //To change IsCheckedAll property.
+                        this.OnPropertyChanged(() => IsCheckedAll);
+                    }
+                    break;
             }
         }
 
