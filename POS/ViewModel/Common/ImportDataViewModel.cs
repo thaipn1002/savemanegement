@@ -260,11 +260,8 @@ namespace CPC.POS.ViewModel
             // TODO: Handle command logic here
             try
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.FileOk += delegate
-                {
-                };
-                openFileDialog.ShowDialog();
+                foreach (var item in this.CustomerCollection)
+                    this.InsertCustomer(item);
             }
             catch (Exception ex)
             {
@@ -356,9 +353,7 @@ namespace CPC.POS.ViewModel
             switch (tableName)
             {
                 case "Customer":
-                    SyncModel customer = this.ObjectData(filename) as SyncModel;
-                    foreach (var item in customer.Content as ObservableCollection<object>)
-                        this.InsertCustomer(item as base_GuestModel);
+                   
                     break;
                 case "Employee":
                     break;
@@ -398,58 +393,42 @@ namespace CPC.POS.ViewModel
             stream.Close();
         }
 
-        private void InsertCustomer(base_GuestModel GuestModel)
+        private void InsertCustomer(ImportCustomerModel ImportCustomerModel)
         {
-            //To set Customer
-            GuestModel.CreateBase_Guest();
-            GuestModel.Resource = new Guid();
-            if (GuestModel.PhotoCollection != null && GuestModel.PhotoCollection.Count > 0)
-            {
-                GuestModel.PhotoCollection.FirstOrDefault().IsNew = false;
-                GuestModel.PhotoCollection.FirstOrDefault().IsDirty = false;
-                GuestModel.Picture = GuestModel.PhotoCollection.FirstOrDefault().ImageBinary;
-            }
-            else
-                GuestModel.Picture = null;
-            //To set Additional 
-            if (GuestModel.AdditionalModel != null)
-            {
-                GuestModel.AdditionalModel.CreateAdditional();
-                GuestModel.AdditionalModel.ToEntity();
-                GuestModel.base_Guest.base_GuestAdditional.Add(GuestModel.AdditionalModel.base_GuestAdditional);
-            }
-            //To map Personal Info
-            if (GuestModel.PersonalInfoModel != null)
-            {
-                GuestModel.PersonalInfoModel.CreateBase_GuestProfile();
-                GuestModel.PersonalInfoModel.ToEntity();
-                GuestModel.base_Guest.base_GuestProfile.Add(GuestModel.PersonalInfoModel.base_GuestProfile);
-            }
-            base_GuestAddressModel addressModel;
+            //To set customer.
+            base_Guest base_Guest=new Database.base_Guest();
+            base_Guest.Resource = new Guid();
+            base_Guest.Picture = null;
+            //To get profile.
+            base_GuestProfile base_GuestProfile=new Database.base_GuestProfile();
+            //GuestModel.base_Guest.base_GuestProfile.Add(GuestModel.PersonalInfoModel.base_GuestProfile);
             bool firstAddress = true;
-            //To Convert from AddressControlCollection To AddressModel 
-            foreach (AddressControlModel addressControlModel in GuestModel.AddressControlCollection)
-            {
-                addressModel = new base_GuestAddressModel();
-                addressModel.DateCreated = DateTime.Now;
-                addressModel.DateUpdated = DateTime.Now;
-                addressModel.UserCreated = Define.USER != null ? Define.USER.UserName : string.Empty;
-                addressModel.ToModel(addressControlModel);
-                addressModel.IsDefault = firstAddress;
-                addressModel.EndUpdate();
-                //To convert data from model to entity
-                addressModel.ToEntity();
-                GuestModel.base_Guest.base_GuestAddress.Add(addressModel.base_GuestAddress);
-                firstAddress = false;
-                addressModel.EndUpdate();
-                addressControlModel.IsDirty = false;
-                addressControlModel.IsNew = false;
-            }
-            GuestModel.ToEntity();
-            _guestRepository.Add(GuestModel.base_Guest);
+            //To Convert from AddressControlCollection To AddressModel. 
+            base_GuestAddress base_GuestAddress = new base_GuestAddress();
+            base_GuestAddress.DateCreated = DateTime.Now;
+            base_GuestAddress.DateUpdated = DateTime.Now;
+            base_GuestAddress.UserCreated = Define.USER != null ? Define.USER.UserName : string.Empty;
+            base_GuestAddress.IsDefault = firstAddress;
+            //To convert data from model to entity
+            base_GuestAddress.AddressTypeId = 0;
+            base_GuestAddress.AddressLine1 = ImportCustomerModel.Street.Trim();
+            if (ImportCustomerModel.City != null)
+                base_GuestAddress.City = ImportCustomerModel.City.Trim();
+            base_GuestAddress.StateProvinceId = this.GetStateID(ImportCustomerModel.City);
+            base_GuestAddress.CountryId = 1;
+            base_GuestAddress.DateCreated = DateTime.Now;
+            base_GuestAddress.UserCreated = Define.USER.UserName;
+            base_GuestAddress.IsDefault = true;
+            base_Guest.base_GuestAddress.Add(base_GuestAddress);
+             _guestRepository.Add(base_Guest);
             _guestRepository.Commit();
         }
         #endregion
+
+        private int GetStateID(string name)
+        {
+            return CPC.Helper.Common.States.SingleOrDefault(x=>x.Text.Contains(name)).IntValue;
+        }
 
         private void LoadingData()
         {
