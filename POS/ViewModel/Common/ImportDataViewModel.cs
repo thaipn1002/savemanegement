@@ -29,7 +29,7 @@ namespace CPC.POS.ViewModel
         public RelayCommand NewCommand { get; private set; }
         public RelayCommand<object> SaveCommand { get; private set; }
         public RelayCommand SearchCommand { get; private set; }
-        public RelayCommand<object> DoubleClickViewCommand { get; private set; }
+        public RelayCommand<object> OpenFileCommand { get; private set; }
         public RelayCommand<object> ExportCommand { get; private set; }
         public RelayCommand<object> ImportCommand { get; private set; }
         //To define VendorType to use it in class.
@@ -69,27 +69,26 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
-        #region StoreCollection
+        #region CustomerCollection
 
-        private ObservableCollection<base_GuestModel> _storeCollection;
+        private ObservableCollection<ImportCustomerModel> _customerCollection;
         /// <summary>
-        /// Gets or sets the StoreCollection.
+        /// Gets or sets the CustomerCollection.
         /// </summary>
-        public ObservableCollection<base_GuestModel> StoreCollection
+        public ObservableCollection<ImportCustomerModel> CustomerCollection
         {
-            get { return _storeCollection; }
+            get { return _customerCollection; }
             set
             {
-                if (_storeCollection != value)
+                if (_customerCollection != value)
                 {
-                    _storeCollection = value;
-                    OnPropertyChanged(() => StoreCollection);
+                    _customerCollection = value;
+                    OnPropertyChanged(() => CustomerCollection);
                 }
             }
         }
         #endregion
 
-        
         #region TableCollection
 
         private ObservableCollection<BackupModel> _tableCollection;
@@ -105,6 +104,22 @@ namespace CPC.POS.ViewModel
                 {
                     _tableCollection = value;
                     OnPropertyChanged(() => TableCollection);
+                }
+            }
+        }
+        #endregion
+
+        #region FilePath
+        private string _filePath = string.Empty;
+        public string FilePath
+        {
+            get { return _filePath; }
+            set
+            {
+                if (value != _filePath)
+                {
+                    _filePath = value;
+                    OnPropertyChanged(() => FilePath);
                 }
             }
         }
@@ -149,7 +164,7 @@ namespace CPC.POS.ViewModel
         {
             try
             {
-                
+
             }
             catch (Exception ex)
             {
@@ -176,22 +191,35 @@ namespace CPC.POS.ViewModel
 
         #endregion
 
-        #region DoubleClickCommand
+        #region OpenFileCommand
         /// <summary>
         /// Method to check whether the DoubleClick command can be executed.
         /// </summary>
         /// <returns><c>true</c> if the command can be executed; otherwise <c>false</c></returns>
-        private bool OnDoubleClickViewCommandCanExecute(object param)
+        private bool OnOpenFileCommandCanExecute(object param)
         {
-            return param != null ? true : false;
+            return true;
         }
 
         /// <summary>
         /// Method to invoke when the DoubleClick command is executed.
         /// </summary>
-        private void OnDoubleClickViewCommandExecute(object param)
+        private void OnOpenFileCommandExecute(object param)
         {
-           
+            try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.FileOk += delegate
+                {
+                    this.FilePath=openFileDialog.FileName;
+                    this.LoadData();
+                };
+                openFileDialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.ToString());
+            }
         }
         #endregion
 
@@ -283,9 +311,9 @@ namespace CPC.POS.ViewModel
         private void InitialCommand()
         {
             // Route the commands
-            this.ExportCommand = new RelayCommand<object>(OnExportCommandExecute, OnExportCommandCanExecute);
-            this.ImportCommand = new RelayCommand<object>(OnImportCommandExecute, OnImportCommandCanExecute);
-            this.CancelCommand = new RelayCommand(OnCancelCommandExecute, OnCancelCommandCanExecute);
+            this.OpenFileCommand = new RelayCommand<object>(OnOpenFileCommandExecute , OnOpenFileCommandCanExecute);
+            this.ImportCommand = new RelayCommand<object>(OnImportCommandExecute , OnImportCommandCanExecute);
+            this.CancelCommand = new RelayCommand(OnCancelCommandExecute , OnCancelCommandCanExecute);
             //To create a directory to contain export file.
             if (!Directory.Exists(this.ExportPath))
                 Directory.CreateDirectory(this.ExportPath);
@@ -312,19 +340,18 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
-       
 
         #region GetTables
         private void GetTables()
         {
             this.TableCollection = new ObservableCollection<BackupModel>();
-            this.TableCollection.Add(new BackupModel { Id = 1, Name = "Customer", Text = "base_Guest", Detail = MarkType.Customer.ToString() });
-            this.TableCollection.Add(new BackupModel { Id = 1, Name = "Employee", Text = "base_Guest", Detail = MarkType.Employee.ToString() });
+            this.TableCollection.Add(new BackupModel { Id = 1 , Name = "Customer" , Text = "base_Guest" , Detail = MarkType.Customer.ToString() });
+            this.TableCollection.Add(new BackupModel { Id = 1 , Name = "Employee" , Text = "base_Guest" , Detail = MarkType.Employee.ToString() });
         }
         #endregion
 
         #region Data
-        private void ImportData(string tableName, string filename)
+        private void ImportData(string tableName , string filename)
         {
             switch (tableName)
             {
@@ -348,7 +375,7 @@ namespace CPC.POS.ViewModel
             try
             {
                 IFormatter formatter = new BinaryFormatter();
-                Stream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream = new FileStream(filename , FileMode.Open , FileAccess.Read , FileShare.Read);
                 Object obj = (Object)formatter.Deserialize(stream);
                 stream.Close();
                 return obj;
@@ -362,12 +389,12 @@ namespace CPC.POS.ViewModel
         /// To convert data to object data.
         /// </summary>
         /// <param name="content"></param>
-        private void ExportData(object content, string tableName)
+        private void ExportData(object content , string tableName)
         {
             string fileName = this.ExportPath;
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, content);
+            Stream stream = new FileStream(fileName , FileMode.Create , FileAccess.Write , FileShare.None);
+            formatter.Serialize(stream , content);
             stream.Close();
         }
 
@@ -424,6 +451,45 @@ namespace CPC.POS.ViewModel
         }
         #endregion
 
+        private void LoadingData()
+        {
+            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(this.FilePath);
+            Microsoft.Office.Interop.Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+            Microsoft.Office.Interop.Excel.Range xlRange = xlWorksheet.UsedRange;
+            int rowCount = xlRange.Rows.Count;
+            int colCount = xlRange.Columns.Count;
+            CustomerCollection =new ObservableCollection<ImportCustomerModel>();
+            ImportCustomerModel model;
+            string tp=string.Empty;
+            for (int i = 2 ; i <= rowCount ; i++)
+            {
+                model=new ImportCustomerModel();
+                for (int j = 1 ; j <= colCount ; j++)
+                {
+                    if (xlRange.Cells[i , j].Value2!=null)
+                    {
+                        if (j==1)
+                            model.CustomerID=i;
+                        else if (j==3)
+                            model.CustomerName=xlRange.Cells[i , j].Value2.ToString();
+                        else if (j==4)
+                            model.Address=xlRange.Cells[i , j].Value2.ToString();
+                        else if (j==5)
+                            model.Phone=xlRange.Cells[i , j].Value2.ToString();
+                        else if (j==6)
+                            model.CellPhone=xlRange.Cells[i , j].Value2.ToString();
+                    }
+                }
+                if (model.CustomerID>0)
+                    tp=model.CustomerName=xlRange.Cells[i , 1].Value2.ToString();
+                else
+                    model.City=tp;
+                if (model.CustomerID==0 && !string.IsNullOrEmpty(model.CustomerName))
+                    CustomerCollection.Add(model);
+            }
+        }
+
         #endregion
 
         #region Public Methods
@@ -445,7 +511,7 @@ namespace CPC.POS.ViewModel
         /// </summary>
         /// <param name="isList"></param>
         /// <param name="param"></param>
-        public override void ChangeSearchMode(bool isList, object param = null)
+        public override void ChangeSearchMode(bool isList , object param = null)
         {
             if (this.ChangeViewExecute(null))
             {
@@ -461,40 +527,10 @@ namespace CPC.POS.ViewModel
         /// </summary>
         public override void LoadData()
         {
-           
+
         }
         #endregion
 
         #endregion
-    }
-
-    public static class SyncDataHelper
-    {
-        private static string ExportPath = Define.CONFIGURATION.BackupPath + @"\Export\";
-        public static object ObjectData(string filename)
-        {
-            try
-            {
-                IFormatter formatter = new BinaryFormatter();
-                Stream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
-                Object obj = (Object)formatter.Deserialize(stream);
-                stream.Close();
-                return obj;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-        public static void ExportData(object content, string tableName)
-        {
-            if (!Directory.Exists(ExportPath + tableName))
-                Directory.CreateDirectory(ExportPath + tableName);
-            string fileName = ExportPath + tableName + "\\" + string.Format("{0}_{1}.exp", tableName, DateTime.Now.ToString("yyMMddHHmmss")); ;
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, content);
-            stream.Close();
-        }
     }
 }
