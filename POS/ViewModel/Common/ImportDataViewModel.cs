@@ -265,7 +265,7 @@ namespace CPC.POS.ViewModel
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.ToString());
+                System.Windows.MessageBox.Show("On Import Command Execute" , ex.ToString());
             }
         }
         #endregion
@@ -353,7 +353,7 @@ namespace CPC.POS.ViewModel
             switch (tableName)
             {
                 case "Customer":
-                   
+
                     break;
                 case "Employee":
                     break;
@@ -400,7 +400,10 @@ namespace CPC.POS.ViewModel
             base_Guest.Resource = new Guid();
             base_Guest.Picture = null;
             //To get profile.
-            base_GuestProfile base_GuestProfile=new Database.base_GuestProfile();
+            base_Guest.FirstName=ImportCustomerModel.CustomerName.Split(' ').First();
+            base_Guest.FirstName=ImportCustomerModel.CustomerName.Replace(ImportCustomerModel.CustomerName.Split(' ').First() , "").Trim();
+            base_Guest.Phone1=ImportCustomerModel.Phone;
+            base_Guest.CellPhone=ImportCustomerModel.CellPhone;
             //GuestModel.base_Guest.base_GuestProfile.Add(GuestModel.PersonalInfoModel.base_GuestProfile);
             bool firstAddress = true;
             //To Convert from AddressControlCollection To AddressModel. 
@@ -420,14 +423,14 @@ namespace CPC.POS.ViewModel
             base_GuestAddress.UserCreated = Define.USER.UserName;
             base_GuestAddress.IsDefault = true;
             base_Guest.base_GuestAddress.Add(base_GuestAddress);
-             _guestRepository.Add(base_Guest);
+            _guestRepository.Add(base_Guest);
             _guestRepository.Commit();
         }
         #endregion
 
         private int GetStateID(string name)
         {
-            return CPC.Helper.Common.States.SingleOrDefault(x=>x.Text.Contains(name)).IntValue;
+            return CPC.Helper.Common.States.SingleOrDefault(x => x.Text.Contains(name)).IntValue;
         }
 
         private void LoadingData()
