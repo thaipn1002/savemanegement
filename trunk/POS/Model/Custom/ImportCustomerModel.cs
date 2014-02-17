@@ -89,12 +89,12 @@ namespace CPC.POS.Model
             }
         }
 
-        protected int _street;
+        protected string _street;
         /// <summary>
         /// Property Model
         /// <para>Gets or sets the Street</para>
         /// </summary>
-        public int Street
+        public string Street
         {
             get { return this._street; }
             set
